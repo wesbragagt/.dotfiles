@@ -52,9 +52,8 @@ let g:coc_global_extensions = [
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 call plug#end()
-
-set termguicolors
-colorscheme onedark
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
 set background=dark
 highlight Normal guibg=none
 

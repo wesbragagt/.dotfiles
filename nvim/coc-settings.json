@@ -1,6 +1,7 @@
 {
   "coc.preferences.hoverTarget": "float",
   "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"],
-  "coc.preferences.diagnostic.virtualText": true
+  "coc.preferences.diagnostic.virtualText": true,
+  "sh.enable": true
 }
 
