@@ -5,6 +5,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall
 endif
 set hidden
+set mouse=a
 set noswapfile
 set nobackup
 set undodir=~/.vim/undodir
