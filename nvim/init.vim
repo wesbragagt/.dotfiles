@@ -13,6 +13,7 @@ set undofile
 set incsearch
 set termguicolors
 set showcmd
+set norelativenumber
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
@@ -39,7 +40,6 @@ Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
 Plug 'yuezk/vim-js'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
-
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
