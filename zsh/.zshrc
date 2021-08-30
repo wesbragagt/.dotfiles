@@ -13,6 +13,7 @@ ZSH_THEME="amuse"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+alias dotsync="cd ~/.dotfiles && git add -A && git commit -m 'sync' && git push"
 alias vi="nvim"
 alias config="vi ~/.dotfiles/zsh/.zshrc"
 alias reset="source ~/.zshrc"
