@@ -4,18 +4,26 @@ if empty(glob('~/.vim/autoload/plug.vim'))
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall
 endif
+set hidden
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set incsearch
+set termguicolors
 set showcmd
-set redrawtime=10000
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set smartindent
+set smartcase
 set expandtab
 set scrolloff=8
 set number
-set relativenumber
 set autochdir
+set colorcolumn=80
 call plug#begin()
+Plug 'akinsho/toggleterm.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'leafgarland/typescript-vim'
@@ -23,6 +31,8 @@ Plug 'preservim/nerdtree'
 Plug 'moll/vim-node'
 Plug 'ryanoasis/vim-devicons'
 Plug 'phanviet/vim-monokai-pro'
+Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
 Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
 " these two plugins will add highlighting and indenting to JSX and TSX files.
 Plug 'yuezk/vim-js'
@@ -42,8 +52,12 @@ let g:coc_global_extensions = [
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 call plug#end()
+
 set termguicolors
-colorscheme monokai_pro
+colorscheme onedark
+set background=dark
+highlight Normal guibg=none
+
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
   let g:coc_global_extensions += ['coc-prettier']
 endif
@@ -77,26 +91,16 @@ nmap <silent> gr <Plug>(coc-references)
 " Git stuff
 nmap <leader>gs :G<CR>
 nnoremap <leader>gc :GCheckout<CR>
+" Mappings for ToggleTerm
 
-" open new split panes to right and below
-set splitright
-set splitbelow
-" turn terminal to normal mode with escape
-tnoremap <Esc> <C-\><C-n>
-" start terminal in insert mode
-au BufEnter * if &buftype == 'terminal' | :startinsert | endif
-" open terminal on ctrl+n
-function! OpenTerminal()
-  split term://zsh
-  resize 10
-endfunction
-nnoremap <c-n> :call OpenTerminal()<CR>
-" use leader+hjkl to move between split/vsplit panels
-tnoremap <C-h> <C-\><C-n><C-w>h<CR>
-tnoremap <C-j> <C-\><C-n><C-w>j<CR>
-tnoremap <C-k> <C-\><C-n><C-w>k<CR>
-tnoremap <C-l> <C-\><C-n><C-w>l<CR>
-nnoremap <C-h> <C-w>h<CR>
-nnoremap <C-j> <C-w>j<CR>
-nnoremap <C-k> <C-w>k<CR>
-nnoremap <C-l> <C-w>l<CR>
+" set
+let g:toggleterm_terminal_mapping = '<C-t>'
+" or manually...
+autocmd TermEnter term://*toggleterm#*
+      \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+
+" By applying the mappings this way you can pass a count to your
+" mapping to open a specific window.
+" For example: 2<C-t> will open terminal 2
+nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
