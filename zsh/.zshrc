@@ -8,7 +8,7 @@ export NVM_DIR="$HOME/.nvm"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/weslleybraga/.oh-my-zsh"
-ZSH_THEME="amuse"
+ZSH_THEME="refined"
 
 plugins=(git)
 
