@@ -25,6 +25,7 @@ set number
 set autochdir
 set colorcolumn=80
 call plug#begin()
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'akinsho/toggleterm.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
@@ -58,6 +59,12 @@ colorscheme gruvbox
 set background=dark
 highlight Normal guibg=none
 
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" import module on cursor
+nnoremap <leader>. :CocFix<CR>
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
   let g:coc_global_extensions += ['coc-prettier']
 endif
