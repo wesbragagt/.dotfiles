@@ -16,6 +16,7 @@ source $ZSH/oh-my-zsh.sh
 alias dotsync="cd ~/.dotfiles && git add -A && git commit -m 'sync' && git push"
 alias vi="nvim"
 alias config="vi ~/.dotfiles/zsh/.zshrc"
+alias config-nvim="vi ~/.dotfiles/nvim/init.vim" 
 alias reset="source ~/.zshrc"
 alias gta="git add -A && git commit"
 alias github="cd ~/Github"

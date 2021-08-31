@@ -57,8 +57,8 @@ call plug#end()
 let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
 set background=dark
-highlight Normal guibg=none
-
+" Visual selection highlight color #B4D7FE
+hi Visual  guifg=#000000 guibg=#B4D7FE gui=none
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
