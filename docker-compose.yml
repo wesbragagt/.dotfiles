@@ -1,0 +1,5 @@
+version: '3.4'
+services:
+  test-ubuntu:
+    build: .
+    command: /bin/zsh
