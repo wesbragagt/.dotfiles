@@ -4,6 +4,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall
 endif
+" sets vsp to split right by default
+set splitright
 set hidden
 set mouse=a
 set noswapfile
@@ -111,3 +113,6 @@ autocmd TermEnter term://*toggleterm#*
 " For example: 2<C-t> will open terminal 2
 nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
+" open this configuration file in split from anywhere
+command! ConfigVim vsp ~/.dotfiles/nvim/init.vim
+nnoremap <leader>co :ConfigVim<CR>
