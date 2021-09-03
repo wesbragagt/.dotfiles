@@ -15,7 +15,6 @@ set undofile
 set incsearch
 set termguicolors
 set showcmd
-set norelativenumber
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
