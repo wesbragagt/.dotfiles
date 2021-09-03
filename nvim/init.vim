@@ -81,7 +81,6 @@ nnoremap <leader>rn :!node %<CR>
 " Project view open
 let g:NERDTreeWinPos = "right"
 let NERDTreeShowHidden=1
-nnoremap <leader>t :vnew term://zsh<CR>
 nnoremap <C-p> :GFiles<CR>
 nnoremap <leader>pt :NERDTreeToggle<CR>
 nnoremap <silent> K :call CocAction('doHover')<CR>
@@ -115,3 +114,5 @@ inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
 " open this configuration file in split from anywhere
 command! ConfigVim vsp ~/.dotfiles/nvim/init.vim
 nnoremap <leader>co :ConfigVim<CR>
+" toggle between uppercase and lowercase and move cursor to the end 
+nnoremap <leader>to g~iwe<CR>
