@@ -29,6 +29,7 @@ call plug#begin()
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'akinsho/toggleterm.nvim'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
 Plug 'leafgarland/typescript-vim'
 Plug 'preservim/nerdtree'
@@ -50,14 +51,26 @@ let $FZF_DEFAULT_OPTS='--reverse'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
-  \ 'coc-tsserver'
+  \ 'coc-tsserver',
+  \ 'coc-yaml',
+  \ 'coc-docker',
+  \ 'coc-sh'
   \ ]
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 call plug#end()
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup{
+highlight = {
+  enable = true
+  }
+}
+EOF
+
 let g:gruvbox_contrast_dark = 'hard'
-colorscheme gruvbox
 set background=dark
+colorscheme gruvbox
 " Visual selection highlight color #B4D7FE
 hi Visual  guifg=#000000 guibg=#B4D7FE gui=none
 " Formatting selected code.
