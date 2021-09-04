@@ -68,9 +68,9 @@ highlight = {
 }
 EOF
 
-let g:gruvbox_contrast_dark = 'hard'
 set background=dark
 colorscheme gruvbox
+let g:gruvbox_bold = 0
 " Visual selection highlight color #B4D7FE
 hi Visual  guifg=#000000 guibg=#B4D7FE gui=none
 " Formatting selected code.
