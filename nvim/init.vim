@@ -80,7 +80,7 @@ highlight = {
   }
 }
 require'toggleterm'.setup{
-open_mapping=[[<c-j>]],
+open_mapping=[[<c-\>]],
 insert_mappings = false
 }
 EOF
@@ -95,7 +95,7 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 " import module on cursor
-nnoremap <leader>. :CocFix<CR>
+nnoremap <leader>ip :CocFix<CR>
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
   let g:coc_global_extensions += ['coc-prettier']
 endif
@@ -128,19 +128,6 @@ nmap <silent> gr <Plug>(coc-references)
 " Git stuff
 nmap <leader>gs :G<CR>
 nnoremap <leader>gc :GCheckout<CR>
-" Mappings for ToggleTerm
-
-" set
-let g:toggleterm_terminal_mapping = '<C-t>'
-" or manually...
-autocmd TermEnter term://*toggleterm#*
-      \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
-
-" By applying the mappings this way you can pass a count to your
-" mapping to open a specific window.
-" For example: 2<C-t> will open terminal 2
-nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
-inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
 " open this configuration file in split from anywhere
 command! ConfigVim vsp ~/.dotfiles/nvim/init.vim
 nnoremap <leader>co :ConfigVim<CR>
