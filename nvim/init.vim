@@ -4,6 +4,19 @@ if empty(glob('~/.vim/autoload/plug.vim'))
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall
 endif
+
+set path+=**
+
+" Nice menu when typing `:find *.py`
+set wildmode=longest,list,full
+set wildmenu
+" Ignore files
+set wildignore+=*build/*
+set wildignore+=*dist/*
+set wildignore+=**/coverage/*
+set wildignore+=**/node_modules/*
+set wildignore+=**/.git/*
+
 " sets vsp to split right by default
 set splitright
 set hidden
@@ -65,6 +78,10 @@ require'nvim-treesitter.configs'.setup{
 highlight = {
   enable = true
   }
+}
+require'toggleterm'.setup{
+open_mapping=[[<c-j>]],
+insert_mappings = false
 }
 EOF
 
