@@ -1,10 +1,3 @@
-" this will install vim-plug if not installed
-if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall
-endif
-
 set path+=**
 
 " Nice menu when typing `:find *.py`
@@ -16,7 +9,16 @@ set wildignore+=*dist/*
 set wildignore+=**/coverage/*
 set wildignore+=**/node_modules/*
 set wildignore+=**/.git/*
+" this will install vim-plug if not installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall
+endif
 
+set norelativenumber
+set wrap
+set updatetime=300
 " sets vsp to split right by default
 set splitright
 set hidden
@@ -48,14 +50,14 @@ Plug 'leafgarland/typescript-vim'
 Plug 'preservim/nerdtree'
 Plug 'moll/vim-node'
 Plug 'ryanoasis/vim-devicons'
-Plug 'phanviet/vim-monokai-pro'
 Plug 'morhetz/gruvbox'
-Plug 'joshdick/onedark.vim'
 Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
 " these two plugins will add highlighting and indenting to JSX and TSX files.
 Plug 'yuezk/vim-js'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
@@ -74,15 +76,12 @@ Plug 'jparise/vim-graphql'
 call plug#end()
 
 lua <<EOF
-require'nvim-treesitter.configs'.setup{
-highlight = {
-  enable = true
-  }
-}
+require'nvim-treesitter.configs'.setup { highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
 require'toggleterm'.setup{
 open_mapping=[[<c-\>]],
 insert_mappings = false
 }
+require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules", ".git"} } }
 EOF
 
 set background=dark
@@ -93,6 +92,8 @@ hi Visual  guifg=#000000 guibg=#B4D7FE gui=none
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
 
 " import module on cursor
 nnoremap <leader>ip :CocFix<CR>
@@ -111,9 +112,15 @@ nnoremap <leader>rn :!node %<CR>
 " Project view open
 let g:NERDTreeWinPos = "right"
 let NERDTreeShowHidden=1
-nnoremap <C-p> :GFiles<CR>
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <C-f> :Rg 
 nnoremap <leader>pt :NERDTreeToggle<CR>
 nnoremap <silent> K :call CocAction('doHover')<CR>
+" use regular escape in terminal mode
 tnoremap <Esc> <C-\><C-n><CR>
 " navigate between split panels
 map <leader>h :wincmd h<CR>
@@ -133,3 +140,7 @@ command! ConfigVim vsp ~/.dotfiles/nvim/init.vim
 nnoremap <leader>co :ConfigVim<CR>
 " toggle between uppercase and lowercase and move cursor to the end 
 nnoremap <leader>to g~iwe<CR>
+" run ts-node on the current file
+nnoremap <leader>ts :!ts-node %<CR>
+" CoC diagnostic
+nnoremap <leader>di :CocDiagnostics<CR>

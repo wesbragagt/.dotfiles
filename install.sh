@@ -20,10 +20,15 @@ brew install --cask rectangle &&
 brew install --cask visual-studio-code &&
 brew install --cask postman &&
 brew install --cask spotify &&
+brew install --cask karabiner-elements &&
 brew install neovim &&
 brew install jq &&
 # NPM 
 npm install -g yarn &&
 yarn install -g typescript-language-server &&
 yarn install -g typescript &&
-yarn install -g ts-node
+yarn install -g ts-node &&
+
+#Go
+brew install golang &&
+mkdir -p $HOME/go/{src, bin, pkg}
