@@ -14,6 +14,7 @@ fi
 
 brew update &&
 brew install node@14 &&
+brew install --cask iterm2 &&
 brew install --cask docker
 brew install --cask runjs  &&
 brew install --cask rectangle &&
