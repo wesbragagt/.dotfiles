@@ -69,7 +69,8 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-yaml',
   \ 'coc-docker',
-  \ 'coc-sh'
+  \ 'coc-sh',
+  \ 'coc-go'
   \ ]
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
@@ -142,5 +143,7 @@ nnoremap <leader>co :ConfigVim<CR>
 nnoremap <leader>to g~iwe<CR>
 " run ts-node on the current file
 nnoremap <leader>ts :!ts-node %<CR>
+" run go on the current file
+nnoremap <leader>go :!go run %<CR>
 " CoC diagnostic
 nnoremap <leader>di :CocDiagnostics<CR>

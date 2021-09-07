@@ -22,6 +22,7 @@ brew install --cask postman &&
 brew install --cask spotify &&
 brew install --cask karabiner-elements &&
 brew install neovim &&
+brew install ripgrep &&
 brew install jq &&
 # NPM 
 npm install -g yarn &&
