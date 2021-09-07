@@ -30,7 +30,6 @@ npm install -g yarn &&
 yarn install -g typescript-language-server &&
 yarn install -g typescript &&
 yarn install -g ts-node &&
-
 #Go
 brew install golang &&
 mkdir -p $HOME/go/{src, bin, pkg}
