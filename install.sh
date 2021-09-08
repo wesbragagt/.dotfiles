@@ -23,6 +23,5 @@ then
     exit -1
 else
 # NPM 
-npm install -g yarn &&
-yarn add -g typescript-language-server typescript ts-node
+npm install -g yarn typescript-language-server typescript ts-node
 fi
