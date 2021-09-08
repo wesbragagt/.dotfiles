@@ -14,7 +14,7 @@ fi
 
 brew update &&
 brew install nvm neovim ripgrep jq 
-brew install --cask iterm2 runjs rectangle visual-studio-code postman spotify
+brew install --cask iterm2 runjs rectangle visual-studio-code postman
 
 
 if ! command -v npm &> /dev/null
