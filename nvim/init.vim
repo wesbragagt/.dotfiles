@@ -49,6 +49,8 @@ Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
 Plug 'yuezk/vim-js'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -140,3 +142,7 @@ nnoremap <leader>ts :!ts-node %<CR>
 nnoremap <leader>go :!go run %<CR>
 " CoC diagnostic
 nnoremap <leader>di :CocDiagnostics<CR>
+" quickfix navigation
+nnoremap <leader>cn :cnext<CR>
+nnoremap <leader>cp :cprev<CR>
+nnoremap <leader>co :copen<CR>
