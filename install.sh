@@ -12,11 +12,8 @@ else
     echo "Homebrew found"
 fi
 
-# Go setup directory
-mkdir -p $HOME/go/{src, bin, pkg}
-
 brew update &&
-brew install nvm neovim ripgrep jq golang
+brew install nvm neovim ripgrep jq 
 brew install --cask iterm2 docker runjs rectangle visual-studio-code postman spotify
 
 
@@ -27,5 +24,5 @@ then
 else
 # NPM 
 npm install -g yarn &&
-yarn install -g typescript-language-server typescript ts-node
+yarn add -g typescript-language-server typescript ts-node
 fi
