@@ -64,7 +64,8 @@ let g:coc_global_extensions = [
   \ 'coc-yaml',
   \ 'coc-docker',
   \ 'coc-sh',
-  \ 'coc-go'
+  \ 'coc-go',
+  \ 'coc-tailwindcss'
   \ ]
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
