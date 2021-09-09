@@ -43,6 +43,8 @@ Plug 'preservim/nerdtree'
 Plug 'moll/vim-node'
 Plug 'ryanoasis/vim-devicons'
 Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
+Plug 'tomasiser/vim-code-dark'
 Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
 " these two plugins will add highlighting and indenting to JSX and TSX files.
 Plug 'yuezk/vim-js'
@@ -80,10 +82,9 @@ insert_mappings = false
 require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules", ".git"} } }
 EOF
 
+let g:gruvbox_material_background = 'hard'
 set background=dark
-colorscheme gruvbox
-let g:gruvbox_bold = 0
-" Visual selection highlight color #B4D7FE
+colorscheme gruvbox-material
 hi Visual  guifg=#000000 guibg=#B4D7FE gui=none
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
