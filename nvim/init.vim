@@ -1,5 +1,4 @@
 set path+=**
-
 " Nice menu when typing `:find *.py`
 set wildmode=longest,list,full
 set wildmenu
@@ -90,9 +89,8 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
-
 " import module on cursor
-nnoremap <leader>ip :CocFix<CR>
+nnoremap <leader>. :CocFix<CR>
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
   let g:coc_global_extensions += ['coc-prettier']
 endif
@@ -143,6 +141,10 @@ nnoremap <leader>go :!go run %<CR>
 " CoC diagnostic
 nnoremap <leader>di :CocDiagnostics<CR>
 " quickfix navigation
-nnoremap <leader>cn :cnext<CR>
-nnoremap <leader>cp :cprev<CR>
-nnoremap <leader>co :copen<CR>
+nnoremap <leader>qn :cnext<CR>
+nnoremap <leader>qp :cprev<CR>
+nnoremap <leader>qo :copen<CR>
+" location list navigation
+nnoremap <leader>ln :lnext<CR>
+nnoremap <leader>lp :lprev<CR>
+nnoremap <leader>lo :lopen<CR>
