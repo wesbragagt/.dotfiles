@@ -1,5 +1,41 @@
-set path+=**
+call plug#begin()
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'neovim/nvim-lspconfig'
+Plug 'kabouzeid/nvim-lspinstall'
+" Install nvim-cmp
+Plug 'hrsh7th/nvim-cmp'
+Plug 'glepnir/lspsaga.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+" Install snippet engine (This example installs [hrsh7th/vim-vsnip](https://github.com/hrsh7th/vim-vsnip))
+Plug 'hrsh7th/vim-vsnip'
 
+" Install the buffer completion source
+Plug 'hrsh7th/cmp-buffer'
+Plug 'folke/trouble.nvim'
+Plug 'akinsho/toggleterm.nvim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'leafgarland/typescript-vim'
+Plug 'preservim/nerdtree'
+Plug 'moll/vim-node'
+Plug 'ryanoasis/vim-devicons'
+Plug 'morhetz/gruvbox'
+Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
+" these two plugins will add highlighting and indenting to JSX and TSX files.
+Plug 'yuezk/vim-js'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'jparise/vim-graphql'
+call plug#end()
+
+set path+=**
 " Nice menu when typing `:find *.py`
 set wildmode=longest,list,full
 set wildmenu
@@ -33,44 +69,13 @@ set scrolloff=8
 set number
 set autochdir
 set colorcolumn=80
-call plug#begin()
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-Plug 'akinsho/toggleterm.nvim'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
-Plug 'vim-airline/vim-airline'
-Plug 'leafgarland/typescript-vim'
-Plug 'preservim/nerdtree'
-Plug 'moll/vim-node'
-Plug 'ryanoasis/vim-devicons'
-Plug 'morhetz/gruvbox'
-Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
-" these two plugins will add highlighting and indenting to JSX and TSX files.
-Plug 'yuezk/vim-js'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'stsewd/fzf-checkout.vim'
-let g:fsf_layout = {'window': {'width': 0.8, 'height': 0.8}}
-let $FZF_DEFAULT_OPTS='--reverse'
+set background=dark
+colorscheme gruvbox
+let g:gruvbox_bold = 0
+" Visual selection highlight color #B4D7FE
+hi Visual  guifg=#000000 guibg=#B4D7FE gui=none
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = [
-  \ 'coc-tsserver',
-  \ 'coc-yaml',
-  \ 'coc-docker',
-  \ 'coc-sh',
-  \ 'coc-go'
-  \ ]
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'jparise/vim-graphql'
-call plug#end()
-
+" LUA
 lua <<EOF
 require'nvim-treesitter.configs'.setup { highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
 require'toggleterm'.setup{
@@ -78,28 +83,23 @@ open_mapping=[[<c-\>]],
 insert_mappings = false
 }
 require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules", ".git"} } }
+require'lspinstall'.setup() -- important
+
+local servers = require'lspinstall'.installed_servers()
+for _, server in pairs(servers) do
+  require'lspconfig'[server].setup{}
+end
+require("trouble").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  }
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+        virtual_text = false
+    }
+)
 EOF
-
-set background=dark
-colorscheme gruvbox
-let g:gruvbox_bold = 0
-" Visual selection highlight color #B4D7FE
-hi Visual  guifg=#000000 guibg=#B4D7FE gui=none
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-
-" import module on cursor
-nnoremap <leader>ip :CocFix<CR>
-if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
-  let g:coc_global_extensions += ['coc-prettier']
-endif
-
-if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
-  let g:coc_global_extensions += ['coc-eslint']
-endif
 
 let mapleader = ' '
 " nnore --> Normal mode, no recursive execution
@@ -115,7 +115,6 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <C-f> :Rg 
 nnoremap <leader>pt :NERDTreeToggle<CR>
-nnoremap <silent> K :call CocAction('doHover')<CR>
 " use regular escape in terminal mode
 tnoremap <Esc> <C-\><C-n><CR>
 " navigate between split panels
@@ -123,12 +122,6 @@ map <leader>h :wincmd h<CR>
 map <leader>j :wincmd j<CR>
 map <leader>k :wincmd k<CR>
 map <leader>l :wincmd l<CR>
-" go to definition
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-" Git stuff
 nmap <leader>gs :G<CR>
 nnoremap <leader>gc :GCheckout<CR>
 " open this configuration file in split from anywhere
@@ -140,9 +133,16 @@ nnoremap <leader>to g~iwe<CR>
 nnoremap <leader>ts :!ts-node %<CR>
 " run go on the current file
 nnoremap <leader>go :!go run %<CR>
-" CoC diagnostic
-nnoremap <leader>di :CocDiagnostics<CR>
 " quickfix navigation
-nnoremap <leader>cn :cnext<CR>
-nnoremap <leader>cp :cprev<CR>
-nnoremap <leader>co :copen<CR>
+nnoremap <leader>qn :cnext<CR>
+nnoremap <leader>qp :cprev<CR>
+nnoremap <leader>qo :copen<CR>
+" LSP
+set completeopt=menuone,noselect
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+" trouble.nvim
+nnoremap <leader>xx <cmd>TroubleToggle<cr>
+nnoremap <leader>xw <cmd>TroubleToggle lsp_workspace_diagnostics<cr>
+nnoremap <leader>xd <cmd>TroubleToggle lsp_document_diagnostics<cr>
+" auto import
+nnoremap <leader>. :Lspsaga code_action<CR>
