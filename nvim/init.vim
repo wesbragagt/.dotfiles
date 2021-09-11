@@ -43,8 +43,6 @@ Plug 'preservim/nerdtree'
 Plug 'moll/vim-node'
 Plug 'ryanoasis/vim-devicons'
 Plug 'morhetz/gruvbox'
-Plug 'sainnhe/gruvbox-material'
-Plug 'tomasiser/vim-code-dark'
 Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
 " these two plugins will add highlighting and indenting to JSX and TSX files.
 Plug 'yuezk/vim-js'
@@ -54,25 +52,20 @@ Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'stsewd/fzf-checkout.vim'
-let g:fsf_layout = {'window': {'width': 0.8, 'height': 0.8}}
-let $FZF_DEFAULT_OPTS='--reverse'
-
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
+  \ 'coc-html',
   \ 'coc-tsserver',
   \ 'coc-yaml',
   \ 'coc-docker',
   \ 'coc-sh',
   \ 'coc-go',
-  \ 'coc-tailwindcss'
+  \ 'coc-tailwindcss',
+  \ 'coc-lua'
   \ ]
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 call plug#end()
-
 lua <<EOF
 require'nvim-treesitter.configs'.setup { highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
 require'toggleterm'.setup{
@@ -82,13 +75,11 @@ insert_mappings = false
 require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules", ".git"} } }
 EOF
 
-let g:gruvbox_material_background = 'hard'
 set background=dark
-colorscheme gruvbox-material
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_bold = 0
+colorscheme gruvbox
 hi Visual  guifg=#000000 guibg=#B4D7FE gui=none
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 " import module on cursor
@@ -119,17 +110,17 @@ nnoremap <silent> K :call CocAction('doHover')<CR>
 " use regular escape in terminal mode
 tnoremap <Esc> <C-\><C-n><CR>
 " navigate between split panels
-map <leader>h :wincmd h<CR>
-map <leader>j :wincmd j<CR>
-map <leader>k :wincmd k<CR>
-map <leader>l :wincmd l<CR>
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
 " go to definition
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 " Git stuff
-nmap <leader>gs :G<CR>
+nnoremap <leader>gs :G<CR>
 nnoremap <leader>gc :GCheckout<CR>
 " open this configuration file in split from anywhere
 command! ConfigVim vsp ~/.dotfiles/nvim/init.vim
