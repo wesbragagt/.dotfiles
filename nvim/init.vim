@@ -43,8 +43,6 @@ Plug 'preservim/nerdtree'
 Plug 'moll/vim-node'
 Plug 'ryanoasis/vim-devicons'
 Plug 'morhetz/gruvbox'
-Plug 'sainnhe/gruvbox-material'
-Plug 'tomasiser/vim-code-dark'
 Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
 " these two plugins will add highlighting and indenting to JSX and TSX files.
 Plug 'yuezk/vim-js'
@@ -54,25 +52,20 @@ Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'stsewd/fzf-checkout.vim'
-let g:fsf_layout = {'window': {'width': 0.8, 'height': 0.8}}
-let $FZF_DEFAULT_OPTS='--reverse'
-
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
+  \ 'coc-html',
   \ 'coc-tsserver',
   \ 'coc-yaml',
   \ 'coc-docker',
   \ 'coc-sh',
   \ 'coc-go',
-  \ 'coc-tailwindcss'
+  \ 'coc-tailwindcss',
+  \ 'coc-lua'
   \ ]
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 call plug#end()
-
 lua <<EOF
 require'nvim-treesitter.configs'.setup { highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
 require'toggleterm'.setup{
@@ -82,13 +75,16 @@ insert_mappings = false
 require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules", ".git"} } }
 EOF
 
-let g:gruvbox_material_background = 'hard'
 set background=dark
-colorscheme gruvbox-material
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_bold = 0
+colorscheme gruvbox
 hi Visual  guifg=#000000 guibg=#B4D7FE gui=none
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 " import module on cursor
