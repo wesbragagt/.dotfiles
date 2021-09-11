@@ -41,7 +41,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'leafgarland/typescript-vim'
 Plug 'preservim/nerdtree'
 Plug 'moll/vim-node'
-Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
+Plug 'akinsho/bufferline.nvim'
 Plug 'morhetz/gruvbox'
 Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
 " these two plugins will add highlighting and indenting to JSX and TSX files.
@@ -73,6 +74,11 @@ open_mapping=[[<c-\>]],
 insert_mappings = false
 }
 require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules", ".git"} } }
+require('bufferline').setup{
+options = {
+  diagnostics = "coc"
+  }
+}
 EOF
 
 set background=dark
@@ -141,3 +147,6 @@ nnoremap <leader>qo :copen<CR>
 nnoremap <leader>ln :lnext<CR>
 nnoremap <leader>lp :lprev<CR>
 nnoremap <leader>lo :lopen<CR>
+" Bufferline
+
+
