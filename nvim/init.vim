@@ -80,11 +80,6 @@ let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_bold = 0
 colorscheme gruvbox
 hi Visual  guifg=#000000 guibg=#B4D7FE gui=none
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 " import module on cursor
@@ -115,17 +110,17 @@ nnoremap <silent> K :call CocAction('doHover')<CR>
 " use regular escape in terminal mode
 tnoremap <Esc> <C-\><C-n><CR>
 " navigate between split panels
-map <leader>h :wincmd h<CR>
-map <leader>j :wincmd j<CR>
-map <leader>k :wincmd k<CR>
-map <leader>l :wincmd l<CR>
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
 " go to definition
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 " Git stuff
-nmap <leader>gs :G<CR>
+nnoremap <leader>gs :G<CR>
 nnoremap <leader>gc :GCheckout<CR>
 " open this configuration file in split from anywhere
 command! ConfigVim vsp ~/.dotfiles/nvim/init.vim
