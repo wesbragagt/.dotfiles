@@ -21,7 +21,5 @@ alias config="vi ~/.dotfiles/zsh/.zshrc"
 alias config-nvim="vi ~/.dotfiles/nvim/init.vim" 
 alias reset="source ~/.zshrc"
 alias gta="git add -A && git commit"
-alias awslocal="aws --endpoint-url=http://localhost:4566"
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
-alias 0="yarn start"
-alias workspace="cd ~/workspace"
+alias dev="cd ~/dev"

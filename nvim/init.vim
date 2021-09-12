@@ -41,8 +41,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'leafgarland/typescript-vim'
 Plug 'preservim/nerdtree'
 Plug 'moll/vim-node'
+Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
-Plug 'akinsho/bufferline.nvim'
 Plug 'morhetz/gruvbox'
 Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
 " these two plugins will add highlighting and indenting to JSX and TSX files.
@@ -66,6 +66,7 @@ let g:coc_global_extensions = [
   \ ]
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
+Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
 call plug#end()
 lua <<EOF
 require'nvim-treesitter.configs'.setup { highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
@@ -74,11 +75,6 @@ open_mapping=[[<c-\>]],
 insert_mappings = false
 }
 require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules", ".git"} } }
-require('bufferline').setup{
-options = {
-  diagnostics = "coc"
-  }
-}
 EOF
 
 set background=dark
@@ -89,7 +85,7 @@ hi Visual  guifg=#000000 guibg=#B4D7FE gui=none
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 " import module on cursor
-nnoremap <leader>. :CocFix<CR>
+nnoremap <C-Space> :CocAction<CR>
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
   let g:coc_global_extensions += ['coc-prettier']
 endif
@@ -147,6 +143,5 @@ nnoremap <leader>qo :copen<CR>
 nnoremap <leader>ln :lnext<CR>
 nnoremap <leader>lp :lprev<CR>
 nnoremap <leader>lo :lopen<CR>
-" Bufferline
-
-
+" Bufferline close current buffer
+nnoremap <leader>x :bdelete<CR>

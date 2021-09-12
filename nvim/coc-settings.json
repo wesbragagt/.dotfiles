@@ -4,6 +4,7 @@
   "coc.preferences.diagnostic.virtualText": true,
   "sh.enable": true,
   "typescript.suggestionActions.enabled": false,
-  "javascript.suggestionActions.enabled": false
+  "javascript.suggestionActions.enabled": false,
+  "tailwindCSS.includeLanguages": { "plaintext": "javascript" }
 }
 
