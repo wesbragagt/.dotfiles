@@ -30,13 +30,11 @@ brew install cask
 
 
 PACKAGES=(
+  stow
 	nvm
 	zsh
 	node
-	scala
-	sbt
 	git
-	maven
 	python3
 	docker
 	openssl

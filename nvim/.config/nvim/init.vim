@@ -125,7 +125,7 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gc :GCheckout<CR>
 " open this configuration file in split from anywhere
-command! ConfigVim vsp ~/.dotfiles/nvim/init.vim
+command! ConfigVim vsp ~/.dotfiles/nvim/.config/nvim/init.vim
 nnoremap <leader>co :ConfigVim<CR>
 " toggle between uppercase and lowercase and move cursor to the end 
 nnoremap <leader>to g~iwe<CR>
@@ -133,6 +133,8 @@ nnoremap <leader>to g~iwe<CR>
 nnoremap <leader>ts :!ts-node %<CR>
 " run go on the current file
 nnoremap <leader>go :!go run %<CR>
+" run zsh on the current file
+nnoremap <leader>zs :!zsh %<CR>
 " CoC diagnostic
 nnoremap <leader>di :CocDiagnostics<CR>
 " quickfix navigation

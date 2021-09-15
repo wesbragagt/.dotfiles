@@ -18,7 +18,7 @@ source $ZSH/oh-my-zsh.sh
 alias dotsync="cd ~/.dotfiles && git add -A && git commit -m 'sync' && git push"
 alias vi="nvim"
 alias config="vi ~/.dotfiles/zsh/.zshrc"
-alias config-nvim="vi ~/.dotfiles/nvim/init.vim" 
+alias config-nvim="vi ~/.dotfiles/nvim/.config/nvim/init.vim" 
 alias reset="source ~/.zshrc"
 alias gta="git add -A && git commit"
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
