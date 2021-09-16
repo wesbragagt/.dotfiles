@@ -135,8 +135,8 @@ nnoremap <leader>to g~iwe<CR>
 nnoremap <leader>ts :!ts-node %<CR>
 " run go on the current file
 nnoremap <leader>go :!go run %<CR>
-" run zsh on the current file
-nnoremap <leader>zs :!zsh %<CR>
+" run current shell file 
+nnoremap <leader>sh :!zsh %<CR>
 " CoC diagnostic
 nnoremap <leader>di :CocDiagnostics<CR>
 " quickfix navigation
