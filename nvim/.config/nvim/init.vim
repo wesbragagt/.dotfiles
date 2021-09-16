@@ -1,6 +1,6 @@
 set path+=**
 " Nice menu when typing `:find *.py`
-set wildmode=longest,list,full
+set wildmode=full,list
 set wildmenu
 " Ignore files
 set wildignore+=*build/*
