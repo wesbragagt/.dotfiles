@@ -145,3 +145,5 @@ nnoremap <leader>lp :lprev<CR>
 nnoremap <leader>lo :lopen<CR>
 " Bufferline close current buffer
 nnoremap <leader>x :bdelete<CR>
+" Format shortcut
+nnoremap <leader>fo :Format<CR>
