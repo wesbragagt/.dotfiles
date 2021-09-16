@@ -13,7 +13,6 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="simple"
 
 plugins=(git)
-
 source $ZSH/oh-my-zsh.sh
 alias dotsync="cd ~/.dotfiles && git add -A && git commit -m 'sync' && git push"
 alias vi="nvim"
@@ -23,3 +22,4 @@ alias reset="source ~/.zshrc"
 alias gta="git add -A && git commit"
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 alias dev="cd ~/dev"
+alias ts="~/.dotfiles/session.sh"

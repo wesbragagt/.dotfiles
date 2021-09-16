@@ -151,3 +151,4 @@ nnoremap <leader>lo :lopen<CR>
 nnoremap <leader>x :bdelete<CR>
 " Format shortcut
 nnoremap <leader>fo :Format<CR>
+nnoremap <leader>x :!chmod +x %<CR>
