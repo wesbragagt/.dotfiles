@@ -77,6 +77,7 @@ open_mapping=[[<c-\>]],
 insert_mappings = false
 }
 require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules", ".git"} } }
+
 EOF
 
 set background=dark
