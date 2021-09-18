@@ -5,7 +5,6 @@
   "sh.enable": true,
   "typescript.suggestionActions.enabled": false,
   "javascript.suggestionActions.enabled": false,
-  "tailwindCSS.includeLanguages": { "plaintext": "javascript" },
-  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "javascript", "javascriptreact", "typescript", "typescriptreact", "typescript.tsx"]
+  "tailwindCSS.includeLanguages": { "plaintext": "javascript" }
 }
 
