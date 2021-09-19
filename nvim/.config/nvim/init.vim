@@ -76,8 +76,7 @@ lua <<EOF
 require'nvim-treesitter.configs'.setup { highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
 require'toggleterm'.setup{
 open_mapping=[[<c-\>]],
-insert_mappings = false,
-cwd = 
+insert_mappings = false
 }
 require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules", ".git"} } }
 
