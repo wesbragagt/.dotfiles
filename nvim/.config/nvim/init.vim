@@ -1,3 +1,4 @@
+set autoread
 set path+=**
 " Nice menu when typing `:find *.py`
 set wildmode=full,list
@@ -25,8 +26,9 @@ set showcmd
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-set smartindent
 set smartcase
+set noerrorbells
+set smartindent
 set expandtab
 set scrolloff=8
 set number
@@ -74,7 +76,8 @@ lua <<EOF
 require'nvim-treesitter.configs'.setup { highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
 require'toggleterm'.setup{
 open_mapping=[[<c-\>]],
-insert_mappings = false
+insert_mappings = false,
+cwd = 
 }
 require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules", ".git"} } }
 
@@ -105,10 +108,10 @@ nnoremap <leader>rn :!node %<CR>
 let g:NERDTreeWinPos = "right"
 let NERDTreeShowHidden=1
 " Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>ff <cmd>Telescope find_files<CR>
+nnoremap <leader>fg <cmd>Telescope live_grep<CR>
+nnoremap <leader>fb <cmd>Telescope buffers<CR>
+nnoremap <leader>fgb <cmd>Telescope git_branches<CR>
 nnoremap <C-f> :Rg 
 nnoremap <leader>pt :NERDTreeToggle<CR>
 nnoremap <silent> K :call CocAction('doHover')<CR>
@@ -125,13 +128,18 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 " Git stuff
-nnoremap <leader>gs :G<CR>
-nnoremap <leader>gc :GCheckout<CR>
+" commit
+" left pick merge
+nmap <leader>gh :diffget //2<CR>
+" right pick merge
+nmap <leader>gl :diffget //3<CR>
+" Status
+nmap <leader>gs :G<CR>
 " open this configuration file in split from anywhere
 command! ConfigVim vsp ~/.dotfiles/nvim/.config/nvim/init.vim
 nnoremap <leader>co :ConfigVim<CR>
-" toggle between uppercase and lowercase and move cursor to the end 
-nnoremap <leader>to g~iwe<CR>
+" toggle between uppercase and lowercase 
+nnoremap <leader>to g~w<CR>
 " run ts-node on the current file
 nnoremap <leader>ts :!ts-node %<CR>
 " run go on the current file
@@ -153,3 +161,12 @@ nnoremap <leader>x :bdelete<CR>
 " Format shortcut
 nnoremap <leader>fo :Format<CR>
 nnoremap <leader>x :!chmod +x %<CR>
+
+" simple command to copy all search matches to the clipboard
+function! CopyMatches(reg)
+  let hits = []
+  %s//\=len(add(hits, submatch(0))) ? submatch(0) : ''/gne
+  let reg = empty(a:reg) ? '+' : a:reg
+  execute 'let @'.reg.' = join(hits, "\n") . "\n"'
+endfunction
+command! -register CopyMatches call CopyMatches(<q-reg>)
