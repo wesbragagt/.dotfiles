@@ -36,7 +36,7 @@ set autochdir
 set colorcolumn=80
 " transparent background
 hi normal guibg=000000
-call plug#begin()
+call plug#begin('~/.vim/plugged')
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'akinsho/toggleterm.nvim'
 Plug 'tpope/vim-fugitive'
