@@ -66,11 +66,11 @@ let g:coc_global_extensions = [
   \ 'coc-sh',
   \ 'coc-go',
   \ 'coc-tailwindcss',
-  \ 'coc-lua'
+  \ 'coc-lua',
+  \ 'coc-vimlsp'
   \ ]
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
-Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
 call plug#end()
 lua <<EOF
 require'nvim-treesitter.configs'.setup { highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
