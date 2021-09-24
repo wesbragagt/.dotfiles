@@ -1,5 +1,7 @@
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
+" Format shortcut
+nnoremap <leader>fo :Format<CR>
 " import module on cursor
 nnoremap <C-Space> :CocAction<CR>
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')

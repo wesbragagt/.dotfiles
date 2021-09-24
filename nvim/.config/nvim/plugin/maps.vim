@@ -20,7 +20,7 @@ nmap <leader>gl :diffget //3<CR>
 " Status
 nmap <leader>gs :G<CR>
 " open this configuration file in split from anywhere
-command! ConfigVim vsp ~/.dotfiles/nvim/.config/nvim/init.vim
+command! ConfigVim vsp ~/.dotfiles/nvim/.config/nvim
 nnoremap <leader>co :ConfigVim<CR>
 " toggle between uppercase and lowercase 
 nnoremap <leader>to g~w<CR>
@@ -40,8 +40,6 @@ nnoremap <leader>lp :lprev<CR>
 nnoremap <leader>lo :lopen<CR>
 " Bufferline close current buffer
 nnoremap <leader>x :bdelete<CR>
-" Format shortcut
-nnoremap <leader>fo :Format<CR>
 nnoremap <leader>x :!chmod +x %<CR>
 
 " simple command to copy all search matches to the clipboard
