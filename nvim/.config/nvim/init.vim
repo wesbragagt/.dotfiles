@@ -42,7 +42,9 @@ let g:coc_global_extensions = [
   \ 'coc-go',
   \ 'coc-tailwindcss',
   \ 'coc-lua',
-  \ 'coc-vimlsp'
+  \ 'coc-vimlsp',
+  \ 'coc-prettier',
+  \ 'coc-eslint'
   \ ]
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
