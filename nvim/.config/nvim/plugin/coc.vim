@@ -1,3 +1,4 @@
+set completeopt=menu,noinsert,noselect
 let mapleader = ' '
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
