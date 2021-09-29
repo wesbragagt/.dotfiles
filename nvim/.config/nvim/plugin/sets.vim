@@ -1,3 +1,4 @@
+set clipboard^=unnamed,unnamedplus
 set norelativenumber
 set nowrap
 set updatetime=300
