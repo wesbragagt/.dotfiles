@@ -14,6 +14,7 @@ ZSH_THEME="simple"
 
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
+alias ls="logo-ls"
 alias dot="cd ~/.dotfiles"
 alias dotsync="cd ~/.dotfiles && git add -A && git commit -m 'sync' && git push"
 alias vi="nvim"

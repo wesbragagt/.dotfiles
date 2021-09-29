@@ -44,6 +44,7 @@ PACKAGES=(
   neovim
   ripgrep
   jq
+  golang
 )
 
 echo "Installing packages..."
