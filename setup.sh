@@ -4,8 +4,6 @@ links=(
   nvim
   tmux
   zsh
-  yabai
-  skhd
   )
 
 for i in "${links[@]}"

@@ -73,6 +73,7 @@ apps=(
     postman
     iterm2
     runjs
+    rectangle
 )
 
 #install casks
@@ -87,10 +88,3 @@ else
 # NPM 
 npm install -g typescript-language-server typescript ts-node
 fi
-
-#keyboard
-brew install koekeishiya/formulae/skhd &&
-brew services start skhd
-#tiling windows
-brew install koekeishiya/formulae/yabai &&
-brew services start yabai
