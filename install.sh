@@ -45,6 +45,7 @@ PACKAGES=(
   ripgrep
   jq
   golang
+  gh
 )
 
 echo "Installing packages..."
