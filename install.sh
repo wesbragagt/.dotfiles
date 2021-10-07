@@ -74,7 +74,7 @@ apps=(
     postman
     iterm2
     runjs
-    rectangle
+    raycast
 )
 
 #install casks
