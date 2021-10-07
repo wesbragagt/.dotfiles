@@ -1,7 +1,6 @@
 set completeopt=menu,noinsert,noselect
 let mapleader = ' '
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 Format :CocCommand prettier.formatFile
 " Format shortcut
 nnoremap <leader>fo :Format<CR>
 " import module on cursor
