@@ -11,6 +11,7 @@ set wildignore+=**/node_modules/*
 set wildignore+=**/.git/*
 call plug#begin('~/.vim/plugged')
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'neovim/nvim-lspconfig'
 Plug 'akinsho/toggleterm.nvim'
 Plug 'akinsho/bufferline.nvim'
 Plug 'tpope/vim-fugitive'
@@ -32,20 +33,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = [
-  \ 'coc-html',
-  \ 'coc-tsserver',
-  \ 'coc-yaml',
-  \ 'coc-docker',
-  \ 'coc-sh',
-  \ 'coc-go',
-  \ 'coc-tailwindcss',
-  \ 'coc-lua',
-  \ 'coc-vimlsp',
-  \ 'coc-prettier',
-  \ 'coc-eslint'
-  \ ]
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
