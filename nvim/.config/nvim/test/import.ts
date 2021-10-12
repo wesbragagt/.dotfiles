@@ -1,4 +1,3 @@
-import { dude2 } from "./import2"
 
 export const dude = {
   getChicken: () => console.log('chicken')
