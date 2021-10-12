@@ -23,7 +23,7 @@ nmap <leader>gs :G<CR>
 command! ConfigVim vsp ~/.dotfiles/nvim/.config/nvim
 nnoremap <leader>co :ConfigVim<CR>
 " toggle between uppercase and lowercase 
-nnoremap <leader>to g~w<CR>
+nnoremap <leader>to viw~<CR>
 " run ts-node on the current file
 nnoremap <leader>ts :!ts-node %<CR>
 " run go on the current file

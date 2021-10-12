@@ -75,6 +75,7 @@ apps=(
     iterm2
     runjs
     raycast
+    drawio
 )
 
 #install casks
