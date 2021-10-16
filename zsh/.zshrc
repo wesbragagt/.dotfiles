@@ -25,3 +25,5 @@ alias gta="git add -A && git commit"
 alias dev="cd ~/dev"
 alias ff="bash ~/.dotfiles/tmux-sessionizer.sh"
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+
+alias luamake=/Users/weslleybraga/.dotfiles/nvim/.config/nvim/lua-language-server/3rd/luamake/luamake
