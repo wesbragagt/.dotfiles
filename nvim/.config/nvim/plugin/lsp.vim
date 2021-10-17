@@ -6,6 +6,7 @@ local lsp_installer = require('nvim-lsp-installer')
 -- Setup nvim-cmp.
 local cmp = require'cmp'
 local lspsaga = require'lspsaga'
+local formatter = require("formatter")
 
   cmp.setup({
     snippet = {
@@ -45,7 +46,7 @@ lsp_installer.on_server_ready(function(server)
 end)
 -- Lspsaga
 lspsaga.init_lsp_saga()
-require("formatter").setup(
+formatter.setup(
   {
     logging = true,
     filetype = {
@@ -131,3 +132,4 @@ let mapleader = ' '
 nnoremap <silent><leader>ca :Lspsaga code_action<CR>
 nnoremap <silent>K :Lspsaga hover_doc<CR>
 nnoremap <leader>fo :Format<CR>
+nnoremap <leader>lsp :LspInstallInfo<CR>
