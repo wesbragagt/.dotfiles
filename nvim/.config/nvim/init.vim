@@ -63,5 +63,5 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " Formatting
 Plug 'mhartington/formatter.nvim'
-
 call plug#end()
+lua require("wesbragagt")

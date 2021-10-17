@@ -50,3 +50,8 @@ function! CopyMatches(reg)
   execute 'let @'.reg.' = join(hits, "\n") . "\n"'
 endfunction
 command! -register CopyMatches call CopyMatches(<q-reg>)
+nnoremap <silent><leader>ca :Lspsaga code_action<CR>
+nnoremap <silent>K :Lspsaga hover_doc<CR>
+nnoremap <leader>fo :Format<CR>
+nnoremap <leader>lsp :LspInstallInfo<CR>
+
