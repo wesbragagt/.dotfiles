@@ -22,14 +22,15 @@ augroup quickfix
   augroup END
 
 call plug#begin('~/.vim/plugged')
+Plug 'airblade/vim-rooter'
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 " LSP
 Plug 'neovim/nvim-lspconfig'
+Plug 'ahmedkhalf/project.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
-
 " Diagnostics
 Plug 'folke/trouble.nvim'
 Plug 'folke/lsp-colors.nvim'
