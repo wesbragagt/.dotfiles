@@ -1,137 +1,70 @@
-set completeopt=menuone,noselect
-
-lua << EOF
-local lsp = require('lspconfig')
-local lsp_installer = require('nvim-lsp-installer')
+lua <<EOF
+local lsp = require("lspconfig")
 -- Setup nvim-cmp.
-local cmp = require'cmp'
-local lspsaga = require'lspsaga'
-local formatter = require("formatter")
+local cmp = require("cmp")
+local lspsaga = require("lspsaga")
 
-  cmp.setup({
+cmp.setup(
+  {
     snippet = {
       expand = function(args)
         -- For `vsnip` user.
         vim.fn["vsnip#anonymous"](args.body)
-      end,
+      end
     },
     mapping = {
-      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-e>'] = cmp.mapping.close(),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+      ["<C-f>"] = cmp.mapping.scroll_docs(4),
+      ["<C-e>"] = cmp.mapping.close(),
+      ["<CR>"] = cmp.mapping.confirm({select = true})
     },
     sources = {
-      { name = 'nvim_lsp' },
-
+      {name = "nvim_lsp"},
       -- For vsnip user.
-      { name = 'vsnip' },
-
-      { name = 'buffer' },
-    }
-  })
-
-  -- Setup lspconfig.
-lsp_installer.on_server_ready(function(server)
-    local opts = {}
-    opts.capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-    if server.name == 'stylelint_lsp' then
-      opts.settings = {
-    stylelintplus = {
-      -- see available options in stylelint-lsp documentation
-    }
-  }
-    end
-    -- (optional) Customize the options passed to the server
-    -- if server.name == "tsserver" then
-    --     opts.root_dir = function() ... end
-    -- end
-
-    -- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
-    server:setup(opts)
-    vim.cmd [[ do User LspAttachBuffers ]]
-end)
--- Lspsaga
-lspsaga.init_lsp_saga()
-formatter.setup(
-  {
-    logging = true,
-    filetype = {
-      typescriptreact = {
-        -- prettier
-        function()
-          return {
-            exe = "prettier",
-            args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
-            stdin = true
-          }
-        end
-      },
-      typescript = {
-        -- prettier
-        function()
-          return {
-            exe = "prettier",
-            args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
-            stdin = true
-          }
-        end
-        -- linter
-        -- function()
-        --   return {
-        --     exe = "eslint",
-        --     args = {
-        --       "--stdin-filename",
-        --       vim.api.nvim_buf_get_name(0),
-        --       "--fix",
-        --       "--cache"
-        --     },
-        --     stdin = false
-        --   }
-        -- end
-      },
-      javascript = {
-        -- prettier
-        function()
-          return {
-            exe = "prettier",
-            args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
-            stdin = true
-          }
-        end
-      },
-      javascriptreact = {
-        -- prettier
-        function()
-          return {
-            exe = "prettier",
-            args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
-            stdin = true
-          }
-        end
-      },
-      json = {
-        -- prettier
-        function()
-          return {
-            exe = "prettier",
-            args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
-            stdin = true
-          }
-        end
-      },
-      lua = {
-        -- luafmt
-        function()
-          return {
-            exe = "luafmt",
-            args = {"--indent-count", 2, "--stdin"},
-            stdin = true
-          }
-        end
-      }
+      {name = "vsnip"},
+      {name = "buffer"}
     }
   }
 )
-EOF
 
+-- Setup lspconfig.
+lsp.tsserver.setup{
+  capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+-- Lspsaga
+lspsaga.init_lsp_saga()
+
+local sumneko_binary_path = vim.fn.exepath('lua-language-server')
+local sumneko_root_path = vim.fn.fnamemodify(sumneko_binary_path, ':h:h:h')
+
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, "lua/?.lua")
+table.insert(runtime_path, "lua/?/init.lua")
+
+lsp.sumneko_lua.setup {
+    capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    cmd = {sumneko_binary_path, "-E", sumneko_root_path .. "/main.lua"};
+    settings = {
+        Lua = {
+        runtime = {
+            -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+            version = 'LuaJIT',
+            -- Setup your lua path
+            path = runtime_path,
+        },
+        diagnostics = {
+            -- Get the language server to recognize the `vim` global
+            globals = {'vim'},
+        },
+        workspace = {
+            -- Make the server aware of Neovim runtime files
+            library = vim.api.nvim_get_runtime_file("", true),
+        },
+        -- Do not send telemetry data containing a randomized but unique identifier
+        telemetry = {
+            enable = false,
+        },
+        },
+    },
+  }
+EOF

@@ -27,7 +27,6 @@ Plug 'airblade/vim-rooter'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 " LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
 Plug 'ahmedkhalf/project.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -64,4 +63,3 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 " Formatting
 Plug 'mhartington/formatter.nvim'
 call plug#end()
-lua require("wesbragagt")

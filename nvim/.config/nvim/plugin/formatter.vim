@@ -1,3 +1,4 @@
+lua <<EOF
 local formatter = require("formatter")
 
 formatter.setup{
@@ -77,4 +78,4 @@ formatter.setup{
         end
       }
     }
-  }
+EOF
