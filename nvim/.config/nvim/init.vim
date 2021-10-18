@@ -27,7 +27,7 @@ Plug 'airblade/vim-rooter'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 " LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'ahmedkhalf/project.nvim'
+Plug 'williamboman/nvim-lsp-installer'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
@@ -59,7 +59,6 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-
 " Formatting
 Plug 'mhartington/formatter.nvim'
 call plug#end()

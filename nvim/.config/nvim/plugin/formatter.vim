@@ -1,6 +1,5 @@
-lua <<EOF
+lua << EOF
 local formatter = require("formatter")
-
 formatter.setup{
     logging = true,
     filetype = {
@@ -78,4 +77,5 @@ formatter.setup{
         end
       }
     }
+  }
 EOF
