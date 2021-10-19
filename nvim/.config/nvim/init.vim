@@ -22,7 +22,6 @@ augroup quickfix
   augroup END
 
 call plug#begin('~/.vim/plugged')
-Plug 'airblade/vim-rooter'
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 " LSP
