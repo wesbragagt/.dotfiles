@@ -17,7 +17,7 @@ require('telescope').setup{
 EOF
 let mapleader = ' '
 " Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<CR>
+nnoremap <leader>ff <cmd>Telescope git_files<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<CR>
 nnoremap <leader>fb <cmd>Telescope buffers<CR>
 nnoremap <leader>fgb <cmd>Telescope git_branches<CR>
