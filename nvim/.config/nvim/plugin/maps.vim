@@ -54,4 +54,5 @@ nnoremap <silent><leader>ca :Lspsaga code_action<CR>
 nnoremap <silent>K :Lspsaga hover_doc<CR>
 nnoremap <leader>fo :Format<CR>
 nnoremap <leader>lsp :LspInstallInfo<CR>
-
+" convert json object to typescript interface
+xnoremap <leader>ty :!npx json-ts --stdin<CR>
