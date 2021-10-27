@@ -47,6 +47,7 @@ lspsaga.init_lsp_saga()
 EOF
 
 let mapleader = ' '
+nnoremap <silent>gd <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent><leader>ca :Lspsaga code_action<CR>
 nnoremap <silent>K :Lspsaga hover_doc<CR>
 nnoremap <leader>fo :Format<CR>

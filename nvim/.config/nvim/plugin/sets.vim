@@ -1,6 +1,6 @@
-set clipboard^=unnamed,unnamedplus
+" set clipboard^=unnamed,unnamedplus
 set norelativenumber
-set nowrap
+set wrap
 set updatetime=300
 " sets vsp to split right by default
 set splitright
