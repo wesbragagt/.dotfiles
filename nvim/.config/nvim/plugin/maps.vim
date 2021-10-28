@@ -31,13 +31,9 @@ nnoremap <leader>go :!go run %<CR>
 " run current shell file 
 nnoremap <leader>sh :!zsh %<CR>
 " quickfix navigation
-nnoremap <leader>qn :cnext<CR>
-nnoremap <leader>qp :cprev<CR>
-nnoremap <leader>qo :copen<CR>
-" location list navigation
-nnoremap <leader>ln :lnext<CR>
-nnoremap <leader>lp :lprev<CR>
-nnoremap <leader>lo :lopen<CR>
+nnoremap <C-l> :cnext<CR>
+nnoremap <C-h> :cprev<CR>
+nnoremap <leader>qf :copen<CR>
 " Bufferline close current buffer
 nnoremap <leader>x :bdelete<CR>
 nnoremap <leader>x :!chmod +x %<CR>
