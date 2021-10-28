@@ -16,7 +16,7 @@ ZSH_THEME="simple"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 alias scripts="jq '.scripts' ./package.json"
-alias ls="logo-ls"
+alias ls="logo-ls -a"
 alias dot="cd $DOTFILES"
 alias dotsync="cd $DOTFILES && git add -A && git commit -m 'sync' && git push"
 alias vi="nvim"
