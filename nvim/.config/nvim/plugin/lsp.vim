@@ -48,6 +48,7 @@ EOF
 
 let mapleader = ' '
 nnoremap <silent>gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent>gr <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent><leader>ca :Lspsaga code_action<CR>
 nnoremap <silent>K :Lspsaga hover_doc<CR>
 nnoremap <leader>fo :Format<CR>
