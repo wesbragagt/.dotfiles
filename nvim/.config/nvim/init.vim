@@ -39,8 +39,6 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'akinsho/toggleterm.nvim'
-" Buffer
-Plug 'akinsho/bufferline.nvim'
 " Git
 Plug 'tpope/vim-fugitive'
 " Comments

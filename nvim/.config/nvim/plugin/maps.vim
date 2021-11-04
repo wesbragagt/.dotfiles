@@ -1,9 +1,5 @@
 let mapleader = ' '
 nnoremap <leader><Enter> :so %<CR>
-" Project view open
-let g:NERDTreeWinPos = "right"
-let NERDTreeShowHidden=1
-nnoremap <leader>pt :NERDTreeToggle<CR>
 " use regular escape in terminal mode
 tnoremap <Esc> <C-\><C-n><CR>
 " navigate between split panels

@@ -1,3 +1,9 @@
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+"Autorefresh when focusing
+autocmd BufEnter NERD_tree_* | execute 'normal R'
+" Project view open
+:let g:NERDTreeWinSize=80
+let g:NERDTreeWinPos = "right"
+let NERDTreeShowHidden=1
+
+let mapleader = ' '
+nnoremap <leader>pt :NERDTreeToggle<CR>
