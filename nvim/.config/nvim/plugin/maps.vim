@@ -49,6 +49,11 @@ nnoremap <leader>lsp :LspInstallInfo<CR>
 " convert json object to typescript interface
 xnoremap <leader>ty :!npx json-ts --stdin<CR>
 " Clipboard
+" Copy to system clipboard
 xnoremap <silent><leader>y "+y<CR>
+nnoremap <silent><leader>yy "+yy<CR>
 nnoremap <silent><leader>p "+p<CR>
+" Paste from system clipboard
+xnoremap <silent><leader>p "+p<CR>
 nnoremap <silent><leader>P "+P<CR>
+xnoremap <silent><leader>P "+P<CR>
