@@ -48,3 +48,7 @@ nnoremap <leader>fo :Format<CR>
 nnoremap <leader>lsp :LspInstallInfo<CR>
 " convert json object to typescript interface
 xnoremap <leader>ty :!npx json-ts --stdin<CR>
+" Clipboard
+xnoremap <silent><leader>y "+y<CR>
+nnoremap <silent><leader>p "+p<CR>
+nnoremap <silent><leader>P "+P<CR>
