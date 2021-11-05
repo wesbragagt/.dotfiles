@@ -31,3 +31,9 @@ alias to="bash $DOTFILES/utils/fzf-git-checkout.sh"
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
 alias luamake=/Users/weslleybraga/.dotfiles/nvim/.config/nvim/lua-language-server/3rd/luamake/luamake
+senv(){
+  export $(cat $1 | xargs)
+}
+alias denv="senv .env.development"
+alias penv="senv .env.production"
+alias gta="git add -A && git commit --amend --no-edit"
