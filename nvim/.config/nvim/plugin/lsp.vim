@@ -4,6 +4,12 @@ local lsp = require("lspconfig")
 local cmp = require("cmp")
 local lspsaga = require("lspsaga")
 
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+        virtual_text = false
+    }
+)
+
 cmp.setup(
   {
     snippet = {
