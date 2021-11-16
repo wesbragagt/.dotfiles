@@ -2,6 +2,6 @@
 
 set -e
 
-branch=$(git branch | fzf)
+branch=$(git branch -r | fzf)
 
 git checkout $branch
