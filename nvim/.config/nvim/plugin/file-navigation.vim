@@ -10,7 +10,7 @@ EOF
 let mapleader = ' '
 nnoremap <leader>m :lua require("harpoon.mark").add_file()<CR>
 nnoremap <leader>' :lua require("harpoon.ui").toggle_quick_menu()<CR>
-nnoremap <leader>a :lua require("harpoon.ui").nav_file(1)<CR>
-nnoremap <leader>s :lua require("harpoon.ui").nav_file(2)<CR>
-nnoremap <leader>d :lua require("harpoon.ui").nav_file(3)<CR>
-nnoremap <leader>f :lua require("harpoon.ui").nav_file(4)<CR>
+nnoremap <leader>1 :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <leader>2 :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <leader>3 :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <leader>4 :lua require("harpoon.ui").nav_file(4)<CR>

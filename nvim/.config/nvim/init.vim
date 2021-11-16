@@ -7,9 +7,8 @@ set wildmenu
 set wildignore+=*build/*
 set wildignore+=*dist/*
 set wildignore+=**/coverage/*
-set wildignore+=**/node_modules/*
 set wildignore+=**/.git/*
-
+set wildignore+=**/node_modules/** 
 if executable("rg")
     set grepprg=rg\ --vimgrep\ --no-heading
     set grepformat=%f:%l:%c:%m,%f:%l:%m
