@@ -58,5 +58,6 @@ Plug 'jparise/vim-graphql'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 " Formatting
 Plug 'mhartington/formatter.nvim'
+"Async run
+Plug 'skywind3000/asyncrun.vim'
 call plug#end()
-lua require("wesbragagt")

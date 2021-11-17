@@ -6,7 +6,7 @@ local lspsaga = require("lspsaga")
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = false
+        virtual_text = true
     }
 )
 
@@ -39,12 +39,6 @@ local lsp_installer = require("nvim-lsp-installer")
 lsp_installer.on_server_ready(function(server)
     local opts = {}
     opts.capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-    -- (optional) Customize the options passed to the server
-    -- if server.name == "tsserver" then
-    --     opts.root_dir = function() ... end
-    -- end
-
-    -- This setup() function is exactly the same as lspconfig's setup function (:help lspconfig-quickstart)
     server:setup(opts)
     vim.cmd [[ do User LspAttachBuffers ]]
 end)
@@ -56,7 +50,6 @@ let mapleader = ' '
 nnoremap <silent>gd <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent>gr <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent><leader>ca :Lspsaga code_action<CR>
-nnoremap <silent>K :Lspsaga hover_doc<CR>
+nnoremap <silent>K :lua vim.lsp.buf.hover()<CR>
 nnoremap <leader>fo :Format<CR>
 nnoremap <leader>lsp :LspInstallInfo<CR>
-

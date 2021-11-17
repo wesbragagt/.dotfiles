@@ -1,3 +1,5 @@
+/**
+  * dude*/
 export function dude2(){
   return 'dude2'
 }

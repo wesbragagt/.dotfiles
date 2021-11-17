@@ -4,4 +4,4 @@ set -e
 
 branch=$(git branch -r | fzf)
 
-git checkout $branch
+git switch $branch
