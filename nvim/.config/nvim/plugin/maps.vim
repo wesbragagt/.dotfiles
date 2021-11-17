@@ -42,10 +42,6 @@ function! CopyMatches(reg)
   execute 'let @'.reg.' = join(hits, "\n") . "\n"'
 endfunction
 command! -register CopyMatches call CopyMatches(<q-reg>)
-nnoremap <silent><leader>ca :Lspsaga code_action<CR>
-nnoremap <silent>K :Lspsaga hover_doc<CR>
-nnoremap <leader>fo :Format<CR>
-nnoremap <leader>lsp :LspInstallInfo<CR>
 " convert json object to typescript interface
 xnoremap <leader>ty :!npx json-ts --stdin<CR>
 " Clipboard
@@ -57,3 +53,5 @@ nnoremap <silent><leader>p "+p<CR>
 xnoremap <silent><leader>p "+p<CR>
 nnoremap <silent><leader>P "+P<CR>
 xnoremap <silent><leader>P "+P<CR>
+"JsDoc
+nnoremap <silent><C-l> :JsDoc<CR>

@@ -2,13 +2,15 @@ lua << EOF
 local lsp = require("lspconfig")
 -- Setup nvim-cmp.
 local cmp = require("cmp")
-local lspsaga = require("lspsaga")
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
         virtual_text = true
     }
 )
+
+local lsp = vim.lsp
+local handlers = lsp.handlers
 
 cmp.setup(
   {
@@ -42,14 +44,12 @@ lsp_installer.on_server_ready(function(server)
     server:setup(opts)
     vim.cmd [[ do User LspAttachBuffers ]]
 end)
--- Lspsaga
-lspsaga.init_lsp_saga()
 EOF
 
 let mapleader = ' '
 nnoremap <silent>gd <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent>gr <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent><leader>ca :Lspsaga code_action<CR>
-nnoremap <silent>K :lua vim.lsp.buf.hover()<CR>
+nnoremap <silent>ca <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent>K <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <leader>fo :Format<CR>
 nnoremap <leader>lsp :LspInstallInfo<CR>

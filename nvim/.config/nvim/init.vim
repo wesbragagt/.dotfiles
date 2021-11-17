@@ -36,7 +36,6 @@ Plug 'folke/lsp-colors.nvim'
 " For vsnip user.
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
-Plug 'glepnir/lspsaga.nvim'
 Plug 'akinsho/toggleterm.nvim'
 " Git
 Plug 'tpope/vim-fugitive'
@@ -60,4 +59,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'mhartington/formatter.nvim'
 "Async run
 Plug 'skywind3000/asyncrun.vim'
+"JSDoc
+Plug 'heavenshell/vim-jsdoc', {
+  \ 'for': ['javascript', 'javascript.jsx','typescript'],
+  \ 'do': 'make install'
+\}
 call plug#end()
