@@ -2,6 +2,6 @@
 
 set -e
 
-branch=$(git branch -r | fzf)
+branch=$(git branch | fzf)
 
 git switch $branch
