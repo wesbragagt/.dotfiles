@@ -10,3 +10,4 @@ export const foo = {
 export function random(){
   return Math.random()
 }
+

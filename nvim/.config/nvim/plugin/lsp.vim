@@ -1,6 +1,5 @@
 set completeopt=menu,menuone,noselect
 lua << EOF
-local lsp = require("lspconfig")
 -- Setup nvim-cmp.
 local cmp = require("cmp")
 
@@ -9,9 +8,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         virtual_text = true
     }
 )
-
-local lsp = vim.lsp
-local handlers = lsp.handlers
 
 cmp.setup(
   {
@@ -41,14 +37,38 @@ cmp.setup(
 )
 
 -- Setup lspconfig.
-local lsp_installer = require("nvim-lsp-installer")
+-- Allows to pass custom configs to append to current default table
+  local function config(_config)
+    return vim.tbl_deep_extend("force", {
+      capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    }, _config or {})
+  end
+  
+  -- Attach to LSP client individually
+  local lsp_installer_servers = require("nvim-lsp-installer.servers")
+  local function setup_server(server, _config)
+    local server_available, requested_server = lsp_installer_servers.get_server(server)
+      if server_available then
+          requested_server:on_ready(function ()
+          requested_server:setup(_config)
+          end)
+      if not requested_server:is_installed() then
+          requested_server:install()
+      end
+    end
+  end
+  -- cssls, stylelint_lsp, efm, sumneko_lua, diagnosticls, tsserver, tailwindcss, vimls
+  setup_server("tsserver", config())
+  setup_server("cssls", config())
+  setup_server("tailwindcss", config())
+  setup_server("vimls", config())
+  setup_server("sumneko_lua", config({
+  diagnostics = {
+            -- Get the language server to recognize the `vim` global
+            globals = {'vim'},
+        },
+  }))
 
-lsp_installer.on_server_ready(function(server)
-    local opts = {}
-    opts.capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-    server:setup(opts)
-    vim.cmd [[ do User LspAttachBuffers ]]
-end)
 EOF
 
 let mapleader = ' '
