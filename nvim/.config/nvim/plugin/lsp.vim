@@ -68,7 +68,7 @@ cmp.setup(
             globals = {'vim'},
         },
   }))
-
+  -- Todo: setup lua autocomplete for vim.api https://github.com/tjdevries/nlua.nvim
 EOF
 
 let mapleader = ' '
