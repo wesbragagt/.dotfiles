@@ -6,7 +6,8 @@ set -e
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    items=`find * -type f -not -path 'node_modules/*'`
+    # uses fd which is a super fast replacement for find
+    items=`fd`
     selected=`echo "$items" | fzf`
 fi
 

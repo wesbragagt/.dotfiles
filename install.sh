@@ -31,6 +31,7 @@ brew install cask
 
 PACKAGES=(
   fzf
+  fd
   stow
 	nvm
 	zsh

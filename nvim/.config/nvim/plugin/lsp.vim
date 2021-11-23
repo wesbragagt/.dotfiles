@@ -61,6 +61,7 @@ cmp.setup(
   setup_server("cssls", config())
   setup_server("tailwindcss", config())
   setup_server("vimls", config())
+  setup_server("yamlls", config())
   setup_server("sumneko_lua", config({
   diagnostics = {
             -- Get the language server to recognize the `vim` global
