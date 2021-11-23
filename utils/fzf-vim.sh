@@ -7,7 +7,7 @@ if [[ $# -eq 1 ]]; then
     selected=$1
 else
     # uses fd which is a super fast replacement for find
-    items=`fd`
+    items=`fd --hidden --exclude .git`
     selected=`echo "$items" | fzf`
 fi
 
