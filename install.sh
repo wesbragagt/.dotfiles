@@ -34,9 +34,9 @@ PACKAGES=(
   fd
   bat
   stow
-	nvm
 	zsh
 	node
+  n
 	git
 	python3
 	docker
