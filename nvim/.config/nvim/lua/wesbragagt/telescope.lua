@@ -30,6 +30,13 @@ function M.my_git_files()
   )
 end
 
+function M.my_find_files()
+  require("telescope.builtin").find_files(
+    {
+      find_command = {"fd", "--hidden","--exclude", ".git"}
+    }
+  )
+end
 telescope.load_extension("fzf")
 
 return M
