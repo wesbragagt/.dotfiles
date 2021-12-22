@@ -36,5 +36,6 @@ senv(){
 alias denv="senv .env.development"
 alias penv="senv .env.production"
 alias gta="git add -A && git commit --amend --no-edit"
+alias gtf="gta && git push -f"
 alias clean="git branch --merged | egrep -v '(^\*|master|main|dev|nonprod)' | xargs git branch -D"
 alias tt="tmux -f $HOME/.tmux/.tmux.conf"
