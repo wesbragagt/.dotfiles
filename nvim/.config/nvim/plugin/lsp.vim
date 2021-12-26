@@ -5,7 +5,7 @@ local cmp = require("cmp")
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = true
+        virtual_text = false
     }
 )
 
@@ -62,12 +62,14 @@ cmp.setup(
   setup_server("tailwindcss", config())
   setup_server("vimls", config())
   setup_server("yamlls", config())
-  setup_server("sumneko_lua", config({
-  diagnostics = {
-            -- Get the language server to recognize the `vim` global
-            globals = {'vim'},
-        },
-  }))
+
+  local luadev = require("lua-dev").setup({
+  -- add any options here, or leave empty to use the default settings
+  -- lspconfig = {
+  --   cmd = {"lua-language-server"}
+  -- },
+})
+  setup_server("sumneko_lua", config(luadev))
   -- Todo: setup lua autocomplete for vim.api https://github.com/tjdevries/nlua.nvim
 EOF
 
