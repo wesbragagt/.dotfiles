@@ -1,5 +1,8 @@
 let mapleader = ' '
 nnoremap <leader><Enter> :so %<CR>
+" Reload lua modules
+nnoremap <leader>r <cmd>lua require("plenary.reload").reload_module("wesbragagt")<CR>
+
 " use regular escape in terminal mode
 tnoremap <Esc> <C-\><C-n><CR>
 " navigate between split panels

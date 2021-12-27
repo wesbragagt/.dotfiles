@@ -38,5 +38,4 @@ function M.my_find_files()
   )
 end
 telescope.load_extension("fzf")
-
 return M
