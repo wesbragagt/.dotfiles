@@ -3,5 +3,3 @@ local dude = {
 }
 
 print(dude.haa)
-
-

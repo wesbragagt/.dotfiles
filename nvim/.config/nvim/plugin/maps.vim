@@ -53,13 +53,20 @@ nnoremap <silent><leader>p "+p<CR>
 xnoremap <silent><leader>p "+p<CR>
 nnoremap <silent><leader>P "+P<CR>
 xnoremap <silent><leader>P "+P<CR>
-"JsDoc
+" JsDoc
 nnoremap <silent><C-l> :JsDoc<CR>
 
-
 " Telescope
-nnoremap <leader>ff <cmd>lua require("wesbragagt.telescope").my_git_files()<CR>
-nnoremap <leader>fi <cmd>lua require("wesbragagt.telescope").my_find_files()<CR>
+nnoremap <leader>ff <cmd>lua require("wesbragagt._telescope").my_git_files()<CR>
+nnoremap <leader>fi <cmd>lua require("wesbragagt._telescope").my_find_files()<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<CR>
 nnoremap <leader>fb <cmd>Telescope buffers<CR>
 nnoremap <leader>fgb <cmd>Telescope git_branches<CR>
+
+" LSP
+nnoremap <silent>gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent>gr <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent>ca <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent>K <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <leader>fo :Format<CR>
+nnoremap <leader>lsp :LspInstallInfo<CR>

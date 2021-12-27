@@ -71,5 +71,4 @@ Plug 'heavenshell/vim-jsdoc', {
   \ 'do': 'make install'
 \}
 call plug#end()
-
 lua require("wesbragagt")
