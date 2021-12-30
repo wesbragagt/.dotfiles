@@ -14,6 +14,7 @@ if executable("rg")
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
+"Open quickfix list after find,grep
 augroup quickfix
     autocmd!
     autocmd QuickFixCmdPost [^l]* cwindow
