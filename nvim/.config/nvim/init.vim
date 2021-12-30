@@ -63,8 +63,6 @@ Plug 'jparise/vim-graphql'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 " Formatting
 Plug 'mhartington/formatter.nvim'
-"Async run
-Plug 'skywind3000/asyncrun.vim'
 "JSDoc
 Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript'],

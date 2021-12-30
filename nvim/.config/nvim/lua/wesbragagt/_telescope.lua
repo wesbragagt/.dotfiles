@@ -5,7 +5,6 @@ telescope.setup(
     defaults = {
       file_ignore_patterns = {
         "node_modules",
-        ".git"
       }
     },
     extensions = {
@@ -33,7 +32,7 @@ end
 function M.my_find_files()
   require("telescope.builtin").find_files(
     {
-      find_command = {"fd", "--hidden","--exclude", ".git"}
+      find_command = {"fd", "-H", "-E", ".git"}
     }
   )
 end
