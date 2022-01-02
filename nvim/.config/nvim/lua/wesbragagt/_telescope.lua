@@ -7,14 +7,6 @@ telescope.setup(
         "node_modules"
       }
     },
-    extensions = {
-      fzf = {
-        fuzzy = false, -- false will only do exact matching
-        override_generic_sorter = true, -- override the generic sorter
-        override_file_sorter = true, -- override the file sorter
-        case_mode = "smart_case" -- or "ignore_case" or "respect_case"
-      }
-    }
   }
 )
 
@@ -36,5 +28,4 @@ function M.my_find_files()
     }
   )
 end
-telescope.load_extension("fzf")
 return M

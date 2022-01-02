@@ -73,3 +73,6 @@ nnoremap <silent>ca <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <silent>K <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <leader>fo :Format<CR>
 nnoremap <leader>lsp :LspInstallInfo<CR>
+
+"Debug
+nnoremap <leader>dd :call vimspector#Launch()<CR>

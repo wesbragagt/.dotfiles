@@ -1,10 +1,9 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH:${GOPATH}/bin:${GOROOT}/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.npm_global/bin:$PATH
 # make git use nvim for editing
 export VISUAL=nvim
 export EDITOR="$VISUAL"
-export GOPATH=$HOME/go
-export GOROOT="$(brew --prefix golang)/libexec"
+export NPM_PREFIX="$HOME/.npm_global"
 export DOTFILES="$HOME/.dotfiles"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -13,7 +12,6 @@ ZSH_THEME="simple"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 alias scripts="jq '.scripts' ./package.json"
-alias ls="logo-ls -a"
 alias dot="cd $DOTFILES"
 alias dotsync="cd $DOTFILES && git add -A && git commit -m 'sync' && git push"
 alias vi="nvim"
@@ -39,3 +37,5 @@ alias gta="git add -A && git commit --amend --no-edit"
 alias gtf="gta && git push -f"
 alias clean="git branch --merged | egrep -v '(^\*|master|main|dev|nonprod)' | xargs git branch -D"
 alias tt="tmux -f $HOME/.tmux/.tmux.conf"
+alias vimspect="cp $DOTFILES/nvim/.config/nvim/debug/.vimspector.json ./.vimspect.json"
+alias y="yarn"
