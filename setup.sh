@@ -5,6 +5,7 @@ links=(
   tmux
   zsh
   raycast
+  iterm2
   )
 
 for i in "${links[@]}"
