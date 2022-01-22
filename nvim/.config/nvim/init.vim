@@ -26,7 +26,8 @@ Plug 'tpope/vim-fugitive'
 " Comments
 Plug 'tpope/vim-commentary'
 " Status
-Plug 'vim-airline/vim-airline'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'preservim/nerdtree'
 Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 Plug 'ryanoasis/vim-devicons'
