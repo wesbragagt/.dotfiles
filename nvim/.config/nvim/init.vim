@@ -40,6 +40,8 @@ Plug 'nvim-telescope/telescope-media-files.nvim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+" Bufferline
+Plug 'akinsho/bufferline.nvim'
 " Formatting
 Plug 'mhartington/formatter.nvim'
 "JSDoc
