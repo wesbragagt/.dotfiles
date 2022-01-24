@@ -32,7 +32,7 @@ set updatetime=300 "faster autocompletion"
 " sets vsp to split right by default
 set splitright "force all horizontal splits to go below current window"
 set splitbelow "force all vertical splits to go to the right of current window"
-set cmdheight=2
+set cmdheight=1
 set hidden
 set mouse=a "allow the mouse to be used in neovim"
 set noswapfile "dont create swap files"
