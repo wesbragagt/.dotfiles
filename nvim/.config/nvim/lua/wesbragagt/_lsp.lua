@@ -72,6 +72,7 @@ local function setup_server(server, _config)
 end
 -- cssls, stylelint_lsp, efm, sumneko_lua, diagnosticls, tsserver, tailwindcss, vimls
 setup_server("tsserver", config())
+setup_server("vuels", config())
 setup_server("cssls", config())
 setup_server("tailwindcss", config())
 setup_server("vimls", config())
