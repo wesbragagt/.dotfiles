@@ -9,4 +9,4 @@ end
     -- refer to the configuration section below
   }
 EOF
-nnoremap <leader>di <cmd>TroubleToggle lsp_document_diagnostics<cr>
+nnoremap <leader>di <cmd>TroubleToggle document_diagnostics<cr>
