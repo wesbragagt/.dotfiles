@@ -2,14 +2,28 @@ local status_ok, cmp = pcall(require, "cmp")
 if not status_ok then
   return
 end
+vim.diagnostic.config {
+      virtual_text = {
+         prefix = "",
+      },
+      signs = true,
+      underline = true,
+      update_in_insert = false,
+   }
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] =
-  vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics,
-  {
-    virtual_text = false
-  }
-)
+   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+      border = "single",
+   })
+   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+      border = "single",
+   })
+--vim.lsp.handlers["textDocument/publishDiagnostics"] =
+--  vim.lsp.with(
+--  vim.lsp.diagnostic.on_publish_diagnostics,
+--  {
+--    virtual_text = true
+--  }
+--)
 
 cmp.setup(
   {

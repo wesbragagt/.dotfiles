@@ -39,3 +39,18 @@ alias clean="git branch --merged | egrep -v '(^\*|master|main|dev|nonprod)' | xa
 alias tt="tmux -f $HOME/.tmux/.tmux.conf"
 alias y="yarn"
 alias l="logo-ls -1"
+
+alias asurion_refresh_aws_credentials="ssogenerator"
+function asurion_set_aws_credentials () {
+  echo "refreshing tokens"
+  asurion_refresh_aws_credentials
+  if (( $# == 0 ))
+  then
+    echo "usage: asurion_set_aws_credentials [profile name]";
+  else
+    export AWS_ACCESS_KEY_ID=`grep -F -A 3 $1 ~/.aws/credentials | grep aws_access_key_id | sed -e "s/aws_access_key_id=//g"`
+    export AWS_SECRET_ACCESS_KEY=`grep -F -A 3 $1 ~/.aws/credentials | grep aws_secret_access_key | sed -e "s/aws_secret_access_key=//g"`
+    export AWS_SECURITY_TOKEN=`grep -F -A 3 $1 ~/.aws/credentials | grep aws_session_token | sed -e "s/aws_session_token=//g"`
+    export AWS_SESSION_TOKEN=`grep -F -A 3 $1 ~/.aws/credentials | grep aws_session_token | sed -e "s/aws_session_token=//g"`
+  fi
+}
