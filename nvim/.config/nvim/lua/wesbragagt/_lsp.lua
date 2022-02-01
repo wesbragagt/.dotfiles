@@ -24,7 +24,7 @@ vim.diagnostic.config {
 --    virtual_text = true
 --  }
 --)
-
+require("luasnip.loaders.from_vscode").lazy_load()
 cmp.setup(
   {
     snippet = {
