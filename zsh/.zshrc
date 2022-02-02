@@ -1,3 +1,4 @@
+eval "$(fnm env --use-on-cd)"
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$HOME/.npm_global/bin:$PATH
 # make git use nvim for editing
