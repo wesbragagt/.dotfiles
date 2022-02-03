@@ -1,13 +1,17 @@
-eval "$(fnm env --use-on-cd)"
-# If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$HOME/.npm_global/bin:$PATH
 # make git use nvim for editing
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+
+export NVM_DIR="$HOME/.node_version_manager"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 export NPM_PREFIX="$HOME/.npm_global"
 export DOTFILES="$HOME/.dotfiles"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+source "$DOTFILES/zsh/.zsh-env"
 ZSH_THEME="simple"
 
 plugins=(git)
@@ -39,5 +43,6 @@ alias gtf="gta && git push -f"
 alias clean="git branch --merged | egrep -v '(^\*|master|main|dev|nonprod)' | xargs git branch -D"
 alias tt="tmux -f $HOME/.tmux/.tmux.conf"
 alias y="yarn"
+alias ls="ls -a"
 alias l="logo-ls -1"
 alias dc="docker-compose"
