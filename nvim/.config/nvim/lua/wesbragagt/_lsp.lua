@@ -3,20 +3,28 @@ if not status_ok then
   return
 end
 vim.diagnostic.config {
-      virtual_text = {
-         prefix = "",
-      },
-      signs = true,
-      underline = true,
-      update_in_insert = false,
-   }
+  virtual_text = {
+    prefix = ""
+  },
+  signs = true,
+  underline = true,
+  update_in_insert = false
+}
 
-   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-      border = "single",
-   })
-   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-      border = "single",
-   })
+vim.lsp.handlers["textDocument/hover"] =
+  vim.lsp.with(
+  vim.lsp.handlers.hover,
+  {
+    border = "single"
+  }
+)
+vim.lsp.handlers["textDocument/signatureHelp"] =
+  vim.lsp.with(
+  vim.lsp.handlers.signature_help,
+  {
+    border = "single"
+  }
+)
 --vim.lsp.handlers["textDocument/publishDiagnostics"] =
 --  vim.lsp.with(
 --  vim.lsp.diagnostic.on_publish_diagnostics,
@@ -84,12 +92,10 @@ local function setup_server(server, _config)
     end
   end
 end
--- cssls, stylelint_lsp, efm, sumneko_lua, diagnosticls, tsserver, tailwindcss, vimls
-setup_server("tsserver", config())
-setup_server("vuels", config())
-setup_server("cssls", config())
-setup_server("tailwindcss", config())
-setup_server("vimls", config())
-setup_server("yamlls", config())
-setup_server("ansiblels", config())
+
+local servers = {"tsserver", "vuels", "cssls", "tailwindcss", "vimls", "yamlls", "ansiblels", "terraformls", "tflint"}
+
+for _, lsp in ipairs(servers) do
+  setup_server(lsp, config())
+end
 setup_server("sumneko_lua", config(luadev))

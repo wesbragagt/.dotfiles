@@ -1,4 +1,7 @@
 call plug#begin('~/.vim/plugged')
+" Boost startup 
+Plug 'nathom/filetype.nvim'
+Plug 'lewis6991/impatient.nvim'
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 " LSP
@@ -50,5 +53,6 @@ Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript'],
   \ 'do': 'make install'
 \}
+
 call plug#end()
 lua require("wesbragagt")
