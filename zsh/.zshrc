@@ -11,11 +11,13 @@ export NPM_PREFIX="$HOME/.npm_global"
 export DOTFILES="$HOME/.dotfiles"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-source "$DOTFILES/zsh/.zsh-env"
 ZSH_THEME="simple"
 
 plugins=(git)
+
 source $ZSH/oh-my-zsh.sh
+source "$DOTFILES/zsh/.zsh-env" &> /dev/null
+
 alias scripts="jq '.scripts' ./package.json"
 alias dot="cd $DOTFILES"
 alias dotsync="cd $DOTFILES && git add -A && git commit -m 'sync' && git push"
@@ -32,12 +34,9 @@ alias fa="bash $DOTFILES/utils/fzf-vim.sh"
 alias send-cmd="bash $DOTFILES/utils/tmux-commander.sh"
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
-alias luamake=/Users/weslleybraga/.dotfiles/nvim/.config/nvim/lua-language-server/3rd/luamake/luamake
 senv(){
   export $(cat $1 | xargs)
 }
-alias denv="senv .env.development"
-alias penv="senv .env.production"
 alias gta="git add -A && git commit --amend --no-edit"
 alias gtf="gta && git push -f"
 alias clean="git branch --merged | egrep -v '(^\*|master|main|dev|nonprod)' | xargs git branch -D"
