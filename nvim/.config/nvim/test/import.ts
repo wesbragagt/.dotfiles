@@ -1,4 +1,3 @@
-
 export const dude = {
   getChicken: () => console.log('chicken')
 }
@@ -10,6 +9,3 @@ export const foo = {
 export function random(){
   return Math.random()
 }
-
-
-

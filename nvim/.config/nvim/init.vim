@@ -36,7 +36,12 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'preservim/nerdtree'
 Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 Plug 'ryanoasis/vim-devicons'
+
+" Colorscheme
+
 Plug 'morhetz/gruvbox'
+Plug 'lunarvim/colorschemes'
+
 Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'

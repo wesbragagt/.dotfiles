@@ -2,6 +2,7 @@
 require("impatient")
 -- Do not source the default filetype.vim
 vim.g.did_load_filetypes = 1
+require("wesbragagt._colorscheme")
 require("wesbragagt._telescope")
 require("wesbragagt._lsp")
 require("wesbragagt._formatter")
