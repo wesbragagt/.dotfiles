@@ -43,5 +43,5 @@ alias clean="git branch --merged | egrep -v '(^\*|master|main|dev|nonprod)' | xa
 alias tt="tmux -f $HOME/.tmux/.tmux.conf"
 alias y="yarn"
 alias ls="ls -a"
-alias l="logo-ls -1"
+alias l="logo-ls -1 -a"
 alias dc="docker-compose"
