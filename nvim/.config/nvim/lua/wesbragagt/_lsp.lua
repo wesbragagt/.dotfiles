@@ -9,37 +9,51 @@ if not snip_status_ok then
 end
 
 require("luasnip/loaders/from_vscode").lazy_load()
+local signs = {
+  {name = "DiagnosticSignError", text = ""},
+  {name = "DiagnosticSignWarn", text = ""},
+  {name = "DiagnosticSignHint", text = ""},
+  {name = "DiagnosticSignInfo", text = ""}
+}
+
+for _, sign in ipairs(signs) do
+  vim.fn.sign_define(sign.name, {texthl = sign.name, text = sign.text, numhl = ""})
+end
 
 vim.diagnostic.config {
-  virtual_text = {
-    prefix = ""
+  -- disable virtual text
+  virtual_text = true,
+  -- show signs
+  signs = {
+    active = signs
   },
-  signs = true,
+  update_in_insert = true,
   underline = true,
-  update_in_insert = false
+  severity_sort = true,
+  float = {
+    focusable = false,
+    style = "minimal",
+    border = "rounded",
+    source = "always",
+    header = "",
+    prefix = ""
+  }
 }
 
 vim.lsp.handlers["textDocument/hover"] =
   vim.lsp.with(
   vim.lsp.handlers.hover,
   {
-    border = "single"
+    border = "rounded"
   }
 )
 vim.lsp.handlers["textDocument/signatureHelp"] =
   vim.lsp.with(
   vim.lsp.handlers.signature_help,
   {
-    border = "single"
+    border = "rounded"
   }
 )
---vim.lsp.handlers["textDocument/publishDiagnostics"] =
---  vim.lsp.with(
---  vim.lsp.diagnostic.on_publish_diagnostics,
---  {
---    virtual_text = true
---  }
---)
 require("luasnip.loaders.from_vscode").lazy_load()
 --   פּ ﯟ   some other good icons
 local kind_icons = {
