@@ -1,4 +1,5 @@
 call plug#begin('~/.vim/plugged')
+Plug 'airblade/vim-rooter'
 " Boost startup 
 Plug 'nathom/filetype.nvim'
 Plug 'lewis6991/impatient.nvim'
@@ -61,3 +62,5 @@ Plug 'heavenshell/vim-jsdoc', {
 
 call plug#end()
 lua require("wesbragagt")
+
+let g:rooter_patterns = ['.git', 'node_modules']
