@@ -68,8 +68,10 @@ end
 function M.my_find_files()
   require("telescope.builtin").find_files(
     {
+      cwd = vim.call("FindRootDirectory"),
       find_command = {"fd", "-H", "-E", ".git"}
     }
   )
 end
+
 return M

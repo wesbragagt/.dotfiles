@@ -1,11 +1,11 @@
 export const dude = {
-  getChicken: () => console.log('chicken')
-}
+  getChicken: () => console.log("chicken"),
+};
 
 export const foo = {
-  bar: () => console.log('bar')
-}
+  bar: () => console.log("bar"),
+};
 
-export function random(){
-  return Math.random()
+export function random() {
+  return Math.random();
 }

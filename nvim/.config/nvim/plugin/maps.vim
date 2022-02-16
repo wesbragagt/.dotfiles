@@ -63,6 +63,7 @@ nnoremap <silent><C-l> :JsDoc<CR>
 nnoremap <leader>ff <cmd>lua require("wesbragagt._telescope").my_git_files()<CR>
 nnoremap <leader>fi <cmd>lua require("wesbragagt._telescope").my_find_files()<CR>
 nnoremap <leader>fg <cmd>Telescope live_grep<CR>
+nnoremap <leader>fr <cmd>Telescope lsp_references<CR>
 nnoremap <leader>fb <cmd>Telescope buffers<CR>
 nnoremap <leader>fgb <cmd>Telescope git_branches<CR>
 
@@ -76,3 +77,6 @@ nnoremap <leader>lsp :LspInstallInfo<CR>
 
 "Debug
 nnoremap <leader>dd :call vimspector#Launch()<CR>
+
+"Rooter
+nnoremap <leader>/ :RooterToggle<CR>
