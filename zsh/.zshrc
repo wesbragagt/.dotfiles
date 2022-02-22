@@ -40,7 +40,7 @@ senv(){
 alias gta="git add -A && git commit --amend --no-edit"
 alias gtf="gta && git push -f"
 alias clean="git branch --merged | egrep -v '(^\*|master|main|dev|nonprod)' | xargs git branch -D"
-alias tt="tmux -f $HOME/.tmux/.tmux.conf"
+alias tt="tmux -f $HOME/.config/tmux/.tmux.conf"
 alias y="yarn"
 alias ls="ls -a"
 alias l="logo-ls -1 -a"
