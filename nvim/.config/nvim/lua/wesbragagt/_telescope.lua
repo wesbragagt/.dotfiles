@@ -74,4 +74,12 @@ function M.my_find_files()
   )
 end
 
+function M.my_grep_files()
+  vim.cmd[[
+    execute 'RooterToggle'
+    execute 'Telescope live_grep'
+    execute 'RooterToggle'
+  ]]
+end
+
 return M
