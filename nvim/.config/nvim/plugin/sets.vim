@@ -37,6 +37,12 @@ augroup quickfix
     autocmd QuickFixCmdPost l* lwindow
   augroup END
 
+"Folds
+set foldenable
+set foldmethod=indent
+" Sets to open all folds by default when opening a file
+set foldlevelstart=99
+
 set fileencoding=utf-8
 set conceallevel=0 "so that ``is visible in markdown files"
 " set clipboard^=unnamed,unnamedplus

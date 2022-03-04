@@ -61,6 +61,9 @@ Plug 'heavenshell/vim-jsdoc', {
   \ 'do': 'make install'
 \}
 
+" Tests
+Plug 'vim-test/vim-test'
+
 call plug#end()
 let g:rooter_patterns = ['.git', 'node_modules']
 " To toggle between automatic and manual behaviour, use :RooterToggle. or

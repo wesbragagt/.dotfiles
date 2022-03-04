@@ -12,4 +12,4 @@ require("wesbragagt._lualine")
 require("wesbragagt._gitsigns")
 require("wesbragagt._bufferline")
 require("wesbragagt._icons")
-
+require("wesbragagt._vim-test")

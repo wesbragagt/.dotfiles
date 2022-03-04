@@ -1,7 +1,7 @@
 let mapleader = ' '
 nnoremap <leader><Enter> :so %<CR>
 " Reload lua modules
-nnoremap <leader>r <cmd>lua require("plenary.reload").reload_module("wesbragagt")<CR>
+nnoremap <leader>r <cmd>lua require("plenary.reload").reload_module("wesbragagt", true)<CR>
 
 " use regular escape in terminal mode
 tnoremap <Esc> <C-\><C-n><CR>
@@ -81,3 +81,4 @@ nnoremap <leader>dd :call vimspector#Launch()<CR>
 
 "Rooter
 nnoremap <leader>/ :RooterToggle<CR>
+

@@ -68,3 +68,13 @@ formatter.setup {
     }
   }
 }
+
+-- vim.api.nvim_exec(
+--   [[
+--   augroup FormatAutogroup
+--     autocmd!
+--     autocmd BufWritePost *.js,*.ts,*.jsx,*.tsx,*.lua,*.json FormatWrite
+--   augroup END
+--   ]],
+--   true
+-- )
