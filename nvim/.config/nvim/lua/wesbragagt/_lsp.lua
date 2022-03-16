@@ -221,9 +221,18 @@ setup_server(
     }
   )
 )
+setup_server(
+  "graphql",
+  config(
+    {
+      cmd = {"graphql-lsp", "server", "-m", "stream"},
+      filetypes = {"graphql", "gql"}
+    }
+  )
+)
 setup_server("sumneko_lua", config(luadev))
 
-local servers = {"cssls", "tailwindcss", "vimls", "yamlls", "ansiblels", "terraformls", "tflint"}
+local servers = {"cssls", "tailwindcss", "vimls", "yamlls", "ansiblels", "terraformls", "tflint", "jsonls"}
 for _, lsp in ipairs(servers) do
   setup_server(lsp, config())
 end

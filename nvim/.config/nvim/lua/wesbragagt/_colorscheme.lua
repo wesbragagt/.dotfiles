@@ -1,5 +1,6 @@
 vim.cmd [[
 try
+  hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
   colorscheme darkplus
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme default
@@ -16,7 +17,7 @@ endtry
 --   let g:gruvbox_contrast_dark = 'hard'
 --   let g:gruvbox_bold = 0
 --   let g:gruvbox_transparent_bg = 1
---   colorscheme gruvbox 
+--   colorscheme gruvbox
 -- catch /^Vim\%((\a\+)\)\=:E185/
 --   colorscheme default
 -- endtry
