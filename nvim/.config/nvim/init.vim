@@ -70,4 +70,6 @@ let g:rooter_patterns = ['.git', 'node_modules']
 " To toggle between automatic and manual behaviour, use :RooterToggle. or
 " <leader>/
 let g:rooter_manual_only = 1
+" Git Blame
+let g:gitblame_enabled = 0
 lua require("wesbragagt")

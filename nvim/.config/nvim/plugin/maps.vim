@@ -18,6 +18,7 @@ nmap <leader>gh :diffget //2<CR>
 nmap <leader>gl :diffget //3<CR>
 " Status
 nmap <leader>gs :G<CR>
+nnoremap <silent>ba :GitBlameToggle<CR>
 " open this configuration file in split from anywhere
 command! ConfigVim vsp ~/.dotfiles/nvim/.config/nvim
 nnoremap <leader>co :ConfigVim<CR>
