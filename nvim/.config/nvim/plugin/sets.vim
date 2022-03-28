@@ -45,7 +45,7 @@ set foldlevelstart=99
 
 set fileencoding=utf-8
 set conceallevel=0 "so that ``is visible in markdown files"
-set clipboard^=unnamed,unnamedplus
+" set clipboard^=unnamed,unnamedplus
 set norelativenumber
 set completeopt=menuone,noselect
 set wrap
