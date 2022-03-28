@@ -1,4 +1,5 @@
 call plug#begin('~/.vim/plugged')
+Plug 'preservim/vimux'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-rooter'
 " Boost startup 
