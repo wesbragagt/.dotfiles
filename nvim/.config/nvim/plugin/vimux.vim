@@ -4,5 +4,12 @@ let g:VimuxOrientation = "h"
 nnoremap <leader>t :call VimuxRunCommandInDir("clear; yarn jest --runInBand", 1)<CR>
 " Close the tmux runner created
 nnoremap <leader>vq :VimuxCloseRunner<CR>
- " Prompt for a command to run
-nnoremap <leader>vp :VimuxPromptCommand<CR>
+
+function VimuxPromptCommandDir()
+  execute 'RooterToggle' 
+  execute 'VimuxPromptCommand'
+  execute 'RooterToggle'
+endfunction
+
+" Prompt for a command to run
+nnoremap <leader>vp :call VimuxPromptCommandDir()<CR>
