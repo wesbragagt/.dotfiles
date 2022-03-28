@@ -5,9 +5,9 @@ end
 
 toggleterm.setup {
   open_mapping = [[<c-\>]],
-  start_in_insert = true,
+  start_in_insert = false,
   insert_mappings = true,
-  direction = "horizontal",
-  size = 25,
+  direction = "vertical",
+  size = 40,
   shell = vim.o.shell
 }

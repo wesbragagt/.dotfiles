@@ -5,11 +5,6 @@ nnoremap <leader>r <cmd>lua require("plenary.reload").reload_module("wesbragagt"
 
 " use regular escape in terminal mode
 tnoremap <Esc> <C-\><C-n><CR>
-" navigate between split panels
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
 " Git stuff
 " commit
 " left pick merge
@@ -30,10 +25,6 @@ nnoremap <leader>ts :!ts-node %<CR>
 nnoremap <leader>go :!go run %<CR>
 " run current shell file 
 nnoremap <leader>sh :!zsh %<CR>
-" quickfix navigation
-nnoremap <C-l> :cnext<CR>
-nnoremap <C-h> :cprev<CR>
-nnoremap <leader>qf :copen<CR>
 " Bufferline close current buffer
 nnoremap <leader>x :bdelete<CR>
 nnoremap <leader>x :!chmod +x %<CR>
@@ -57,16 +48,14 @@ nnoremap <silent><leader>p "+p<CR>
 xnoremap <silent><leader>p "+p<CR>
 nnoremap <silent><leader>P "+P<CR>
 xnoremap <silent><leader>P "+P<CR>
-" JsDoc
-nnoremap <silent><C-l> :JsDoc<CR>
 
-" Telescope
-nnoremap <leader>ff <cmd>lua require("wesbragagt._telescope").my_git_files()<CR>
-nnoremap <leader>fi <cmd>lua require("wesbragagt._telescope").my_find_files()<CR>
-nnoremap <leader>fg <cmd>lua require("wesbragagt._telescope").my_grep_files()<CR>
-nnoremap <leader>fr <cmd>Telescope lsp_references<CR>
-nnoremap <leader>fb <cmd>Telescope buffers<CR>
-nnoremap <leader>fgb <cmd>Telescope git_branches<CR>
+"@deprecated Telescope
+" nnoremap <leader>ff <cmd>lua require("wesbragagt._telescope").my_git_files()<CR>
+" nnoremap <leader>fi <cmd>lua require("wesbragagt._telescope").my_find_files()<CR>
+" nnoremap <leader>fg <cmd>lua require("wesbragagt._telescope").my_grep_files()<CR>
+" nnoremap <leader>fr <cmd>Telescope lsp_references<CR>
+" nnoremap <leader>fb <cmd>Telescope buffers<CR>
+" nnoremap <leader>fgb <cmd>Telescope git_branches<CR>
 
 " LSP
 nnoremap <silent>gd <cmd>lua vim.lsp.buf.definition()<CR>
@@ -82,4 +71,3 @@ nnoremap <leader>dd :call vimspector#Launch()<CR>
 
 "Rooter
 nnoremap <leader>/ :RooterToggle<CR>
-
