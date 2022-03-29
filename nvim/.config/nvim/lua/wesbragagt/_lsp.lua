@@ -111,9 +111,9 @@ cmp.setup(
         vim_item.menu =
           ({
           nvim_lsp = "[LSP]",
-          luasnip = "[Snippet]",
           buffer = "[Buffer]",
-          path = "[Path]"
+          path = "[Path]",
+          luasnip = "[Snippet]"
         })[entry.source.name]
         return vim_item
       end
@@ -231,8 +231,16 @@ setup_server(
   )
 )
 setup_server("sumneko_lua", config(luadev))
+setup_server(
+  "tailwindcss",
+  config(
+    {
+      filetypes = {"javascriptreact", "typescriptreact", "vue", "html", "css"}
+    }
+  )
+)
 
-local servers = {"cssls", "tailwindcss", "vimls", "yamlls", "ansiblels", "terraformls", "tflint", "jsonls"}
+local servers = {"cssls", "vimls", "yamlls", "ansiblels", "terraformls", "tflint", "jsonls"}
 for _, lsp in ipairs(servers) do
   setup_server(lsp, config())
 end

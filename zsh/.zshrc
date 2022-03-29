@@ -11,6 +11,13 @@ export NPM_PREFIX="$HOME/.npm_global"
 export DOTFILES="$HOME/.dotfiles"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+# --files: List files that would be searched but do not search
+# --no-ignore: Do not respect .gitignore, etc...
+# --hidden: Search hidden files and folders
+# --follow: Follow symlinks
+# --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
 ZSH_THEME="simple"
 
 plugins=(git)
@@ -43,6 +50,6 @@ alias clean="git branch --merged | egrep -v '(^\*|master|main|dev|nonprod)' | xa
 alias tt="tmux -f $HOME/.config/tmux/.tmux.conf"
 alias y="yarn"
 alias ls="ls -a"
-alias l="logo-ls -1 -a"
+alias l="logo-ls -a"
 alias dc="docker-compose"
 alias new="git checkout -b"

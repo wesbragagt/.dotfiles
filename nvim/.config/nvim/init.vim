@@ -1,4 +1,6 @@
 call plug#begin('~/.vim/plugged')
+Plug 'preservim/vimux'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'airblade/vim-rooter'
 " Boost startup 
 Plug 'nathom/filetype.nvim'
@@ -22,11 +24,10 @@ Plug 'folke/trouble.nvim'
 Plug 'folke/lsp-colors.nvim'
 
 " For vsnip user.
-
 Plug 'rafamadriz/friendly-snippets'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
-Plug 'akinsho/toggleterm.nvim'
+"@deprecated Plug 'akinsho/toggleterm.nvim'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'f-person/git-blame.nvim'
@@ -43,12 +44,13 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'morhetz/gruvbox'
 Plug 'lunarvim/colorschemes'
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'jparise/vim-graphql'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 " Bufferline
 Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
@@ -56,11 +58,6 @@ Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 Plug 'akinsho/bufferline.nvim'
 " Formatting
 Plug 'mhartington/formatter.nvim'
-"JSDoc
-Plug 'heavenshell/vim-jsdoc', {
-  \ 'for': ['javascript', 'javascript.jsx','typescript'],
-  \ 'do': 'make install'
-\}
 
 " Tests
 Plug 'vim-test/vim-test'

@@ -8,6 +8,7 @@ if [[ $# -eq 1 ]]; then
 else
     # uses fd which is a super fast replacement for find
     items=`fd --hidden --exclude .git`
+
     selected=`echo "$items" | fzf`
 fi
 
@@ -15,6 +16,3 @@ nvim $selected
 if [[ $? -eq 0 ]]; then
     exit 0
 fi
-
-
-
