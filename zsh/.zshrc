@@ -16,7 +16,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # --hidden: Search hidden files and folders
 # --follow: Follow symlinks
 # --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='fd -H -E .git'
 
 ZSH_THEME="simple"
 
