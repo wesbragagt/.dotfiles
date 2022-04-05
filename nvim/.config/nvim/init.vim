@@ -50,6 +50,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
+Plug 'sindrets/diffview.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 " Bufferline
