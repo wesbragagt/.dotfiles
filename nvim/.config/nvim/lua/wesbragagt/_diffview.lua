@@ -112,5 +112,8 @@ diffview.setup {
   }
 }
 
-vim.api.nvim_set_keymap("n", "<Leader>dfo", ":DiffviewOpen <CR>", {silent = true})
-vim.api.nvim_set_keymap("n", "<Leader>dfx", ":DiffviewClose <CR>", {silent = true})
+vim.cmd[[
+  let mapleader = ' '
+  nnoremap <leader>dfo :DiffviewOpen<CR>
+  nnoremap <leader>dfx :DiffviewClose<CR>
+]]
