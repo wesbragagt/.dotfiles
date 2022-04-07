@@ -1,9 +1,14 @@
-STANDUP_DIR_PATH="~/notes/Bambee/raptors/standup"
+STANDUP_DIR_PATH="$HOME/notes/Bambee/raptors/standup"
 
 function standup {
-    local today=$(date +'%m/%d/%Y')
-    local todayPath="$STANDUP_DIR_PATH/$(date +'%Y/%m')"
-    local todayFile="$(date +'%d').md"
+    local year=$(date +"%Y")
+    local month=$(date +"%m")
+    local today=$(date +"%d")
+
+    local todaysDate="$year-$month-$today"
+
+    local todayPath="$STANDUP_DIR_PATH/$year/$month"
+    local todayFile="$todaysDate.md"
     local todayFullPath="$todayPath/$todayFile"
     
     if [ -f "$todayFullPath" ]; then
@@ -12,22 +17,21 @@ function standup {
         echo "DIDNT EXIST"
         mkdir -p $todayPath
         cat > $todayFullPath <<- EOM
-\`Standup $today\`
+\`Standup $todaysDate\`
 
-**Yesterday**
-
+Yesterday
 - Task: ___
   - Ticket: https://bambee.atlassian.net/browse/RAP-001  
   - Status: ___
   - Reason: ___ 
 
-**Today**:
+Today:
 - Task:
   - Ticket: ___ 
   - Status: ___
   - Reason: ___ 
 
-**Blockers**
+Breakouts:
   - Ticket: ___
   - Reason: ___
 EOM
@@ -37,7 +41,7 @@ EOM
 }
 
 function standupList {
-    local todayPath="$STANDUP_PATH/$(date +'%Y/%m')"
+    local todayPath="$STANDUP_DIR_PATH/$(date +'%Y/%m')"
     open $todayPath
 }
 
