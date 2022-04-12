@@ -172,12 +172,21 @@ setup_server(
     {
       filetypes = {"typescript", "javascript", "javascriptreact", "typescriptreact"},
       on_attach = function(client, bufnr)
+        -- use null-ls for this
         client.resolved_capabilities.document_formatting = false
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>ff", "<cmd>lua vim.lsp.buf.formatting()<CR>", {})
       end,
     }
   )
 )
+setup_server("eslint", config({
+  on_attach = function (client, bufnr)
+            -- use null-ls for this
+            client.resolved_capabilities.document_formatting = false
+        end,
+  settings = {
+            format = { enable = true }, -- this will enable formatting
+        }
+}))
 setup_server(
   "vuels",
   config(

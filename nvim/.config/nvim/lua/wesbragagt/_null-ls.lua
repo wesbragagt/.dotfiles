@@ -23,3 +23,7 @@ end
       end,
     }
   )
+
+vim.cmd[[
+nnoremap <silent>lua vim.lsp.buf.formatting_sync()<CR>
+]]
