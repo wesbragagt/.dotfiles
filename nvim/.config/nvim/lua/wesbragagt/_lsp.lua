@@ -170,7 +170,11 @@ setup_server(
   "tsserver",
   config(
     {
-      filetypes = {"typescript", "javascript", "javascriptreact", "typescriptreact"}
+      filetypes = {"typescript", "javascript", "javascriptreact", "typescriptreact"},
+      on_attach = function(client, bufnr)
+        client.resolved_capabilities.document_formatting = false
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>ff", "<cmd>lua vim.lsp.buf.formatting()<CR>", {})
+      end,
     }
   )
 )

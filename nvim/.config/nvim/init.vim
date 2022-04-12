@@ -22,6 +22,7 @@ Plug 'folke/lua-dev.nvim'
 " Diagnostics
 Plug 'folke/trouble.nvim'
 Plug 'folke/lsp-colors.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 
 " For vsnip user.
 Plug 'rafamadriz/friendly-snippets'
