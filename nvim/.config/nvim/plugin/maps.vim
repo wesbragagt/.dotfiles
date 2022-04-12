@@ -63,6 +63,7 @@ nnoremap <silent>gr <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent>ca <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <silent>K <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent>L <cmd>lua vim.diagnostic.open_float()<CR>
+nnoremap <leader>fo <cmd>lua vim.lsp.buf.formatting_sync()<CR>
 nnoremap <leader>lsp :LspInstallInfo<CR>
 
 "Debug
