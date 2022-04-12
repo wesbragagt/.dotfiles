@@ -62,7 +62,6 @@ Plug 'mhartington/formatter.nvim'
 
 " Tests
 Plug 'vim-test/vim-test'
-
 call plug#end()
 let g:rooter_patterns = ['.git', 'node_modules']
 " To toggle between automatic and manual behaviour, use :RooterToggle. or

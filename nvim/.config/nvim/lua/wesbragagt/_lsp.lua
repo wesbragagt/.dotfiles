@@ -240,7 +240,16 @@ setup_server(
   )
 )
 
-local servers = {"cssls", "vimls", "yamlls", "ansiblels", "terraformls", "tflint", "jsonls"}
+setup_server(
+  "terraformls",
+  config(
+    {
+      filetypes = {"tf"}
+    }
+  )
+)
+
+local servers = {"cssls", "vimls", "yamlls", "ansiblels", "jsonls"}
 for _, lsp in ipairs(servers) do
   setup_server(lsp, config())
 end
