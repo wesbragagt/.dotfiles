@@ -174,19 +174,11 @@ setup_server(
       on_attach = function(client, bufnr)
         -- use null-ls for this
         client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
       end,
     }
   )
 )
-setup_server("eslint", config({
-  on_attach = function (client, bufnr)
-            -- use null-ls for this
-            client.resolved_capabilities.document_formatting = false
-        end,
-  settings = {
-            format = { enable = true }, -- this will enable formatting
-        }
-}))
 setup_server(
   "vuels",
   config(
