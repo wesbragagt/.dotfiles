@@ -1,3 +1,5 @@
+import { dude2 } from "./lib.ts";
+
 export const dude = {
   getChicken: () => console.log("chicken"),
 };

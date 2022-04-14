@@ -19,6 +19,8 @@ Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'folke/lua-dev.nvim'
+" Code Action Menu
+Plug 'weilbith/nvim-code-action-menu'
 " Diagnostics
 Plug 'folke/trouble.nvim'
 Plug 'folke/lsp-colors.nvim'

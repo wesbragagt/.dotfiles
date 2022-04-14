@@ -1,5 +1,5 @@
 local dude = {
-  haha = "laugh"
+	haha = "laugh",
 }
 
 print(dude.haa)
