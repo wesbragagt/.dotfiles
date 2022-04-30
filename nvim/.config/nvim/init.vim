@@ -1,3 +1,7 @@
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/vimux'
 Plug 'christoomey/vim-tmux-navigator'
@@ -38,9 +42,13 @@ Plug 'f-person/git-blame.nvim'
 Plug 'tpope/vim-commentary'
 " Status
 Plug 'nvim-lualine/lualine.nvim'
+Plug 'feline-nvim/feline.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
+
+" Indentline
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 " Colorscheme
 
@@ -60,8 +68,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 " Plug 'ryanoasis/vim-devicons' Icons without colours
 Plug 'akinsho/bufferline.nvim'
-" Formatting
-Plug 'mhartington/formatter.nvim'
+" @deprecated Formatting
+" Plug 'mhartington/formatter.nvim'
 
 " Tests
 Plug 'vim-test/vim-test'
