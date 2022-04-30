@@ -221,11 +221,11 @@ setup_server(
 setup_server(
 	"terraformls",
 	config({
-		filetypes = { "tf" },
+		filetypes = { "tf", "tfvars" },
 	})
 )
 
-local servers = { "cssls", "vimls", "yamlls", "ansiblels", "jsonls", "eslint" }
+local servers = { "cssls", "vimls", "yamlls", "ansiblels", "jsonls" }
 for _, lsp in ipairs(servers) do
 	setup_server(lsp, config())
 end

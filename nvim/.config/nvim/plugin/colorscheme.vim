@@ -1,11 +1,10 @@
 try
-  hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
-  colorscheme darkplus
+  colorscheme nightfox
+  hi Visual guifg=White guibg=#68a1ed gui=none 
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme default
   set background=dark
 endtry
-
 
 "" Gruvbox
 "" vim.cmd [[

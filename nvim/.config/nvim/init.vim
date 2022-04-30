@@ -26,6 +26,8 @@ Plug 'folke/trouble.nvim'
 Plug 'folke/lsp-colors.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 
+" Typescript Utils
+Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 " For vsnip user.
 Plug 'rafamadriz/friendly-snippets'
 Plug 'hrsh7th/cmp-vsnip'
@@ -46,6 +48,10 @@ Plug 'ryanoasis/vim-devicons'
 
 Plug 'morhetz/gruvbox'
 Plug 'lunarvim/colorschemes'
+Plug 'rafamadriz/neon'
+Plug 'folke/tokyonight.nvim'
+Plug 'EdenEast/nightfox.nvim'
+Plug 'sainnhe/sonokai'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
