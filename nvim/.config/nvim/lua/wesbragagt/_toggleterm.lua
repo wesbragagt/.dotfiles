@@ -4,10 +4,10 @@ if not status_ok then
 end
 
 toggleterm.setup {
-  open_mapping = [[<c-\>]],
+  open_mapping = [[<C-t>]],
   start_in_insert = false,
   insert_mappings = true,
   direction = "vertical",
-  size = 40,
+  size = 50,
   shell = vim.o.shell
 }

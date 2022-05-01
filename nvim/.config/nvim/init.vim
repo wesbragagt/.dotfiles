@@ -36,7 +36,7 @@ Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
-"@deprecated Plug 'akinsho/toggleterm.nvim'
+Plug 'akinsho/toggleterm.nvim'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'f-person/git-blame.nvim'
@@ -76,9 +76,6 @@ Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 Plug 'akinsho/bufferline.nvim'
 " @deprecated Formatting
 " Plug 'mhartington/formatter.nvim'
-
-" Tests
-Plug 'vim-test/vim-test'
 call plug#end()
 let g:rooter_patterns = ['.git', 'node_modules']
 " To toggle between automatic and manual behaviour, use :RooterToggle. or
