@@ -12,19 +12,13 @@ nmap <leader>gh :diffget //2<CR>
 " right pick merge
 nmap <leader>gl :diffget //3<CR>
 " Status
-nmap <leader>gs :G<CR>
+nmap <leader>gs :vert G<CR>
 nnoremap <silent>ba :GitBlameToggle<CR>
 " open this configuration file in split from anywhere
 command! ConfigVim vsp ~/.dotfiles/nvim/.config/nvim
 nnoremap <leader>co :ConfigVim<CR>
 " toggle between uppercase and lowercase 
 nnoremap <leader>to viw~<CR>
-" run ts-node on the current file
-nnoremap <leader>ts :!ts-node %<CR>
-" run go on the current file
-nnoremap <leader>go :!go run %<CR>
-" run current shell file 
-nnoremap <leader>sh :!zsh %<CR>
 " Bufferline close current buffer
 nnoremap <leader>x :bdelete<CR>
 nnoremap <leader>x :!chmod +x %<CR>
@@ -72,3 +66,11 @@ nnoremap <leader>dd :call vimspector#Launch()<CR>
 
 "Rooter
 nnoremap <leader>/ :RooterToggle<CR>
+
+nmap <leader>sp :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
