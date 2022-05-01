@@ -1,4 +1,4 @@
-import { dude2 } from "./lib.ts";
+import { dude2 } from "./lib";
 
 export const dude = {
   getChicken: () => console.log("chicken"),
@@ -11,3 +11,5 @@ export const foo = {
 export function random() {
   return Math.random();
 }
+
+console.log(dude2())
