@@ -1,5 +1,5 @@
 try
-  colorscheme nightfox
+  colorscheme darkplus
   hi Visual guifg=White guibg=#68a1ed gui=none 
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme default
