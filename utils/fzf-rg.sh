@@ -3,7 +3,7 @@
 # pipes ripgrep search to fzf selection and opens vim on selected file
 set -e
 
-items=`rg -l $1`
+items=`rg -l --hidden -g '!.git/' $@`
 selected=`echo "$items" | fzf`
 
 nvim $selected
