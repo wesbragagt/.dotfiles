@@ -12,4 +12,4 @@ export function random() {
   return Math.random();
 }
 
-console.log(dude2())
+console.log(dude2());

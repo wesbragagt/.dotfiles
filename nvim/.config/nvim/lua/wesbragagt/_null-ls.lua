@@ -13,7 +13,8 @@ null_ls.setup({
 				return utils.root_has_file(".eslintrc")
 			end,
 		}),
-		null_ls.builtins.formatting.prettierd,
+    null_ls.builtins.formatting.prettierd,
+    null_ls.builtins.formatting.terraform_fmt,
 		null_ls.builtins.code_actions.eslint_d,
 		null_ls.builtins.hover.dictionary,
 	},
