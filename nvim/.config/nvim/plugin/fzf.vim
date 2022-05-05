@@ -2,6 +2,9 @@ if has("nvim")
 autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
 endif
 
+"Layout
+let g:fzf_layout = { 'down':  '40%'}
+
 " Run fzf from project root
 function! s:find_git_root()
   return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]

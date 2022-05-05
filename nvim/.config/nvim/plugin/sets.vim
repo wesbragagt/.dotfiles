@@ -58,7 +58,7 @@ set expandtab "convert tabs to spaces"
 set scrolloff=8
 set number "display line numbers"
 set numberwidth=2 "line numbers width"
-set autochdir "allow the mouse to be used in neovim"
+set autochdir 
 set colorcolumn=120
 set iskeyword+=- 
 set background=dark 
