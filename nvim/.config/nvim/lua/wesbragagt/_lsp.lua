@@ -161,7 +161,7 @@ setup_server(
 	"tsserver",
 	config({
 		filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
-    root_dir = function(arg1, arg2) return vim.loop.cwd()end -- language server launch for any js files
+    --root_dir = function(arg1, arg2) return vim.loop.cwd()end -- language server launch for any js files
 	})
 )
 setup_server(
