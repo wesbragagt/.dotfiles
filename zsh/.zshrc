@@ -54,3 +54,7 @@ alias ls="ls -a"
 alias l="logo-ls -a"
 alias dc="docker-compose"
 alias new="git checkout -b"
+
+function get_external_ip(){
+  curl ipecho.net/plain ; echo
+}
