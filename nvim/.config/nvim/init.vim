@@ -53,7 +53,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'lukas-reineke/indent-blankline.nvim'
 
 " Colorscheme
-
+Plug 'rmehri01/onenord.nvim'
 Plug 'morhetz/gruvbox'
 Plug 'lunarvim/colorschemes'
 Plug 'rafamadriz/neon'

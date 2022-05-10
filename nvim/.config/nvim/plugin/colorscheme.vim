@@ -1,5 +1,9 @@
 try
+   
   colorscheme darkplus
+  " set highlighting on auto complete window
+  hi Pmenu ctermbg=10 ctermfg=15 guibg=#444444 guifg=#444444
+  " set a blue visual selection
   hi Visual guifg=White guibg=#68a1ed gui=none 
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme default
