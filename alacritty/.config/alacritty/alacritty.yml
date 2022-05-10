@@ -54,7 +54,7 @@ font:
   # to your convenience but make sure to adjust 'glyph_offset' appropriately post that
   offset:
    x: 0
-   y: 6
+   y: 4
 
   # Note: This requires RESTART
   # By default when you change the offset above you'll see an issue, where the texts are bottom
