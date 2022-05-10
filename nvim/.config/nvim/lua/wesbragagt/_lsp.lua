@@ -151,7 +151,12 @@ local function setup_server(server, _config)
 		end
 	end
 end
-
+setup_server(
+  "emmet_ls",
+  config({
+    filetypes = { "html", "css", "typescriptreact", "javascriptreact" }
+  })
+)
 setup_server(
 	"tsserver",
 	config({
@@ -219,7 +224,7 @@ setup_server(
 	})
 )
 
-local servers = { "cssls", "vimls", "yamlls", "ansiblels", "jsonls", "terraformls", "tflint" }
+local servers = { "cssls", "vimls", "yamlls", "ansiblels", "jsonls", "terraformls", "tflint"}
 for _, lsp in ipairs(servers) do
 	setup_server(lsp, config())
 end
