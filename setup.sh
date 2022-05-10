@@ -5,7 +5,6 @@ links=(
   tmux
   zsh
   raycast
-  iterm2
   alacritty
   )
 
