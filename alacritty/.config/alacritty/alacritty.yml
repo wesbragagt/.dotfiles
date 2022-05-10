@@ -10,8 +10,8 @@ window:
   dynamic_padding: true
   opacity: 1
   padding:
-    x: 6
-    y: 6
+    x: 2
+    y: 2
 
 
 # Sample Font configuration for font: Monoid.
