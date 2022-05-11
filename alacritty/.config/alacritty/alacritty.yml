@@ -76,3 +76,7 @@ selection:
 
 # Live config reload (changes require restart)
 live_config_reload: true
+key_bindings:
+  # fixes swapping between files in vim with ctrl+6
+  # I had an issue where this command was not working in alacritty but other terminals have that by default
+  - { key: Key6,     mods: Control, chars: "\x1e"                        }
