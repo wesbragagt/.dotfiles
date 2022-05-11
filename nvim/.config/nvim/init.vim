@@ -36,6 +36,7 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'akinsho/toggleterm.nvim'
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'f-person/git-blame.nvim'
 " Comments
 Plug 'tpope/vim-commentary'
