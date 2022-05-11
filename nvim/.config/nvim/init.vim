@@ -29,9 +29,6 @@ Plug 'weilbith/nvim-code-action-menu'
 Plug 'folke/trouble.nvim'
 Plug 'folke/lsp-colors.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
-
-" Typescript Utils
-Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 " For vsnip user.
 Plug 'rafamadriz/friendly-snippets'
 Plug 'hrsh7th/cmp-vsnip'
@@ -53,13 +50,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'lukas-reineke/indent-blankline.nvim'
 
 " Colorscheme
-Plug 'rmehri01/onenord.nvim'
-Plug 'morhetz/gruvbox'
 Plug 'lunarvim/colorschemes'
-Plug 'rafamadriz/neon'
-Plug 'folke/tokyonight.nvim'
-Plug 'EdenEast/nightfox.nvim'
-Plug 'sainnhe/sonokai'
+Plug 'lifepillar/vim-gruvbox8'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -68,8 +60,6 @@ Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'sindrets/diffview.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 " Bufferline
 Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 " Plug 'ryanoasis/vim-devicons' Icons without colours
