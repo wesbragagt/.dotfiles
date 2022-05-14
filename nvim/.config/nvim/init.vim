@@ -5,7 +5,6 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/vimux'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'airblade/vim-rooter'
 " Boost startup 
 Plug 'nathom/filetype.nvim'
 Plug 'lewis6991/impatient.nvim'
@@ -62,16 +61,9 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'sindrets/diffview.nvim'
 " Bufferline
 Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
-" Plug 'ryanoasis/vim-devicons' Icons without colours
 Plug 'akinsho/bufferline.nvim'
-" @deprecated Formatting
-" Plug 'mhartington/formatter.nvim'
 call plug#end()
 let g:gutentags_enabled = 0
-let g:rooter_patterns = ['.git', 'node_modules']
-" To toggle between automatic and manual behaviour, use :RooterToggle. or
-" <leader>/
-let g:rooter_manual_only = 1
 " Git Blame
 let g:gitblame_enabled = 0
 lua require("wesbragagt")
