@@ -1,20 +1,16 @@
-local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-	packer_bootstrap = fn.system({
-		"git",
-		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
-	})
+-- Install packer
+local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+  vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 end
+
+local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePost', { command = 'source <afile> | PackerCompile', group = packer_group, pattern = 'init.lua' })
 
 return require("packer").startup(function(use)
 	use("preservim/vimux")
 	use("christoomey/vim-tmux-navigator")
-	use("airblade/vim-rooter")
 	-- Boost startup
 	use("nathom/filetype.nvim")
 	use("lewis6991/impatient.nvim")

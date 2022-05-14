@@ -1,4 +1,3 @@
--- better colors
 if (vim.fn.has("termguicolors")) then
   vim.opt.termguicolors = true
 end
