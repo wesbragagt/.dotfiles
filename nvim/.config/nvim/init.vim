@@ -55,7 +55,6 @@ Plug 'lifepillar/vim-gruvbox8'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'sindrets/diffview.nvim'
