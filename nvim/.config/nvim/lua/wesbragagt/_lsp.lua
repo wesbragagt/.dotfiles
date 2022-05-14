@@ -121,7 +121,7 @@ cmp.setup({
 
 -- Setup lspconfig.
 -- Allows to pass custom configs to append to current default table
-local function config(_config)
+local function config(options)
 	return vim.tbl_deep_extend("force", {
 		capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
 		on_attach = function(client)
@@ -129,7 +129,7 @@ local function config(_config)
 			client.resolved_capabilities.document_formatting = false
 			client.resolved_capabilities.document_range_formatting = false
 		end,
-	}, _config or {})
+	}, options or {})
 end
 
 -- Attach to LSP client individually
@@ -149,18 +149,18 @@ local function setup_server(server, _config)
 	end
 end
 setup_server(
-  "emmet_ls",
-  config({
-    filetypes = { "html", "css", "typescriptreact", "javascriptreact" }
-  })
+	"emmet_ls",
+	config({
+		filetypes = { "html", "css", "typescriptreact", "javascriptreact" },
+	})
 )
 setup_server(
 	"tsserver",
 	config({
 		filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
-    --root_dir = function(arg1, arg2) return vim.loop.cwd()end -- language server launch for any js files
-     -- Needed for inlayHints. Merge this table with your settings or copy
-    -- it from the source if you want to add your own init_options.
+		--root_dir = function(arg1, arg2) return vim.loop.cwd()end -- language server launch for any js files
+		-- Needed for inlayHints. Merge this table with your settings or copy
+		-- it from the source if you want to add your own init_options.
 	})
 )
 setup_server(
@@ -208,13 +208,6 @@ setup_server(
 		},
 	})
 )
-setup_server(
-	"graphql",
-	config({
-		cmd = { "graphql-lsp", "server", "-m", "stream" },
-		filetypes = { "graphql", "gql" },
-	})
-)
 setup_server("sumneko_lua", config(luadev))
 setup_server(
 	"tailwindcss",
@@ -222,8 +215,7 @@ setup_server(
 		filetypes = { "javascriptreact", "typescriptreact", "vue", "html", "css" },
 	})
 )
-
-local servers = { "cssls", "vimls", "yamlls", "ansiblels", "jsonls", "terraformls", "tflint"}
+local servers = { "cssls", "vimls", "yamlls", "ansiblels", "jsonls", "terraformls", "tflint", "graphql" }
 for _, lsp in ipairs(servers) do
 	setup_server(lsp, config())
 end
