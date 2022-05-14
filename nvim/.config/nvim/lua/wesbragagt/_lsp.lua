@@ -81,16 +81,13 @@ cmp.setup({
 			luasnip.lsp_expand(args.body)
 		end,
 	},
-	mapping = {
-		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
-		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-		["<C-e>"] = cmp.mapping.close(),
-		["<C-y>"] = cmp.mapping.confirm({
-			behavior = cmp.ConfirmBehavior.Insert,
-			select = true,
-		}),
-	},
+	mapping = cmp.mapping.preset.insert({
+		["<C-b>"] = cmp.mapping.scroll_docs(-4),
+		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-Space>"] = cmp.mapping.complete(),
+		["<C-e>"] = cmp.mapping.abort(),
+		["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+	}),
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
 		format = function(entry, vim_item)
@@ -149,18 +146,18 @@ local function setup_server(server, _config)
 	end
 end
 setup_server(
-  "emmet_ls",
-  config({
-    filetypes = { "html", "css", "typescriptreact", "javascriptreact" }
-  })
+	"emmet_ls",
+	config({
+		filetypes = { "html", "css", "typescriptreact", "javascriptreact" },
+	})
 )
 setup_server(
 	"tsserver",
 	config({
 		filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
-    --root_dir = function(arg1, arg2) return vim.loop.cwd()end -- language server launch for any js files
-     -- Needed for inlayHints. Merge this table with your settings or copy
-    -- it from the source if you want to add your own init_options.
+		--root_dir = function(arg1, arg2) return vim.loop.cwd()end -- language server launch for any js files
+		-- Needed for inlayHints. Merge this table with your settings or copy
+		-- it from the source if you want to add your own init_options.
 	})
 )
 setup_server(
@@ -223,7 +220,7 @@ setup_server(
 	})
 )
 
-local servers = { "cssls", "vimls", "yamlls", "ansiblels", "jsonls", "terraformls", "tflint"}
+local servers = { "cssls", "vimls", "yamlls", "ansiblels", "jsonls", "terraformls", "tflint", "vimls" }
 for _, lsp in ipairs(servers) do
 	setup_server(lsp, config())
 end
