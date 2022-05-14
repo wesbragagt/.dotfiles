@@ -43,14 +43,6 @@ xnoremap <silent><leader>p "+p<CR>
 nnoremap <silent><leader>P "+P<CR>
 xnoremap <silent><leader>P "+P<CR>
 
-"@deprecated Telescope
-" nnoremap <leader>ff <cmd>lua require("wesbragagt._telescope").my_git_files()<CR>
-" nnoremap <leader>fi <cmd>lua require("wesbragagt._telescope").my_find_files()<CR>
-" nnoremap <leader>fg <cmd>lua require("wesbragagt._telescope").my_grep_files()<CR>
-" nnoremap <leader>fr <cmd>Telescope lsp_references<CR>
-" nnoremap <leader>fb <cmd>Telescope buffers<CR>
-" nnoremap <leader>fgb <cmd>Telescope git_branches<CR>
-
 " LSP
 nnoremap <silent>gd <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent>gr <cmd>lua vim.lsp.buf.references()<CR>
@@ -59,18 +51,9 @@ nnoremap <silent>ca :CodeActionMenu<CR>
 nnoremap <silent>K <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent>L <cmd>lua vim.diagnostic.open_float()<CR>
 nnoremap <leader>fo <cmd>lua vim.lsp.buf.formatting_sync(nil, 2000)<CR>
-nnoremap <leader>lsp :LspInstallInfo<CR>
 
 "Debug
 nnoremap <leader>dd :call vimspector#Launch()<CR>
 
 "Rooter
 nnoremap <leader>/ :RooterToggle<CR>
-
-nmap <leader>sp :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
