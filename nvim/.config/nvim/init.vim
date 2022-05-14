@@ -67,6 +67,7 @@ Plug 'akinsho/bufferline.nvim'
 " @deprecated Formatting
 " Plug 'mhartington/formatter.nvim'
 call plug#end()
+let g:gutentags_enabled = 0
 let g:rooter_patterns = ['.git', 'node_modules']
 " To toggle between automatic and manual behaviour, use :RooterToggle. or
 " <leader>/
