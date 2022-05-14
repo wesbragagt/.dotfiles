@@ -42,7 +42,6 @@ Plug 'f-person/git-blame.nvim'
 Plug 'tpope/vim-commentary'
 " Status
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'feline-nvim/feline.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'

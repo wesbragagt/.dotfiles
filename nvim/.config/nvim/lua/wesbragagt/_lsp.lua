@@ -113,9 +113,6 @@ cmp.setup({
 		{ name = "path" },
 		{ name = "nvim_lua" },
 	},
-	documentation = {
-		border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-	},
 	experimental = {
 		ghost_text = false,
 		native_menu = false,
