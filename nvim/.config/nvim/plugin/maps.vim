@@ -1,8 +1,5 @@
 let mapleader = ' '
 nnoremap <leader><Enter> :so %<CR>
-" Reload lua modules
-nnoremap <leader>r <cmd>lua require("plenary.reload").reload_module("wesbragagt", true)<CR>
-
 " use regular escape in terminal mode
 tnoremap <Esc> <C-\><C-n><CR>
 " Git stuff
@@ -19,10 +16,6 @@ command! ConfigVim vsp ~/.dotfiles/nvim/.config/nvim
 nnoremap <leader>co :ConfigVim<CR>
 " toggle between uppercase and lowercase 
 nnoremap <leader>to viw~<CR>
-" Bufferline close current buffer
-nnoremap <leader>x :bdelete<CR>
-nnoremap <leader>x :!chmod +x %<CR>
-
 " simple command to copy all search matches to the clipboard
 function! CopyMatches(reg)
   let hits = []
@@ -42,18 +35,5 @@ nnoremap <silent><leader>p "+p<CR>
 xnoremap <silent><leader>p "+p<CR>
 nnoremap <silent><leader>P "+P<CR>
 xnoremap <silent><leader>P "+P<CR>
-
-" LSP
-nnoremap <silent>gd <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent>gr <cmd>lua vim.lsp.buf.references()<CR>
-" nnoremap <silent>ca <cmd>lua vim.lsp.buf.code_action()<CR>
-nnoremap <silent>ca :CodeActionMenu<CR>
-nnoremap <silent>K <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent>L <cmd>lua vim.diagnostic.open_float()<CR>
-nnoremap <leader>fo <cmd>lua vim.lsp.buf.formatting_sync(nil, 2000)<CR>
-
-"Debug
-nnoremap <leader>dd :call vimspector#Launch()<CR>
-
 "Rooter
 nnoremap <leader>/ :RooterToggle<CR>
