@@ -51,9 +51,17 @@ alias clean="git branch --merged | egrep -v '(^\*|master|main|dev|nonprod)' | xa
 alias tt="tmux -f $HOME/.config/tmux/.tmux.conf"
 alias y="yarn"
 alias ls="ls -a"
-alias l="logo-ls -a"
+alias l="logo-ls -1a"
 alias dc="docker-compose"
 alias new="git checkout -b"
+
+function cdl(){
+  cd $(dirname `fd | fzf`)
+}
+
+function cd/(){
+ cd $(git rev-parse --show-toplevel)
+}
 
 function get_external_ip(){
   curl ipecho.net/plain ; echo

@@ -33,10 +33,12 @@ setup_server(
 		filetypes = { "html", "css", "typescriptreact", "javascriptreact" },
 	})
 )
+local util = require("lspconfig.util")
 setup_server(
 	"tsserver",
 	config({
 		filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
+    root_dir = util.root_pattern("jsconfig.json", "tsconfig.json", "node_modules")
 		--root_dir = function(arg1, arg2) return vim.loop.cwd()end -- language server launch for any js files
 		-- Needed for inlayHints. Merge this table with your settings or copy
 		-- it from the source if you want to add your own init_options.
@@ -94,7 +96,7 @@ setup_server(
 		filetypes = { "javascriptreact", "typescriptreact", "vue", "html", "css" },
 	})
 )
-local servers = { "cssls", "vimls", "yamlls", "ansiblels", "jsonls", "terraformls", "tflint", "graphql" }
+local servers = { "cssls", "vimls", "yamlls", "ansiblels", "jsonls", "terraformls", "tflint", "eslint" }
 for _, lsp in ipairs(servers) do
 	setup_server(lsp, config())
 end
