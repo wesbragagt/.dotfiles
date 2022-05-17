@@ -56,7 +56,7 @@ alias dc="docker-compose"
 alias new="git checkout -b"
 
 function cdl(){
-  cd $(dirname `fd | fzf`)
+  cd $(dirname `fd --hidden --exclude .git | fzf`)
 }
 
 function cd/(){

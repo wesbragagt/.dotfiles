@@ -1,13 +1,13 @@
--- Speed up neovim startup
-require("wesbragagt.performance")
-require("wesbragagt.lsp")
-require("wesbragagt.autocompletion")
-require("wesbragagt.treesitter")
-require("wesbragagt.terminal")
-require("wesbragagt.gitsigns")
-require("wesbragagt.bufferline")
-require("wesbragagt.icons")
-require("wesbragagt.diffview")
-require("wesbragagt.null-ls")
-require("wesbragagt.indentline")
-require("wesbragagt.statusline")
+require "wesbragagt.plugins"
+require "wesbragagt.performance"
+require "wesbragagt.lsp"
+require "wesbragagt.autocompletion"
+require "wesbragagt.treesitter"
+require "wesbragagt.terminal"
+require "wesbragagt.gitsigns"
+require "wesbragagt.bufferline"
+require "wesbragagt.icons"
+require "wesbragagt.diffview"
+require "wesbragagt.null-ls"
+require "wesbragagt.indentline"
+require "wesbragagt.statusline"
