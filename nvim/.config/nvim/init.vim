@@ -1,4 +1,3 @@
-autocmd! bufwritepost init.vim source % " resource this file when saved
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/vimux'
 Plug 'christoomey/vim-tmux-navigator'
