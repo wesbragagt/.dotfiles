@@ -151,7 +151,11 @@ end
 
 -- Attach to LSP client individually
 -- nvim_lua autocomplete https://github.com/folke/lua-dev.nvim
-local luadev = require("lua-dev").setup({})
+local luadev_status_ok,luadev = pcall(require, "lua-dev")
+if not luadev_status_ok then
+  return
+end
+luadev.setup({})
 
 local function setup_server(server, _config)
 	local lsp_installer_servers = require("nvim-lsp-installer.servers")
