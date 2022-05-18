@@ -1,4 +1,5 @@
 call plug#begin('~/.vim/plugged')
+Plug 'airblade/vim-rooter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'akinsho/bufferline.nvim'
@@ -46,4 +47,5 @@ Plug 'williamboman/nvim-lsp-installer'
 call plug#end()
 let g:gutentags_enabled = 0
 let g:gitblame_enabled = 0
+let g:rooter_manual_only=1
 lua require("wesbragagt")
