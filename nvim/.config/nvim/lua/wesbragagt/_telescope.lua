@@ -75,17 +75,22 @@ end
 
 M.grep = function()
 	local ok = pcall(require("telescope.builtin").live_grep, {
-		cwd = vim.lsp.get_active_clients()[1].config.root_dir,
+		cwd = vim.lsp.get_active_clients()[1].config.root_dir
 	})
 end
 
 vim.api.nvim_set_keymap(
 	"n",
 	"<Leader>fi",
-	"<CMD>lua require'_telescope'.project_files()<CR>",
+	"<CMD>lua require'wesbragagt._telescope'.project_files()<CR>",
 	{ noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap("n", "<Leader>fg", "<CMD>lua require'_telescope'.grep()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+	"n",
+	"<Leader>fg",
+	"<CMD>lua require'wesbragagt._telescope'.grep()<CR>",
+	{ noremap = true, silent = true }
+)
 
 -- load extensions
 pcall(function()

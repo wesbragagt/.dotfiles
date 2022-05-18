@@ -57,3 +57,7 @@ nnoremap <leader>dd :call vimspector#Launch()<CR>
 
 "Rooter
 nnoremap <leader>/ :RooterToggle<CR>
+
+"Telescope
+" nnoremap <leader>fg <cmd>lua require'wesbragagt._telescope'.grep()<CR> 
+" nnoremap <leader>fi <cmd>lua require'wesbragagt._telescope'.project_files()<CR> 
