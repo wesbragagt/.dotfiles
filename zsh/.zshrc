@@ -55,6 +55,15 @@ alias l="logo-ls -a"
 alias dc="docker-compose"
 alias new="git checkout -b"
 
+
+function cdl(){
+  cd $(dirname `fzf`)
+}
+
+function cd/(){
+  cd $(git rev-parse --show-toplevel)
+}
+
 function get_external_ip(){
   curl ipecho.net/plain ; echo
 }
