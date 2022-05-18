@@ -236,7 +236,7 @@ setup_server(
 		filetypes = { "javascriptreact", "typescriptreact", "vue", "html", "css" },
 	})
 )
-local servers = { "cssls", "vimls", "yamlls", "ansiblels", "jsonls", "terraformls", "tflint", "graphql" }
+local servers = { "cssls", "vimls", "yamlls", "ansiblels", "jsonls", "terraformls", "tflint", "eslint" }
 for _, lsp in ipairs(servers) do
 	setup_server(lsp, config())
 end
