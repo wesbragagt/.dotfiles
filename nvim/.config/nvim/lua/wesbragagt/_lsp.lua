@@ -9,6 +9,7 @@ if not snip_status_ok then
 end
 
 require("luasnip/loaders/from_vscode").lazy_load()
+
 local signs = {
 	{ name = "DiagnosticSignError", text = "" },
 	{ name = "DiagnosticSignWarn", text = "" },
@@ -151,9 +152,9 @@ end
 
 -- Attach to LSP client individually
 -- nvim_lua autocomplete https://github.com/folke/lua-dev.nvim
-local luadev_status_ok,luadev = pcall(require, "lua-dev")
+local luadev_status_ok, luadev = pcall(require, "lua-dev")
 if not luadev_status_ok then
-  return
+	return
 end
 luadev.setup({})
 
@@ -179,6 +180,7 @@ setup_server(
 	"tsserver",
 	config({
 		filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
+		root_dir = require("lspconfig").util.root_pattern("jsconfig.json", "tsconfig.json", "node_modules", ".git"),
 		--root_dir = function(arg1, arg2) return vim.loop.cwd()end -- language server launch for any js files
 		-- Needed for inlayHints. Merge this table with your settings or copy
 		-- it from the source if you want to add your own init_options.
@@ -229,13 +231,28 @@ setup_server(
 		},
 	})
 )
-setup_server("sumneko_lua", config(luadev))
+
+setup_server(
+	"sumneko_lua",
+	vim.tbl_deep_extend("force", config(luadev), {
+		settings = {
+			Lua = {
+				diagnostics = {
+					-- Get the language server to recognize the `vim` global
+					globals = { "vim" },
+				},
+			},
+		},
+	})
+)
+
 setup_server(
 	"tailwindcss",
 	config({
 		filetypes = { "javascriptreact", "typescriptreact", "vue", "html", "css" },
 	})
 )
+
 local servers = { "cssls", "vimls", "yamlls", "ansiblels", "jsonls", "terraformls", "tflint", "eslint" }
 for _, lsp in ipairs(servers) do
 	setup_server(lsp, config())
