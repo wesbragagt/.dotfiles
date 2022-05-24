@@ -113,6 +113,7 @@ cmp.setup({
 		fields = { "kind", "abbr", "menu" },
 		format = function(entry, vim_item)
 			-- Kind icons
+			vim_item.dup = { buffer = 1, path = 1, nvim_lsp = 0 }
 			vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 			-- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
 			vim_item.menu = ({
@@ -181,15 +182,34 @@ setup_server(
 	config({
 		filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
 		root_dir = require("lspconfig").util.root_pattern("jsconfig.json", "tsconfig.json", "node_modules", ".git"),
-		--root_dir = function(arg1, arg2) return vim.loop.cwd()end -- language server launch for any js files
-		-- Needed for inlayHints. Merge this table with your settings or copy
-		-- it from the source if you want to add your own init_options.
 	})
 )
+
+setup_server(
+	"sumneko_lua",
+	vim.tbl_deep_extend("force", config(luadev), {
+		settings = {
+			Lua = {
+				diagnostics = {
+					-- Get the language server to recognize the `vim` global
+					globals = { "vim" },
+				},
+			},
+		},
+	})
+)
+
+setup_server(
+	"tailwindcss",
+	config({
+		filetypes = { "javascriptreact", "typescriptreact", "vue", "html", "css" },
+	})
+)
+
 setup_server(
 	"vuels",
 	config({
-		cmd = { "vls" },
+    cmd = {"vls"},
 		filetypes = { "vue" },
 		init_options = {
 			config = {
@@ -229,27 +249,6 @@ setup_server(
 				},
 			},
 		},
-	})
-)
-
-setup_server(
-	"sumneko_lua",
-	vim.tbl_deep_extend("force", config(luadev), {
-		settings = {
-			Lua = {
-				diagnostics = {
-					-- Get the language server to recognize the `vim` global
-					globals = { "vim" },
-				},
-			},
-		},
-	})
-)
-
-setup_server(
-	"tailwindcss",
-	config({
-		filetypes = { "javascriptreact", "typescriptreact", "vue", "html", "css" },
 	})
 )
 
