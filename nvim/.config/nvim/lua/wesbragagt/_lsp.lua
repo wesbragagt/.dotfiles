@@ -143,10 +143,11 @@ cmp.setup({
 local function config(options)
 	return vim.tbl_deep_extend("force", {
 		capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-		on_attach = function(client)
+		on_attach = function(client, buffer)
 			-- use null-ls for this
 			client.resolved_capabilities.document_formatting = false
 			client.resolved_capabilities.document_range_formatting = false
+			vim.api.nvim_buf_set_keymap(buffer, "n", "<Leader>es", ":EslintFixAll<CR>", { noremap = true })
 		end,
 	}, options or {})
 end
@@ -209,7 +210,7 @@ setup_server(
 setup_server(
 	"vuels",
 	config({
-    cmd = {"vls"},
+		cmd = { "vls" },
 		filetypes = { "vue" },
 		init_options = {
 			config = {
@@ -256,7 +257,3 @@ local servers = { "cssls", "vimls", "yamlls", "ansiblels", "jsonls", "terraforml
 for _, lsp in ipairs(servers) do
 	setup_server(lsp, config())
 end
-
-vim.cmd[[
-  nnoremap <leader>es :EslintFixAll<CR>
-]]
