@@ -256,3 +256,7 @@ local servers = { "cssls", "vimls", "yamlls", "ansiblels", "jsonls", "terraforml
 for _, lsp in ipairs(servers) do
 	setup_server(lsp, config())
 end
+
+vim.cmd[[
+  nnoremap <leader>es :EslintFixAll<CR>
+]]
