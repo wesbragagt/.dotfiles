@@ -1,4 +1,5 @@
 call plug#begin('~/.vim/plugged')
+Plug 'windwp/nvim-ts-autotag'
 Plug 'airblade/vim-rooter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'L3MON4D3/LuaSnip'
