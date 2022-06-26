@@ -52,7 +52,7 @@ alias new="git checkout -b"
 
 # Run a fuzzy search through test files and run jest
 function jfzf(){
-  node_modules/.bin/jest $@ `fd --type file --glob '*.test*' | fzf`
+  node_modules/.bin/jest `fd --type file --glob '*.test*' | fzf`
 }
 
 
