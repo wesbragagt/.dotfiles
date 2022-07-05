@@ -2,4 +2,4 @@ local dude = {
 	haha = "laugh",
 }
 
-print(dude.haa)
+print(dude.haha)
