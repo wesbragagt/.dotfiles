@@ -1,3 +1,4 @@
+vim.cmd([[ 
 if has("nvim")
 autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
 endif
@@ -19,3 +20,4 @@ command! LiveGrep
 
 nnoremap <leader>fi :ProjectFiles<CR>
 nnoremap <leader>fg :LiveGrep<CR>
+]])

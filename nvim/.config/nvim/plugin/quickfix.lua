@@ -1,3 +1,4 @@
+vim.cmd([[ 
 function! ToggleQuickFix()
     if getqflist({'winid' : 0}).winid
         cclose
@@ -15,3 +16,4 @@ nnoremap <leader>qq :ClearQuickFix<cr>
 nnoremap <leader>l :cnext<CR>
 nnoremap <leader>h :cprev<CR>
 nnoremap <leader>q :copen<CR>
+]])

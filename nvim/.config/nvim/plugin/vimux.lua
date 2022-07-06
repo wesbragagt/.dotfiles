@@ -1,3 +1,4 @@
+vim.cmd([[ 
 let g:VimuxHeight = "40"
 let g:VimuxOrientation = "h"
 " Close the tmux runner created
@@ -11,3 +12,4 @@ endfunction
 
 " Prompt for a command to run
 nnoremap <leader>vp :call VimuxPromptCommandDir()<CR>
+]])
