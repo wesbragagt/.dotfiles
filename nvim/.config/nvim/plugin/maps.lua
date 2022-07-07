@@ -1,4 +1,4 @@
-vim.cmd[[ 
+vim.cmd([[ 
 let mapleader = ' '
 nnoremap <leader><Enter> :so %<CR>
 " Reload lua modules
@@ -62,4 +62,4 @@ nnoremap <leader>/ :RooterToggle<CR>
 "Telescope
 " nnoremap <leader>fg <cmd>lua require'wesbragagt._telescope'.grep()<CR> 
 " nnoremap <leader>fi <cmd>lua require'wesbragagt._telescope'.project_files()<CR> 
-]]
+]])
