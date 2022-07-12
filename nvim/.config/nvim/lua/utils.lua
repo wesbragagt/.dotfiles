@@ -1,35 +1,27 @@
 local M = {}
 
-function M.nnoremap(keymap, command, opts)
-	local options = { noremap = true }
+local function extend_options(opts)
+	local options = {}
 	if opts then
 		options = vim.tbl_extend("force", options, opts)
 	end
-	vim.keymap.set("n", keymap, command, options)
+	return options
+end
+
+function M.nnoremap(keymap, command, opts)
+	vim.keymap.set("n", keymap, command, extend_options(opts))
 end
 
 function M.tnoremap(keymap, command, opts)
-	local options = { noremap = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.keymap.set("t", keymap, command, options)
+	vim.keymap.set("t", keymap, command, extend_options(opts))
 end
 
 function M.xnoremap(keymap, command, opts)
-	local options = { noremap = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.keymap.set("x", keymap, command, options)
+	vim.keymap.set("x", keymap, command, extend_options(opts))
 end
 
 function M.vnoremap(keymap, command, opts)
-	local options = { noremap = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.keymap.set("v", keymap, command, options)
+	vim.keymap.set("v", keymap, command, extend_options(opts))
 end
 
 return M
