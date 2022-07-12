@@ -1,65 +1,39 @@
-vim.cmd([[ 
-let mapleader = ' '
-nnoremap <leader><Enter> :so %<CR>
-" Reload lua modules
-nnoremap <leader>r <cmd>lua require("plenary.reload").reload_module("wesbragagt", true)<CR>
+local utils = require("utils")
+local nnoremap = utils.nnoremap
+local tnoremap = utils.tnoremap
+local vnoremap = utils.vnoremap
+local xnoremap = utils.xnoremap
 
-" use regular escape in terminal mode
-tnoremap <Esc> <C-\><C-n><CR>
-" Git stuff
-" commit
-" left pick merge
-nmap <leader>gh :diffget //2<CR>
-" right pick merge
-nmap <leader>gl :diffget //3<CR>
-" Status
-nmap <leader>gs :vert G<CR>
-nnoremap <silent>ba :GitBlameToggle<CR>
-" open this configuration file in split from anywhere
-command! ConfigVim vsp ~/.dotfiles/nvim/.config/nvim
-nnoremap <leader>co :ConfigVim<CR>
-" toggle between uppercase and lowercase 
-nnoremap <leader>to viw~<CR>
-" Bufferline close current buffer
-nnoremap <leader>x :bdelete<CR>
-nnoremap <leader>x :!chmod +x %<CR>
+vim.g.mapleader = " "
 
-" simple command to copy all search matches to the clipboard
-function! CopyMatches(reg)
-  let hits = []
-  %s//\=len(add(hits, submatch(0))) ? submatch(0) : ''/gne
-  let reg = empty(a:reg) ? '+' : a:reg
-  execute 'let @'.reg.' = join(hits, "\n") . "\n"'
-endfunction
-command! -register CopyMatches call CopyMatches(<q-reg>)
-" convert json object to typescript interface
-xnoremap <leader>ty :!npx json-ts --stdin<CR>
-" Clipboard
-" Copy to system clipboard
-xnoremap <silent><leader>y "+y<CR>
-nnoremap <silent><leader>yy "+yy<CR>
-nnoremap <silent><leader>p "+p<CR>
-" Paste from system clipboard
-xnoremap <silent><leader>p "+p<CR>
-nnoremap <silent><leader>P "+P<CR>
-xnoremap <silent><leader>P "+P<CR>
+nnoremap("<leader><Enter>", ":so %<cr>") -- source current file
+nnoremap("<leader>co", ":vsp ~/.dotfiles/nvim/.config/nvim") -- open nvim config directory in a split
+nnoremap("<leader>to", "viw~<cr>") -- uppercase current word
+nnoremap("<leader>/", ":RooterToggle<cr>") -- sets the pwd to .git root of current buffer or current file dir
 
-" LSP
-nnoremap <silent>gd <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent>gr <cmd>lua vim.lsp.buf.references()<CR>
-" nnoremap <silent>ca <cmd>lua vim.lsp.buf.code_action()<CR>
-nnoremap <silent>ca :CodeActionMenu<CR>
-nnoremap <silent>K <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent>L <cmd>lua vim.diagnostic.open_float()<CR>
-nnoremap <leader>fo <cmd>lua vim.lsp.buf.formatting_sync(nil, 2000)<CR>
+-- Git diff pick left or right
+nnoremap("<leader>gh", ":diffget //2<cr>")
+nnoremap("<leader>gl", ":diffget //3<cr>")
+nnoremap("<silent>ba", ":GitBlameToggle<CR>")
+-- Terminal
+tnoremap("<Esc>", "<C-><C-n><CR>") -- Escape using ESC
 
-"Debug
-nnoremap <leader>dd :call vimspector#Launch()<CR>
+-- Run snippets of code
+vnoremap("<leader>r", ":RunCodeSelected<CR>")
+nnoremap("<leader>rr", ":RunCodeFile<CR>")
 
-"Rooter
-nnoremap <leader>/ :RooterToggle<CR>
+-- LSP
+nnoremap("gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
+nnoremap("gr", "<cmd>lua vim.lsp.buf.references()<CR>")
+-- nnoremap("ca <cmd>lua", " vim.lsp.buf.code_action()<CR>")
+nnoremap("ca", ":CodeActionMenu<CR>")
+nnoremap("K", "<cmd>lua vim.lsp.buf.hover()<CR>")
+nnoremap("L", "<cmd>lua vim.diagnostic.open_float()<CR>")
+nnoremap("<leader>fo", '<cmd>lua vim.lsp.buf.formatting_sync(nil,"", 2000)<CR>')
 
-"Telescope
-" nnoremap <leader>fg <cmd>lua require'wesbragagt._telescope'.grep()<CR> 
-" nnoremap <leader>fi <cmd>lua require'wesbragagt._telescope'.project_files()<CR> 
-]])
+-- Clipboard
+xnoremap("<leader>y", ' "+y<CR>') -- copy selection to system clipboard
+nnoremap("<leader>p", ' "+p<CR>') -- paste from system clipboard below
+xnoremap("<leader>p", ' "+p<CR>') -- paste from system clipboard into selection below
+xnoremap("<leader>P", ' "+P<CR>') -- paste from system clipboard into selection above
+nnoremap("<leader>P", ' "+P<CR>') -- paste from system clipboard above

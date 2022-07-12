@@ -94,6 +94,7 @@ return packer.startup(function(use)
 	use("tpope/vim-rhubarb")
 	use("weilbith/nvim-code-action-menu")
 	use("williamboman/nvim-lsp-installer")
+	use("arjunmahishi/run-code.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
