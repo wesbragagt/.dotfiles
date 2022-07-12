@@ -15,6 +15,7 @@ nnoremap("<leader>/", ":RooterToggle<cr>") -- sets the pwd to .git root of curre
 nnoremap("<leader>gh", ":diffget //2<cr>")
 nnoremap("<leader>gl", ":diffget //3<cr>")
 nnoremap("<silent>ba", ":GitBlameToggle<CR>")
+
 -- Terminal
 tnoremap("<Esc>", "<C-><C-n><CR>") -- Escape using ESC
 
@@ -23,13 +24,12 @@ vnoremap("<leader>r", ":RunCodeSelected<CR>")
 nnoremap("<leader>rr", ":RunCodeFile<CR>")
 
 -- LSP
-nnoremap("gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
-nnoremap("gr", "<cmd>lua vim.lsp.buf.references()<CR>")
--- nnoremap("ca <cmd>lua", " vim.lsp.buf.code_action()<CR>")
+nnoremap("gd", vim.lsp.buf.definition)
+nnoremap("gr", vim.lsp.buf.references)
 nnoremap("ca", ":CodeActionMenu<CR>")
-nnoremap("K", "<cmd>lua vim.lsp.buf.hover()<CR>")
-nnoremap("L", "<cmd>lua vim.diagnostic.open_float()<CR>")
-nnoremap("<leader>fo", '<cmd>lua vim.lsp.buf.formatting_sync(nil,"", 2000)<CR>')
+nnoremap("K", vim.lsp.buf.hover)
+nnoremap("L", vim.diagnostic.open_float)
+nnoremap("<leader>fo", vim.lsp.buf.formatting_sync)
 
 -- Clipboard
 xnoremap("<leader>y", ' "+y<CR>') -- copy selection to system clipboard
