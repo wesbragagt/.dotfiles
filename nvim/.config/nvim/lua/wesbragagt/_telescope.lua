@@ -27,13 +27,9 @@ telescope.load_extension("fzf")
 
 -- Falling back to find_files if git_files can't find a .git directory
 local function project_files()
-	local opts = require("telescope.themes").get_ivy({ previewer = false })
-	local available = pcall(
-		require("telescope.builtin").git_files,
-		vim.tbl_extend("force", opts, { show_untracked = true })
-	)
+	local available = pcall(require("telescope.builtin").git_files, { show_untracked = true })
 	if not available then
-		require("telescope.builtin").find_files(vim.tbl_extend("force", opts, { hidden = true }))
+		require("telescope.builtin").find_files({ hidden = true })
 	end
 end
 
@@ -46,7 +42,18 @@ local function live_grep()
 		return
 	end
 end
+
+local function keymap()
+	local opts = {}
+	local available = pcall(require("telescope.builtin").keymaps, opts)
+	if not available then
+		return
+	end
+end
+
 -- mappings
 local nnoremap = require("utils").nnoremap
 nnoremap("<leader>fi", project_files)
 nnoremap("<leader>fg", live_grep)
+nnoremap("<leader>kk", keymap)
+nnoremap("<leader>tt", ":Telescope<CR>")
