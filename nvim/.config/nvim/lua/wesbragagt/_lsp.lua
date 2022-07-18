@@ -210,10 +210,57 @@ setup_server(
 	})
 )
 
+-- Enable this for vue3 projects
+-- setup_server(
+-- 	"volar",
+-- 	config({
+-- 		filetypes = { "vue" },
+-- 	})
+-- )
+
 setup_server(
-	"volar",
+	"vuels",
 	config({
+		cmd = { "vls" },
 		filetypes = { "vue" },
+		init_options = {
+			config = {
+				css = {},
+				emmet = {},
+				html = {
+					suggest = {},
+				},
+				javascript = {
+					format = {},
+				},
+				stylusSupremacy = {},
+				typescript = {
+					format = {},
+				},
+				vetur = {
+					completion = {
+						autoImport = true,
+						tagCasing = "kebab",
+						useScaffoldSnippets = false,
+					},
+					format = {
+						defaultFormatter = {
+							js = "prettier",
+							ts = "prettier",
+						},
+						defaultFormatterOptions = {},
+						scriptInitialIndent = false,
+						styleInitialIndent = false,
+					},
+					useWorkspaceDependencies = true,
+					validation = {
+						script = true,
+						style = true,
+						template = true,
+					},
+				},
+			},
+		},
 	})
 )
 
