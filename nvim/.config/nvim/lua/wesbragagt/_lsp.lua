@@ -258,7 +258,7 @@ setup_server(
 					useWorkspaceDependencies = true,
 					validation = {
 						script = true,
-						style = true,
+						style = false,
 						template = true,
 					},
 				},
