@@ -7,4 +7,5 @@ trouble.setup({
 	-- or leave it empty to use the default settings
 	-- refer to the configuration section below
 })
-vim.api.nvim_set_keymap("n", "<Leader>di", ":TroubleToggle document_diagnostics <CR>", { noremap = true })
+local nnoremap = require("utils").nnoremap
+nnoremap("<Leader>di", ":TroubleToggle document_diagnostics <CR>")
