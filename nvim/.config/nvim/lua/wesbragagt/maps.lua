@@ -7,7 +7,7 @@ local xnoremap = utils.xnoremap
 vim.g.mapleader = " "
 
 nnoremap("<leader><Enter>", ":so %<cr>") -- source current file
-nnoremap("<leader>co", ":vsp ~/.dotfiles/nvim/.config/nvim") -- open nvim config directory in a split
+nnoremap("<leader>co", ":vsp ~/.dotfiles/nvim/.config/nvim<cr>") -- open nvim config directory in a split
 nnoremap("<leader>to", "viw~<cr>") -- uppercase current word
 nnoremap("<leader>/", ":RooterToggle<cr>") -- sets the pwd to .git root of current buffer or current file dir
 

@@ -215,6 +215,9 @@ setup_server(
 -- 	"volar",
 -- 	config({
 -- 		filetypes = { "vue" },
+--     init_options = {
+
+--     }
 -- 	})
 -- )
 
