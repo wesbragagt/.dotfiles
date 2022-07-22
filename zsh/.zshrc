@@ -67,3 +67,10 @@ function cd/(){
 function get_external_ip(){
   curl ipecho.net/plain ; echo
 }
+
+function emoji () { # Fuzzy match emoji printing. Credits: Trace Ohrt
+  local emojis selected_emoji
+  emojis=$(curl -sSL 'https://git.io/JXXO7')
+  selected_emoji=$(echo "$emojis" | fzf)
+  echo $selected_emoji
+}
