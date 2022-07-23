@@ -51,8 +51,8 @@ alias dc="docker-compose"
 alias new="git checkout -b"
 
 # Run a fuzzy search through test files and run jest
-function jfzf(){
-  node_modules/.bin/jest `fd --type file --glob '*.test*' | fzf`
+function test(){
+  node_modules/.bin/jest `find ./src -type f \( -name "*.test*" -or -name "*.spec*" \) | fzf`
 }
 
 

@@ -4,7 +4,7 @@
 set -e
 
 items=`rg -l --hidden -g '!.git/' $@`
-selected=`echo "$items" | fzf`
+selected=`echo "$items" | fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'`
 
 nvim $selected
 if [[ $? -eq 0 ]]; then
