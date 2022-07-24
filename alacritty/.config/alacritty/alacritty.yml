@@ -13,7 +13,6 @@ window:
     x: 2
     y: 2
 
-
 # Sample Font configuration for font: Monoid.
 # Feel free to use different font configuration family & face for each sections
 font:
@@ -46,24 +45,24 @@ font:
     style: Italic
 
   # Font size
-  size: 14.0
+  size: 16.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing
   # I've given in 14 spacing which fits really well with my fonts, you may change it
   # to your convenience but make sure to adjust 'glyph_offset' appropriately post that
   offset:
-   x: 0
-   y: 4
+    x: 0
+    y: 4
 
   # Note: This requires RESTART
   # By default when you change the offset above you'll see an issue, where the texts are bottom
   # aligned with the cursor, this is to make sure they center align.
   # This offset should usually be 1/2 of the above offset-y being set.
   glyph_offset:
-   x: 0
-   # Keeping this as half of offset to vertically align the text in cursor
-   y: 0
+    x: 0
+    # Keeping this as half of offset to vertically align the text in cursor
+    y: 0
 
   # Better font rendering for mac
   use_thin_strokes: true
@@ -79,6 +78,6 @@ live_config_reload: true
 key_bindings:
   # fixes swapping between files in vim with ctrl+6
   # I had an issue where this command was not working in alacritty but other terminals have that by default
-  - { key: Key6,     mods: Control, chars: "\x1e"                        }
+  - { key: Key6, mods: Control, chars: "\x1e" }
   # Fixes space bar being recognize as an extra character when trying to use ctrl+space with tmux
   - { key: Space, mods: Control, chars: "\x00" }

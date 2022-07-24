@@ -1,3 +1,4 @@
+export XDG_CONFIG_HOME="$HOME/.config"
 export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$HOME/.npm_global/bin:$PATH
 # make git use nvim for editing
 export VISUAL=nvim
