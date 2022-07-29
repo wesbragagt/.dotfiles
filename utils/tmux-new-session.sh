@@ -6,7 +6,7 @@ if [[ -z $WORK_DIR ]];then
 fi
 
 # lists directories within a work_dir and creates a new tmux session for that directory
-directory=$(ls -d `printf "$WORK_DIR/*"` | fzf)
+directory=$(ls -d `printf "$WORK_DIR/*"` | fzf --reverse --header create-session)
 echo $WORK_DIR
 
 if [[ -z $directory ]];then
