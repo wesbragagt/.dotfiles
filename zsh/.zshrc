@@ -58,7 +58,7 @@ function test(){
 
 
 function cdl(){
-  cd $(dirname `fzf`)
+  cd $(dirname `fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'`)
 }
 
 function cd/(){
