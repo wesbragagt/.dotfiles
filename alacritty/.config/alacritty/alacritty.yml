@@ -16,55 +16,31 @@ window:
 # Sample Font configuration for font: Monoid.
 # Feel free to use different font configuration family & face for each sections
 font:
-  # Normal font face - Also used to draw glyphs on tmux & VIM
-  # NOTE: You may use any font you'd like but make sure the normal fonts
-  # support ligatures/glyphs. That's used by tmux & VIM to provide a better
-  # UI for powerline & tmux bottom bar.
   normal:
-    # Font name
     family: FiraCode Nerd Font Mono
-    # Font face
     style: Regular
 
-  # Bold font face
   bold:
     family: FiraCode Nerd Font Mono
     style: Bold
 
-  # Italic font face
   italic:
     family: FiraCode Nerd Font Mono
     style: Italic
 
-  # Bold italic font face
-  # Note: Since i don't have a font italic version of this font, I just specified
-  # italic & it just works. You may specifiy the bold italic version if it exists
-  # for your font
   bold_italic:
     family: FiraCode Nerd Font Mono
     style: Italic
 
-  # Font size
   size: 16.0
 
-  # Offset is the extra space around each character. `offset.y` can be thought of
-  # as modifying the line spacing, and `offset.x` as modifying the letter spacing
-  # I've given in 14 spacing which fits really well with my fonts, you may change it
-  # to your convenience but make sure to adjust 'glyph_offset' appropriately post that
   offset:
     x: 0
     y: 4
 
-  # Note: This requires RESTART
-  # By default when you change the offset above you'll see an issue, where the texts are bottom
-  # aligned with the cursor, this is to make sure they center align.
-  # This offset should usually be 1/2 of the above offset-y being set.
   glyph_offset:
     x: 0
-    # Keeping this as half of offset to vertically align the text in cursor
     y: 0
-
-  # Better font rendering for mac
   use_thin_strokes: true
 
 selection:
@@ -81,3 +57,52 @@ key_bindings:
   - { key: Key6, mods: Control, chars: "\x1e" }
   # Fixes space bar being recognize as an extra character when trying to use ctrl+space with tmux
   - { key: Space, mods: Control, chars: "\x00" }
+
+colors:
+  primary:
+    background: '#2e3440'
+    foreground: '#d8dee9'
+    dim_foreground: '#a5abb6'
+  cursor:
+    text: '#2e3440'
+    cursor: '#d8dee9'
+  vi_mode_cursor:
+    text: '#2e3440'
+    cursor: '#d8dee9'
+  selection:
+    text: CellForeground
+    background: '#4c566a'
+  search:
+    matches:
+      foreground: CellBackground
+      background: '#88c0d0'
+    bar:
+      background: '#434c5e'
+      foreground: '#d8dee9'
+  normal:
+    black: '#3b4252'
+    red: '#bf616a'
+    green: '#a3be8c'
+    yellow: '#ebcb8b'
+    blue: '#81a1c1'
+    magenta: '#b48ead'
+    cyan: '#88c0d0'
+    white: '#e5e9f0'
+  bright:
+    black: '#4c566a'
+    red: '#bf616a'
+    green: '#a3be8c'
+    yellow: '#ebcb8b'
+    blue: '#81a1c1'
+    magenta: '#b48ead'
+    cyan: '#8fbcbb'
+    white: '#eceff4'
+  dim:
+    black: '#373e4d'
+    red: '#94545d'
+    green: '#809575'
+    yellow: '#b29e75'
+    blue: '#68809a'
+    magenta: '#8c738c'
+    cyan: '#6d96a5'
+    white: '#aeb3bb'
