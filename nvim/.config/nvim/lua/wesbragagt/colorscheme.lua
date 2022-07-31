@@ -4,7 +4,7 @@ vim.cmd([[
     set termguicolors
   endif
   try
-    colorscheme nightfox
+    colorscheme nordfox
   catch /^Vim\%((\a\+)\)\=:E185/
     colorscheme default
     set background=dark
