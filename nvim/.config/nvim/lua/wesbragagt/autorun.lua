@@ -32,6 +32,13 @@ local function split_into_new_buffer()
 	return buf
 end
 
+local function create_playground(name, pattern, command)
+	vim.api.nvim_create_user_command(name, function()
+		local run_buffer = split_into_new_buffer()
+		attatch_buff_number(tonumber(run_buffer), pattern, command)
+	end, {})
+end
+
 vim.api.nvim_create_user_command("AutoRun", function()
 	local run_buffer = split_into_new_buffer()
 	local pattern = vim.fn.input("Pattern: ")
@@ -39,3 +46,6 @@ vim.api.nvim_create_user_command("AutoRun", function()
 
 	attatch_buff_number(tonumber(run_buffer), pattern, command)
 end, {})
+
+create_playground("TSPlayground", "*.ts", "playground.ts")
+create_playground("BashPlayground", "*.sh", "playground.sh")
