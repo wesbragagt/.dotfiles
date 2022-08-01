@@ -1,12 +1,14 @@
 #!/bin/bash
 
+# fzf a list of directories from ~/dev and open a new session from selection
+
 work_dir=$1
 
 if [[ -z $work_dir ]];then
   echo "please set a WORK_DIR for this script to work"
   exit 1;
 else
-  directory=$(ls -d `printf "$work_dir/*"` | fzf --reverse --header create-session)
+  directory=$(ls -d `printf "$work_dir/*"` | fzf --reverse --header tmux-create-session)
   if [[ -z $directory ]];then
     exit 0;
   else
