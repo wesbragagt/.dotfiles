@@ -50,7 +50,7 @@ return packer.startup(function(use)
 
 	use({ "wbthomason/packer.nvim", commit = "00ec5adef58c5ff9a07f11f45903b9dbbaa1b422" }) -- Have packer manage itself
 
-	use("windwp/nvim-ts-autotag")
+	use({ "windwp/nvim-ts-autotag", commit = "57035b5814f343bc6110676c9ae2eacfcd5340c2" })
 	use("airblade/vim-rooter")
 	use("jiangmiao/auto-pairs")
 	use("L3MON4D3/LuaSnip")
@@ -65,7 +65,6 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-nvim-lua")
 	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-vsnip")
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/vim-vsnip")
 	use("jose-elias-alvarez/null-ls.nvim")
