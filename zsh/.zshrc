@@ -1,12 +1,11 @@
 export XDG_CONFIG_HOME="$HOME/.config"
-export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$HOME/.npm_global/bin:$PATH
+export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$HOME/.npm_global/bin:$HOME/.nix-profile/bin:$PATH
 # make git use nvim for editing
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-export NVM_DIR="$HOME/.node_version_manager"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# fnm
+eval "$(fnm env --use-on-cd)"
 
 export NPM_PREFIX="$HOME/.npm_global"
 export DOTFILES="$HOME/.dotfiles"
@@ -47,7 +46,7 @@ alias clean="git branch --merged | egrep -v '(^\*|master|main|dev|nonprod)' | xa
 alias tt="tmux -f $HOME/.config/tmux/.tmux.conf"
 alias y="yarn"
 alias ls="ls -a"
-alias l="logo-ls -a"
+alias l="lsd -1a"
 alias dc="docker-compose"
 alias new="git checkout -b"
 alias mux="bash $DOTFILES/utils/tmux-new-session.sh"
