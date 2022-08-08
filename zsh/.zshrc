@@ -5,7 +5,8 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 # fnm
-eval "$(fnm env --use-on-cd)"
+export PATH=/home/$USER/.fnm:$PATH
+eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
 
 export NPM_PREFIX="$HOME/.npm_global"
 export DOTFILES="$HOME/.dotfiles"
