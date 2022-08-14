@@ -2,6 +2,7 @@ local fn = vim.fn
 
 -- Automatically install packer
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+
 if fn.empty(fn.glob(install_path)) > 0 then
 	PACKER_BOOTSTRAP = fn.system({
 		"git",
@@ -54,7 +55,7 @@ return packer.startup(function(use)
 	use("airblade/vim-rooter")
 	use("jiangmiao/auto-pairs")
 	use("L3MON4D3/LuaSnip")
-	use("akinsho/bufferline.nvim")
+	use({ "akinsho/bufferline.nvim", commit = "e5511c51660c7fece458110c796dfc644cd40277" })
 	use("christoomey/vim-tmux-navigator")
 	use("f-person/git-blame.nvim")
 	use("folke/lsp-colors.nvim")
