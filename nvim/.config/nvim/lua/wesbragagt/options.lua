@@ -31,7 +31,7 @@ set fileencoding=utf-8
 set conceallevel=0 "so that ``is visible in markdown files"
 
 set norelativenumber
-set completeopt=menuone,noselect
+set completeopt=menuone,noselect,noinsert
 set wrap
 set timeoutlen=1000 "time to wait for a mapped sequence to complete (in milliseconds)"
 set updatetime=300 "faster autocompletion"

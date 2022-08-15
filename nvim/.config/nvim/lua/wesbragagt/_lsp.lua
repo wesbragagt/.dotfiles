@@ -240,7 +240,7 @@ setup_server(
 				vetur = {
 					completion = {
 						autoImport = true,
-						tagCasing = "kebab",
+						tagCasing = "PascalCase",
 						useScaffoldSnippets = false,
 					},
 					format = {

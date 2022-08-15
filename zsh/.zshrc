@@ -9,7 +9,10 @@ fi
 export XDG_CONFIG_HOME="$HOME/.config"
 export TYPESCRIPT_PLAYGROUND="$HOME/.playground/typescript"
 export BASH_PLAYGROUND="$HOME/.playground/bash"
-export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$HOME/.npm_global/bin:/$HOME/.nix-profile/bin:$PATH
+export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$HOME/.npm_global/bin:$PATH
+
+# nix
+export PATH=/nix/var/nix/profiles/default/bin:$PATH
 # make git use nvim for editing
 export VISUAL=nvim
 export EDITOR="$VISUAL"
@@ -56,14 +59,14 @@ alias clean="git branch --merged | egrep -v '(^\*|master|main|dev|nonprod)' | xa
 alias tt="tmux -f $HOME/.config/tmux/.tmux.conf"
 alias y="yarn"
 alias ls="ls -a"
-alias l="lsd -1a"
+alias l="lsd -a"
 alias dc="docker-compose"
 alias new="git checkout -b"
 alias mux="bash $DOTFILES/utils/tmux-new-session.sh"
 # Run a fuzzy search through test files and run jest
-function test(){
-  node_modules/.bin/jest `find ./src -type f \( -name "*.test*" -or -name "*.spec*" \) | fzf`
-}
+# function test(){
+#   node_modules/.bin/jest `find ./src -type f \( -name "*.test*" -or -name "*.spec*" \) | fzf`
+# }
 
 
 function cdl(){
