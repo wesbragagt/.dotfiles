@@ -109,11 +109,6 @@ _G.packer_plugins = {
     path = "/Users/weslleybraga/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
-  ["cmp-vsnip"] = {
-    loaded = true,
-    path = "/Users/weslleybraga/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
-    url = "https://github.com/hrsh7th/cmp-vsnip"
-  },
   cmp_luasnip = {
     loaded = true,
     path = "/Users/weslleybraga/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
@@ -209,6 +204,16 @@ _G.packer_plugins = {
     path = "/Users/weslleybraga/.local/share/nvim/site/pack/packer/start/nvim-code-action-menu",
     url = "https://github.com/weilbith/nvim-code-action-menu"
   },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/Users/weslleybraga/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-dap-ui"] = {
+    loaded = true,
+    path = "/Users/weslleybraga/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
+    url = "https://github.com/rcarriga/nvim-dap-ui"
+  },
   ["nvim-lsp-installer"] = {
     loaded = true,
     path = "/Users/weslleybraga/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
@@ -254,15 +259,15 @@ _G.packer_plugins = {
     path = "/Users/weslleybraga/.local/share/nvim/site/pack/packer/start/run-code.nvim",
     url = "https://github.com/arjunmahishi/run-code.nvim"
   },
-  ["telescope-fzf-native.nvim"] = {
-    loaded = true,
-    path = "/Users/weslleybraga/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
-    url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/weslleybraga/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/Users/weslleybraga/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
   },
   ["trouble.nvim"] = {
     loaded = true,

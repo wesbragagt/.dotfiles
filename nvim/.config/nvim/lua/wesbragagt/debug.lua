@@ -11,64 +11,6 @@ if not dapui_ok then
 	return
 end
 
--- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#Javascript
-dap.adapters.node2 = {
-	type = "executable",
-	command = "node",
-	args = { os.getenv("HOME") .. "/dev/microsoft/vscode-node-debug2/out/src/nodeDebug.js" },
-}
-dap.configurations.javascript = {
-	{
-		name = "Launch",
-		type = "node2",
-		request = "launch",
-		program = "${file}",
-		cwd = vim.fn.getcwd(),
-		sourceMaps = true,
-		protocol = "inspector",
-		console = "integratedTerminal",
-	},
-	{
-		-- For this to work you need to make sure the node process is started with the `--inspect` flag.
-		name = "Attach to process",
-		type = "node2",
-		request = "attach",
-		processId = require("dap.utils").pick_process,
-	},
-}
-
-dap.adapters.chrome = {
-	type = "executable",
-	command = "node",
-	args = { os.getenv("HOME") .. "dev/microsoft/vscode-chrome-debug/out/src/chromeDebug.js" },
-}
-
-dap.configurations.javascriptreact = { -- change this to javascript if needed
-	{
-		type = "chrome",
-		request = "attach",
-		program = "${file}",
-		cwd = vim.fn.getcwd(),
-		sourceMaps = true,
-		protocol = "inspector",
-		port = 9222,
-		webRoot = "${workspaceFolder}",
-	},
-}
-
-dap.configurations.typescriptreact = { -- change to typescript if needed
-	{
-		type = "chrome",
-		request = "attach",
-		program = "${file}",
-		cwd = vim.fn.getcwd(),
-		sourceMaps = true,
-		protocol = "inspector",
-		port = 9222,
-		webRoot = "${workspaceFolder}",
-	},
-}
-
 dapui.setup({
 	icons = { expanded = "▾", collapsed = "▸" },
 	mappings = {
@@ -132,13 +74,39 @@ nnoremap("<leader>.", function()
 	dap.continue()
 end)
 
+dap.adapters.node2 = {
+	type = "executable",
+	command = "node",
+	args = { os.getenv("HOME") .. ".debug_adapters/vscode-node-debug2/out/src/nodeDebug.js" },
+}
+
+dap.configurations.javascript = {
+	{
+		name = "Launch",
+		type = "node2",
+		request = "launch",
+		program = "${file}",
+		cwd = vim.fn.getcwd(),
+		sourceMaps = true,
+		protocol = "inspector",
+		console = "integratedTerminal",
+	},
+	{
+		-- For this to work you need to make sure the node process is started with the `--inspect` flag.
+		name = "Attach to process",
+		type = "node2",
+		request = "attach",
+		processId = require("dap.utils").pick_process,
+	},
+}
+
 -- launch ui automatically
 dap.listeners.after.event_initialized["dapui_config"] = function()
-	dapui.open()
+	dapui.open({})
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
-	dapui.close()
+	dapui.close({})
 end
 dap.listeners.before.event_exited["dapui_config"] = function()
-	dapui.close()
+	dapui.close({})
 end
