@@ -164,6 +164,11 @@ _G.packer_plugins = {
     path = "/Users/weslleybraga/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  jester = {
+    loaded = true,
+    path = "/Users/weslleybraga/.local/share/nvim/site/pack/packer/start/jester",
+    url = "https://github.com/David-Kunz/jester"
+  },
   ["lsp-colors.nvim"] = {
     loaded = true,
     path = "/Users/weslleybraga/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim",
@@ -213,6 +218,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/weslleybraga/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
     url = "https://github.com/rcarriga/nvim-dap-ui"
+  },
+  ["nvim-dap-virtual-text"] = {
+    loaded = true,
+    path = "/Users/weslleybraga/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
+    url = "https://github.com/theHamsta/nvim-dap-virtual-text"
+  },
+  ["nvim-dap-vscode-js"] = {
+    loaded = true,
+    path = "/Users/weslleybraga/.local/share/nvim/site/pack/packer/start/nvim-dap-vscode-js",
+    url = "https://github.com/mxsdev/nvim-dap-vscode-js"
   },
   ["nvim-lsp-installer"] = {
     loaded = true,
@@ -313,6 +328,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/weslleybraga/.local/share/nvim/site/pack/packer/start/vimux",
     url = "https://github.com/preservim/vimux"
+  },
+  ["vscode-js-debug"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/weslleybraga/.local/share/nvim/site/pack/packer/opt/vscode-js-debug",
+    url = "https://github.com/microsoft/vscode-js-debug"
   }
 }
 

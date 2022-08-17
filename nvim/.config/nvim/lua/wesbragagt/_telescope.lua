@@ -47,4 +47,3 @@ local nnoremap = require("utils").nnoremap
 nnoremap("<leader>fi", project_files)
 nnoremap("<leader>fg", live_grep)
 nnoremap("<leader>kk", keymap)
-nnoremap("<leader>tt", ":Telescope<CR>")

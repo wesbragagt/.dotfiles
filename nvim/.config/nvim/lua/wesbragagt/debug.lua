@@ -36,17 +36,15 @@ dapui.setup({
 		{
 			elements = {
 				-- Elements can be strings or table with id and size keys.
-				{ id = "scopes", size = 0.25 },
+				"scopes",
 				"breakpoints",
-				"stacks",
 				"watches",
 			},
-			size = 40, -- 40 columns
-			position = "left",
+			size = 0.40,
+			position = "right",
 		},
 		{
 			elements = {
-				"repl",
 				"console",
 			},
 			size = 0.25, -- 25% of total lines
@@ -67,46 +65,78 @@ dapui.setup({
 	},
 })
 
+local dap_virtual_text_ok, dap_virtual_text = pcall(require, "nvim-dap-virtual-text")
+
+if not dap_virtual_text_ok then
+	return
+end
+
+dap_virtual_text.setup({})
+
+local dap_vscode_js_ok, dap_vscode_js = pcall(require, "dap-vscode-js")
+
+if not dap_vscode_js_ok then
+	return
+end
+
+dap_vscode_js.setup({
+	adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" }, -- which adapters to register in nvim-dap
+})
+
+for _, language in ipairs({ "typescript", "javascript" }) do
+	dap.configurations[language] = {
+		{
+			type = "pwa-node",
+			request = "launch",
+			name = "Launch file",
+			program = "${file}",
+			cwd = "${workspaceFolder}",
+		},
+		{
+			type = "pwa-node",
+			request = "attach",
+			name = "Attach",
+			processId = require("dap.utils").pick_process,
+			cwd = "${workspaceFolder}",
+		},
+		{
+			name = "Debug Jest Tests",
+			type = "pwa-node",
+			request = "launch",
+			cwd = "${workspaceFolder}",
+			sourceMaps = "inline",
+			skipFiles = { "<node_internals>/**" },
+			runtimeExecutable = "yarn",
+			runtimeArgs = {
+				"--inspect-brk",
+				"jest",
+				"--runInBand",
+				"--no-cache",
+				"--no-collect-coverage",
+				"--test-timeout=0",
+				"--force-exit",
+				"--",
+				"${file}",
+			},
+			console = "integratedTerminal",
+			internalConsoleOptions = "neverOpen",
+		},
+	}
+end
+
+vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpointRejected", { text = "🔵", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapStopped", { text = "⏸️", texthl = "", linehl = "", numhl = "" })
+
+dap.set_log_level("DEBUG")
+
+-- maps
 nnoremap("<leader>,", function()
 	dap.toggle_breakpoint()
 end)
 nnoremap("<leader>.", function()
 	dap.continue()
 end)
-
-dap.adapters.node2 = {
-	type = "executable",
-	command = "node",
-	args = { os.getenv("HOME") .. ".debug_adapters/vscode-node-debug2/out/src/nodeDebug.js" },
-}
-
-dap.configurations.javascript = {
-	{
-		name = "Launch",
-		type = "node2",
-		request = "launch",
-		program = "${file}",
-		cwd = vim.fn.getcwd(),
-		sourceMaps = true,
-		protocol = "inspector",
-		console = "integratedTerminal",
-	},
-	{
-		-- For this to work you need to make sure the node process is started with the `--inspect` flag.
-		name = "Attach to process",
-		type = "node2",
-		request = "attach",
-		processId = require("dap.utils").pick_process,
-	},
-}
-
--- launch ui automatically
-dap.listeners.after.event_initialized["dapui_config"] = function()
-	dapui.open({})
-end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-	dapui.close({})
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-	dapui.close({})
-end
+nnoremap("<leader>du", function()
+	dapui.toggle({})
+end)

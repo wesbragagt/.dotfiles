@@ -101,7 +101,15 @@ return packer.startup(function(use)
 	use("weilbith/nvim-code-action-menu")
 	use("williamboman/nvim-lsp-installer")
 	use("arjunmahishi/run-code.nvim")
-	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+	use({ "mxsdev/nvim-dap-vscode-js", requires = "mfussenegger/nvim-dap" })
+	use({
+		"microsoft/vscode-js-debug",
+		opt = true,
+		run = "npm install --legacy-peer-deps && npm run compile",
+	})
+	use("rcarriga/nvim-dap-ui")
+	use("theHamsta/nvim-dap-virtual-text")
+	use("David-Kunz/jester")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

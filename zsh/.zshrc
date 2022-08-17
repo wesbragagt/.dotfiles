@@ -65,9 +65,9 @@ alias dc="docker-compose"
 alias new="git checkout -b"
 alias mux="bash $DOTFILES/utils/tmux-new-session.sh"
 # Run a fuzzy search through test files and run jest
-# function test(){
-#   node_modules/.bin/jest `find ./src -type f \( -name "*.test*" -or -name "*.spec*" \) | fzf`
-# }
+function jj(){
+  node_modules/.bin/jest `find ./src -type f \( -name "*.test*" -or -name "*.spec*" \) | fzf`
+}
 
 
 function cdl(){
