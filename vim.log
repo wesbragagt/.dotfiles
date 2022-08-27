@@ -1,0 +1,1220 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.009  000.009: --- NVIM STARTING ---
+001.007  000.998: locale set
+018.606  017.599: inits 1
+018.635  000.029: window checked
+018.639  000.004: parsing arguments
+020.744  002.105: init lua interpreter
+021.084  000.340: expanding arguments
+021.193  000.109: inits 2
+021.656  000.463: init highlight
+021.656  000.001: waiting for UI
+023.844  002.187: done waiting for UI
+023.855  000.011: init screen for UI
+023.881  000.027: init default mappings
+023.934  000.053: init default autocommands
+025.641  000.079  000.079: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/ftplugin.vim
+025.938  000.029  000.029: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/indent.vim
+043.741  001.187  001.187: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nightfox.nvim/colors/nordfox.vim
+075.468  049.378  048.191: sourcing /Users/wesbragagt/.config/nvim/init.lua
+075.477  002.058: sourcing vimrc file(s)
+075.587  000.015  000.015: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/filetype.nvim/filetype.vim
+075.814  000.011  000.011: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/filetype.lua
+075.854  000.009  000.009: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/filetype.vim
+076.131  000.043  000.043: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/syntax/synload.vim
+076.199  000.264  000.221: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/syntax/syntax.vim
+077.593  000.079  000.079: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/gzip.vim
+077.624  000.007  000.007: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/health.vim
+077.667  000.019  000.019: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/man.vim
+078.088  000.105  000.105: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+078.174  000.482  000.377: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/matchit.vim
+078.292  000.093  000.093: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/matchparen.vim
+078.486  000.169  000.169: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/netrwPlugin.vim
+078.615  000.005  000.005: sourcing /Users/wesbragagt/.local/share/nvim/rplugin.vim
+078.618  000.103  000.097: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/rplugin.vim
+078.680  000.034  000.034: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/shada.vim
+078.728  000.013  000.013: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/spellfile.vim
+078.805  000.049  000.049: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tarPlugin.vim
+078.880  000.046  000.046: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tohtml.vim
+078.920  000.012  000.012: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tutor.vim
+079.036  000.086  000.086: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/zipPlugin.vim
+079.528  000.250  000.250: sourcing /Users/wesbragagt/.config/nvim/plugin/packer_compiled.lua
+079.861  002.643: loading rtp plugins
+080.518  000.190  000.190: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/auto-pairs/plugin/auto-pairs.vim
+081.318  000.235  000.235: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/diffview.nvim/plugin/diffview.lua
+081.851  000.324  000.324: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/fzf/plugin/fzf.vim
+082.366  000.351  000.351: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/fzf.vim/plugin/fzf.vim
+082.567  000.040  000.040: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/git-blame.nvim/plugin/gitblame.vim
+082.966  000.143  000.143: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+083.301  000.132  000.132: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim/plugin/lsp-colors.vim
+083.643  000.092  000.092: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/LuaSnip/plugin/luasnip.vim
+085.268  000.087  000.087: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/autoload/nerdtree.vim
+085.680  000.227  000.227: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/path.vim
+085.845  000.072  000.072: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/menu_controller.vim
+085.977  000.047  000.047: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/menu_item.vim
+086.125  000.066  000.066: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/key_map.vim
+086.307  000.099  000.099: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/bookmark.vim
+086.480  000.088  000.088: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/tree_file_node.vim
+086.756  000.191  000.191: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/tree_dir_node.vim
+086.919  000.080  000.080: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/opener.vim
+087.117  000.116  000.116: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/creator.vim
+087.226  000.026  000.026: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/flag_set.vim
+087.370  000.062  000.062: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/nerdtree.vim
+087.589  000.140  000.140: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/ui.vim
+087.684  000.015  000.015: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/event.vim
+087.790  000.024  000.024: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/notifier.vim
+088.085  000.203  000.203: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/autoload/nerdtree/ui_glue.vim
+089.672  000.048  000.048: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/exec_menuitem.vim
+090.135  000.098  000.098: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/autoload/provider/clipboard.vim
+090.305  000.602  000.505: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/fs_menu.vim
+090.361  000.025  000.025: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/vcs.vim
+090.946  000.185  000.185: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-devicons/nerdtree_plugin/webdevicons.vim
+091.193  007.380  004.977: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/plugin/NERD_tree.vim
+091.389  000.022  000.022: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nightfox.nvim/plugin/nightfox.vim
+091.883  000.234  000.234: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-cmp/plugin/cmp.lua
+092.007  000.013  000.013: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-code-action-menu/plugin/code_action_menu.vim
+092.254  000.035  000.035: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-dap/plugin/dap.lua
+092.457  000.052  000.052: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+092.662  000.047  000.047: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+093.355  000.468  000.468: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/plugin/nvim-treesitter.lua
+093.613  000.146  000.146: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag/plugin/nvim-ts-autotag.vim
+093.812  000.023  000.023: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+094.040  000.025  000.025: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+094.288  000.045  000.045: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/run-code.nvim/plugin/run-code.vim
+094.574  000.072  000.072: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/telescope.nvim/plugin/telescope.lua
+094.757  000.034  000.034: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/trouble.nvim/plugin/trouble.vim
+095.012  000.094  000.094: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim
+096.121  000.952  000.952: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-devicons/plugin/webdevicons.vim
+096.817  000.537  000.537: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-fugitive/plugin/fugitive.vim
+097.039  000.049  000.049: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-rhubarb/plugin/rhubarb.vim
+097.293  000.095  000.095: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-rooter/plugin/rooter.vim
+097.538  000.086  000.086: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator/plugin/tmux_navigator.vim
+098.484  000.170  000.170: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/vsnip.vim
+098.720  000.044  000.044: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Position.vim
+098.882  000.022  000.022: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip.vim
+099.066  000.908  000.672: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip/snippet.vim
+099.322  000.077  000.077: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/TextEdit.vim
+099.553  000.034  000.034: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Text.vim
+099.901  000.100  000.100: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Buffer.vim
+100.166  000.052  000.052: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Option.vim
+100.502  000.113  000.113: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Diff.vim
+100.659  002.650  001.366: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip/session.vim
+100.809  002.956  000.306: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip.vim
+101.025  003.327  000.370: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/plugin/vsnip.vim
+101.480  000.290  000.290: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vimux/plugin/vimux.vim
+101.641  006.247: loading packages
+102.287  000.203  000.203: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-buffer/after/plugin/cmp_buffer.lua
+102.465  000.088  000.088: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-cmdline/after/plugin/cmp_cmdline.lua
+102.597  000.041  000.041: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+102.758  000.073  000.073: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua/after/plugin/cmp_nvim_lua.lua
+102.920  000.073  000.073: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-path/after/plugin/cmp_path.lua
+103.094  000.073  000.073: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp_luasnip/after/plugin/cmp_luasnip.lua
+103.106  000.914: loading after plugins
+103.111  000.005: inits 3
+104.864  001.753: reading ShaDa
+105.465  000.601: opening buffers
+106.016  000.551: BufEnter autocommands
+106.017  000.001: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.003  000.003: --- NVIM STARTING ---
+000.350  000.348: locale set
+007.817  007.467: inits 1
+007.833  000.016: window checked
+007.835  000.002: parsing arguments
+008.906  001.071: init lua interpreter
+009.049  000.143: expanding arguments
+009.080  000.031: inits 2
+009.322  000.242: init highlight
+009.322  000.001: waiting for UI
+010.460  001.138: done waiting for UI
+010.467  000.006: init screen for UI
+010.479  000.012: init default mappings
+010.499  000.020: init default autocommands
+011.435  000.034  000.034: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/ftplugin.vim
+011.594  000.016  000.016: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/indent.vim
+024.276  000.913  000.913: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nightfox.nvim/colors/nordfox.vim
+053.335  041.667  040.754: sourcing /Users/wesbragagt/.config/nvim/init.lua
+053.345  001.129: sourcing vimrc file(s)
+053.447  000.014  000.014: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/filetype.nvim/filetype.vim
+053.653  000.014  000.014: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/filetype.lua
+053.689  000.009  000.009: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/filetype.vim
+053.937  000.043  000.043: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/syntax/synload.vim
+054.008  000.260  000.217: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/syntax/syntax.vim
+055.370  000.078  000.078: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/gzip.vim
+055.400  000.007  000.007: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/health.vim
+055.440  000.019  000.019: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/man.vim
+055.851  000.102  000.102: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+055.933  000.472  000.370: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/matchit.vim
+056.046  000.091  000.091: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/matchparen.vim
+056.236  000.167  000.167: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/netrwPlugin.vim
+056.364  000.005  000.005: sourcing /Users/wesbragagt/.local/share/nvim/rplugin.vim
+056.367  000.104  000.099: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/rplugin.vim
+056.428  000.034  000.034: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/shada.vim
+056.468  000.013  000.013: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/spellfile.vim
+056.544  000.051  000.051: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tarPlugin.vim
+056.620  000.047  000.047: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tohtml.vim
+056.658  000.012  000.012: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tutor.vim
+056.765  000.082  000.082: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/zipPlugin.vim
+057.255  000.249  000.249: sourcing /Users/wesbragagt/.config/nvim/plugin/packer_compiled.lua
+057.586  002.520: loading rtp plugins
+058.239  000.194  000.194: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/auto-pairs/plugin/auto-pairs.vim
+059.039  000.241  000.241: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/diffview.nvim/plugin/diffview.lua
+059.589  000.339  000.339: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/fzf/plugin/fzf.vim
+060.106  000.359  000.359: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/fzf.vim/plugin/fzf.vim
+060.303  000.040  000.040: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/git-blame.nvim/plugin/gitblame.vim
+060.688  000.143  000.143: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+061.025  000.148  000.148: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim/plugin/lsp-colors.vim
+061.355  000.090  000.090: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/LuaSnip/plugin/luasnip.vim
+062.961  000.087  000.087: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/autoload/nerdtree.vim
+063.362  000.222  000.222: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/path.vim
+063.524  000.075  000.075: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/menu_controller.vim
+063.653  000.046  000.046: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/menu_item.vim
+063.800  000.067  000.067: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/key_map.vim
+063.981  000.098  000.098: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/bookmark.vim
+064.154  000.088  000.088: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/tree_file_node.vim
+064.433  000.196  000.196: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/tree_dir_node.vim
+064.592  000.080  000.080: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/opener.vim
+064.791  000.119  000.119: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/creator.vim
+064.896  000.025  000.025: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/flag_set.vim
+065.038  000.063  000.063: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/nerdtree.vim
+065.253  000.139  000.139: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/ui.vim
+065.347  000.016  000.016: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/event.vim
+065.450  000.024  000.024: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/notifier.vim
+065.738  000.201  000.201: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/autoload/nerdtree/ui_glue.vim
+067.339  000.064  000.064: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/exec_menuitem.vim
+067.804  000.096  000.096: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/autoload/provider/clipboard.vim
+067.988  000.620  000.525: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/fs_menu.vim
+068.042  000.025  000.025: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/vcs.vim
+068.634  000.185  000.185: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-devicons/nerdtree_plugin/webdevicons.vim
+068.883  007.363  004.924: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/plugin/NERD_tree.vim
+069.073  000.022  000.022: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nightfox.nvim/plugin/nightfox.vim
+069.582  000.261  000.261: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-cmp/plugin/cmp.lua
+069.703  000.013  000.013: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-code-action-menu/plugin/code_action_menu.vim
+069.954  000.042  000.042: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-dap/plugin/dap.lua
+070.156  000.053  000.053: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+070.359  000.050  000.050: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+071.093  000.506  000.506: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/plugin/nvim-treesitter.lua
+071.345  000.147  000.147: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag/plugin/nvim-ts-autotag.vim
+071.536  000.023  000.023: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+071.759  000.026  000.026: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+072.002  000.045  000.045: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/run-code.nvim/plugin/run-code.vim
+072.329  000.117  000.117: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/telescope.nvim/plugin/telescope.lua
+072.507  000.034  000.034: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/trouble.nvim/plugin/trouble.vim
+072.753  000.094  000.094: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim
+073.860  000.954  000.954: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-devicons/plugin/webdevicons.vim
+074.554  000.539  000.539: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-fugitive/plugin/fugitive.vim
+074.773  000.049  000.049: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-rhubarb/plugin/rhubarb.vim
+075.019  000.095  000.095: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-rooter/plugin/rooter.vim
+075.254  000.081  000.081: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator/plugin/tmux_navigator.vim
+076.227  000.168  000.168: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/vsnip.vim
+076.465  000.043  000.043: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Position.vim
+076.624  000.022  000.022: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip.vim
+076.813  000.918  000.685: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip/snippet.vim
+077.067  000.078  000.078: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/TextEdit.vim
+077.297  000.035  000.035: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Text.vim
+077.605  000.097  000.097: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Buffer.vim
+077.867  000.051  000.051: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Option.vim
+078.198  000.112  000.112: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Diff.vim
+078.356  002.612  001.321: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip/session.vim
+078.514  002.943  000.330: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip.vim
+078.720  003.314  000.371: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/plugin/vsnip.vim
+079.165  000.286  000.286: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vimux/plugin/vimux.vim
+079.326  006.075: loading packages
+079.956  000.204  000.204: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-buffer/after/plugin/cmp_buffer.lua
+080.151  000.102  000.102: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-cmdline/after/plugin/cmp_cmdline.lua
+080.302  000.063  000.063: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+080.463  000.075  000.075: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua/after/plugin/cmp_nvim_lua.lua
+080.623  000.073  000.073: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-path/after/plugin/cmp_path.lua
+080.795  000.075  000.075: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp_luasnip/after/plugin/cmp_luasnip.lua
+080.807  000.889: loading after plugins
+080.813  000.005: inits 3
+082.618  001.805: reading ShaDa
+082.921  000.303: opening buffers
+083.465  000.544: BufEnter autocommands
+083.466  000.001: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.002  000.002: --- NVIM STARTING ---
+000.286  000.284: locale set
+007.615  007.329: inits 1
+007.630  000.015: window checked
+007.632  000.002: parsing arguments
+008.698  001.067: init lua interpreter
+008.847  000.149: expanding arguments
+008.882  000.035: inits 2
+009.129  000.247: init highlight
+009.130  000.000: waiting for UI
+010.181  001.051: done waiting for UI
+010.188  000.007: init screen for UI
+010.200  000.012: init default mappings
+010.220  000.020: init default autocommands
+011.141  000.035  000.035: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/ftplugin.vim
+011.321  000.017  000.017: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/indent.vim
+023.747  000.862  000.862: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nightfox.nvim/colors/nordfox.vim
+052.005  040.608  039.746: sourcing /Users/wesbragagt/.config/nvim/init.lua
+052.011  001.132: sourcing vimrc file(s)
+052.114  000.015  000.015: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/filetype.nvim/filetype.vim
+052.320  000.012  000.012: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/filetype.lua
+052.356  000.009  000.009: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/filetype.vim
+052.605  000.043  000.043: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/syntax/synload.vim
+052.679  000.264  000.221: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/syntax/syntax.vim
+054.038  000.076  000.076: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/gzip.vim
+054.067  000.007  000.007: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/health.vim
+054.107  000.019  000.019: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/man.vim
+054.516  000.101  000.101: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+054.597  000.468  000.367: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/matchit.vim
+054.712  000.092  000.092: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/matchparen.vim
+054.926  000.191  000.191: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/netrwPlugin.vim
+055.059  000.005  000.005: sourcing /Users/wesbragagt/.local/share/nvim/rplugin.vim
+055.063  000.109  000.103: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/rplugin.vim
+055.123  000.034  000.034: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/shada.vim
+055.163  000.013  000.013: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/spellfile.vim
+055.243  000.054  000.054: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tarPlugin.vim
+055.321  000.049  000.049: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tohtml.vim
+055.359  000.012  000.012: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tutor.vim
+055.481  000.080  000.080: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/zipPlugin.vim
+055.995  000.275  000.275: sourcing /Users/wesbragagt/.config/nvim/plugin/packer_compiled.lua
+056.334  002.543: loading rtp plugins
+056.984  000.191  000.191: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/auto-pairs/plugin/auto-pairs.vim
+057.789  000.243  000.243: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/diffview.nvim/plugin/diffview.lua
+058.314  000.325  000.325: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/fzf/plugin/fzf.vim
+058.820  000.349  000.349: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/fzf.vim/plugin/fzf.vim
+059.017  000.041  000.041: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/git-blame.nvim/plugin/gitblame.vim
+059.403  000.141  000.141: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+059.724  000.136  000.136: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim/plugin/lsp-colors.vim
+060.055  000.090  000.090: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/LuaSnip/plugin/luasnip.vim
+061.653  000.084  000.084: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/autoload/nerdtree.vim
+062.066  000.228  000.228: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/path.vim
+062.224  000.072  000.072: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/menu_controller.vim
+062.352  000.046  000.046: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/menu_item.vim
+062.499  000.068  000.068: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/key_map.vim
+062.681  000.101  000.101: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/bookmark.vim
+062.853  000.088  000.088: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/tree_file_node.vim
+063.145  000.211  000.211: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/tree_dir_node.vim
+063.317  000.081  000.081: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/opener.vim
+063.524  000.128  000.128: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/creator.vim
+063.631  000.025  000.025: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/flag_set.vim
+063.775  000.065  000.065: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/nerdtree.vim
+063.990  000.139  000.139: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/ui.vim
+064.083  000.015  000.015: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/event.vim
+064.188  000.026  000.026: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/notifier.vim
+064.479  000.203  000.203: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/autoload/nerdtree/ui_glue.vim
+066.084  000.048  000.048: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/exec_menuitem.vim
+066.552  000.109  000.109: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/autoload/provider/clipboard.vim
+066.727  000.615  000.506: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/fs_menu.vim
+066.780  000.025  000.025: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/vcs.vim
+067.362  000.182  000.182: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-devicons/nerdtree_plugin/webdevicons.vim
+067.609  007.392  004.943: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/plugin/NERD_tree.vim
+067.800  000.022  000.022: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nightfox.nvim/plugin/nightfox.vim
+068.263  000.213  000.213: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-cmp/plugin/cmp.lua
+068.383  000.013  000.013: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-code-action-menu/plugin/code_action_menu.vim
+068.649  000.056  000.056: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-dap/plugin/dap.lua
+068.854  000.054  000.054: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+069.067  000.059  000.059: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+069.781  000.494  000.494: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/plugin/nvim-treesitter.lua
+070.037  000.149  000.149: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag/plugin/nvim-ts-autotag.vim
+070.234  000.025  000.025: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+070.457  000.025  000.025: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+070.703  000.049  000.049: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/run-code.nvim/plugin/run-code.vim
+071.062  000.151  000.151: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/telescope.nvim/plugin/telescope.lua
+071.260  000.036  000.036: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/trouble.nvim/plugin/trouble.vim
+071.520  000.106  000.106: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim
+072.605  000.931  000.931: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-devicons/plugin/webdevicons.vim
+073.291  000.531  000.531: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-fugitive/plugin/fugitive.vim
+073.509  000.049  000.049: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-rhubarb/plugin/rhubarb.vim
+073.758  000.095  000.095: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-rooter/plugin/rooter.vim
+073.993  000.081  000.081: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator/plugin/tmux_navigator.vim
+074.923  000.176  000.176: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/vsnip.vim
+075.159  000.044  000.044: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Position.vim
+075.321  000.022  000.022: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip.vim
+075.516  000.919  000.676: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip/snippet.vim
+075.763  000.072  000.072: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/TextEdit.vim
+075.992  000.034  000.034: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Text.vim
+076.297  000.093  000.093: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Buffer.vim
+076.559  000.051  000.051: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Option.vim
+076.892  000.112  000.112: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Diff.vim
+077.051  002.600  001.319: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip/session.vim
+077.200  002.901  000.301: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip.vim
+077.409  003.260  000.358: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/plugin/vsnip.vim
+077.853  000.285  000.285: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vimux/plugin/vimux.vim
+078.015  006.087: loading packages
+078.658  000.216  000.216: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-buffer/after/plugin/cmp_buffer.lua
+078.837  000.088  000.088: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-cmdline/after/plugin/cmp_cmdline.lua
+078.959  000.034  000.034: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+079.167  000.103  000.103: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua/after/plugin/cmp_nvim_lua.lua
+079.337  000.083  000.083: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-path/after/plugin/cmp_path.lua
+079.512  000.076  000.076: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp_luasnip/after/plugin/cmp_luasnip.lua
+079.527  000.912: loading after plugins
+079.532  000.005: inits 3
+081.298  001.765: reading ShaDa
+081.841  000.544: opening buffers
+082.396  000.555: BufEnter autocommands
+082.397  000.001: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.002  000.002: --- NVIM STARTING ---
+000.285  000.283: locale set
+007.629  007.345: inits 1
+007.642  000.013: window checked
+007.644  000.002: parsing arguments
+008.711  001.067: init lua interpreter
+008.844  000.133: expanding arguments
+008.865  000.021: inits 2
+009.116  000.251: init highlight
+009.116  000.000: waiting for UI
+010.224  001.107: done waiting for UI
+010.231  000.007: init screen for UI
+010.247  000.016: init default mappings
+010.266  000.019: init default autocommands
+011.198  000.034  000.034: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/ftplugin.vim
+011.355  000.016  000.016: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/indent.vim
+023.291  000.955  000.955: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nightfox.nvim/colors/nordfox.vim
+052.356  040.930  039.975: sourcing /Users/wesbragagt/.config/nvim/init.lua
+052.363  001.118: sourcing vimrc file(s)
+052.466  000.014  000.014: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/filetype.nvim/filetype.vim
+052.685  000.023  000.023: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/filetype.lua
+052.721  000.009  000.009: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/filetype.vim
+052.970  000.043  000.043: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/syntax/synload.vim
+053.041  000.262  000.218: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/syntax/syntax.vim
+054.410  000.079  000.079: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/gzip.vim
+054.439  000.007  000.007: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/health.vim
+054.479  000.019  000.019: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/man.vim
+054.885  000.100  000.100: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+054.967  000.466  000.366: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/matchit.vim
+055.078  000.090  000.090: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/matchparen.vim
+055.267  000.167  000.167: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/netrwPlugin.vim
+055.397  000.005  000.005: sourcing /Users/wesbragagt/.local/share/nvim/rplugin.vim
+055.400  000.104  000.099: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/rplugin.vim
+055.459  000.033  000.033: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/shada.vim
+055.498  000.013  000.013: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/spellfile.vim
+055.574  000.051  000.051: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tarPlugin.vim
+055.650  000.046  000.046: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tohtml.vim
+055.687  000.012  000.012: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tutor.vim
+055.791  000.078  000.078: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/zipPlugin.vim
+056.272  000.243  000.243: sourcing /Users/wesbragagt/.config/nvim/plugin/packer_compiled.lua
+056.606  002.528: loading rtp plugins
+057.254  000.190  000.190: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/auto-pairs/plugin/auto-pairs.vim
+058.043  000.234  000.234: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/diffview.nvim/plugin/diffview.lua
+058.569  000.322  000.322: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/fzf/plugin/fzf.vim
+059.112  000.387  000.387: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/fzf.vim/plugin/fzf.vim
+059.322  000.056  000.056: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/git-blame.nvim/plugin/gitblame.vim
+059.715  000.148  000.148: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+060.080  000.169  000.169: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim/plugin/lsp-colors.vim
+060.419  000.093  000.093: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/LuaSnip/plugin/luasnip.vim
+062.021  000.089  000.089: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/autoload/nerdtree.vim
+062.429  000.225  000.225: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/path.vim
+062.590  000.073  000.073: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/menu_controller.vim
+062.717  000.046  000.046: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/menu_item.vim
+062.865  000.067  000.067: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/key_map.vim
+063.049  000.102  000.102: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/bookmark.vim
+063.224  000.091  000.091: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/tree_file_node.vim
+063.501  000.194  000.194: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/tree_dir_node.vim
+063.662  000.081  000.081: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/opener.vim
+063.856  000.115  000.115: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/creator.vim
+063.962  000.025  000.025: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/flag_set.vim
+064.105  000.062  000.062: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/nerdtree.vim
+064.326  000.143  000.143: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/ui.vim
+064.423  000.016  000.016: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/event.vim
+064.528  000.025  000.025: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/notifier.vim
+064.819  000.203  000.203: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/autoload/nerdtree/ui_glue.vim
+066.407  000.048  000.048: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/exec_menuitem.vim
+066.884  000.117  000.117: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/autoload/provider/clipboard.vim
+067.070  000.635  000.518: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/fs_menu.vim
+067.125  000.026  000.026: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/vcs.vim
+067.712  000.185  000.185: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-devicons/nerdtree_plugin/webdevicons.vim
+067.966  007.384  004.933: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/plugin/NERD_tree.vim
+068.157  000.022  000.022: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nightfox.nvim/plugin/nightfox.vim
+068.640  000.234  000.234: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-cmp/plugin/cmp.lua
+068.758  000.013  000.013: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-code-action-menu/plugin/code_action_menu.vim
+069.003  000.035  000.035: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-dap/plugin/dap.lua
+069.204  000.052  000.052: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+069.404  000.047  000.047: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+070.159  000.537  000.537: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/plugin/nvim-treesitter.lua
+070.413  000.148  000.148: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag/plugin/nvim-ts-autotag.vim
+070.604  000.023  000.023: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+070.825  000.026  000.026: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+071.070  000.049  000.049: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/run-code.nvim/plugin/run-code.vim
+071.384  000.107  000.107: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/telescope.nvim/plugin/telescope.lua
+071.561  000.034  000.034: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/trouble.nvim/plugin/trouble.vim
+071.806  000.095  000.095: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim
+072.904  000.947  000.947: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-devicons/plugin/webdevicons.vim
+073.598  000.538  000.538: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-fugitive/plugin/fugitive.vim
+073.813  000.049  000.049: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-rhubarb/plugin/rhubarb.vim
+074.061  000.097  000.097: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-rooter/plugin/rooter.vim
+074.297  000.080  000.080: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator/plugin/tmux_navigator.vim
+075.214  000.170  000.170: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/vsnip.vim
+075.470  000.047  000.047: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Position.vim
+075.643  000.022  000.022: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip.vim
+075.834  000.939  000.699: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip/snippet.vim
+076.087  000.074  000.074: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/TextEdit.vim
+076.321  000.034  000.034: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Text.vim
+076.624  000.092  000.092: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Buffer.vim
+076.884  000.051  000.051: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Option.vim
+077.221  000.117  000.117: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Diff.vim
+077.378  002.630  001.324: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip/session.vim
+077.529  002.932  000.301: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip.vim
+077.735  003.287  000.355: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/plugin/vsnip.vim
+078.186  000.292  000.292: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vimux/plugin/vimux.vim
+078.347  006.044: loading packages
+078.968  000.198  000.198: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-buffer/after/plugin/cmp_buffer.lua
+079.160  000.097  000.097: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-cmdline/after/plugin/cmp_cmdline.lua
+079.287  000.040  000.040: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+079.441  000.069  000.069: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua/after/plugin/cmp_nvim_lua.lua
+079.600  000.072  000.072: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-path/after/plugin/cmp_path.lua
+079.771  000.073  000.073: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp_luasnip/after/plugin/cmp_luasnip.lua
+079.788  000.892: loading after plugins
+079.793  000.005: inits 3
+081.572  001.778: reading ShaDa
+082.219  000.647: opening buffers
+082.789  000.571: BufEnter autocommands
+082.791  000.001: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.002  000.002: --- NVIM STARTING ---
+000.282  000.279: locale set
+008.001  007.719: inits 1
+008.010  000.010: window checked
+008.012  000.002: parsing arguments
+009.060  001.048: init lua interpreter
+009.182  000.122: expanding arguments
+009.204  000.021: inits 2
+009.455  000.251: init highlight
+009.455  000.000: waiting for UI
+010.523  001.068: done waiting for UI
+010.530  000.007: init screen for UI
+010.545  000.015: init default mappings
+010.573  000.028: init default autocommands
+011.518  000.037  000.037: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/ftplugin.vim
+011.677  000.017  000.017: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/indent.vim
+023.435  000.881  000.881: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nightfox.nvim/colors/nordfox.vim
+052.814  041.065  040.184: sourcing /Users/wesbragagt/.config/nvim/init.lua
+052.821  001.129: sourcing vimrc file(s)
+052.928  000.015  000.015: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/filetype.nvim/filetype.vim
+053.135  000.013  000.013: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/filetype.lua
+053.171  000.009  000.009: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/filetype.vim
+053.428  000.050  000.050: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/syntax/synload.vim
+053.499  000.269  000.219: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/syntax/syntax.vim
+054.897  000.076  000.076: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/gzip.vim
+054.926  000.007  000.007: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/health.vim
+054.966  000.019  000.019: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/man.vim
+055.376  000.104  000.104: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+055.460  000.472  000.368: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/matchit.vim
+055.578  000.096  000.096: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/matchparen.vim
+055.763  000.163  000.163: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/netrwPlugin.vim
+055.887  000.005  000.005: sourcing /Users/wesbragagt/.local/share/nvim/rplugin.vim
+055.891  000.101  000.096: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/rplugin.vim
+055.950  000.034  000.034: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/shada.vim
+055.992  000.013  000.013: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/spellfile.vim
+056.067  000.050  000.050: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tarPlugin.vim
+056.142  000.046  000.046: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tohtml.vim
+056.179  000.012  000.012: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tutor.vim
+056.290  000.086  000.086: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/zipPlugin.vim
+056.768  000.240  000.240: sourcing /Users/wesbragagt/.config/nvim/plugin/packer_compiled.lua
+057.103  002.563: loading rtp plugins
+057.747  000.186  000.186: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/auto-pairs/plugin/auto-pairs.vim
+058.539  000.224  000.224: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/diffview.nvim/plugin/diffview.lua
+059.068  000.323  000.323: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/fzf/plugin/fzf.vim
+059.574  000.351  000.351: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/fzf.vim/plugin/fzf.vim
+059.767  000.039  000.039: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/git-blame.nvim/plugin/gitblame.vim
+060.154  000.144  000.144: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+060.567  000.218  000.218: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim/plugin/lsp-colors.vim
+060.906  000.093  000.093: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/LuaSnip/plugin/luasnip.vim
+062.548  000.085  000.085: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/autoload/nerdtree.vim
+062.959  000.225  000.225: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/path.vim
+063.125  000.072  000.072: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/menu_controller.vim
+063.252  000.046  000.046: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/menu_item.vim
+063.400  000.068  000.068: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/key_map.vim
+063.577  000.097  000.097: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/bookmark.vim
+063.749  000.090  000.090: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/tree_file_node.vim
+064.023  000.188  000.188: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/tree_dir_node.vim
+064.185  000.082  000.082: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/opener.vim
+064.378  000.113  000.113: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/creator.vim
+064.485  000.026  000.026: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/flag_set.vim
+064.625  000.060  000.060: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/nerdtree.vim
+064.847  000.146  000.146: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/ui.vim
+064.941  000.015  000.015: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/event.vim
+065.043  000.024  000.024: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/notifier.vim
+065.332  000.204  000.204: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/autoload/nerdtree/ui_glue.vim
+066.920  000.047  000.047: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/exec_menuitem.vim
+067.375  000.097  000.097: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/autoload/provider/clipboard.vim
+067.544  000.596  000.499: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/fs_menu.vim
+067.598  000.025  000.025: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/vcs.vim
+068.177  000.185  000.185: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-devicons/nerdtree_plugin/webdevicons.vim
+068.424  007.353  004.960: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/plugin/NERD_tree.vim
+068.617  000.022  000.022: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nightfox.nvim/plugin/nightfox.vim
+069.073  000.209  000.209: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-cmp/plugin/cmp.lua
+069.190  000.013  000.013: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-code-action-menu/plugin/code_action_menu.vim
+069.433  000.035  000.035: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-dap/plugin/dap.lua
+069.633  000.053  000.053: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+069.831  000.045  000.045: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+070.619  000.543  000.543: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/plugin/nvim-treesitter.lua
+070.870  000.146  000.146: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag/plugin/nvim-ts-autotag.vim
+071.065  000.023  000.023: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+071.288  000.026  000.026: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+071.532  000.045  000.045: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/run-code.nvim/plugin/run-code.vim
+071.847  000.106  000.106: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/telescope.nvim/plugin/telescope.lua
+072.025  000.034  000.034: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/trouble.nvim/plugin/trouble.vim
+072.272  000.096  000.096: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim
+073.356  000.932  000.932: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-devicons/plugin/webdevicons.vim
+074.052  000.542  000.542: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-fugitive/plugin/fugitive.vim
+074.268  000.049  000.049: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-rhubarb/plugin/rhubarb.vim
+074.517  000.095  000.095: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-rooter/plugin/rooter.vim
+074.753  000.080  000.080: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator/plugin/tmux_navigator.vim
+075.661  000.165  000.165: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/vsnip.vim
+075.892  000.043  000.043: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Position.vim
+076.052  000.023  000.023: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip.vim
+076.231  000.882  000.651: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip/snippet.vim
+076.481  000.077  000.077: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/TextEdit.vim
+076.711  000.035  000.035: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Text.vim
+077.018  000.097  000.097: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Buffer.vim
+077.278  000.051  000.051: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Option.vim
+077.615  000.114  000.114: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Diff.vim
+077.777  002.575  001.318: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip/session.vim
+077.928  002.875  000.299: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip.vim
+078.154  003.250  000.375: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/plugin/vsnip.vim
+078.625  000.313  000.313: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vimux/plugin/vimux.vim
+078.790  006.100: loading packages
+079.417  000.204  000.204: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-buffer/after/plugin/cmp_buffer.lua
+079.597  000.086  000.086: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-cmdline/after/plugin/cmp_cmdline.lua
+079.716  000.031  000.031: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+079.868  000.068  000.068: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua/after/plugin/cmp_nvim_lua.lua
+080.030  000.075  000.075: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-path/after/plugin/cmp_path.lua
+080.204  000.077  000.077: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp_luasnip/after/plugin/cmp_luasnip.lua
+080.220  000.888: loading after plugins
+080.225  000.005: inits 3
+081.970  001.746: reading ShaDa
+082.501  000.531: opening buffers
+083.051  000.549: BufEnter autocommands
+083.052  000.001: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.002  000.002: --- NVIM STARTING ---
+000.300  000.297: locale set
+007.447  007.147: inits 1
+007.458  000.011: window checked
+007.460  000.002: parsing arguments
+008.560  001.100: init lua interpreter
+008.695  000.135: expanding arguments
+008.734  000.039: inits 2
+008.979  000.245: init highlight
+008.979  000.001: waiting for UI
+010.042  001.063: done waiting for UI
+010.049  000.007: init screen for UI
+010.061  000.012: init default mappings
+010.081  000.020: init default autocommands
+011.031  000.035  000.035: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/ftplugin.vim
+011.190  000.017  000.017: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/indent.vim
+023.637  000.951  000.951: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nightfox.nvim/colors/nordfox.vim
+052.290  041.019  040.068: sourcing /Users/wesbragagt/.config/nvim/init.lua
+052.297  001.145: sourcing vimrc file(s)
+052.401  000.015  000.015: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/filetype.nvim/filetype.vim
+052.606  000.012  000.012: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/filetype.lua
+052.640  000.008  000.008: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/filetype.vim
+052.884  000.043  000.043: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/syntax/synload.vim
+052.952  000.256  000.213: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/syntax/syntax.vim
+054.321  000.077  000.077: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/gzip.vim
+054.349  000.007  000.007: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/health.vim
+054.389  000.019  000.019: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/man.vim
+054.811  000.111  000.111: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+054.897  000.487  000.375: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/matchit.vim
+055.012  000.092  000.092: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/matchparen.vim
+055.207  000.172  000.172: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/netrwPlugin.vim
+055.332  000.005  000.005: sourcing /Users/wesbragagt/.local/share/nvim/rplugin.vim
+055.335  000.100  000.095: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/rplugin.vim
+055.395  000.034  000.034: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/shada.vim
+055.435  000.013  000.013: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/spellfile.vim
+055.513  000.053  000.053: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tarPlugin.vim
+055.588  000.046  000.046: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tohtml.vim
+055.625  000.012  000.012: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tutor.vim
+055.732  000.083  000.083: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/zipPlugin.vim
+056.243  000.260  000.260: sourcing /Users/wesbragagt/.config/nvim/plugin/packer_compiled.lua
+056.586  002.545: loading rtp plugins
+057.283  000.196  000.196: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/auto-pairs/plugin/auto-pairs.vim
+058.098  000.232  000.232: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/diffview.nvim/plugin/diffview.lua
+058.632  000.330  000.330: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/fzf/plugin/fzf.vim
+059.155  000.357  000.357: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/fzf.vim/plugin/fzf.vim
+059.354  000.040  000.040: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/git-blame.nvim/plugin/gitblame.vim
+059.746  000.140  000.140: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+060.100  000.154  000.154: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim/plugin/lsp-colors.vim
+060.440  000.091  000.091: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/LuaSnip/plugin/luasnip.vim
+062.082  000.084  000.084: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/autoload/nerdtree.vim
+062.497  000.227  000.227: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/path.vim
+062.655  000.073  000.073: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/menu_controller.vim
+062.787  000.046  000.046: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/menu_item.vim
+062.938  000.071  000.071: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/key_map.vim
+063.117  000.096  000.096: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/bookmark.vim
+063.293  000.094  000.094: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/tree_file_node.vim
+063.569  000.191  000.191: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/tree_dir_node.vim
+063.735  000.087  000.087: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/opener.vim
+063.933  000.118  000.118: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/creator.vim
+064.039  000.025  000.025: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/flag_set.vim
+064.177  000.059  000.059: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/nerdtree.vim
+064.408  000.153  000.153: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/ui.vim
+064.501  000.015  000.015: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/event.vim
+064.604  000.024  000.024: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/notifier.vim
+064.897  000.208  000.208: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/autoload/nerdtree/ui_glue.vim
+066.489  000.048  000.048: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/exec_menuitem.vim
+066.944  000.095  000.095: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/autoload/provider/clipboard.vim
+067.125  000.608  000.513: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/fs_menu.vim
+067.180  000.025  000.025: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/vcs.vim
+067.772  000.186  000.186: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-devicons/nerdtree_plugin/webdevicons.vim
+068.045  007.432  004.996: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/plugin/NERD_tree.vim
+068.275  000.027  000.027: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nightfox.nvim/plugin/nightfox.vim
+068.825  000.283  000.283: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-cmp/plugin/cmp.lua
+068.951  000.013  000.013: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-code-action-menu/plugin/code_action_menu.vim
+069.201  000.036  000.036: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-dap/plugin/dap.lua
+069.410  000.059  000.059: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+069.618  000.053  000.053: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+070.366  000.527  000.527: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/plugin/nvim-treesitter.lua
+070.630  000.153  000.153: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag/plugin/nvim-ts-autotag.vim
+070.825  000.024  000.024: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+071.049  000.026  000.026: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+071.293  000.047  000.047: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/run-code.nvim/plugin/run-code.vim
+071.614  000.111  000.111: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/telescope.nvim/plugin/telescope.lua
+071.793  000.035  000.035: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/trouble.nvim/plugin/trouble.vim
+072.040  000.095  000.095: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim
+073.138  000.943  000.943: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-devicons/plugin/webdevicons.vim
+073.834  000.535  000.535: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-fugitive/plugin/fugitive.vim
+074.056  000.051  000.051: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-rhubarb/plugin/rhubarb.vim
+074.302  000.095  000.095: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-rooter/plugin/rooter.vim
+074.539  000.081  000.081: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator/plugin/tmux_navigator.vim
+075.468  000.174  000.174: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/vsnip.vim
+075.700  000.043  000.043: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Position.vim
+075.858  000.022  000.022: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip.vim
+076.038  000.897  000.657: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip/snippet.vim
+076.284  000.072  000.072: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/TextEdit.vim
+076.520  000.035  000.035: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Text.vim
+076.821  000.090  000.090: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Buffer.vim
+077.079  000.052  000.052: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Option.vim
+077.411  000.114  000.114: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Diff.vim
+077.569  002.574  001.316: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip/session.vim
+077.725  002.886  000.312: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip.vim
+077.938  003.249  000.363: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/plugin/vsnip.vim
+078.392  000.297  000.297: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vimux/plugin/vimux.vim
+078.554  006.255: loading packages
+079.201  000.214  000.214: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-buffer/after/plugin/cmp_buffer.lua
+079.378  000.086  000.086: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-cmdline/after/plugin/cmp_cmdline.lua
+079.505  000.033  000.033: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+079.669  000.078  000.078: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua/after/plugin/cmp_nvim_lua.lua
+079.829  000.075  000.075: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-path/after/plugin/cmp_path.lua
+080.009  000.082  000.082: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp_luasnip/after/plugin/cmp_luasnip.lua
+080.024  000.902: loading after plugins
+080.030  000.005: inits 3
+081.867  001.837: reading ShaDa
+082.242  000.376: opening buffers
+082.804  000.562: BufEnter autocommands
+082.805  000.001: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.002  000.002: --- NVIM STARTING ---
+000.296  000.293: locale set
+007.629  007.333: inits 1
+007.639  000.010: window checked
+007.641  000.002: parsing arguments
+008.674  001.033: init lua interpreter
+008.818  000.144: expanding arguments
+008.851  000.032: inits 2
+009.099  000.248: init highlight
+009.099  000.001: waiting for UI
+010.143  001.044: done waiting for UI
+010.150  000.006: init screen for UI
+010.162  000.012: init default mappings
+010.182  000.020: init default autocommands
+011.091  000.034  000.034: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/ftplugin.vim
+011.249  000.016  000.016: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/indent.vim
+023.136  000.952  000.952: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nightfox.nvim/colors/nordfox.vim
+051.397  040.074  039.122: sourcing /Users/wesbragagt/.config/nvim/init.lua
+051.403  001.098: sourcing vimrc file(s)
+051.508  000.016  000.016: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/filetype.nvim/filetype.vim
+051.723  000.012  000.012: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/filetype.lua
+051.763  000.012  000.012: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/filetype.vim
+052.016  000.043  000.043: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/syntax/synload.vim
+052.084  000.259  000.216: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/syntax/syntax.vim
+053.452  000.075  000.075: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/gzip.vim
+053.481  000.007  000.007: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/health.vim
+053.521  000.019  000.019: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/man.vim
+053.922  000.100  000.100: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+054.004  000.462  000.362: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/matchit.vim
+054.115  000.090  000.090: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/matchparen.vim
+054.303  000.165  000.165: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/netrwPlugin.vim
+054.426  000.005  000.005: sourcing /Users/wesbragagt/.local/share/nvim/rplugin.vim
+054.429  000.097  000.092: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/rplugin.vim
+054.489  000.033  000.033: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/shada.vim
+054.529  000.013  000.013: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/spellfile.vim
+054.608  000.054  000.054: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tarPlugin.vim
+054.684  000.046  000.046: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tohtml.vim
+054.722  000.012  000.012: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tutor.vim
+054.826  000.079  000.079: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/zipPlugin.vim
+055.302  000.240  000.240: sourcing /Users/wesbragagt/.config/nvim/plugin/packer_compiled.lua
+055.632  002.539: loading rtp plugins
+056.283  000.190  000.190: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/auto-pairs/plugin/auto-pairs.vim
+057.075  000.231  000.231: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/diffview.nvim/plugin/diffview.lua
+057.597  000.320  000.320: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/fzf/plugin/fzf.vim
+058.105  000.347  000.347: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/fzf.vim/plugin/fzf.vim
+058.300  000.042  000.042: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/git-blame.nvim/plugin/gitblame.vim
+058.690  000.145  000.145: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+059.017  000.136  000.136: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim/plugin/lsp-colors.vim
+059.350  000.093  000.093: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/LuaSnip/plugin/luasnip.vim
+060.952  000.086  000.086: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/autoload/nerdtree.vim
+061.361  000.229  000.229: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/path.vim
+061.521  000.073  000.073: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/menu_controller.vim
+061.648  000.046  000.046: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/menu_item.vim
+061.797  000.068  000.068: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/key_map.vim
+061.979  000.100  000.100: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/bookmark.vim
+062.153  000.090  000.090: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/tree_file_node.vim
+062.434  000.199  000.199: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/tree_dir_node.vim
+062.596  000.081  000.081: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/opener.vim
+062.788  000.112  000.112: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/creator.vim
+062.894  000.025  000.025: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/flag_set.vim
+063.038  000.064  000.064: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/nerdtree.vim
+063.257  000.139  000.139: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/ui.vim
+063.351  000.016  000.016: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/event.vim
+063.460  000.029  000.029: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/notifier.vim
+063.749  000.202  000.202: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/autoload/nerdtree/ui_glue.vim
+065.338  000.048  000.048: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/exec_menuitem.vim
+065.808  000.108  000.108: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/autoload/provider/clipboard.vim
+065.983  000.613  000.504: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/fs_menu.vim
+066.039  000.025  000.025: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/vcs.vim
+066.621  000.182  000.182: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-devicons/nerdtree_plugin/webdevicons.vim
+066.870  007.357  004.928: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/plugin/NERD_tree.vim
+067.060  000.022  000.022: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nightfox.nvim/plugin/nightfox.vim
+067.531  000.222  000.222: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-cmp/plugin/cmp.lua
+067.648  000.013  000.013: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-code-action-menu/plugin/code_action_menu.vim
+067.898  000.040  000.040: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-dap/plugin/dap.lua
+068.100  000.054  000.054: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+068.303  000.049  000.049: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+069.088  000.565  000.565: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/plugin/nvim-treesitter.lua
+069.363  000.169  000.169: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag/plugin/nvim-ts-autotag.vim
+069.559  000.023  000.023: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+069.786  000.025  000.025: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+070.026  000.045  000.045: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/run-code.nvim/plugin/run-code.vim
+070.363  000.127  000.127: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/telescope.nvim/plugin/telescope.lua
+070.541  000.034  000.034: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/trouble.nvim/plugin/trouble.vim
+070.790  000.097  000.097: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim
+071.884  000.942  000.942: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-devicons/plugin/webdevicons.vim
+072.569  000.530  000.530: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-fugitive/plugin/fugitive.vim
+072.804  000.052  000.052: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-rhubarb/plugin/rhubarb.vim
+073.053  000.094  000.094: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-rooter/plugin/rooter.vim
+073.287  000.080  000.080: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator/plugin/tmux_navigator.vim
+074.209  000.175  000.175: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/vsnip.vim
+074.450  000.044  000.044: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Position.vim
+074.608  000.022  000.022: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip.vim
+074.797  000.911  000.671: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip/snippet.vim
+075.043  000.072  000.072: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/TextEdit.vim
+075.274  000.037  000.037: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Text.vim
+075.576  000.092  000.092: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Buffer.vim
+075.837  000.052  000.052: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Option.vim
+076.171  000.113  000.113: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Diff.vim
+076.329  002.591  001.313: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip/session.vim
+076.480  002.892  000.301: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip.vim
+076.687  003.248  000.356: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/plugin/vsnip.vim
+077.135  000.291  000.291: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vimux/plugin/vimux.vim
+077.298  006.085: loading packages
+077.927  000.206  000.206: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-buffer/after/plugin/cmp_buffer.lua
+078.111  000.090  000.090: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-cmdline/after/plugin/cmp_cmdline.lua
+078.234  000.031  000.031: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+078.385  000.066  000.066: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua/after/plugin/cmp_nvim_lua.lua
+078.544  000.073  000.073: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-path/after/plugin/cmp_path.lua
+078.732  000.092  000.092: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp_luasnip/after/plugin/cmp_luasnip.lua
+078.748  000.891: loading after plugins
+078.753  000.005: inits 3
+080.484  001.731: reading ShaDa
+080.815  000.332: opening buffers
+081.363  000.547: BufEnter autocommands
+081.364  000.001: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.002  000.002: --- NVIM STARTING ---
+000.287  000.285: locale set
+008.032  007.744: inits 1
+008.042  000.011: window checked
+008.044  000.002: parsing arguments
+009.091  001.046: init lua interpreter
+009.229  000.139: expanding arguments
+009.266  000.037: inits 2
+009.526  000.259: init highlight
+009.526  000.000: waiting for UI
+010.590  001.064: done waiting for UI
+010.595  000.006: init screen for UI
+010.611  000.016: init default mappings
+010.632  000.021: init default autocommands
+011.554  000.034  000.034: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/ftplugin.vim
+011.713  000.016  000.016: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/indent.vim
+023.598  000.875  000.875: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nightfox.nvim/colors/nordfox.vim
+051.771  039.986  039.112: sourcing /Users/wesbragagt/.config/nvim/init.lua
+051.778  001.109: sourcing vimrc file(s)
+051.877  000.014  000.014: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/filetype.nvim/filetype.vim
+052.082  000.011  000.011: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/filetype.lua
+052.116  000.008  000.008: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/filetype.vim
+052.367  000.043  000.043: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/syntax/synload.vim
+052.435  000.259  000.216: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/syntax/syntax.vim
+053.802  000.079  000.079: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/gzip.vim
+053.832  000.007  000.007: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/health.vim
+053.872  000.020  000.020: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/man.vim
+054.280  000.101  000.101: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+054.362  000.468  000.366: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/matchit.vim
+054.474  000.090  000.090: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/matchparen.vim
+054.668  000.171  000.171: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/netrwPlugin.vim
+054.790  000.005  000.005: sourcing /Users/wesbragagt/.local/share/nvim/rplugin.vim
+054.793  000.098  000.092: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/rplugin.vim
+054.856  000.034  000.034: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/shada.vim
+054.896  000.013  000.013: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/spellfile.vim
+054.976  000.052  000.052: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tarPlugin.vim
+055.055  000.048  000.048: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tohtml.vim
+055.093  000.012  000.012: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tutor.vim
+055.198  000.080  000.080: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/zipPlugin.vim
+055.680  000.246  000.246: sourcing /Users/wesbragagt/.config/nvim/plugin/packer_compiled.lua
+056.011  002.523: loading rtp plugins
+056.667  000.198  000.198: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/auto-pairs/plugin/auto-pairs.vim
+057.456  000.221  000.221: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/diffview.nvim/plugin/diffview.lua
+057.982  000.325  000.325: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/fzf/plugin/fzf.vim
+058.482  000.347  000.347: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/fzf.vim/plugin/fzf.vim
+058.676  000.039  000.039: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/git-blame.nvim/plugin/gitblame.vim
+059.061  000.141  000.141: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+059.404  000.153  000.153: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim/plugin/lsp-colors.vim
+059.735  000.090  000.090: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/LuaSnip/plugin/luasnip.vim
+061.340  000.086  000.086: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/autoload/nerdtree.vim
+061.743  000.224  000.224: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/path.vim
+061.899  000.072  000.072: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/menu_controller.vim
+062.027  000.045  000.045: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/menu_item.vim
+062.177  000.069  000.069: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/key_map.vim
+062.354  000.097  000.097: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/bookmark.vim
+062.530  000.093  000.093: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/tree_file_node.vim
+062.807  000.195  000.195: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/tree_dir_node.vim
+062.968  000.081  000.081: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/opener.vim
+063.161  000.113  000.113: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/creator.vim
+063.266  000.024  000.024: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/flag_set.vim
+063.408  000.063  000.063: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/nerdtree.vim
+063.623  000.139  000.139: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/ui.vim
+063.716  000.016  000.016: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/event.vim
+063.819  000.023  000.023: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/notifier.vim
+064.114  000.208  000.208: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/autoload/nerdtree/ui_glue.vim
+065.727  000.048  000.048: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/exec_menuitem.vim
+066.183  000.099  000.099: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/autoload/provider/clipboard.vim
+066.382  000.627  000.529: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/fs_menu.vim
+066.439  000.029  000.029: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/vcs.vim
+067.025  000.188  000.188: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-devicons/nerdtree_plugin/webdevicons.vim
+067.274  007.377  004.938: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/plugin/NERD_tree.vim
+067.465  000.022  000.022: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nightfox.nvim/plugin/nightfox.vim
+067.898  000.184  000.184: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-cmp/plugin/cmp.lua
+068.016  000.013  000.013: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-code-action-menu/plugin/code_action_menu.vim
+068.282  000.055  000.055: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-dap/plugin/dap.lua
+068.490  000.059  000.059: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+068.745  000.097  000.097: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+069.436  000.469  000.469: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/plugin/nvim-treesitter.lua
+069.688  000.146  000.146: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag/plugin/nvim-ts-autotag.vim
+069.881  000.023  000.023: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+070.104  000.026  000.026: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+070.346  000.045  000.045: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/run-code.nvim/plugin/run-code.vim
+070.663  000.107  000.107: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/telescope.nvim/plugin/telescope.lua
+070.840  000.034  000.034: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/trouble.nvim/plugin/trouble.vim
+071.085  000.094  000.094: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim
+072.172  000.934  000.934: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-devicons/plugin/webdevicons.vim
+072.861  000.535  000.535: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-fugitive/plugin/fugitive.vim
+073.079  000.049  000.049: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-rhubarb/plugin/rhubarb.vim
+073.328  000.095  000.095: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-rooter/plugin/rooter.vim
+073.564  000.081  000.081: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator/plugin/tmux_navigator.vim
+074.486  000.171  000.171: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/vsnip.vim
+074.727  000.045  000.045: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Position.vim
+074.889  000.022  000.022: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip.vim
+075.076  000.916  000.678: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip/snippet.vim
+075.322  000.072  000.072: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/TextEdit.vim
+075.551  000.034  000.034: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Text.vim
+075.852  000.090  000.090: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Buffer.vim
+076.112  000.055  000.055: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Option.vim
+076.445  000.115  000.115: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Diff.vim
+076.602  002.588  001.306: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip/session.vim
+076.753  002.889  000.302: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip.vim
+076.965  003.250  000.361: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/plugin/vsnip.vim
+077.409  000.287  000.287: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vimux/plugin/vimux.vim
+077.570  006.063: loading packages
+078.191  000.201  000.201: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-buffer/after/plugin/cmp_buffer.lua
+078.366  000.084  000.084: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-cmdline/after/plugin/cmp_cmdline.lua
+078.494  000.041  000.041: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+078.647  000.069  000.069: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua/after/plugin/cmp_nvim_lua.lua
+078.803  000.071  000.071: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-path/after/plugin/cmp_path.lua
+079.012  000.111  000.111: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp_luasnip/after/plugin/cmp_luasnip.lua
+079.029  000.883: loading after plugins
+079.034  000.005: inits 3
+080.781  001.747: reading ShaDa
+081.338  000.557: opening buffers
+081.887  000.549: BufEnter autocommands
+081.888  000.001: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.002  000.002: --- NVIM STARTING ---
+000.278  000.276: locale set
+007.690  007.412: inits 1
+007.700  000.010: window checked
+007.702  000.002: parsing arguments
+008.734  001.032: init lua interpreter
+008.868  000.134: expanding arguments
+008.889  000.020: inits 2
+009.132  000.244: init highlight
+009.133  000.001: waiting for UI
+010.184  001.051: done waiting for UI
+010.191  000.007: init screen for UI
+010.203  000.012: init default mappings
+010.221  000.019: init default autocommands
+011.148  000.033  000.033: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/ftplugin.vim
+011.308  000.017  000.017: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/indent.vim
+023.069  000.953  000.953: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nightfox.nvim/colors/nordfox.vim
+051.210  039.827  038.874: sourcing /Users/wesbragagt/.config/nvim/init.lua
+051.216  001.118: sourcing vimrc file(s)
+051.323  000.014  000.014: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/filetype.nvim/filetype.vim
+051.532  000.013  000.013: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/filetype.lua
+051.567  000.009  000.009: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/filetype.vim
+051.813  000.043  000.043: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/syntax/synload.vim
+051.882  000.258  000.216: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/syntax/syntax.vim
+053.263  000.080  000.080: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/gzip.vim
+053.293  000.007  000.007: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/health.vim
+053.333  000.019  000.019: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/man.vim
+053.746  000.103  000.103: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+053.831  000.475  000.372: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/matchit.vim
+053.949  000.095  000.095: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/matchparen.vim
+054.138  000.167  000.167: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/netrwPlugin.vim
+054.264  000.005  000.005: sourcing /Users/wesbragagt/.local/share/nvim/rplugin.vim
+054.267  000.098  000.092: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/rplugin.vim
+054.328  000.034  000.034: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/shada.vim
+054.368  000.013  000.013: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/spellfile.vim
+054.446  000.052  000.052: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tarPlugin.vim
+054.522  000.047  000.047: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tohtml.vim
+054.560  000.012  000.012: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tutor.vim
+054.671  000.086  000.086: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/zipPlugin.vim
+055.164  000.246  000.246: sourcing /Users/wesbragagt/.config/nvim/plugin/packer_compiled.lua
+055.527  002.587: loading rtp plugins
+056.217  000.202  000.202: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/auto-pairs/plugin/auto-pairs.vim
+057.032  000.260  000.260: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/diffview.nvim/plugin/diffview.lua
+057.565  000.329  000.329: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/fzf/plugin/fzf.vim
+058.077  000.355  000.355: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/fzf.vim/plugin/fzf.vim
+058.273  000.041  000.041: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/git-blame.nvim/plugin/gitblame.vim
+058.721  000.146  000.146: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+059.092  000.180  000.180: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim/plugin/lsp-colors.vim
+059.430  000.094  000.094: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/LuaSnip/plugin/luasnip.vim
+061.046  000.087  000.087: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/autoload/nerdtree.vim
+061.457  000.228  000.228: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/path.vim
+061.617  000.073  000.073: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/menu_controller.vim
+061.745  000.046  000.046: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/menu_item.vim
+061.890  000.066  000.066: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/key_map.vim
+062.064  000.093  000.093: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/bookmark.vim
+062.239  000.091  000.091: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/tree_file_node.vim
+062.514  000.193  000.193: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/tree_dir_node.vim
+062.682  000.086  000.086: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/opener.vim
+062.875  000.115  000.115: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/creator.vim
+062.981  000.025  000.025: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/flag_set.vim
+063.120  000.059  000.059: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/nerdtree.vim
+063.340  000.144  000.144: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/ui.vim
+063.433  000.015  000.015: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/event.vim
+063.536  000.024  000.024: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/notifier.vim
+063.826  000.206  000.206: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/autoload/nerdtree/ui_glue.vim
+065.417  000.048  000.048: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/exec_menuitem.vim
+065.879  000.098  000.098: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/autoload/provider/clipboard.vim
+066.051  000.606  000.507: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/fs_menu.vim
+066.105  000.026  000.026: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/vcs.vim
+066.688  000.184  000.184: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-devicons/nerdtree_plugin/webdevicons.vim
+066.936  007.342  004.927: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/plugin/NERD_tree.vim
+067.128  000.022  000.022: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nightfox.nvim/plugin/nightfox.vim
+067.648  000.240  000.240: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-cmp/plugin/cmp.lua
+067.770  000.014  000.014: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-code-action-menu/plugin/code_action_menu.vim
+068.022  000.035  000.035: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-dap/plugin/dap.lua
+068.231  000.055  000.055: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+068.441  000.051  000.051: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+069.167  000.496  000.496: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/plugin/nvim-treesitter.lua
+069.447  000.167  000.167: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag/plugin/nvim-ts-autotag.vim
+069.650  000.024  000.024: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+069.883  000.029  000.029: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+070.134  000.047  000.047: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/run-code.nvim/plugin/run-code.vim
+070.458  000.108  000.108: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/telescope.nvim/plugin/telescope.lua
+070.644  000.036  000.036: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/trouble.nvim/plugin/trouble.vim
+070.898  000.098  000.098: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim
+071.989  000.931  000.931: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-devicons/plugin/webdevicons.vim
+072.673  000.524  000.524: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-fugitive/plugin/fugitive.vim
+072.893  000.050  000.050: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-rhubarb/plugin/rhubarb.vim
+073.146  000.097  000.097: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-rooter/plugin/rooter.vim
+073.391  000.085  000.085: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator/plugin/tmux_navigator.vim
+074.325  000.172  000.172: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/vsnip.vim
+074.557  000.043  000.043: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Position.vim
+074.718  000.022  000.022: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip.vim
+074.903  000.902  000.664: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip/snippet.vim
+075.154  000.072  000.072: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/TextEdit.vim
+075.382  000.034  000.034: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Text.vim
+075.692  000.095  000.095: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Buffer.vim
+075.955  000.052  000.052: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Option.vim
+076.290  000.114  000.114: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Diff.vim
+076.452  002.599  001.329: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip/session.vim
+076.614  002.915  000.316: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip.vim
+076.821  003.272  000.357: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/plugin/vsnip.vim
+077.281  000.295  000.295: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vimux/plugin/vimux.vim
+077.449  006.297: loading packages
+078.108  000.219  000.219: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-buffer/after/plugin/cmp_buffer.lua
+078.298  000.099  000.099: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-cmdline/after/plugin/cmp_cmdline.lua
+078.430  000.044  000.044: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+078.588  000.072  000.072: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua/after/plugin/cmp_nvim_lua.lua
+078.749  000.075  000.075: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-path/after/plugin/cmp_path.lua
+078.930  000.080  000.080: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp_luasnip/after/plugin/cmp_luasnip.lua
+078.949  000.912: loading after plugins
+078.955  000.006: inits 3
+080.690  001.735: reading ShaDa
+081.300  000.610: opening buffers
+081.858  000.558: BufEnter autocommands
+081.859  000.001: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.002  000.002: --- NVIM STARTING ---
+000.282  000.280: locale set
+007.370  007.088: inits 1
+007.380  000.010: window checked
+007.382  000.002: parsing arguments
+008.406  001.024: init lua interpreter
+008.539  000.133: expanding arguments
+008.575  000.036: inits 2
+008.816  000.242: init highlight
+008.817  000.001: waiting for UI
+009.838  001.021: done waiting for UI
+009.844  000.006: init screen for UI
+009.856  000.012: init default mappings
+009.877  000.021: init default autocommands
+010.791  000.034  000.034: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/ftplugin.vim
+010.957  000.017  000.017: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/indent.vim
+022.830  000.904  000.904: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nightfox.nvim/colors/nordfox.vim
+051.691  040.662  039.758: sourcing /Users/wesbragagt/.config/nvim/init.lua
+051.697  001.108: sourcing vimrc file(s)
+051.805  000.014  000.014: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/filetype.nvim/filetype.vim
+052.015  000.013  000.013: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/filetype.lua
+052.051  000.009  000.009: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/filetype.vim
+052.301  000.042  000.042: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/syntax/synload.vim
+052.373  000.262  000.220: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/syntax/syntax.vim
+053.809  000.085  000.085: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/gzip.vim
+053.841  000.008  000.008: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/health.vim
+053.884  000.020  000.020: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/man.vim
+054.321  000.104  000.104: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+054.405  000.498  000.394: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/matchit.vim
+054.523  000.096  000.096: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/matchparen.vim
+054.713  000.168  000.168: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/netrwPlugin.vim
+054.840  000.005  000.005: sourcing /Users/wesbragagt/.local/share/nvim/rplugin.vim
+054.843  000.104  000.098: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/rplugin.vim
+054.903  000.034  000.034: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/shada.vim
+054.944  000.013  000.013: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/spellfile.vim
+055.021  000.051  000.051: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tarPlugin.vim
+055.096  000.046  000.046: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tohtml.vim
+055.133  000.012  000.012: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/tutor.vim
+055.237  000.079  000.079: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/plugin/zipPlugin.vim
+055.748  000.260  000.260: sourcing /Users/wesbragagt/.config/nvim/plugin/packer_compiled.lua
+056.080  002.611: loading rtp plugins
+056.738  000.192  000.192: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/auto-pairs/plugin/auto-pairs.vim
+057.539  000.239  000.239: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/diffview.nvim/plugin/diffview.lua
+058.063  000.321  000.321: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/fzf/plugin/fzf.vim
+058.573  000.353  000.353: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/fzf.vim/plugin/fzf.vim
+058.767  000.040  000.040: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/git-blame.nvim/plugin/gitblame.vim
+059.167  000.152  000.152: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+059.552  000.197  000.197: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim/plugin/lsp-colors.vim
+059.891  000.090  000.090: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/LuaSnip/plugin/luasnip.vim
+061.501  000.086  000.086: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/autoload/nerdtree.vim
+061.909  000.223  000.223: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/path.vim
+062.069  000.072  000.072: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/menu_controller.vim
+062.196  000.046  000.046: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/menu_item.vim
+062.345  000.069  000.069: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/key_map.vim
+062.523  000.098  000.098: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/bookmark.vim
+062.696  000.089  000.089: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/tree_file_node.vim
+062.972  000.190  000.190: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/tree_dir_node.vim
+063.132  000.080  000.080: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/opener.vim
+063.327  000.115  000.115: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/creator.vim
+063.432  000.024  000.024: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/flag_set.vim
+063.575  000.065  000.065: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/nerdtree.vim
+063.792  000.140  000.140: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/ui.vim
+063.886  000.016  000.016: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/event.vim
+063.988  000.024  000.024: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/lib/nerdtree/notifier.vim
+064.275  000.202  000.202: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/autoload/nerdtree/ui_glue.vim
+065.862  000.047  000.047: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/exec_menuitem.vim
+066.317  000.097  000.097: sourcing /opt/homebrew/Cellar/neovim/0.7.2_1/share/nvim/runtime/autoload/provider/clipboard.vim
+066.505  000.616  000.518: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/fs_menu.vim
+066.561  000.027  000.027: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/nerdtree_plugin/vcs.vim
+067.140  000.186  000.186: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-devicons/nerdtree_plugin/webdevicons.vim
+067.389  007.334  004.918: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nerdtree/plugin/NERD_tree.vim
+067.582  000.022  000.022: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nightfox.nvim/plugin/nightfox.vim
+068.036  000.208  000.208: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-cmp/plugin/cmp.lua
+068.153  000.013  000.013: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-code-action-menu/plugin/code_action_menu.vim
+068.397  000.035  000.035: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-dap/plugin/dap.lua
+068.595  000.052  000.052: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+068.795  000.048  000.048: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+069.457  000.441  000.441: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/plugin/nvim-treesitter.lua
+069.707  000.146  000.146: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag/plugin/nvim-ts-autotag.vim
+069.894  000.022  000.022: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+070.116  000.025  000.025: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+070.358  000.045  000.045: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/run-code.nvim/plugin/run-code.vim
+070.695  000.128  000.128: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/telescope.nvim/plugin/telescope.lua
+070.873  000.034  000.034: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/trouble.nvim/plugin/trouble.vim
+071.120  000.094  000.094: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim
+072.226  000.954  000.954: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-devicons/plugin/webdevicons.vim
+072.909  000.529  000.529: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-fugitive/plugin/fugitive.vim
+073.129  000.049  000.049: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-rhubarb/plugin/rhubarb.vim
+073.389  000.097  000.097: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-rooter/plugin/rooter.vim
+073.625  000.081  000.081: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator/plugin/tmux_navigator.vim
+074.541  000.168  000.168: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/vsnip.vim
+074.773  000.044  000.044: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Position.vim
+074.932  000.022  000.022: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip.vim
+075.119  000.898  000.663: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip/snippet.vim
+075.366  000.072  000.072: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/TextEdit.vim
+075.595  000.035  000.035: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Text.vim
+075.895  000.090  000.090: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Buffer.vim
+076.154  000.053  000.053: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/Vim/Option.vim
+076.485  000.114  000.114: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vital/_vsnip/VS/LSP/Diff.vim
+076.640  002.565  001.303: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip/session.vim
+076.793  002.867  000.302: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/autoload/vsnip.vim
+077.055  003.278  000.411: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vim-vsnip/plugin/vsnip.vim
+077.504  000.288  000.288: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/vimux/plugin/vimux.vim
+077.665  006.076: loading packages
+078.303  000.223  000.223: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-buffer/after/plugin/cmp_buffer.lua
+078.483  000.088  000.088: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-cmdline/after/plugin/cmp_cmdline.lua
+078.609  000.039  000.039: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+078.765  000.071  000.071: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua/after/plugin/cmp_nvim_lua.lua
+078.942  000.091  000.091: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp-path/after/plugin/cmp_path.lua
+079.116  000.074  000.074: sourcing /Users/wesbragagt/.local/share/nvim/site/pack/packer/start/cmp_luasnip/after/plugin/cmp_luasnip.lua
+079.124  000.874: loading after plugins
+079.129  000.005: inits 3
+080.898  001.768: reading ShaDa
+081.269  000.372: opening buffers
+081.823  000.553: BufEnter autocommands
+081.824  000.001: editing files in windows
