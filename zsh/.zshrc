@@ -1,9 +1,11 @@
 # clears path before path_helper so I don't get a screwed up path running tmux
 # https://stackoverflow.com/questions/47442647/when-using-tmux-nvm-isnt-being-sourced
 # https://superuser.com/questions/544989/does-tmux-sort-the-path-variable
-if [ -f /etc/profile ]; then
+if [ "$TMUX" ]; then
+  if [ -f /etc/profile ];then
     PATH=""
     source /etc/profile
+  fi
 fi
 
 export XDG_CONFIG_HOME="$HOME/.config"
