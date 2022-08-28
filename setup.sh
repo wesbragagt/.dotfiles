@@ -6,6 +6,7 @@ links=(
   zsh
   raycast
   alacritty
+  fish
   )
 
 for i in "${links[@]}"
