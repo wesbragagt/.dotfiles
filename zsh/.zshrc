@@ -19,7 +19,9 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 # fnm
-eval "$(fnm env --use-on-cd)"
+if command -v fnm --version &> /dev/null;then
+  eval "$(fnm env --use-on-cd)"
+fi
 
 export NPM_PREFIX="$HOME/.npm_global"
 export DOTFILES="$HOME/.dotfiles"

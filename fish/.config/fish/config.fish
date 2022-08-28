@@ -16,7 +16,9 @@ set --export VISUAL=nvim
 set --export EDITOR="$VISUAL"
 
 # fnm
-eval "$(fnm env --use-on-cd)" &> /dev/null
+if command -v fnm --version &> /dev/null
+  fnm env --use-on-cd | source
+end
 
 set --export NPM_PREFIX="$HOME/.npm_global"
 set --export DOTFILES="$HOME/.dotfiles"
@@ -24,13 +26,10 @@ set --export DOTFILES="$HOME/.dotfiles"
 set --export ZSH="$HOME/.oh-my-zsh"
 set --export FZF_DEFAULT_COMMAND='rg --files --hidden --no-require-git --follow --glob "!.git/*"'
 
-alias scripts="jq '.scripts' ./package.json"
 alias dot="cd $DOTFILES"
-alias dotsync="cd $DOTFILES && git add -A && git commit -m 'sync' && git push"
 alias vi="nvim"
 alias config="vi $DOTFILES/zsh/.zshrc"
 alias config-nvim="vi $DOTFILES/nvim/.config/nvim/init.vim" 
-alias reset="source ~/.zshrc"
 alias dev="cd ~/dev"
 
 
