@@ -29,7 +29,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --no-require-git --follow --glob
 
 ZSH_THEME="simple"
 
-plugins=(git)
+plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 source "$DOTFILES/zsh/.zsh-env" &> /dev/null
