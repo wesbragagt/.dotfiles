@@ -35,20 +35,20 @@ dapui.setup({
 	layouts = {
 		{
 			elements = {
-				-- Elements can be strings or table with id and size keys.
 				"scopes",
 				"breakpoints",
 				"watches",
 			},
-			size = 0.40,
-			position = "right",
+			size = 0.20,
+			position = "left",
 		},
 		{
 			elements = {
+				-- Elements can be strings or table with id and size keys.
 				"console",
 			},
-			size = 0.25, -- 25% of total lines
-			position = "bottom",
+			size = 0.20,
+			position = "right",
 		},
 	},
 	floating = {
@@ -157,4 +157,8 @@ nnoremap("<leader>.", function()
 end)
 nnoremap("<leader>du", function()
 	dapui.toggle({})
+end)
+
+nnoremap("<leader>l", function()
+	dapui.eval()
 end)

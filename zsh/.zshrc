@@ -63,6 +63,7 @@ senv(){
 }
 alias gta="git add -A && git commit --amend --no-edit"
 alias gtf="gta && git push -f"
+alias gtp="git push -u origin head"
 alias clean="git branch --merged | egrep -v '(^\*|master|main|dev|nonprod)' | xargs git branch -D"
 alias tt="tmux -f $HOME/.config/tmux/.tmux.conf"
 alias y="yarn"
@@ -89,9 +90,18 @@ function get_external_ip(){
   curl ipecho.net/plain ; echo
 }
 
-function emoji () { # Fuzzy match emoji printing. Credits: Trace Ohrt
+function emoji () {
   local emojis selected_emoji
   emojis=$(curl -sSL 'https://git.io/JXXO7')
   selected_emoji=$(echo "$emojis" | fzf)
   echo $selected_emoji
+}
+# opens the current directory github pages under pull-requests
+function op(){
+  open $(git remote get-url --push origin | sed -e 's/git@\(github.com\):\(.*\)\.git/https:\/\/\1\/\2\/pulls/')
+}
+
+# new branch from a jira ticket
+function newt(){
+  git checkout -b $(jira issue list -a$(jira me) --plain | fzf | rg '[a-z][a-z][a-z]-\d+' -io)
 }

@@ -64,4 +64,6 @@ set colorcolumn=120
 set iskeyword+=- 
 set background=dark 
 set cursorline
+
+autocmd TermOpen * setlocal nonumber norelativenumber
 ]])
