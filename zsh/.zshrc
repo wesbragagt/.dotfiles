@@ -96,6 +96,7 @@ function emoji () {
   selected_emoji=$(echo "$emojis" | fzf)
   echo $selected_emoji
 }
+
 # opens the current directory github pages under pull-requests
 function op(){
   open $(git remote get-url --push origin | sed -e 's/git@\(github.com\):\(.*\)\.git/https:\/\/\1\/\2\/pulls/')
@@ -104,4 +105,8 @@ function op(){
 # new branch from a jira ticket
 function newt(){
   git checkout -b $(jira issue list -a$(jira me) --plain | fzf | rg '[a-z][a-z][a-z]-\d+' -io)
+}
+
+function fpq(){
+  nvim -q <(rg --column -g '!.git' -g '!node_modules' $@) +cw
 }
