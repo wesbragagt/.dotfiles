@@ -159,6 +159,6 @@ nnoremap("<leader>du", function()
 	dapui.toggle({})
 end)
 
-nnoremap("<leader>l", function()
+nnoremap("H", function()
 	dapui.eval()
 end)
