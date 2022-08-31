@@ -21,7 +21,7 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 # fnm
-if command -v fnm --version &> /dev/null;then
+if command -v fnm &> /dev/null;then
   eval "$(fnm env --use-on-cd)"
 fi
 
