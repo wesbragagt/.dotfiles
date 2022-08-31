@@ -111,13 +111,6 @@ for _, language in ipairs({ "typescript", "javascript" }) do
 			autoAttachChildProcesses = true,
 		},
 		{
-			type = "pwa-node",
-			request = "attach",
-			name = "Attach",
-			processId = require("dap.utils").pick_process,
-			cwd = "${workspaceFolder}",
-		},
-		{
 			name = "Debug Jest Tests",
 			type = "pwa-node",
 			request = "launch",
@@ -133,7 +126,7 @@ for _, language in ipairs({ "typescript", "javascript" }) do
 				"--no-collect-coverage",
 				"--test-timeout=0",
 				"--force-exit",
-				"--",
+				"--findRelatedTests",
 				"${file}",
 			},
 			console = "integratedTerminal",
