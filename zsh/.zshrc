@@ -57,13 +57,10 @@ alias fa="bash $DOTFILES/utils/fzf-vim.sh"
 alias fp="bash $DOTFILES/utils/fzf-rg.sh"
 alias send-cmd="bash $DOTFILES/utils/tmux-commander.sh"
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
-
-senv(){
-  export $(cat $1 | xargs)
-}
 alias gta="git add -A && git commit --amend --no-edit"
 alias gtf="gta && git push -f"
 alias gtp="git push -u origin head"
+alias discard="git checkout -- . && git clean -fd"
 alias clean="git branch --merged | egrep -v '(^\*|master|main|dev|nonprod)' | xargs git branch -D"
 alias tt="tmux -f $HOME/.config/tmux/.tmux.conf"
 alias y="yarn"
@@ -71,7 +68,6 @@ alias ls="ls -a"
 alias l="lsd -a"
 alias dc="docker-compose"
 alias new="git checkout -b"
-alias mux="bash $DOTFILES/utils/tmux-new-session.sh"
 # Run a fuzzy search through test files and run jest
 function jj(){
   node_modules/.bin/jest `find ./src -type f \( -name "*.test*" -or -name "*.spec*" \) | fzf`
