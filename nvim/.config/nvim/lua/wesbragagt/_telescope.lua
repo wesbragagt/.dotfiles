@@ -47,3 +47,5 @@ local nnoremap = require("utils").nnoremap
 nnoremap("<leader>fi", project_files)
 nnoremap("<leader>fg", live_grep)
 nnoremap("<leader>kk", keymap)
+nnoremap("<leader>tr", require("telescope.builtin").lsp_references)
+nnoremap("<leader>td", require("telescope.builtin").diagnostics)
