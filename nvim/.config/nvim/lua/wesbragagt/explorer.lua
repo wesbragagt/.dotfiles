@@ -6,5 +6,5 @@ let g:NERDTreeWinPos = "right"
 let NERDTreeShowHidden=1
 let mapleader = ' '
 
-nnoremap <leader>pt :NERDTreeToggle<CR>
+nnoremap <leader>pt :NERDTreeCWD<CR>
 ]])

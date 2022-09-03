@@ -50,7 +50,6 @@ return packer.startup(function(use)
 	-- My plugins here
 
 	use({ "wbthomason/packer.nvim", commit = "00ec5adef58c5ff9a07f11f45903b9dbbaa1b422" }) -- Have packer manage itself
-
 	use({ "windwp/nvim-ts-autotag", commit = "57035b5814f343bc6110676c9ae2eacfcd5340c2" })
 	use("airblade/vim-rooter")
 	use("jiangmiao/auto-pairs")
@@ -68,13 +67,12 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/nvim-cmp")
 	use("jose-elias-alvarez/null-ls.nvim")
-	use({ "nvim-telescope/telescope.nvim", tag = "0.1.0" })
+	use({ "nvim-telescope/telescope.nvim" })
 	use("nvim-lua/plenary.nvim")
 	use("kyazdani42/nvim-web-devicons")
 	use("lewis6991/gitsigns.nvim")
 	use("lewis6991/impatient.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
-	use("lunarvim/colorschemes")
 	use("EdenEast/nightfox.nvim")
 	use("folke/tokyonight.nvim")
 	use("nathom/filetype.nvim")
