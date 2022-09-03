@@ -36,6 +36,7 @@ ZSH_THEME="simple"
 plugins=(
   git 
   zsh-autosuggestions
+  fzf-tab
 )
 
 source $ZSH/oh-my-zsh.sh
