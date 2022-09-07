@@ -107,3 +107,7 @@ function newt(){
 function fpq(){
   nvim -q <(rg --column -g '!.git' -g '!node_modules' $@) +cw
 }
+
+function hh(){
+  ssh $(grep -e '^Host \w.*' ~/.ssh/config | sed 's/Host //' | fzf --height 20%)
+}
