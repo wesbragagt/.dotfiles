@@ -13,6 +13,7 @@ export TYPESCRIPT_PLAYGROUND="$HOME/.playground/typescript"
 export BASH_PLAYGROUND="$HOME/.playground/bash"
 export DEBUG_ADAPTERS_DIR="$HOME/.debug_adapters"
 export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$HOME/.npm_global/bin:$PATH
+export GOPATH=$HOME/go
 
 # nix
 export PATH=/nix/var/nix/profiles/default/bin:$PATH
