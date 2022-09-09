@@ -181,7 +181,13 @@ setup_server(
 	"tsserver",
 	config({
 		filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
-		root_dir = require("lspconfig").util.root_pattern("jsconfig.json", "tsconfig.json", "node_modules", ".git"),
+		root_dir = require("lspconfig").util.root_pattern(
+			"jsconfig.json",
+			"tsconfig.json",
+			"node_modules",
+			".git",
+			"package.json"
+		),
 	})
 )
 

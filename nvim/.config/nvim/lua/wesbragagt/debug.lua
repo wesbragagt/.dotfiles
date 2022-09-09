@@ -132,6 +132,19 @@ for _, language in ipairs({ "typescript", "javascript" }) do
 			console = "integratedTerminal",
 			internalConsoleOptions = "neverOpen",
 		},
+		{
+			type = "pwa-node",
+			request = "launch",
+			name = "Debug Vitest",
+			skipFiles = { "<node_internals>/**", "**/node_modules/**" },
+			cwd = "${workspaceFolder}",
+			sourceMaps = "inline",
+			autoAttachChildProcesses = true,
+			runtimeExecutable = "yarn",
+			args = { "vitest", "run", "--threads", "false", "${relativeFile}" },
+			smartStep = true,
+			console = "integratedTerminal",
+		},
 	}
 end
 
