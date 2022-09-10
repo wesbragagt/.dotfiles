@@ -65,5 +65,7 @@ set iskeyword+=-
 set background=dark 
 set cursorline
 
+set pumheight=15
+
 autocmd TermOpen * setlocal nonumber norelativenumber
 ]])

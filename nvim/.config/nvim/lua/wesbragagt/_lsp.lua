@@ -215,59 +215,86 @@ setup_server(
 	})
 )
 
+local util = require("lspconfig.util")
+local function get_typescript_server_path(root_dir)
+	local global_ts = "~/.npm_global/lib/node_modules/typescript/lib/tsserverlibrary.js"
+	-- Alternative location if installed as root:
+	-- local global_ts = '/usr/local/lib/node_modules/typescript/lib/tsserverlibrary.js'
+	local found_ts = ""
+	local function check_dir(path)
+		found_ts = util.path.join(path, "node_modules", "typescript", "lib", "tsserverlibrary.js")
+		if util.path.exists(found_ts) then
+			return path
+		end
+	end
+	if util.search_ancestors(root_dir, check_dir) then
+		return found_ts
+	else
+		return global_ts
+	end
+end
 -- Enable this for vue3 projects
--- setup_server(
--- 	"volar",
--- 	config({
--- 		filetypes = { "vue" },
--- 	})
--- )
-
 setup_server(
-	"vuels",
+	"volar",
 	config({
-		cmd = { "vls" },
 		filetypes = { "vue" },
-		init_options = {
-			config = {
-				css = {},
-				emmet = {},
-				html = {
-					suggest = {},
+		on_new_config = function(new_config, new_root_dir)
+			new_config.init_options.typescript.serverPath = get_typescript_server_path(new_root_dir)
+			new_config.init_options.format = {
+				defaultFormatter = {
+					js = "prettier",
+					ts = "prettier",
 				},
-				javascript = {
-					format = {},
-				},
-				stylusSupremacy = {},
-				typescript = {
-					format = {},
-				},
-				vetur = {
-					completion = {
-						autoImport = true,
-						tagCasing = "PascalCase",
-						useScaffoldSnippets = false,
-					},
-					format = {
-						defaultFormatter = {
-							js = "prettier",
-							ts = "prettier",
-						},
-						defaultFormatterOptions = {},
-						scriptInitialIndent = false,
-						styleInitialIndent = false,
-					},
-					useWorkspaceDependencies = true,
-					validation = {
-						script = true,
-						style = false,
-						template = true,
-					},
-				},
-			},
-		},
+			}
+		end,
 	})
 )
+
+-- setup_server(
+-- 	"vuels",
+-- 	config({
+-- 		cmd = { "vls" },
+-- 		filetypes = { "vue" },
+-- 		init_options = {
+-- 			config = {
+-- 				css = {},
+-- 				emmet = {},
+-- 				html = {
+-- 					suggest = {},
+-- 				},
+-- 				javascript = {
+-- 					format = {},
+-- 				},
+-- 				stylusSupremacy = {},
+-- 				typescript = {
+-- 					format = {},
+-- 				},
+-- 				vetur = {
+-- 					completion = {
+-- 						autoImport = true,
+-- 						tagCasing = "PascalCase",
+-- 						useScaffoldSnippets = false,
+-- 					},
+-- 					format = {
+-- 						defaultFormatter = {
+-- 							js = "prettier",
+-- 							ts = "prettier",
+-- 						},
+-- 						defaultFormatterOptions = {},
+-- 						scriptInitialIndent = false,
+-- 						styleInitialIndent = false,
+-- 					},
+-- 					useWorkspaceDependencies = true,
+-- 					validation = {
+-- 						script = true,
+-- 						style = false,
+-- 						template = true,
+-- 					},
+-- 				},
+-- 			},
+-- 		},
+-- 	})
+-- )
 
 local servers = { "cssls", "vimls", "yamlls", "ansiblels", "jsonls", "terraformls", "tflint", "eslint" }
 for _, lsp in ipairs(servers) do
