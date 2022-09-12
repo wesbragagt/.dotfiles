@@ -47,3 +47,19 @@ nnoremap("<leader>dfx", ":DiffviewClose<CR>")
 -- Quickfix Navigation
 nnoremap("<leader>l", ":cnext<CR>")
 nnoremap("<leader>h", ":cprev<CR>")
+
+vim.cmd([[
+
+" Relative or absolute number lines
+function! NumberToggle()
+    if(&nu == 1)
+        set nu!
+        set rnu
+    else
+        set nornu
+        set nu
+    endif
+endfunction
+
+nnoremap <leader>8 :call NumberToggle()<CR>
+]])

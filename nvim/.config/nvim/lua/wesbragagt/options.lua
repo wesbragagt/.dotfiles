@@ -19,7 +19,12 @@ augroup quickfix
     autocmd!
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost l* lwindow
-  augroup END
+augroup END
+
+augroup highlight_yank
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=250})
+augroup END
 
 
 set foldenable
