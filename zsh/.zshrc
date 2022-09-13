@@ -27,7 +27,6 @@ if command -v fnm &> /dev/null;then
 fi
 
 export NPM_PREFIX="$HOME/.npm_global"
-export DOTFILES="$HOME/.dotfiles"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --no-require-git --follow --glob "!.git/*" --glob "!node_modules/*"'
@@ -41,5 +40,5 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source "$DOTFILES/zsh/.zsh-env" &> /dev/null
-source "$DOTFILES/zsh/.aliases" &> /dev/null
+source $HOME/.zsh-env &> /dev/null
+source $HOME/.aliases &> /dev/null

@@ -1,3 +1,5 @@
+export DOTFILES=$HOME/.dotfiles
+
 alias scripts="jq '.scripts' ./package.json"
 alias dot="cd $DOTFILES"
 alias dotsync="cd $DOTFILES && git add -A && git commit -m 'sync' && git push"
