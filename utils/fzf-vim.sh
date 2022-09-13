@@ -9,7 +9,12 @@ else
     # uses fd which is a super fast replacement for find
     items=`rg --files --hidden --glob '!.git' --glob '!node_modules'`
     # with a preview window
-    selected=`echo "$items" | fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'`
+    if command -v bat; then
+      selected=`echo "$items" | fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'`
+    else
+      selected=`echo "$items" | fzf`
+    fi
+
 fi
 
 nvim $selected
