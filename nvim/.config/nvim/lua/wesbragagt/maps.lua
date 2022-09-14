@@ -49,7 +49,6 @@ nnoremap("<leader>l", ":cnext<CR>")
 nnoremap("<leader>h", ":cprev<CR>")
 
 vim.cmd([[
-
 " Relative or absolute number lines
 function! NumberToggle()
     if(&nu == 1)
@@ -66,3 +65,15 @@ nnoremap <leader>8 :call NumberToggle()<CR>
 
 -- Renaming references in buffer
 nnoremap("<leader>rb", vim.lsp.buf.rename)
+
+local function replace_on_quickfix_list()
+	local ok, replacer = pcall(require, "replacer")
+	if not ok then
+		return
+	end
+
+	replacer.run()
+end
+
+-- Replacer quickfix list
+nnoremap("<leader>rm", replace_on_quickfix_list)
