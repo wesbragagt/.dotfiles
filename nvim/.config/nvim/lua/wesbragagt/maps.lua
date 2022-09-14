@@ -63,3 +63,6 @@ endfunction
 
 nnoremap <leader>8 :call NumberToggle()<CR>
 ]])
+
+-- Renaming references in buffer
+nnoremap("<leader>rb", vim.lsp.buf.rename)
