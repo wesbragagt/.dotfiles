@@ -7,9 +7,14 @@ if [[ $# -eq 1 ]]; then
     selected=$1
 else
     # uses fd which is a super fast replacement for find
-    items=`fd --hidden --exclude .git`
+    items=`rg --files --hidden --glob '!.git' --glob '!node_modules'`
     # with a preview window
-    selected=`echo "$items" | fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'`
+    if command -v bat; then
+      selected=`echo "$items" | fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'`
+    else
+      selected=`echo "$items" | fzf`
+    fi
+
 fi
 
 nvim $selected
