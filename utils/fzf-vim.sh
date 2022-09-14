@@ -6,13 +6,11 @@ set -e
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    # uses fd which is a super fast replacement for find
-    items=`rg --files --hidden --glob '!.git' --glob '!node_modules'`
     # with a preview window
     if command -v bat; then
-      selected=`echo "$items" | fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'`
+      selected=`fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'`
     else
-      selected=`echo "$items" | fzf`
+      selected=`fzf`
     fi
 
 fi

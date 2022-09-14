@@ -15,8 +15,6 @@ export DEBUG_ADAPTERS_DIR="$HOME/.debug_adapters"
 export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$HOME/.npm_global/bin:$PATH
 export GOPATH=$HOME/go
 
-# nix
-export PATH=/nix/var/nix/profiles/default/bin:$PATH
 # make git use nvim for editing
 export VISUAL=nvim
 export EDITOR="$VISUAL"
