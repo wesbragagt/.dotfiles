@@ -39,7 +39,7 @@ set norelativenumber
 set completeopt=menuone,noselect,noinsert
 set wrap
 set timeoutlen=1000 "time to wait for a mapped sequence to complete (in milliseconds)"
-set updatetime=300 "faster autocompletion"
+set updatetime=50 "faster autocompletion"
 
 set splitright "force all horizontal splits to go below current window"
 set splitbelow "force all vertical splits to go to the right of current window"
