@@ -4,7 +4,7 @@ export const dude = {
   getChicken: () => console.log('chicken'),
 };
 
-const dude;
+const foobar = dude;
 
 export const foo = {
   bar: () => console.log('bar'),
