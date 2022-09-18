@@ -23,7 +23,7 @@ augroup END
 
 augroup highlight_yank
     autocmd!
-    au TextYankPost * silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=250})
+    au TextYankPost * silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=150})
 augroup END
 
 
@@ -39,7 +39,7 @@ set norelativenumber
 set completeopt=menuone,noselect,noinsert
 set wrap
 set timeoutlen=1000 "time to wait for a mapped sequence to complete (in milliseconds)"
-set updatetime=300 "faster autocompletion"
+set updatetime=50 "faster autocompletion"
 
 set splitright "force all horizontal splits to go below current window"
 set splitbelow "force all vertical splits to go to the right of current window"
@@ -63,6 +63,7 @@ set smartindent
 set expandtab "convert tabs to spaces"
 set scrolloff=8
 set number "display line numbers"
+set relativenumber
 set numberwidth=2 "line numbers width"
 set autochdir 
 set colorcolumn=120
