@@ -312,52 +312,6 @@ setup_server(
 	})
 )
 
--- setup_server(
--- 	"vuels",
--- 	config({
--- 		cmd = { "vls" },
--- 		filetypes = { "vue" },
--- 		init_options = {
--- 			config = {
--- 				css = {},
--- 				emmet = {},
--- 				html = {
--- 					suggest = {},
--- 				},
--- 				javascript = {
--- 					format = {},
--- 				},
--- 				stylusSupremacy = {},
--- 				typescript = {
--- 					format = {},
--- 				},
--- 				vetur = {
--- 					completion = {
--- 						autoImport = true,
--- 						tagCasing = "PascalCase",
--- 						useScaffoldSnippets = false,
--- 					},
--- 					format = {
--- 						defaultFormatter = {
--- 							js = "prettier",
--- 							ts = "prettier",
--- 						},
--- 						defaultFormatterOptions = {},
--- 						scriptInitialIndent = false,
--- 						styleInitialIndent = false,
--- 					},
--- 					useWorkspaceDependencies = true,
--- 					validation = {
--- 						script = true,
--- 						style = false,
--- 						template = true,
--- 					},
--- 				},
--- 			},
--- 		},
--- 	})
--- )
-
 local servers = { "cssls", "vimls", "yamlls", "ansiblels", "jsonls", "terraformls", "tflint", "eslint" }
 for _, lsp in ipairs(servers) do
 	setup_server(lsp, config())
