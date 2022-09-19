@@ -12,6 +12,10 @@ function M.nnoremap(keymap, command, opts)
 	vim.keymap.set("n", keymap, command, extend_options(opts))
 end
 
+function M.inoremap(keymap, command, opts)
+	vim.keymap.set("i", keymap, command, extend_options(opts))
+end
+
 function M.tnoremap(keymap, command, opts)
 	vim.keymap.set("t", keymap, command, extend_options(opts))
 end

@@ -3,13 +3,6 @@ if not cmp_status_ok then
 	return
 end
 
-local snip_status_ok, luasnip = pcall(require, "luasnip")
-if not snip_status_ok then
-	return
-end
-
-require("luasnip/loaders/from_vscode").lazy_load()
-
 local signs = {
 	{ name = "DiagnosticSignError", text = "" },
 	{ name = "DiagnosticSignWarn", text = "" },
@@ -75,6 +68,15 @@ local kind_icons = {
 	Operator = "",
 	TypeParameter = "",
 }
+
+local snip_status_ok, luasnip = pcall(require, "luasnip")
+if not snip_status_ok then
+	return
+end
+require("luasnip/loaders/from_vscode").lazy_load({
+	path = { "snippets.lua" },
+})
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -84,11 +86,11 @@ cmp.setup({
 	mapping = {
 		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
 		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+		["<C-Space>"] = cmp.mapping(cmp.mapping.complete({}), { "i", "c" }),
 		["<C-e>"] = cmp.mapping.close(),
 		["<Enter>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Insert,
-			select = true,
+			select = false,
 		}),
 		["<C-n>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
@@ -130,6 +132,7 @@ cmp.setup({
 		{ name = "buffer", keyword_length = 5 },
 		{ name = "path" },
 		{ name = "nvim_lua" },
+		{ name = "luasnip" },
 	},
 	experimental = {
 		ghost_text = false,
