@@ -7,7 +7,7 @@ if [[ $# -eq 1 ]]; then
     selected=$1
 else
     # with a preview window
-    if command -v bat; then
+    if command -v bat &> /dev/null; then
       selected=`fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'`
     else
       selected=`fzf`
