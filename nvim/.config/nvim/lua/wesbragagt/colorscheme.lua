@@ -11,8 +11,7 @@ vim.cmd([[
     set termguicolors
   endif
   try
-    let g:catppuccin_flavour = "mocha"
-    colorscheme catppuccin
+  colorscheme tokyonight
   catch /^Vim\%((\a\+)\)\=:E185/
     colorscheme default
     set background=dark

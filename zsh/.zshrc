@@ -34,6 +34,7 @@ ZSH_THEME="simple"
 plugins=(
   git 
   zsh-autosuggestions
+  vi-mode
   fzf-tab
 )
 

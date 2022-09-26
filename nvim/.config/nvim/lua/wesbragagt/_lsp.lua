@@ -90,7 +90,7 @@ cmp.setup({
 		["<C-e>"] = cmp.mapping.close(),
 		["<Enter>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Insert,
-			select = false,
+			select = true,
 		}),
 		["<C-n>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
