@@ -27,21 +27,22 @@ null_ls.setup({
 		}),
 		null_ls.builtins.formatting.prettierd.with({
 			env = {
-				PRETTIERD_DEFAULT_CONFIG = vim.fn.expand("~/.config/nvim/utils/linter-config/.prettierrc.json"),
+				PRETTIERD_DEFAULT_CONFIG = "~/.config/nvim/utils/linter-config/.prettierrc.json",
 			},
 		}),
 		null_ls.builtins.formatting.terraform_fmt,
 		null_ls.builtins.code_actions.eslint_d,
 		null_ls.builtins.hover.dictionary,
 	},
-	on_attach = function(client)
-		if client.resolved_capabilities.document_formatting then
-			vim.cmd([[
-		augroup LspFormatting
-		autocmd! * <buffer>
-		autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 2000)
-		augroup END
-		]])
+	on_attach = function(client, bufnr)
+		if client.server_capabilities.document_formatting then
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
+				pattern = "*",
+				callback = function()
+					vim.lsp.buf.format({ bufnr })
+				end,
+			})
 		end
 	end,
 })

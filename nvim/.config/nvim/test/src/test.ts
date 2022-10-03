@@ -1,13 +1,13 @@
-import { dude2 } from './lib';
+import { dude2 } from "./lib";
 
 export const dude = {
-  getChicken: () => console.log('chicken'),
+  getChicken: () => console.log("chicken"),
 };
 
 const foobar = dude;
 
 export const foo = {
-  bar: () => console.log('bar'),
+  bar: () => console.log("bar"),
 };
 
 export function random() {
