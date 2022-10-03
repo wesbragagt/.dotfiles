@@ -75,3 +75,6 @@ set pumheight=15
 
 autocmd TermOpen * setlocal nonumber norelativenumber
 ]])
+
+vim.o.ls = false -- last status bar
+vim.o.ch = false -- command bar
