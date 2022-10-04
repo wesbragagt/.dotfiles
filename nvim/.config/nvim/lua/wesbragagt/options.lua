@@ -27,7 +27,7 @@ vim.o.conceallevel = 0 -- so that ``is visible in markdown files
 vim.o.swapfile = false
 vim.o.backup = false
 vim.o.writebackup = false
-vim.o.undodir = "~/.vim/undodir"
+vim.o.undodir = vim.fn.getenv('HOME') .. "/.vim/undodir"
 vim.o.undofile = true -- enable persistent undo"
 
 vim.o.errorbells = false
