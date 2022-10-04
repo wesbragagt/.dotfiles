@@ -10,9 +10,10 @@ augroup quickfix
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost l* lwindow
 augroup END
-]])
 
-vim.o.path = vim.o.path .. "**"
+set iskeyword+=-
+set path=**
+]])
 
 vim.o.foldenable = true
 vim.o.foldmethod = "indent"
@@ -27,7 +28,7 @@ vim.o.conceallevel = 0 -- so that ``is visible in markdown files
 vim.o.swapfile = false
 vim.o.backup = false
 vim.o.writebackup = false
-vim.o.undodir = vim.fn.getenv('HOME') .. "/.vim/undodir"
+vim.o.undodir = vim.fn.getenv("HOME") .. "/.vim/undodir"
 vim.o.undofile = true -- enable persistent undo"
 
 vim.o.errorbells = false
@@ -53,16 +54,8 @@ vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.o.colorcolumn = 120
 
-vim.o.ls = false -- last status bar
-vim.o.ch = false -- command bar
-
 vim.o.updatetime = 150
 vim.o.pumheight = 15
-
-vim.o.wildmode = "full,list"
-vim.o.wildmenu = true
-vim.o.wildignore = "**/build/*,**/node_modules/*,**/.git/*"
-vim.o.iskeyword = "-"
 
 vim.o.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in milliseconds)
 vim.wo.signcolumn = "yes"

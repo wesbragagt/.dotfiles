@@ -34,15 +34,12 @@ null_ls.setup({
 		null_ls.builtins.code_actions.eslint_d,
 		null_ls.builtins.hover.dictionary,
 	},
-	on_attach = function(client, bufnr)
-		if client.server_capabilities.document_formatting then
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
-				pattern = "*",
-				callback = function()
-					vim.lsp.buf.format({ bufnr })
-				end,
-			})
-		end
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+	group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
+	pattern = "*",
+	callback = function()
+		vim.lsp.buf.format()
 	end,
 })
