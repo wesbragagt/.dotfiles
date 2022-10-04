@@ -103,6 +103,7 @@ return packer.startup(function(use)
 	use("rcarriga/nvim-dap-ui")
 	use("theHamsta/nvim-dap-virtual-text")
 	use("gabrielpoca/replacer.nvim")
+	use("ThePrimeagen/harpoon")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
