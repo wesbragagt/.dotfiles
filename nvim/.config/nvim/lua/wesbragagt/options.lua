@@ -1,60 +1,39 @@
 vim.cmd([[ 
-set autoread
-set path+=**
-
-set wildmode=full,list
-set wildmenu
-
-set wildignore+=*build/*
-set wildignore+=*dist/*
-set wildignore+=**/coverage/*
-set wildignore+=**/.git/*
-set wildignore+=**/node_modules/** 
 if executable("rg")
     set grepprg=rg\ --vimgrep\ --no-heading
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
+
 " open quickfix list as soon as items are inserted"
 augroup quickfix
     autocmd!
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost l* lwindow
 augroup END
-
-" highlight on yank"
-augroup highlight_yank
-    autocmd!
-    au TextYankPost * silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=150})
-augroup END
-
-
-set foldenable
-set foldmethod=indent
-
-set foldlevelstart=99
-
-set fileencoding=utf-8
-
-set timeoutlen=1000 "time to wait for a mapped sequence to complete (in milliseconds)"
-
-set iskeyword+=- 
-
-autocmd TermOpen * setlocal nonumber norelativenumber
 ]])
 
-vim.o.completeopt="menuone,noselect,noinsert"
-vim.o.wrap = true
-vim.o.conceallevel=0 -- so that ``is visible in markdown files
-vim.o.swapfile=false
-vim.o.backup=false
-vim.o.writebackup=false
-vim.o.undodir="~/.vim/undodir"
-vim.o.undofile=true -- enable persistent undo"
+vim.o.path = vim.o.path .. "**"
+
+vim.o.foldenable = true
+vim.o.foldmethod = "indent"
+vim.o.foldlevelstart = 99
+
+vim.o.fileencodings = "utf-8"
+vim.o.autoread = true -- automatically reload files that have been changed outside of vim
+
+vim.o.completeopt = "menuone,noselect,noinsert"
+vim.o.wrap = true -- wrap text
+vim.o.conceallevel = 0 -- so that ``is visible in markdown files
+vim.o.swapfile = false
+vim.o.backup = false
+vim.o.writebackup = false
+vim.o.undodir = "~/.vim/undodir"
+vim.o.undofile = true -- enable persistent undo"
 
 vim.o.errorbells = false
 
-vim.o.scrolloff=8 -- scroll half of the page
-vim.o.numberwidth=2
+vim.o.scrolloff = 8 -- scroll half of the page
+vim.o.numberwidth = 2
 
 vim.o.autochdir = true
 vim.o.relativenumber = true
@@ -65,6 +44,7 @@ vim.o.splitbelow = true -- force all vertical splits to go to the right of curre
 
 vim.o.hlsearch = true
 
+vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.smartindent = true
 vim.o.expandtab = true
@@ -78,3 +58,20 @@ vim.o.ch = false -- command bar
 
 vim.o.updatetime = 150
 vim.o.pumheight = 15
+
+vim.o.wildmode = "full,list"
+vim.o.wildmenu = true
+vim.o.wildignore = "**/build/*,**/node_modules/*,**/.git/*"
+vim.o.iskeyword = "-"
+
+vim.o.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in milliseconds)
+vim.wo.signcolumn = "yes"
+
+local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+	group = highlight_group,
+	pattern = "*",
+})

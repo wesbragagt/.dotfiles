@@ -5,10 +5,10 @@ if not status_ok then
 end
 
 statusline.setup({
-options = {
-    icons_enabled = false,
-    theme = 'onedark',
-    component_separators = '|',
-    section_separators = '',
-  },
+	options = {
+		icons_enabled = false,
+		theme = "onedark",
+		component_separators = "|",
+		section_separators = "",
+	},
 })
