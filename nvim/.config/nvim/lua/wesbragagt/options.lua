@@ -14,13 +14,14 @@ if executable("rg")
     set grepprg=rg\ --vimgrep\ --no-heading
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
-
+" open quickfix list as soon as items are inserted"
 augroup quickfix
     autocmd!
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost l* lwindow
 augroup END
 
+" highlight on yank"
 augroup highlight_yank
     autocmd!
     au TextYankPost * silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=150})
@@ -33,48 +34,47 @@ set foldmethod=indent
 set foldlevelstart=99
 
 set fileencoding=utf-8
-set conceallevel=0 "so that ``is visible in markdown files"
 
-set norelativenumber
-set completeopt=menuone,noselect,noinsert
-set wrap
 set timeoutlen=1000 "time to wait for a mapped sequence to complete (in milliseconds)"
-set updatetime=150 "faster autocompletion"
 
-set splitright "force all horizontal splits to go below current window"
-set splitbelow "force all vertical splits to go to the right of current window"
-set cmdheight=1
-set hidden
-set mouse=a "allow the mouse to be used in neovim"
-set noswapfile "dont create swap files"
-set nobackup "dont create a backup"
-set nowritebackup "if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited"
-set undodir=~/.vim/undodir
-set undofile "enable persistent undo"
-
-set hlsearch "highlight all matches when search"
-set showcmd
-set tabstop=2 "insert 2 spaces for a tab"
-set softtabstop=2
-set shiftwidth=2 "the number of spaces inserted for each indentation"
-set smartcase
-set noerrorbells
-set smartindent
-set expandtab "convert tabs to spaces"
-set scrolloff=8
-set number "display line numbers"
-set relativenumber
-set numberwidth=2 "line numbers width"
-set autochdir 
-set colorcolumn=120
 set iskeyword+=- 
-set background=dark 
-set cursorline
-
-set pumheight=15
 
 autocmd TermOpen * setlocal nonumber norelativenumber
 ]])
 
+vim.o.completeopt="menuone,noselect,noinsert"
+vim.o.wrap = true
+vim.o.conceallevel=0 -- so that ``is visible in markdown files
+vim.o.swapfile=false
+vim.o.backup=false
+vim.o.writebackup=false
+vim.o.undodir="~/.vim/undodir"
+vim.o.undofile=true -- enable persistent undo"
+
+vim.o.errorbells = false
+
+vim.o.scrolloff=8 -- scroll half of the page
+vim.o.numberwidth=2
+
+vim.o.autochdir = true
+vim.o.relativenumber = true
+
+vim.o.hidden = true -- preserve buffers
+vim.o.splitright = true -- force all horizontal splits to go below current window
+vim.o.splitbelow = true -- force all vertical splits to go to the right of current window
+
+vim.o.hlsearch = true
+
+vim.o.smartcase = true
+vim.o.smartindent = true
+vim.o.expandtab = true
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
+vim.o.colorcolumn = 120
+
 vim.o.ls = false -- last status bar
 vim.o.ch = false -- command bar
+
+vim.o.updatetime = 150
+vim.o.pumheight = 15
