@@ -40,6 +40,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
 	pattern = "*",
 	callback = function()
-		vim.lsp.buf.format()
+		vim.lsp.buf.format({
+			filter = function(client)
+				return client.name == "null-ls"
+			end,
+		})
 	end,
 })
