@@ -7,9 +7,10 @@ if ! command -v toilet &> /dev/null; then
 fi
 
 # Displays a countdown with ascii text art
- hour=$1
- min=$2
- sec=$3
+ hour=${1:-"00"}
+ min=${2:-"02"}
+ sec=${:-"03"}
+
  while [ $hour -ge 0 ]; do
    while [ $min -ge 0 ]; do
      while [ $sec -ge 0 ]; do
