@@ -144,7 +144,7 @@ cmp.setup({
 -- Allows to pass custom configs to append to current default table
 local function config(options)
 	return vim.tbl_deep_extend("force", {
-		capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+		capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
 		on_attach = function(client)
 			-- use null-ls for this
 			client.server_capabilities.document_formatting = false
@@ -152,14 +152,6 @@ local function config(options)
 		end,
 	}, options or {})
 end
-
--- Attach to LSP client individually
--- nvim_lua autocomplete https://github.com/folke/lua-dev.nvim
-local luadev_status_ok, luadev = pcall(require, "lua-dev")
-if not luadev_status_ok then
-	return
-end
-luadev.setup(config())
 
 local function setup_server(server, _config)
 	local lsp_installer_servers = require("nvim-lsp-installer.servers")
@@ -182,7 +174,7 @@ setup_server(
 )
 
 setup_server("tsserver", {
-	capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+	capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
 	filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
 	root_dir = require("lspconfig").util.root_pattern(
 		"jsconfig.json",
@@ -256,22 +248,19 @@ setup_server("tsserver", {
 	end,
 })
 
-setup_server(
-	"sumneko_lua",
-	vim.tbl_deep_extend("force", luadev, {
-		settings = {
-			Lua = {
-				diagnostics = {
-					-- Get the language server to recognize the `vim` global
-					globals = { "vim" },
-				},
-				workspace = {
-					library = vim.api.nvim_get_runtime_file("", true),
-				},
+setup_server("sumneko_lua", {
+	settings = {
+		Lua = {
+			diagnostics = {
+				-- Get the language server to recognize the `vim` global
+				globals = { "vim" },
+			},
+			workspace = {
+				library = vim.api.nvim_get_runtime_file("", true),
 			},
 		},
-	})
-)
+	},
+})
 
 setup_server(
 	"tailwindcss",

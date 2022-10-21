@@ -57,7 +57,6 @@ return packer.startup(function(use)
 	use("christoomey/vim-tmux-navigator")
 	use("f-person/git-blame.nvim")
 	use("folke/lsp-colors.nvim")
-	use("folke/lua-dev.nvim")
 	use("folke/trouble.nvim")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-cmdline")
@@ -104,7 +103,6 @@ return packer.startup(function(use)
 	use("theHamsta/nvim-dap-virtual-text")
 	use("gabrielpoca/replacer.nvim")
 	use("ThePrimeagen/harpoon")
-
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

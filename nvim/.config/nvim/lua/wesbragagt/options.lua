@@ -37,7 +37,7 @@ vim.o.scrolloff = 8 -- scroll half of the page
 vim.o.numberwidth = 2
 
 vim.o.autochdir = true
-vim.o.relativenumber = true
+vim.o.number = true
 
 vim.o.hidden = true -- preserve buffers
 vim.o.splitright = true -- force all horizontal splits to go below current window
@@ -59,6 +59,9 @@ vim.o.pumheight = 15
 
 vim.o.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in milliseconds)
 vim.wo.signcolumn = "yes"
+vim.o.winbar = "%F"
+vim.o.ls = 0
+vim.o.ch = 0
 
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
