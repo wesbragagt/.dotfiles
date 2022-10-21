@@ -60,8 +60,6 @@ vim.o.pumheight = 15
 vim.o.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in milliseconds)
 vim.wo.signcolumn = "yes"
 vim.o.winbar = "%F"
-vim.o.ls = 0
-vim.o.ch = 0
 
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
