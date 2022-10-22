@@ -29,6 +29,7 @@ alias ls="ls -a"
 alias l="lsd -a"
 alias dc="docker-compose"
 alias new="git checkout -b"
+alias key="ssh-add ~/.ssh/id_rsa"
 # Run a fuzzy search through test files and run jest
 jj(){
   TZ="utc" node_modules/.bin/jest `find ./src -type f \( -name "*.test*" -or -name "*.spec*" \) | fzf`
