@@ -16,6 +16,8 @@ telescope.setup({
 	extensions = {},
 })
 
+telescope.load_extension("fzf")
+
 -- Falling back to find_files if git_files can't find a .git directory
 local function project_files()
 	local available = pcall(require("telescope.builtin").git_files, { show_untracked = true })
@@ -34,18 +36,11 @@ local function live_grep()
 	end
 end
 
-local function keymap()
-	local opts = {}
-	local available = pcall(require("telescope.builtin").keymaps, opts)
-	if not available then
-		return
-	end
-end
-
 -- mappings
 local nnoremap = require("utils").nnoremap
-nnoremap("<leader>fi", project_files)
-nnoremap("<leader>fg", live_grep)
-nnoremap("<leader>kk", keymap)
-nnoremap("<leader>tr", require("telescope.builtin").lsp_references)
-nnoremap("<leader>td", require("telescope.builtin").diagnostics)
+nnoremap("<leader><space>", require("telescope.builtin").buffers)
+nnoremap("<leader>sf", project_files)
+nnoremap("<leader>sg", live_grep)
+nnoremap("<leader>sd", require("telescope.builtin").diagnostics)
+nnoremap("<leader>sb", require("telescope.builtin").current_buffer_fuzzy_find)
+nnoremap("<leader>?", require("telescope.builtin").oldfiles)
