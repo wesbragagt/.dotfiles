@@ -24,6 +24,9 @@ if command -v fnm &> /dev/null;then
   eval "$(fnm env --use-on-cd)"
 fi
 
+# Rust or bust
+source $HOME/.cargo/env &> /dev/null
+
 export NPM_PREFIX="$HOME/.npm_global"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
