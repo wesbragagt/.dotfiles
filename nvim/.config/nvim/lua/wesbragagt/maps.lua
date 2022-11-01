@@ -83,3 +83,8 @@ nnoremap("<leader>rm", replace_on_quickfix_list)
 nnoremap("[d", vim.diagnostic.goto_prev)
 nnoremap("]d", vim.diagnostic.goto_next)
 nnoremap("<leader>q", vim.diagnostic.setloclist)
+
+-- Explorer
+nnoremap("<leader>pt", function()
+	vim.cmd(":NERDTreeCWD")
+end)
