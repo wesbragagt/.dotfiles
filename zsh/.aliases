@@ -36,24 +36,18 @@ jj(){
   TZ="utc" node_modules/.bin/jest `find ./src -type f \( -name "*.test*" -or -name "*.spec*" \) | fzf`
 }
 
-
+# fuzzy search through files in the current directory and cd to the dir of the file selected
 cdl(){
   cd $(dirname `fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'`)
 }
 
+# cd to .git root of the current dir
 cd/(){
   cd $(git rev-parse --show-toplevel)
 }
 
 get_external_ip(){
   curl ipecho.net/plain ; echo
-}
-
-emoji () {
-  local emojis selected_emoji
-  emojis=$(curl -sSL 'https://git.io/JXXO7')
-  selected_emoji=$(echo "$emojis" | fzf)
-  echo $selected_emoji
 }
 
 # opens the current directory github pages under pull-requests
@@ -66,10 +60,12 @@ newt(){
   git checkout -b $(jira issue list -a$(jira me) --plain | fzf | rg '[a-z][a-z][a-z]-\d+' -io)
 }
 
+# pipe ripgrep results to a quickfix list in vim
 fpq(){
   nvim -q <(rg --column -g '!.git' -g '!node_modules' $@) +cw
 }
 
+# fuzzy search my .ssh/config
 hh(){
   ssh $(grep -e '^Host \w.*' ~/.ssh/config | sed 's/Host //' | fzf --height 20%)
 }
