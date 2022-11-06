@@ -86,5 +86,5 @@ nnoremap("<leader>q", vim.diagnostic.setloclist)
 
 -- Explorer
 nnoremap("<leader>pt", function()
-	vim.cmd(":NERDTreeCWD")
+	vim.cmd(":Ex")
 end)

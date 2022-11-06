@@ -11,10 +11,6 @@ augroup quickfix
     autocmd QuickFixCmdPost l* lwindow
 augroup END
 
-let g:NERDTreeWinSize=50
-let g:NERDTreeWinPos = "right"
-let NERDTreeShowHidden=1
-
 set iskeyword+=-
 set path=**
 ]])
@@ -65,6 +61,11 @@ vim.o.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in mi
 vim.wo.signcolumn = "yes"
 
 vim.o.cmdheight = 1 -- size of command bar
+
+-- NETRW options
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 1
+vim.g.netrw_winsize = 25
 
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
