@@ -352,8 +352,17 @@ setup_server(
 	})
 )
 
-local servers =
-	{ "cssls", "vimls", "yamlls", "ansiblels", "jsonls", "terraformls", "tflint", "eslint", "rust_analyzer" }
+local servers = {
+	"cssls",
+	"vimls",
+	"yamlls",
+	"ansiblels",
+	"jsonls",
+	"terraformls",
+	"tflint",
+	"eslint",
+	"rust_analyzer",
+}
 for _, lsp in ipairs(servers) do
 	setup_server(lsp, config())
 end
