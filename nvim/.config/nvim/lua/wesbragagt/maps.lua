@@ -7,6 +7,10 @@ local xnoremap = utils.xnoremap
 
 vim.g.mapleader = " "
 
+-- go up and down half page and center cursor
+nnoremap("<C-u>", "<C-u>zz")
+nnoremap("<C-d>", "<C-d>zz")
+
 nnoremap("<leader><Enter>", ":so %<cr>") -- source current file
 nnoremap("<leader>co", ":vsp ~/.dotfiles/nvim/.config/nvim<cr>") -- open nvim config directory in a split
 nnoremap("<leader>to", "viw~<cr>") -- uppercase current word
