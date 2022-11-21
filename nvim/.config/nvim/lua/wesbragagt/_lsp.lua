@@ -176,13 +176,7 @@ setup_server(
 setup_server("tsserver", {
 	capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
 	filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
-	root_dir = require("lspconfig").util.root_pattern(
-		"jsconfig.json",
-		"tsconfig.json",
-		"node_modules",
-		".git",
-		"package.json"
-	),
+	root_dir = require("lspconfig").util.root_pattern("tsconfig.json", "jsconfig.json", "package.json"),
 	init_options = require("nvim-lsp-ts-utils").init_options,
 	on_attach = function(client, bufnr)
 		local ts_utils = require("nvim-lsp-ts-utils")

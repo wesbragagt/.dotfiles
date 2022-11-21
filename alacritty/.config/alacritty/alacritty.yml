@@ -53,8 +53,9 @@ selection:
 live_config_reload: true
 key_bindings:
   # fixes swapping between files in vim with ctrl+6
-  # I had an issue where this command was not working in alacritty but other terminals have that by default
+  - { key: Key6, mods: Control, chars: "\x1e" }
   - { key: Key6, mods: Option, chars: "\x1e" }
+  # I had an issue where this command was not working in alacritty but other terminals have that by default
   # Fixes space bar being recognize as an extra character when trying to use ctrl+space with tmux
   - { key: Space, mods: Control, chars: "\x00" }
 
