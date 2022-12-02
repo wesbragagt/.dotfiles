@@ -20,8 +20,13 @@ telescope.load_extension("fzf")
 
 -- Falling back to find_files if git_files can't find a .git directory
 local function project_files()
-	local _, ret, _ = require("telescope.utils").get_os_command_output({ "git", "rev-parse", "--is-inside-work-tree" })
-	if ret == 0 then
+	local is_in_git_repo = require("telescope.utils").get_os_command_output({
+		"git",
+		"rev-parse",
+		"--is-inside-work-tree",
+	})
+
+	if is_in_git_repo then
 		require("telescope.builtin").git_files({ show_untracked = true })
 	else
 		require("telescope.builtin").find_files()
