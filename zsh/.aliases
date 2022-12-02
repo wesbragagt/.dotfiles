@@ -11,7 +11,6 @@ alias reset="source ~/.zshrc"
 alias dev="cd ~/dev"
 # fzf combo scripts
 alias ff="bash $DOTFILES/utils/tmux-sessionizer.sh"
-alias ss="bash $DOTFILES/utils/list-packagejson-scripts.sh"
 alias to="bash $DOTFILES/utils/fzf-git-checkout.sh"
 alias sf="bash $DOTFILES/utils/fzf-vim.sh"
 alias sg="bash $DOTFILES/utils/fzf-rg.sh"
@@ -31,6 +30,10 @@ alias l="lsd -a"
 alias dc="docker-compose"
 alias new="git checkout -b"
 alias key="ssh-add ~/.ssh/id_rsa"
+
+ss(){
+   print -z npm run $(jq '.scripts | keys[]' package.json | sed 's/"//g' | fzf)
+}
 # Run a fuzzy search through test files and run jest
 jj(){
   TZ="utc" node_modules/.bin/jest `find ./src -type f \( -name "*.test*" -or -name "*.spec*" \) | fzf`

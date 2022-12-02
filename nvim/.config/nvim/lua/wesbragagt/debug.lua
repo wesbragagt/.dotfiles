@@ -155,10 +155,10 @@ vim.fn.sign_define("DapStopped", { text = "⏸️", texthl = "", linehl = "", nu
 dap.set_log_level("DEBUG")
 
 -- maps
-nnoremap("<leader>,", function()
+nnoremap("<leader>9", function()
 	dap.toggle_breakpoint()
 end)
-nnoremap("<leader>.", function()
+nnoremap("<leader>0", function()
 	dap.continue()
 end)
 nnoremap("<leader>du", function()
