@@ -108,7 +108,7 @@ return packer.startup(function(use)
 	use({
 		"microsoft/vscode-js-debug",
 		opt = true,
-		run = "npm install --legacy-peer-deps && npm run compile",
+		run = "yarn && yarn compile",
 	})
 	use("rcarriga/nvim-dap-ui")
 	use("theHamsta/nvim-dap-virtual-text")
