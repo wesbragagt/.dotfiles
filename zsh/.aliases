@@ -1,13 +1,11 @@
 export DOTFILES=$HOME/.dotfiles
 
 alias als="vi $DOTFILES/zsh/.aliases"
-alias scripts="jq '.scripts' ./package.json"
 alias dot="cd $DOTFILES"
 alias dotsync="cd $DOTFILES && git add -A && git commit -m 'sync' && git push"
 alias vi="nvim"
 alias config="vi $DOTFILES/zsh/.zshrc"
 alias config-nvim="vi $DOTFILES/nvim/.config/nvim/init.vim" 
-alias reset="source ~/.zshrc"
 alias dev="cd ~/dev"
 # fzf combo scripts
 alias ff="bash $DOTFILES/utils/tmux-sessionizer.sh"
@@ -24,10 +22,7 @@ alias gtp="git push -u origin head"
 alias discard="git checkout -- . && git clean -fd"
 alias clean="git branch --merged | egrep -v '(^\*|master|main|dev|nonprod)' | xargs git branch -D"
 alias tt="tmux -f $HOME/.config/tmux/.tmux.conf"
-alias y="yarn"
 alias ls="ls -a"
-alias l="lsd -a"
-alias dc="docker-compose"
 alias new="git checkout -b"
 alias key="ssh-add ~/.ssh/id_rsa"
 
@@ -36,7 +31,7 @@ ss(){
 }
 # Run a fuzzy search through test files and run jest
 jj(){
-  TZ="utc" node_modules/.bin/jest `find ./src -type f \( -name "*.test*" -or -name "*.spec*" \) | fzf`
+  print -z TZ=utc node_modules/.bin/jest $(find ./src -type f \( -name "*.test*" -or -name "*.spec*" \) | fzf)
 }
 
 # fuzzy search through files in the current directory and cd to the dir of the file selected

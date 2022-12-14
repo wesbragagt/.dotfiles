@@ -38,7 +38,7 @@ dapui.setup({
 				"breakpoints",
 				"watches",
 			},
-			size = 0.40,
+			size = 0.20,
 			position = "left",
 		},
 		{
@@ -46,7 +46,7 @@ dapui.setup({
 				-- Elements can be strings or table with id and size keys.
 				"console",
 			},
-			size = 0.20,
+			size = 0.30,
 			position = "right",
 		},
 	},
