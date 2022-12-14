@@ -55,7 +55,7 @@ vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.o.colorcolumn = 120
 
-vim.o.updatetime = 150
+vim.o.updatetime = 50
 vim.o.pumheight = 15
 
 vim.o.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in milliseconds)
