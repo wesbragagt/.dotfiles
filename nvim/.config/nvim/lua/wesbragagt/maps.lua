@@ -14,7 +14,6 @@ nnoremap("<C-d>", "<C-d>zz")
 nnoremap("<leader><Enter>", ":so %<cr>") -- source current file
 nnoremap("<leader>co", ":vsp ~/.dotfiles/nvim/.config/nvim<cr>") -- open nvim config directory in a split
 nnoremap("<leader>to", "viw~<cr>") -- uppercase current word
-nnoremap("<leader>/", ":RooterToggle<cr>") -- sets the pwd to .git root of current buffer or current file dir
 
 -- Open git status split
 nnoremap("<leader>gs", ":vert G<cr>")

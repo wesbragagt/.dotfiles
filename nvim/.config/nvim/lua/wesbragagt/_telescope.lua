@@ -8,7 +8,6 @@ telescope.setup({
 	defaults = {
 		mappings = {
 			i = {
-				["<esc>"] = require("telescope.actions").close, -- close on escape
 				["<C-u>"] = false, -- clear prompt
 			},
 		},
@@ -41,9 +40,17 @@ end
 
 -- mappings
 local nnoremap = require("utils").nnoremap
+
 nnoremap("<leader><space>", require("telescope.builtin").buffers)
 nnoremap("<leader>sf", project_files)
 nnoremap("<leader>sg", live_grep)
 nnoremap("<leader>sd", require("telescope.builtin").diagnostics)
 nnoremap("<leader>sb", require("telescope.builtin").current_buffer_fuzzy_find)
 nnoremap("<leader>?", require("telescope.builtin").oldfiles)
+nnoremap("<leader>/", function()
+	-- You can pass additional configuration to telescope to change theme, layout, etc.
+	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+		winblend = 10,
+		previewer = false,
+	}))
+end)
