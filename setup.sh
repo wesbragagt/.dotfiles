@@ -6,6 +6,7 @@ links=(
   zsh
   raycast
   alacritty
+  karabiner 
   )
 
 for i in "${links[@]}"
