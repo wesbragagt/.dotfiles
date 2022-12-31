@@ -283,23 +283,6 @@ local function get_typescript_server_path(root_dir)
 	end
 end
 
--- Enable this for vue3 projects
--- setup_server(
--- 	"volar",
--- 	config({
--- 		filetypes = { "vue" },
--- 		on_new_config = function(new_config, new_root_dir)
--- 			new_config.init_options.typescript.serverPath = get_typescript_server_path(new_root_dir)
--- 			new_config.init_options.format = {
--- 				defaultFormatter = {
--- 					js = "prettier",
--- 					ts = "prettier",
--- 				},
--- 			}
--- 		end,
--- 	})
--- )
-
 setup_server(
 	"vuels",
 	config({
