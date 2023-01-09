@@ -4,8 +4,18 @@ if not ok then
 	return
 end
 
+telescope.load_extension("fzf")
+
 telescope.setup({
 	defaults = {
+		vimgrep_arguments = {
+			"rg",
+			"--no-heading",
+			"--with-filename",
+			"--line-number",
+			"--column",
+			"--smart-case",
+		},
 		mappings = {
 			i = {
 				["<C-u>"] = false, -- clear prompt
@@ -14,8 +24,6 @@ telescope.setup({
 	},
 	extensions = {},
 })
-
-telescope.load_extension("fzf")
 
 -- Falling back to find_files if git_files can't find a .git directory
 local function project_files()
