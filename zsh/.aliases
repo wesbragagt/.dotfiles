@@ -31,7 +31,7 @@ ss(){
 }
 # Run a fuzzy search through test files and run jest
 jj(){
-  print -z TZ=utc node_modules/.bin/jest $(find ./src -type f \( -name "*.test*" -or -name "*.spec*" \) | fzf)
+  print -z TZ=utc node_modules/.bin/jest $(rg --files -g '*.spec*' -g '*.test*' | fzf)
 }
 
 # fuzzy search through files in the current directory and cd to the dir of the file selected

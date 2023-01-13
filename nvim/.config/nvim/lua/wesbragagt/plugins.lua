@@ -93,7 +93,8 @@ return packer.startup(function(use)
 	use("weilbith/nvim-code-action-menu")
 	use("williamboman/nvim-lsp-installer")
 	use("arjunmahishi/run-code.nvim")
-	use({ "mxsdev/nvim-dap-vscode-js", requires = "mfussenegger/nvim-dap" })
+	use({ "mfussenegger/nvim-dap" })
+	use({ "mxsdev/nvim-dap-vscode-js" })
 	use({
 		"microsoft/vscode-js-debug",
 		opt = true,
