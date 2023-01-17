@@ -49,8 +49,12 @@ nnoremap("<leader>dfo", ":DiffviewOpen<CR>")
 nnoremap("<leader>dfx", ":DiffviewClose<CR>")
 
 -- Quickfix Navigation
-nnoremap("<leader>l", ":cnext<CR>")
-nnoremap("<leader>h", ":cprev<CR>")
+nnoremap("<leader>ql", ":cnext<CR>")
+nnoremap("<leader>qh", ":cprev<CR>")
+
+-- Buffer Navigation
+nnoremap("<leader>bl", ":bnext<CR>")
+nnoremap("<leader>bh", ":bprevious<CR>")
 
 vim.cmd([[
 " Relative or absolute number lines
