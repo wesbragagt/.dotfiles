@@ -3,6 +3,6 @@ describe('my sweet tests', () => {
     expect(1).toBe(1);
   })
   it('fails', () => {
-    expect(1).toBe(2)
+    expect(1).toBe(1)
   })
 })

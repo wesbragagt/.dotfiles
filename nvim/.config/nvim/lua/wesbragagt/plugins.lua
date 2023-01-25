@@ -99,6 +99,7 @@ return packer.startup(function(use)
 		"microsoft/vscode-js-debug",
 		opt = true,
 		run = "yarn install && yarn compile",
+		commit = "88b15b647d7827db05d4b9850d3e7a66eaba74cc",
 	})
 	use("rcarriga/nvim-dap-ui")
 	use("theHamsta/nvim-dap-virtual-text")
