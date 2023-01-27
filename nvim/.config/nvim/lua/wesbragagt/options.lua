@@ -58,11 +58,6 @@ vim.o.colorcolumn = 120
 vim.o.updatetime = 50
 vim.o.pumheight = 15
 
--- Speed up swapping from insert to normal
-vim.o.timeoutlen = 50 -- Time in milliseconds to wait for a mapped sequence to complete
-
-vim.o.ttimeoutlen = 5 -- Time in milliseconds to wait for a key code sequence to complete
-
 vim.wo.signcolumn = "yes"
 
 vim.o.cmdheight = 1 -- size of command bar
