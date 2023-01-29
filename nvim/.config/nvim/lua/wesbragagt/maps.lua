@@ -95,3 +95,6 @@ nnoremap("<leader>q", vim.diagnostic.setloclist)
 nnoremap("<leader>pt", function()
 	vim.cmd(":Ex")
 end)
+
+-- Markdown
+nnoremap("<C-p>", ":MarkdownPreviewToggle<CR>")
