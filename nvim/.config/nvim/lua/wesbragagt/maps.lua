@@ -97,4 +97,4 @@ nnoremap("<leader>pt", function()
 end)
 
 -- Markdown
-nnoremap("<C-p>", ":MarkdownPreviewToggle<CR>")
+nnoremap("<leader>mp", ":MarkdownPreviewToggle<CR>")

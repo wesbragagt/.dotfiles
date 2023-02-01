@@ -100,7 +100,7 @@ return packer.startup(function(use)
 		run = "yarn install && yarn compile",
 		commit = "88b15b647d7827db05d4b9850d3e7a66eaba74cc",
 	})
-	use({ "rcarriga/nvim-dap-ui" })
+	use({ "rcarriga/nvim-dap-ui", commit = "6b6081ad244ae5aa1358775cc3c08502b04368f9" })
 	use({ "theHamsta/nvim-dap-virtual-text" })
 	use({ "gabrielpoca/replacer.nvim" })
 	use({ "ThePrimeagen/harpoon" })
