@@ -67,6 +67,11 @@ return packer.startup(function(use)
 	use({ "jose-elias-alvarez/nvim-lsp-ts-utils" })
 	use({ "nvim-telescope/telescope.nvim" })
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	use({
+		"ibhagwan/fzf-lua",
+		-- optional for icon support
+		requires = { "nvim-tree/nvim-web-devicons" },
+	})
 	use({ "nvim-lua/plenary.nvim" })
 	use({ "kyazdani42/nvim-web-devicons" })
 	use({ "lewis6991/gitsigns.nvim" })

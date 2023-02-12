@@ -8,13 +8,26 @@ telescope.load_extension("fzf")
 
 telescope.setup({
 	defaults = {
+		preview = {
+			treesitter = false,
+		},
 		vimgrep_arguments = {
 			"rg",
+			"--color=never",
 			"--no-heading",
 			"--with-filename",
 			"--line-number",
 			"--column",
 			"--smart-case",
+			"--hidden",
+			"--no-require-git",
+			"--follow",
+			"--glob",
+			"!.git/*",
+			"--glob",
+			"!node_modules/*",
+			"--glob",
+			"!*.svg",
 		},
 		mappings = {
 			i = {
@@ -25,27 +38,27 @@ telescope.setup({
 	extensions = {},
 })
 
+local my_utils = require("utils")
+
 -- Falling back to find_files if git_files can't find a .git directory
-local function project_files()
-	local _, ret, _ = require("telescope.utils").get_os_command_output({ "git", "rev-parse", "--is-inside-work-tree" })
-	print(ret)
-	if ret == 0 then
-		require("telescope.builtin").git_files(require("telescope.themes").get_dropdown({
-			previewer = false,
-			show_untracked = true,
-		}))
+local function telescope_project_files()
+	if require("utils").is_git_repo() then
+		require("telescope.builtin").git_files({ show_untracked = true })
 	else
-		require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({
-			previewer = false,
-			show_untracked = true,
-		}))
+		require("telescope.builtin").find_files()
 	end
 end
 
-local function live_grep()
-	local opts = {
-		cwd = vim.lsp.get_active_clients()[1].config.root_dir,
-	}
+-- In git repositories grep from root of the project
+local function telescope_live_grep()
+	local opts = {}
+
+	if my_utils.is_git_repo() then
+		opts = {
+			cwd = my_utils.get_git_root(),
+		}
+	end
+
 	local available = pcall(require("telescope.builtin").live_grep, opts)
 	if not available then
 		return
@@ -56,8 +69,8 @@ end
 local nnoremap = require("utils").nnoremap
 
 nnoremap("<leader><space>", require("telescope.builtin").buffers)
-nnoremap("<leader>sf", project_files)
-nnoremap("<leader>sg", live_grep)
+nnoremap("<leader>sf", telescope_project_files)
+nnoremap("<leader>sg", telescope_live_grep)
 nnoremap("<leader>sd", require("telescope.builtin").diagnostics)
 nnoremap("<leader>sb", require("telescope.builtin").current_buffer_fuzzy_find)
 nnoremap("<leader>?", require("telescope.builtin").oldfiles)
