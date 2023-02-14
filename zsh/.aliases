@@ -25,9 +25,10 @@ alias tt="tmux -f $HOME/.config/tmux/.tmux.conf"
 alias ls="ls -a"
 alias new="git checkout -b"
 alias key="ssh-add ~/.ssh/id_rsa"
+alias gitd="nvim -c ':tab G'"
 
 ss(){
-   print -z npm run $(jq '.scripts | keys[]' package.json | sed 's/"//g' | fzf)
+   print -z yarn $(jq '.scripts | keys[]' package.json | sed 's/"//g' | fzf)
 }
 # Run a fuzzy search through test files and run jest
 jj(){

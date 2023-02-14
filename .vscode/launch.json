@@ -1,0 +1,14 @@
+{
+"version": "0.2.0",
+  "configurations": [
+    {
+      "type": "pwa-chrome",
+      "request": "launch",
+      "name": "webdebug",
+      "url": "http://localhost:5000",
+      "webRoot": "${workspaceFolder}",
+      "runtimeExecutable": "stable",
+      "runtimeArgs": ["--headless"]
+    }
+  ]
+}

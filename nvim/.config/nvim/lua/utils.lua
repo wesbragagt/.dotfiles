@@ -39,4 +39,17 @@ function M.get_git_root()
 	return vim.fn.fnamemodify(dot_git_path, ":h")
 end
 
+function M.print_table(t, indent)
+	indent = indent or 0
+	for k, v in pairs(t) do
+		formatting = string.rep(" ", indent) .. k .. ": "
+		if type(v) == "table" then
+			print(formatting)
+			M.print_table(v, indent + 2)
+		else
+			print(formatting .. tostring(v))
+		end
+	end
+end
+
 return M

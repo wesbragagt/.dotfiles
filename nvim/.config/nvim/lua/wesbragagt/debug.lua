@@ -150,3 +150,21 @@ end)
 nnoremap("H", function()
 	dapui.eval()
 end)
+
+local function setup_vscode_launch_json()
+	local root_dir = require("utils").get_git_root()
+	local path = vim.fn.expand(root_dir) .. "/.vscode/launch.json"
+	local launch_file_exists = vim.fn.filereadable(path)
+	if launch_file_exists then
+		local launch_configs = vim.fn.readfile(path)
+		local launch_config = vim.fn.json_decode(launch_configs)
+		local configurations = launch_config["configurations"]
+		require("utils").print_table(configurations)
+		-- figure out why path fails here
+		for _, language in ipairs({ "typescript", "javascript" }) do
+			dap.configurations[language] = configurations
+		end
+	end
+end
+
+nnoremap("<leader>djo", setup_vscode_launch_json)
