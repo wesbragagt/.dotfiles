@@ -14,14 +14,18 @@ else
 fi
 
 # Push the current branch upstream
-git push -u origin "$BRANCH"
+git push -u origin head
 
 # Get the URL of the remote repository
 REMOTE_URL=$(git config --get remote.origin.url)
 
-# Get the username and repository name from the remote URL
-USERNAME=$(echo "$REMOTE_URL" | cut -d '/' -f4)
-REPO=$(echo "$REMOTE_URL" | cut -d '/' -f5)
+# Extract the username and repository name from the remote URL
+USERNAME=$(echo "$REMOTE_URL" | awk -F':' '{print $2}' | sed 's/\/.*//')
+REPO=$(echo "$REMOTE_URL" | awk -F'/' '{print $2}')
 
+echo $USERNAME
+echo $REPO
+
+link="https://github.com/$USERNAME/$REPO/compare/$TARGET_BRANCH...$BRANCH?expand=1"
 # Open the pull request page for the new branch in a web browser
-open "https://github.com/$USERNAME/$REPO/compare/$TARGET_BRANCH...$BRANCH?expand=1"
+open $link

@@ -12,6 +12,7 @@ alias ff="bash $DOTFILES/utils/tmux-sessionizer.sh"
 alias to="bash $DOTFILES/utils/fzf-git-checkout.sh"
 alias sf="bash $DOTFILES/utils/fzf-vim.sh"
 alias sg="bash $DOTFILES/utils/fzf-rg.sh"
+alias gpr="bash $DOTFILES/utils/git-pull-request.sh"
 alias countdown="bash $DOTFILES/utils/countdown.sh"
 alias send-cmd="bash $DOTFILES/utils/tmux-commander.sh"
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
