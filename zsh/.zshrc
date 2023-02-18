@@ -15,6 +15,12 @@ export DEBUG_ADAPTERS_DIR="$HOME/.debug_adapters"
 export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$HOME/.npm_global/bin:$PATH
 export GOPATH=$HOME/go
 
+# dependencies that rely on chromium fail on M1 macs
+# this will bypass any installs that might error
+export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+export PUPPETEER_EXECUTABLE_PATH=chromium not found
+
+
 # make git use nvim for editing
 export VISUAL=nvim
 export EDITOR="$VISUAL"
