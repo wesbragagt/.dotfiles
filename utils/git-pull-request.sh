@@ -26,6 +26,6 @@ REPO=$(echo "$REMOTE_URL" | awk -F'/' '{print $2}')
 echo $USERNAME
 echo $REPO
 
-link="https://github.com/$USERNAME/$REPO/compare/$TARGET_BRANCH...$BRANCH?expand=1"
+link="https://github.com/$USERNAME/$REPO/pull/new/$BRANCH"
 # Open the pull request page for the new branch in a web browser
 open $link
