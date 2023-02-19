@@ -10,8 +10,6 @@ null_ls.setup({
 	sources = {
 		-- spell checking using https://github.com/jeertmans/languagetool-rust
 		-- install by running -> cargo install languagetool-rust --features full
-		null_ls.builtins.diagnostics.ltrs,
-		null_ls.builtins.code_actions.ltrs,
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.diagnostics.eslint_d.with({
 			cwd = h.cache.by_bufnr(function(params)
