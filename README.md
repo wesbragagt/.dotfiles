@@ -9,3 +9,5 @@ Use it as an example for crafting your own awesome dot files. I use GNU Stow in 
 I use Ansible to take care of declaring my dependencies when configuring a new machine. You can check out this repo for more information on how I install tools in a new machine.
 
 [My Ansible setup](https://github.com/wesbragagt/ansible)
+
+test branch edit
