@@ -36,6 +36,7 @@ nnoremap("ca", ":CodeActionMenu<CR>")
 nnoremap("K", vim.lsp.buf.hover)
 nnoremap("L", vim.diagnostic.open_float)
 nnoremap("<leader>fo", vim.lsp.buf.formatting_sync)
+nnoremap("<leader>ls", ":LspInfo<cr>")
 
 -- Clipboard
 xnoremap("<leader>y", '"+y') -- copy selection to system clipboard

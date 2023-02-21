@@ -1,3 +1,30 @@
+require("mason").setup({
+	ui = {
+		icons = {
+			package_installed = "✓",
+		},
+	},
+})
+
+require("mason-lspconfig").setup({
+	ensure_installed = {
+		"lua_ls",
+		"tsserver",
+		"vuels",
+		"tailwindcss",
+		"cssls",
+		"vimls",
+		"yamlls",
+		"ansiblels",
+		"jsonls",
+		"terraformls",
+		"tflint",
+		"eslint",
+		"rust_analyzer",
+		"emmet_ls",
+	},
+})
+
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
 	return
@@ -153,8 +180,9 @@ local function config(options)
 	}, options or {})
 end
 
+local lspconfig = require("lspconfig")
 local function setup_server(server, _config)
-	require("lspconfig")[server].setup(_config)
+	lspconfig[server].setup(_config)
 end
 
 setup_server(
@@ -233,7 +261,7 @@ setup_server("tsserver", {
 	end,
 })
 
-setup_server("sumneko_lua", {
+setup_server("lua_ls", {
 	settings = {
 		Lua = {
 			diagnostics = {
