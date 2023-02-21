@@ -5,25 +5,42 @@ if not ok then
 end
 
 spectre.setup({
-	["rg"] = {
-		cmd = "rg",
-		-- default args
-		args = {
-			"--color=never",
-			"--no-heading",
-			"--with-filename",
-			"--line-number",
-			"--column",
-			"--smart-case",
-			"--hidden",
-			"--no-require-git",
-			"--follow",
-			"--glob",
-			"!.git/*",
-			"--glob",
-			"!node_modules/*",
-			"--glob",
-			"!*.svg",
+	find_engine = {
+		-- rg is map with finder_cmd
+		["rg"] = {
+			cmd = "rg",
+			-- default args
+			args = {
+				"--color=never",
+				"--no-heading",
+				"--with-filename",
+				"--line-number",
+				"--column",
+				"--smart-case",
+				"--hidden",
+				"--no-require-git",
+				"--follow",
+				"--glob",
+				"!.git/*",
+				"--glob",
+				"!node_modules/*",
+				"--glob",
+				"!*.svg",
+			},
+			options = {
+				["ignore-case"] = {
+					value = "--ignore-case",
+					icon = "[I]",
+					desc = "ignore case",
+				},
+				["hidden"] = {
+					value = "--hidden",
+					desc = "hidden file",
+					icon = "[H]",
+				},
+				-- you can put any rg search option you want here it can toggle with
+				-- show_option function
+			},
 		},
 	},
 	highlight = {
@@ -37,7 +54,7 @@ local utils = require("utils")
 
 utils.nnoremap("<leader>S", function()
 	spectre.open({
-		cwd = utils.get_git_root(),
+		cwd = utils.get_git_root_with_fallback(),
 	})
 end)
 utils.nnoremap("<leader>sw", function()

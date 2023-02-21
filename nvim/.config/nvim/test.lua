@@ -31,4 +31,4 @@ local function setup_vscode_launch_json()
 	end
 end
 
-print(setup_vscode_launch_json())
+print(require("utils").get_git_root_with_fallback())

@@ -52,4 +52,17 @@ function M.print_table(t, indent)
 	end
 end
 
+function M.get_git_root_with_fallback()
+	vim.fn.system("git rev-parse --is-inside-work-tree")
+
+	if not vim.v.shell_error == 0 then
+		-- get current buffer path as fallback
+		local cwd = vim.loop.cwd()
+		return cwd
+	end
+
+	local dot_git_path = vim.fn.finddir(".git", ".;")
+	return vim.fn.fnamemodify(dot_git_path, ":h")
+end
+
 return M
