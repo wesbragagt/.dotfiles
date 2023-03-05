@@ -49,6 +49,28 @@ packer.init({
 return packer.startup(function(use)
 	-- My plugins here
 	use({ "wbthomason/packer.nvim", commit = "00ec5adef58c5ff9a07f11f45903b9dbbaa1b422" }) -- Have packer manage itself
+	use({
+		"VonHeikemen/lsp-zero.nvim",
+		branch = "v1.x",
+		requires = {
+			-- LSP Support
+			{ "neovim/nvim-lspconfig" },
+			{ "williamboman/mason.nvim" },
+			{ "williamboman/mason-lspconfig.nvim" },
+
+			-- Autocompletion
+			{ "hrsh7th/nvim-cmp" },
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-path" },
+			{ "saadparwaiz1/cmp_luasnip" },
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-nvim-lua" },
+
+			-- Snippets
+			{ "L3MON4D3/LuaSnip" },
+			{ "rafamadriz/friendly-snippets" },
+		},
+	})
 	use({ "windwp/nvim-ts-autotag", commit = "57035b5814f343bc6110676c9ae2eacfcd5340c2" })
 	use({ "airblade/vim-rooter" })
 	use({ "jiangmiao/auto-pairs" })
@@ -57,12 +79,6 @@ return packer.startup(function(use)
 	use({ "f-person/git-blame.nvim" })
 	use({ "folke/lsp-colors.nvim" })
 	use({ "folke/trouble.nvim" })
-	use({ "hrsh7th/cmp-buffer" })
-	use({ "hrsh7th/cmp-cmdline" })
-	use({ "hrsh7th/cmp-nvim-lsp" })
-	use({ "hrsh7th/cmp-nvim-lua" })
-	use({ "hrsh7th/cmp-path" })
-	use({ "hrsh7th/nvim-cmp" })
 	use({ "jose-elias-alvarez/null-ls.nvim", run = "npm install -g @fsouza/prettierd eslint_d" })
 	use({ "jose-elias-alvarez/nvim-lsp-ts-utils" })
 	use({ "nvim-telescope/telescope.nvim" })
@@ -81,7 +97,6 @@ return packer.startup(function(use)
 	use({ "folke/tokyonight.nvim", commit = "03c03eddace01bfe127f0a6d9413f84a960ea435" })
 	use({ "catppuccin/nvim" })
 	use({ "nathom/filetype.nvim" })
-	use({ "neovim/nvim-lspconfig" })
 	use({ "nvim-lua/popup.nvim" })
 	use({ "nvim-lualine/lualine.nvim" })
 	use({ "nvim-treesitter/nvim-treesitter" })

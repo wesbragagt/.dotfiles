@@ -29,15 +29,6 @@ tnoremap("<Esc>", "<C-><C-n><CR>") -- Escape using ESC
 vnoremap("<leader>r", ":RunCodeSelected<CR>")
 nnoremap("<leader>rr", ":RunCodeFile<CR>")
 
--- LSP
-nnoremap("gd", vim.lsp.buf.definition)
-nnoremap("gr", vim.lsp.buf.references)
-nnoremap("ca", ":CodeActionMenu<CR>")
-nnoremap("K", vim.lsp.buf.hover)
-nnoremap("L", vim.diagnostic.open_float)
-nnoremap("<leader>fo", vim.lsp.buf.formatting_sync)
-nnoremap("<leader>ls", ":LspInfo<cr>")
-
 -- Clipboard
 xnoremap("<leader>y", '"+y') -- copy selection to system clipboard
 nnoremap("<leader>p", '"+p') -- paste from system clipboard below
@@ -71,9 +62,6 @@ endfunction
 
 nnoremap <leader>8 :call NumberToggle()<CR>
 ]])
-
--- Renaming references in buffer
-nnoremap("<leader>rb", vim.lsp.buf.rename)
 
 local function replace_on_quickfix_list()
 	local ok, replacer = pcall(require, "replacer")
