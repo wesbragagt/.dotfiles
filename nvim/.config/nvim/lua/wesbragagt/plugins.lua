@@ -24,7 +24,7 @@ vim.cmd([[
   augroup end
 ]])
 
-vim.cmd([[ 
+vim.cmd([[
 let g:gutentags_enabled = 0
 let g:gitblame_enabled = 0
 let g:rooter_manual_only=1
@@ -133,6 +133,16 @@ return packer.startup(function(use)
 		end,
 	})
 	use({ "nvim-pack/nvim-spectre" })
+	use({
+		"folke/zen-mode.nvim",
+		config = function()
+			require("zen-mode").setup({
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
+		end,
+	})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
