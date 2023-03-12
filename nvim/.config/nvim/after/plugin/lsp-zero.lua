@@ -11,18 +11,14 @@ local lsp = require("lsp-zero").preset({
 lsp.ensure_installed({
 	"lua_ls",
 	"tsserver",
-	"vuels",
+	"volar",
 	"tailwindcss",
 	"cssls",
 	"vimls",
 	"yamlls",
 	"ansiblels",
 	"jsonls",
-	"terraformls",
-	"tflint",
 	"eslint",
-	"rust_analyzer",
-	"emmet_ls",
 })
 
 -- Fix Undefined global 'vim'
@@ -155,28 +151,9 @@ lsp.on_attach(function(client, bufnr)
 	end
 end)
 
--- Allows to pass custom configs to append to current default table
-local function config(options)
-	return vim.tbl_deep_extend("force", {
-		capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-		on_attach = function(client)
-			-- use null-ls for this
-			client.server_capabilities.document_formatting = false
-			client.server_capabilities.document_range_formatting = false
-		end,
-	}, options or {})
-end
-
 local function setup_server(server, _config)
 	lsp.configure(server, _config)
 end
-
-setup_server(
-	"emmet_ls",
-	config({
-		filetypes = { "html", "css", "typescriptreact", "javascriptreact" },
-	})
-)
 
 setup_server("tsserver", {
 	capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
@@ -185,60 +162,15 @@ setup_server("tsserver", {
 	init_options = require("nvim-lsp-ts-utils").init_options,
 	on_attach = function(client, bufnr)
 		local ts_utils = require("nvim-lsp-ts-utils")
-
 		-- defaults
-		ts_utils.setup({
-			debug = false,
-			disable_commands = false,
-			enable_import_on_completion = false,
-			-- import all
-			import_all_timeout = 5000, -- ms
-			-- lower numbers = higher priority
-			import_all_priorities = {
-				same_file = 1, -- add to existing import statement
-				local_files = 2, -- git files or files with relative path markers
-				buffer_content = 3, -- loaded buffer content
-				buffers = 4, -- loaded buffer names
-			},
-			import_all_scan_buffers = 100,
-			import_all_select_source = false,
-			-- if false will avoid organizing imports
-			always_organize_imports = true,
-			-- filter diagnostics
-			filter_out_diagnostics_by_severity = {},
-			filter_out_diagnostics_by_code = {},
-			-- inlay hints
-			auto_inlay_hints = false,
-			inlay_hints_highlight = "Comment",
-			inlay_hints_priority = 200, -- priority of the hint extmarks
-			inlay_hints_throttle = 150, -- throttle the inlay hint request
-			inlay_hints_format = { -- format options for individual hint kind
-				Type = {},
-				Parameter = {},
-				Enum = {},
-				-- Example format customization for `Type` kind:
-				-- Type = {
-				--     highlight = "Comment",
-				--     text = function(text)
-				--         return "->" .. text:sub(2)
-				--     end,
-				-- },
-			},
-			-- update imports on file move
-			update_imports_on_move = false,
-			require_confirmation_on_move = false,
-			watch_dir = nil,
-		})
-
+		ts_utils.setup()
 		-- required to fix code action ranges and filter diagnostics
 		ts_utils.setup_client(client)
-
 		-- no default maps, so you may want to define some here
 		local opts = { silent = true }
 		-- use null-ls for this
 		client.server_capabilities.document_formatting = false
 		client.server_capabilities.document_range_formatting = false
-		vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>es", ":EslintFixAll<CR>", { noremap = true })
 		vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSLspImportCurrent<CR>", opts)
 	end,
 })
@@ -257,78 +189,6 @@ setup_server("lua_ls", {
 	},
 })
 
-setup_server(
-	"tailwindcss",
-	config({
-		filetypes = { "javascriptreact", "typescriptreact", "vue", "html", "css" },
-	})
-)
-
-local util = require("lspconfig.util")
-local function get_typescript_server_path(root_dir)
-	local global_ts = "~/.npm_global/lib/node_modules/typescript/lib/tsserverlibrary.js"
-	-- Alternative location if installed as root:
-	-- local global_ts = '/usr/local/lib/node_modules/typescript/lib/tsserverlibrary.js'
-	local found_ts = ""
-	local function check_dir(path)
-		found_ts = util.path.join(path, "node_modules", "typescript", "lib", "tsserverlibrary.js")
-		if util.path.exists(found_ts) then
-			return path
-		end
-	end
-
-	if util.search_ancestors(root_dir, check_dir) then
-		return found_ts
-	else
-		return global_ts
-	end
-end
-
-setup_server(
-	"vuels",
-	config({
-		cmd = { "vls" },
-		filetypes = { "vue" },
-		init_options = {
-			config = {
-				css = {},
-				emmet = {},
-				html = {
-					suggest = {},
-				},
-				javascript = {
-					format = {},
-				},
-				stylusSupremacy = {},
-				typescript = {
-					format = {},
-				},
-				vetur = {
-					completion = {
-						autoImport = true,
-						tagCasing = "PascalCase",
-						useScaffoldSnippets = false,
-					},
-					format = {
-						defaultFormatter = {
-							js = "prettier",
-							ts = "prettier",
-						},
-						defaultFormatterOptions = {},
-						scriptInitialIndent = false,
-						styleInitialIndent = false,
-					},
-					useWorkspaceDependencies = true,
-					validation = {
-						script = true,
-						style = false,
-						template = true,
-					},
-				},
-			},
-		},
-	})
-)
 lsp.setup()
 
 vim.diagnostic.config({
