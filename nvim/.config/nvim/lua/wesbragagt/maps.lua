@@ -38,6 +38,7 @@ nnoremap("<leader>P", '"+P') -- paste from system clipboard above
 
 -- Diffview
 nnoremap("<leader>dfo", ":DiffviewOpen<CR>")
+nnoremap("<leader>dff", ":DiffviewFileHistory %<CR>")
 nnoremap("<leader>dfx", ":DiffviewClose<CR>")
 
 -- Quickfix Navigation
