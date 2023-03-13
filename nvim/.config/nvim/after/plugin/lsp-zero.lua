@@ -11,7 +11,7 @@ local lsp = require("lsp-zero").preset({
 lsp.ensure_installed({
 	"lua_ls",
 	"tsserver",
-	"vuels",
+	"volar",
 	"tailwindcss",
 	"cssls",
 	"vimls",
@@ -143,7 +143,11 @@ lsp.on_attach(function(client, bufnr)
 	nnoremap("ca", ":CodeActionMenu<CR>", opts)
 	nnoremap("K", vim.lsp.buf.hover, opts)
 	nnoremap("L", vim.diagnostic.open_float, opts)
-	nnoremap("<leader>f", vim.lsp.buf.format, opts)
+	nnoremap("<leader>f", vim.lsp.buf.format, {
+		filter = function(lsp_client)
+			return lsp_client.name == "null-ls"
+		end,
+	})
 	nnoremap("<leader>ls", ":LspInfo<cr>", opts)
 
 	if client.name == "eslint" then
@@ -284,51 +288,52 @@ local function get_typescript_server_path(root_dir)
 	end
 end
 
-setup_server(
-	"vuels",
-	config({
-		cmd = { "vls" },
-		filetypes = { "vue" },
-		init_options = {
-			config = {
-				css = {},
-				emmet = {},
-				html = {
-					suggest = {},
-				},
-				javascript = {
-					format = {},
-				},
-				stylusSupremacy = {},
-				typescript = {
-					format = {},
-				},
-				vetur = {
-					completion = {
-						autoImport = true,
-						tagCasing = "PascalCase",
-						useScaffoldSnippets = false,
-					},
-					format = {
-						defaultFormatter = {
-							js = "prettier",
-							ts = "prettier",
-						},
-						defaultFormatterOptions = {},
-						scriptInitialIndent = false,
-						styleInitialIndent = false,
-					},
-					useWorkspaceDependencies = true,
-					validation = {
-						script = true,
-						style = false,
-						template = true,
-					},
-				},
-			},
-		},
-	})
-)
+setup_server("volar", config({ filetypes = { "vue" } }))
+-- setup_server(
+-- 	"vuels",
+-- 	config({
+-- 		cmd = { "vls" },
+-- 		filetypes = { "vue" },
+-- 		init_options = {
+-- 			config = {
+-- 				css = {},
+-- 				emmet = {},
+-- 				html = {
+-- 					suggest = {},
+-- 				},
+-- 				javascript = {
+-- 					format = {},
+-- 				},
+-- 				stylusSupremacy = {},
+-- 				typescript = {
+-- 					format = {},
+-- 				},
+-- 				vetur = {
+-- 					completion = {
+-- 						autoImport = true,
+-- 						tagCasing = "PascalCase",
+-- 						useScaffoldSnippets = false,
+-- 					},
+-- 					format = {
+-- 						defaultFormatter = {
+-- 							js = "prettier",
+-- 							ts = "prettier",
+-- 						},
+-- 						defaultFormatterOptions = {},
+-- 						scriptInitialIndent = false,
+-- 						styleInitialIndent = false,
+-- 					},
+-- 					useWorkspaceDependencies = true,
+-- 					validation = {
+-- 						script = true,
+-- 						style = false,
+-- 						template = true,
+-- 					},
+-- 				},
+-- 			},
+-- 		},
+-- 	})
+-- )
 lsp.setup()
 
 vim.diagnostic.config({

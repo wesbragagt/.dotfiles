@@ -28,6 +28,7 @@ null_ls.setup({
 			end,
 		}),
 		null_ls.builtins.formatting.prettierd.with({
+
 			env = {
 				PRETTIERD_DEFAULT_CONFIG = "~/.config/nvim/utils/linter-config/.prettierrc.json",
 			},

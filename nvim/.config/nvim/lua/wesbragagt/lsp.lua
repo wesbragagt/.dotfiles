@@ -11,6 +11,7 @@ require("mason-lspconfig").setup({
 		"lua_ls",
 		"tsserver",
 		"vuels",
+		"vue-language-server",
 		"tailwindcss",
 		"cssls",
 		"vimls",
