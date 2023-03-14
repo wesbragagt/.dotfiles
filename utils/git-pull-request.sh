@@ -21,7 +21,8 @@ REMOTE_URL=$(git config --get remote.origin.url)
 
 # Extract the username and repository name from the remote URL
 USERNAME=$(echo "$REMOTE_URL" | awk -F':' '{print $2}' | sed 's/\/.*//')
-REPO=$(echo "$REMOTE_URL" | awk -F'/' '{print $2}')
+# Sometimes the remote_url will come with repo-name.git
+REPO=$(echo "$REMOTE_URL" | awk -F'/' '{print $2}' | sed 's/\.git//')
 
 echo $USERNAME
 echo $REPO
