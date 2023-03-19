@@ -14,6 +14,7 @@ export BASH_PLAYGROUND="$HOME/.playground/bash"
 export DEBUG_ADAPTERS_DIR="$HOME/.debug_adapters"
 export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$HOME/.npm_global/bin:$PATH
 export GOPATH=$HOME/go
+export PATH=$HOME/git-fuzzy/bin:$PATH
 
 # dependencies that rely on chromium fail on M1 macs
 # this will bypass any installs that might error
@@ -50,3 +51,8 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh-env &> /dev/null
 source $HOME/.aliases &> /dev/null
+
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm/"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
