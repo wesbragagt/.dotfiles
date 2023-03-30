@@ -27,13 +27,20 @@ alias ls="ls -a"
 alias new="git checkout -b"
 alias key="ssh-add ~/.ssh/id_rsa"
 alias gitd="nvim -c ':tab G'"
+alias release="bash $DOTFILES/utils/release-tag-pull-request.sh"
+alias tags="git show-ref --tags -d | fzf"
 
 ss(){
    print -z yarn $(jq '.scripts | keys[]' package.json | sed 's/"//g' | fzf)
 }
 # Run a fuzzy search through test files and run jest
 jj(){
-  print -z TZ=utc node_modules/.bin/jest $(rg --files -g '*.spec*' -g '*.test*' | fzf)
+  print -z yarn jest $(rg --files -g '*.spec*' -g '*.test*' | fzf)
+}
+
+# Run a fuzzy search through test files and run mocha
+mm(){
+  print -z yarn mocha $(rg --files -g '*.spec*' -g '*.test*' | fzf)
 }
 
 # fuzzy search through files in the current directory and cd to the dir of the file selected

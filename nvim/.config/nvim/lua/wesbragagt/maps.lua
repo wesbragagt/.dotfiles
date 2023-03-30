@@ -83,7 +83,7 @@ nnoremap("<leader>q", vim.diagnostic.setloclist)
 
 -- Explorer
 nnoremap("<leader>pt", function()
-	vim.cmd(":Ex")
+	vim.cmd(":NvimTreeToggle")
 end)
 
 -- Markdown

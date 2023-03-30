@@ -213,6 +213,7 @@ lsp.on_attach(function(client, bufnr)
   nnoremap("L", vim.diagnostic.open_float, opts)
   nnoremap("<leader>f", vim.lsp.buf.format, opts)
   nnoremap("<leader>ls", ":LspInfo<cr>", opts)
+  nnoremap("<leader>lr", ":LspRestart<cr>", opts)
 
   if client.name == "eslint" then
     nnoremap("<leader>e", ":EslintFixAll<cr>")
