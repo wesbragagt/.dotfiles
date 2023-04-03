@@ -24,7 +24,7 @@ statusline.setup({
 		},
 	},
 	sections = {
-		lualine_a = { "mode" },
+		lualine_a = {},
 		lualine_b = { "branch", "diagnostics", "diff" },
 		lualine_c = {{ "filename", path = 3 }},
 		lualine_x = {},

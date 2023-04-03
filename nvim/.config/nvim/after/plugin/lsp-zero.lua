@@ -34,7 +34,7 @@ end
 
 install_servers()
 
-setup_server('lua-language-server', {
+setup_server('lua_ls', {
   settings = {
     Lua = {
       diagnostics = {
@@ -108,38 +108,22 @@ local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
   return
 end
+
 require("luasnip/loaders/from_vscode").lazy_load({
   path = { "snippets.lua" },
 })
+
 local cmp = require("cmp")
+local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = lsp.defaults.cmp_mappings({
-  ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
-  ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
-  ["<C-Space>"] = cmp.mapping(cmp.mapping.complete({}), { "i", "c" }),
-  ["<C-e>"] = cmp.mapping.close(),
-  ["<Enter>"] = cmp.mapping.confirm({
-    behavior = cmp.ConfirmBehavior.Insert,
-    select = true,
-  }),
-  ["<C-n>"] = cmp.mapping(function(fallback)
-    if cmp.visible() then
-      cmp.select_next_item()
-    elseif luasnip.expand_or_jumpable() then
-      luasnip.expand_or_jump()
-    else
-      fallback()
-    end
-  end, { "i", "s" }),
-  ["<C-p>"] = cmp.mapping(function(fallback)
-    if cmp.visible() then
-      cmp.select_prev_item()
-    elseif luasnip.jumpable(-1) then
-      luasnip.jump(-1)
-    else
-      fallback()
-    end
-  end, { "i", "s" }),
+  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+  ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+  ["<C-Space>"] = cmp.mapping.complete(),
 })
+
+cmp_mappings['<Tab>'] = nil
+cmp_mappings['<S-Tab>'] = nil
 
 local kind_icons = {
   Text = "",

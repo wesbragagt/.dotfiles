@@ -15,6 +15,9 @@ set iskeyword+=-
 set path=**
 ]])
 
+vim.o.guicursor="" -- cursor style
+vim.opt.updatetime = 50
+
 vim.o.foldenable = true
 vim.o.foldmethod = "indent"
 vim.o.foldlevelstart = 99
@@ -29,6 +32,7 @@ vim.o.conceallevel = 0 -- so that ``is visible in markdown files
 vim.o.swapfile = false
 vim.o.backup = false
 vim.o.writebackup = false
+
 vim.o.undodir = vim.fn.getenv("HOME") .. "/.vim/undodir"
 vim.o.undofile = true -- enable persistent undo"
 
@@ -38,7 +42,7 @@ vim.o.scrolloff = 8 -- scroll half of the page
 vim.o.numberwidth = 2
 
 vim.o.autochdir = true
-vim.o.number = true
+vim.o.relativenumber = true
 
 vim.o.hidden = true -- preserve buffers
 vim.o.splitright = true -- force all horizontal splits to go below current window
@@ -54,7 +58,6 @@ vim.o.tabstop = 2
 vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.o.colorcolumn = 120
-vim.o.updatetime = 100
 vim.o.pumheight = 30
 
 vim.wo.signcolumn = "yes"
