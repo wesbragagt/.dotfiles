@@ -45,7 +45,7 @@ lsp.configure("tsserver", {
   init_options = require("nvim-lsp-ts-utils").init_options,
   on_attach = function(client, bufnr)
     local ts_utils = require("nvim-lsp-ts-utils")
-    ts_utils.setup()
+    ts_utils.setup({})
     -- required to fix code action ranges and filter diagnostics
     ts_utils.setup_client(client)
 

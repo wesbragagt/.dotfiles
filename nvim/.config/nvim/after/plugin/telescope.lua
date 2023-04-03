@@ -49,7 +49,6 @@ local function telescope_project_files()
 	end
 end
 
--- In git repositories grep from root of the project
 local function telescope_live_grep()
 	local opts = {}
 
