@@ -1,3 +1,4 @@
+-- Run jest command on saving file and display diagnostics in a quickfix list
 local ok, jest = pcall(require, "jest")
 if not ok then
 	return

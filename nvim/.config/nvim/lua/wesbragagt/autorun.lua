@@ -1,3 +1,5 @@
+-- This plugin allows to run commands on a file upon saving
+-- For example running tests on save and displaying results on the side
 local function clear_buffer(buf_nbr)
 	vim.api.nvim_buf_set_lines(buf_nbr, 0, -1, false, { "" })
 end
