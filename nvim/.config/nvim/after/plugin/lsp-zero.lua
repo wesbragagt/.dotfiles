@@ -8,8 +8,8 @@ local lsp = require("lsp-zero").preset({
   },
 })
 
-local function install_servers()
-  local my_servers = {
+lsp.ensure_installed(
+  {
     "lua_ls",
     "tsserver",
     "volar",
@@ -25,16 +25,9 @@ local function install_servers()
     "rust_analyzer",
     "emmet_ls",
   }
-  lsp.ensure_installed(my_servers)
-end
+)
 
-local function setup_server(server, _config)
-  lsp.configure(server, _config)
-end
-
-install_servers()
-
-setup_server('lua_ls', {
+lsp.configure('lua_ls', {
   settings = {
     Lua = {
       diagnostics = {
@@ -45,51 +38,14 @@ setup_server('lua_ls', {
 })
 
 
-setup_server("tsserver", {
+lsp.configure("tsserver", {
   capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
   root_dir = require("lspconfig").util.root_pattern("tsconfig.json", "jsconfig.json", "package.json"),
   init_options = require("nvim-lsp-ts-utils").init_options,
   on_attach = function(client, bufnr)
     local ts_utils = require("nvim-lsp-ts-utils")
-
-    -- defaults
-    ts_utils.setup({
-      debug = false,
-      disable_commands = false,
-      enable_import_on_completion = false,
-      -- import all
-      import_all_timeout = 5000, -- ms
-      -- lower numbers = higher priority
-      import_all_priorities = {
-        same_file = 1, -- add to existing import statement
-        local_files = 2, -- git files or files with relative path markers
-        buffer_content = 3, -- loaded buffer content
-        buffers = 4, -- loaded buffer names
-      },
-      import_all_scan_buffers = 100,
-      import_all_select_source = false,
-      -- if false will avoid organizing imports
-      always_organize_imports = true,
-      -- filter diagnostics
-      filter_out_diagnostics_by_severity = {},
-      filter_out_diagnostics_by_code = {},
-      -- inlay hints
-      auto_inlay_hints = false,
-      inlay_hints_highlight = "Comment",
-      inlay_hints_priority = 200, -- priority of the hint extmarks
-      inlay_hints_throttle = 150, -- throttle the inlay hint request
-      inlay_hints_format = { -- format options for individual hint kind
-        Type = {},
-        Parameter = {},
-        Enum = {},
-      },
-      -- update imports on file move
-      update_imports_on_move = false,
-      require_confirmation_on_move = false,
-      watch_dir = nil,
-    })
-
+    ts_utils.setup()
     -- required to fix code action ranges and filter diagnostics
     ts_utils.setup_client(client)
 
@@ -114,7 +70,7 @@ require("luasnip/loaders/from_vscode").lazy_load({
 })
 
 local cmp = require("cmp")
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
   ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
@@ -163,17 +119,17 @@ lsp.setup_nvim_cmp({
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
-        nvim_lsp = "[LSP]",
-        buffer = "[Buffer]",
-        path = "[Path]",
-        luasnip = "[Snippet]",
-      })[entry.source.name]
+            nvim_lsp = "[LSP]",
+            buffer = "[Buffer]",
+            path = "[Path]",
+            luasnip = "[Snippet]",
+          })[entry.source.name]
       return vim_item
     end,
   },
   sources = {
     { name = "nvim_lsp" },
-    { name = "buffer", keyword_length = 5 },
+    { name = "buffer",  keyword_length = 5 },
     { name = "path" },
     { name = "nvim_lua" },
     { name = "luasnip" },
