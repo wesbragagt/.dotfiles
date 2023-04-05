@@ -45,7 +45,9 @@ lsp.configure("tsserver", {
   init_options = require("nvim-lsp-ts-utils").init_options,
   on_attach = function(client, bufnr)
     local ts_utils = require("nvim-lsp-ts-utils")
-    ts_utils.setup({})
+    ts_utils.setup({
+      auto_inlay_hints = false
+    })
     -- required to fix code action ranges and filter diagnostics
     ts_utils.setup_client(client)
 
@@ -119,17 +121,17 @@ lsp.setup_nvim_cmp({
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
-            nvim_lsp = "[LSP]",
-            buffer = "[Buffer]",
-            path = "[Path]",
-            luasnip = "[Snippet]",
-          })[entry.source.name]
+        nvim_lsp = "[LSP]",
+        buffer = "[Buffer]",
+        path = "[Path]",
+        luasnip = "[Snippet]",
+      })[entry.source.name]
       return vim_item
     end,
   },
   sources = {
     { name = "nvim_lsp" },
-    { name = "buffer",  keyword_length = 5 },
+    { name = "buffer", keyword_length = 5 },
     { name = "path" },
     { name = "nvim_lua" },
     { name = "luasnip" },
