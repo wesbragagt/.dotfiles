@@ -33,6 +33,10 @@ end
 
 local clients = vim.lsp.buf_get_clients()
 
-print(print_table(clients))
+-- print(print_table(clients))
+--
+
+print_table(vim.lsp.util.text_document_completion_list_to_complete_items(vim.lsp.buf.completion()))
+
 
 

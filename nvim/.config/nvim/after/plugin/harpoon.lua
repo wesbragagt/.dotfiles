@@ -36,7 +36,7 @@ nnoremap("<leader>'", function()
 end)
 nnoremap("<leader>m", function()
 	require("harpoon.ui").toggle_quick_menu()
-end)
+end, {nowait = true})
 
 nnoremap("<leader>1", function()
 	require("harpoon.ui").nav_file(1)
