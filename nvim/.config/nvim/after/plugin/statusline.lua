@@ -26,7 +26,7 @@ statusline.setup({
 	sections = {
 		lualine_a = {},
 		lualine_b = { "branch", "diagnostics", "diff" },
-		lualine_c = {{ "filename", path = 3 }},
+		lualine_c = {{ "filename", path = 1 }},
 		lualine_x = {},
 		lualine_y = {"filetype"},
 		lualine_z = { "location" },
@@ -34,7 +34,7 @@ statusline.setup({
 	inactive_sections = {
 		lualine_a = {},
 		lualine_b = {},
-		lualine_c = {{ "filename", path = 3 }},
+		lualine_c = {},
 		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {},

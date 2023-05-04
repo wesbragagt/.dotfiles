@@ -64,7 +64,7 @@ op(){
 
 # new branch from a jira ticket
 newt(){
-  git checkout -b $(jira issue list -a$(jira me) --plain | fzf | rg '[a-z][a-z][a-z]-\d+' -io)
+  git checkout -b $(jira issue list -a$(jira me) --plain | fzf | rg '\w+-\d+' -io)
 }
 
 # pipe ripgrep results to a quickfix list in vim
