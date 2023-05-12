@@ -9,6 +9,8 @@ if [[ -z "$selection" ]]; then
   exit 0;
 fi
 
+production_environment_version="environments/production/version.yaml"
+
 get_current_branch(){
   git branch --show-current
 }
@@ -19,7 +21,7 @@ grab_tag(){
 }
 
 create_release_version_commit(){
-  echo "version: '$1'" > "environments/production/version.yaml" && git add . && git commit -m "chore: release version $1"
+  git checkout -b "deploy/$1" && echo "version: $1" > $production_environment_version && git add environments/production/version.yaml && git commit -m "chore: deploy version $1"
 }
 
 create_release_version_commit $(grab_tag $selection)
