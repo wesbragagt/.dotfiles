@@ -6,7 +6,7 @@ end
 
 statusline.setup({
 	options = {
-		icons_enabled = true,
+		icons_enabled = false,
 		theme = "auto",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
@@ -25,7 +25,7 @@ statusline.setup({
 	},
 	sections = {
 		lualine_a = {},
-		lualine_b = { "branch", "diagnostics", "diff" },
+		lualine_b = { "branch", "diff", "diagnostics" },
 		lualine_c = {{ "filename", path = 1 }},
 		lualine_x = {},
 		lualine_y = {"filetype"},

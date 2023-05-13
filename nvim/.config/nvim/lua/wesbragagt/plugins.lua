@@ -72,37 +72,41 @@ return packer.startup(function(use)
     },
   })
   use({ "windwp/nvim-ts-autotag", commit = "57035b5814f343bc6110676c9ae2eacfcd5340c2" })
-  use({ "airblade/vim-rooter" })
   use({ "jiangmiao/auto-pairs" })
-  use({ "christoomey/vim-tmux-navigator" })
-  use({ "f-person/git-blame.nvim" })
   use({ "folke/lsp-colors.nvim" })
-  use({ "folke/trouble.nvim", requires = "nvim-tree/nvim-web-devicons", })
+  use({ "folke/trouble.nvim" })
   use({ "jose-elias-alvarez/nvim-lsp-ts-utils" })
   use({ "nvim-telescope/telescope.nvim" })
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use({ "nvim-lua/plenary.nvim" })
-  use({ "kyazdani42/nvim-web-devicons" })
+  -- ICONS
+  use({ "kyazdani42/nvim-web-devicons", opt = true })
+  use({ "ryanoasis/vim-devicons", opt = true })
+
+  -- Git
+  use({ "tpope/vim-fugitive" })
+  use({ "sindrets/diffview.nvim" })
   use({ "lewis6991/gitsigns.nvim" })
-  use({ "lewis6991/impatient.nvim" })
+  use({ "f-person/git-blame.nvim" })
   use({ "lukas-reineke/indent-blankline.nvim" })
 
   -- COLORSCHEMES
   use({ "EdenEast/nightfox.nvim" })
-  use({ "folke/tokyonight.nvim"})
+  use({ "folke/tokyonight.nvim" })
   use({ "catppuccin/nvim" })
-  use {"rebelot/kanagawa.nvim"}
+  use { "rebelot/kanagawa.nvim" }
 
-  use({ "nathom/filetype.nvim" })
   use({ "nvim-lua/popup.nvim" })
-  use({ "nvim-lualine/lualine.nvim" })
+  use({
+    "nvim-lualine/lualine.nvim",
+  })
+  -- Treesitter
   use({ "nvim-treesitter/nvim-treesitter" })
   use({ "nvim-treesitter/nvim-treesitter-context" })
-  use({ "preservim/vimux" })
-  use({ "ryanoasis/vim-devicons" })
-  use({ "sindrets/diffview.nvim" })
+
+  -- Tmux
+  use({ "christoomey/vim-tmux-navigator" })
   use({ "tpope/vim-commentary" })
-  use({ "tpope/vim-fugitive" })
   use({ "tpope/vim-rhubarb" })
   use({ "weilbith/nvim-code-action-menu" })
   use({ "williamboman/mason.nvim" })
@@ -127,17 +131,7 @@ return packer.startup(function(use)
     end,
   })
   use({ "nvim-pack/nvim-spectre" })
-  use({
-    "folke/zen-mode.nvim",
-    config = function()
-      require("zen-mode").setup({
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      })
-    end,
-  })
-  use({"ThePrimeagen/vim-be-good"})
+  use({ "ThePrimeagen/vim-be-good" })
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
