@@ -89,7 +89,7 @@ return packer.startup(function(use)
 
   -- COLORSCHEMES
   use({ "EdenEast/nightfox.nvim" })
-  use({ "folke/tokyonight.nvim", commit = "03c03eddace01bfe127f0a6d9413f84a960ea435" })
+  use({ "folke/tokyonight.nvim"})
   use({ "catppuccin/nvim" })
   use {"rebelot/kanagawa.nvim"}
 
