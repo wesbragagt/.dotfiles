@@ -124,6 +124,7 @@ return packer.startup(function(use)
   use({ "ThePrimeagen/harpoon" })
   use({ "SSHari/jest.nvim" })
   use({ "preservim/nerdtree" })
+  use({"stevearc/oil.nvim"})
   use({
     "iamcco/markdown-preview.nvim",
     run = function()
