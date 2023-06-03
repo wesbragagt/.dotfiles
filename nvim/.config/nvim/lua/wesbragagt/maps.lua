@@ -83,7 +83,7 @@ nnoremap("<leader>q", vim.diagnostic.setloclist)
 
 -- Explorer
 nnoremap("<leader>pt", function()
-	vim.cmd(":NvimTreeToggle")
+	vim.cmd(":Oil")
 end)
 
 -- Markdown
