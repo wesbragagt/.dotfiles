@@ -75,12 +75,13 @@ return packer.startup(function(use)
   use({ "jiangmiao/auto-pairs" })
   use({ "folke/lsp-colors.nvim" })
   use({ "folke/trouble.nvim" })
+  use({"folke/neodev.nvim"})
   use({ "jose-elias-alvarez/nvim-lsp-ts-utils" })
   use({ "nvim-telescope/telescope.nvim" })
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use({ "nvim-lua/plenary.nvim" })
   -- ICONS
-  use({ "kyazdani42/nvim-web-devicons", opt = true })
+  use({"nvim-tree/nvim-web-devicons"})
   use({ "ryanoasis/vim-devicons", opt = true })
 
   -- Git
