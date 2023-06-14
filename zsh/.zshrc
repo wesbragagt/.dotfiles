@@ -55,3 +55,7 @@ source $HOME/.aliases &> /dev/null
 export PNPM_HOME="$HOME/Library/pnpm/"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+#
+if command -v pyenv 1>/dev/null 2>&1; 
+  then eval "$(pyenv init -)"
+fi
