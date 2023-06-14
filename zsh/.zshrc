@@ -37,6 +37,8 @@ export NPM_PREFIX="$HOME/.npm_global"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --no-require-git --follow --glob "!.git/*" --glob "!node_modules/*"'
+# select all - https://github.com/junegunn/fzf/issues/257
+export FZF_DEFAULT_OPTS="-m --bind ctrl-t:toggle-all"
 
 ZSH_THEME="simple"
 
