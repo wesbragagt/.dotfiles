@@ -4,6 +4,7 @@
 INITIAL_QUERY="${*:-}"
 RG_PREFIX="rg --column --color=always --smart-case "
 FZF_DEFAULT_COMMAND="$RG_PREFIX '$INITIAL_QUERY'"
+FZF_DEFAULT_OPTS="-m --bind ctrl-t:toggle-all --preview-window 'up,60%,border-bottom,+{2}+3/3,~3'"
 
 fzf_output=$(fzf -m --bind "change:reload:$RG_PREFIX {q} || true" \
       --query "$INITIAL_QUERY" \

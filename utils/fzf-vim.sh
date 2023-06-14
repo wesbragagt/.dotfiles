@@ -3,6 +3,8 @@
 # pipes fzf selection to open vim on selected file
 set -e
 
+FZF_DEFAULT_OPTS="-m --bind ctrl-t:toggle-all --preview-window 'up,60%,border-bottom,+{2}+3/3,~3'"
+
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
