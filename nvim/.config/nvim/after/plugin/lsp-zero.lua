@@ -28,6 +28,7 @@ lsp.ensure_installed(
     "eslint",
     "rust_analyzer",
     "emmet_ls",
+    "pyright"
   }
 )
 

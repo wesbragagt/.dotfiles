@@ -3,7 +3,7 @@ vim.cmd([[
     set termguicolors
   endif
   try
-  colorscheme tokyonight-night
+  colorscheme kanagawa-wave
   catch /^Vim\%((\a\+)\)\=:E185/
     colorscheme default
   endtry

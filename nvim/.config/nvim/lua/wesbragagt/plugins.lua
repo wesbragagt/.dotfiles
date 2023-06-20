@@ -96,6 +96,7 @@ return packer.startup(function(use)
   use({ "folke/tokyonight.nvim" })
   use({ "catppuccin/nvim" })
   use { "rebelot/kanagawa.nvim" }
+  use({"luisiacc/gruvbox-baby"})
 
   use({ "nvim-lua/popup.nvim" })
   use({
