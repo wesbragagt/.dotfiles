@@ -15,6 +15,7 @@ set iskeyword+=-
 set path=**
 ]])
 
+vim.g.editorconfig = false -- editorconfig is enabled by default
 vim.o.guicursor="" -- cursor style
 vim.opt.updatetime = 50
 
