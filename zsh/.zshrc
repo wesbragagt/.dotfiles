@@ -61,3 +61,7 @@ export PATH="$PNPM_HOME:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; 
   then eval "$(pyenv init -)"
 fi
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/weslleybraga/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
