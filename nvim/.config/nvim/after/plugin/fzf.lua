@@ -9,7 +9,7 @@ local my_utils = require("utils")
 -- Falling back to find_files if git_files can't find a .git directory
 local function project_files()
 	if require("utils").is_git_repo() then
-		fzf.git_files()
+		fzf.git_files({ cmd = 'git ls-files --others --exclude="node_modules/"' })
 	else
 		fzf.find_files()
 	end
