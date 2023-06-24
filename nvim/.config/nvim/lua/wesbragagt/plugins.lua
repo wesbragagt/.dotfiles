@@ -75,13 +75,17 @@ return packer.startup(function(use)
   use({ "jiangmiao/auto-pairs" })
   use({ "folke/lsp-colors.nvim" })
   use({ "folke/trouble.nvim" })
-  use({"folke/neodev.nvim"})
+  use({ "folke/neodev.nvim" })
   use({ "jose-elias-alvarez/nvim-lsp-ts-utils" })
   use({ "nvim-telescope/telescope.nvim" })
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+  use { 'ibhagwan/fzf-lua',
+    -- optional for icon support
+    requires = { 'nvim-tree/nvim-web-devicons', { 'junegunn/fzf', run = './install --bin', } },
+  }
   use({ "nvim-lua/plenary.nvim" })
   -- ICONS
-  use({"nvim-tree/nvim-web-devicons"})
+  use({ "nvim-tree/nvim-web-devicons" })
   use({ "ryanoasis/vim-devicons", opt = true })
 
   -- Git
@@ -125,7 +129,7 @@ return packer.startup(function(use)
   use({ "ThePrimeagen/harpoon" })
   use({ "SSHari/jest.nvim" })
   use({ "preservim/nerdtree" })
-  use({"stevearc/oil.nvim"})
+  use({ "stevearc/oil.nvim" })
   use({
     "iamcco/markdown-preview.nvim",
     run = function()

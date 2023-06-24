@@ -24,12 +24,12 @@ statusline.setup({
 		},
 	},
 	sections = {
-		lualine_a = {},
-		lualine_b = { "branch", "diff", "diagnostics" },
-		lualine_c = {{ "filename", path = 1 }},
+		lualine_a = {"branch" },
+		lualine_b = { "diff", "diagnostics",{"filename", path = 3} },
+		lualine_c = {},
 		lualine_x = {},
-		lualine_y = {"filetype"},
-		lualine_z = { "location" },
+		lualine_y = {},
+		lualine_z = {},
 	},
 	inactive_sections = {
 		lualine_a = {},
