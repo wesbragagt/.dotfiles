@@ -76,3 +76,13 @@ fpq(){
 hh(){
   ssh $(grep -e '^Host \w.*' ~/.ssh/config | sed 's/Host //' | fzf --height 20%)
 }
+
+browser(){
+  BROWSERS=(
+  "chrome"
+  "safari"
+  "firefox"
+  )
+  osascript $DOTFILES/utils/set-default-browser.scpt $(printf "%s\n" ${BROWSERS[*]} | fzf)
+}
+
