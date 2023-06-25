@@ -8,6 +8,9 @@ local lsp = require("lsp-zero").preset({
   },
 })
 
+-- https://github.com/yioneko/nvim-vtsls
+require("lspconfig").vtsls.setup({ --[[ your custom server config here ]] })
+
 -- Neovim setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
 -- https://github.com/folke/neodev.nvim
 require("neodev").setup({})

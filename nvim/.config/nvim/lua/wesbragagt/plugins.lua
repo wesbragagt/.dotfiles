@@ -138,6 +138,7 @@ return packer.startup(function(use)
   })
   use({ "nvim-pack/nvim-spectre" })
   use({ "ThePrimeagen/vim-be-good" })
+  use({"yioneko/nvim-vtsls"})
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
