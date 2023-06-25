@@ -15,7 +15,7 @@ require("neodev").setup({})
 lsp.ensure_installed(
   {
     "lua_ls",
-    "tsserver",
+    "vtsls",
     "volar",
     "tailwindcss",
     "cssls",
@@ -43,7 +43,7 @@ lsp.configure('lua_ls', {
 })
 
 
-lsp.configure("tsserver", {
+lsp.configure("vtsls", {
   capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
   root_dir = require("lspconfig").util.root_pattern("tsconfig.json", "jsconfig.json", "package.json"),
