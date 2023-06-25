@@ -6,16 +6,15 @@ end
 
 local my_utils = require("utils")
 
--- Falling back to find_files if git_files can't find a .git directory
 local function project_files()
-  local excluded_folders = { 'node_modules', '.git' }
-  local excluded = ''
-  for _, value in pairs(excluded_folders) do
-    excluded = excluded .. string.format('--exclude %s ', value)
+  local excluded = { 'node_modules', '.git' }
+  local excluded_cmd = ''
+  for _, value in pairs(excluded) do
+    excluded_cmd = excluded_cmd .. string.format('--exclude %s ', value)
   end
   fzf.files({
     cwd = my_utils.get_git_root_with_fallback(),
-    cmd = string.format('fd --type file -H %s', excluded)
+    cmd = string.format('fd --type file -H %s', excluded_cmd)
   })
 end
 
