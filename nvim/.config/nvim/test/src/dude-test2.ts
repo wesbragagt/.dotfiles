@@ -1,4 +1,4 @@
-import { dude2 } from "./lib";
+import { dude2 } from "./common";
 
 export const dude = {
   getChicken: () => console.log("chicken"),
