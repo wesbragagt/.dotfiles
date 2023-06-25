@@ -2,7 +2,7 @@
 
 # allows selecting files
 INITIAL_QUERY="${*:-}"
-RG_PREFIX="rg --column --color=always --smart-case --hidden --no-require-git --follow --glob '!.git/*' --glob '!node_modules/*'"
+RG_PREFIX="rg --column --color=always --smart-case --hidden --no-require-git --fixed-strings --glob '!.git/*' --glob '!node_modules/*'"
 FZF_DEFAULT_COMMAND="$RG_PREFIX '$INITIAL_QUERY'"
 FZF_DEFAULT_OPTS="-m --bind ctrl-t:toggle-all --preview-window 'up,60%,border-bottom,+{2}+3/3,~3'"
 
