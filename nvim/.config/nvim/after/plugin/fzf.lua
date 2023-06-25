@@ -8,14 +8,15 @@ local my_utils = require("utils")
 
 -- Falling back to find_files if git_files can't find a .git directory
 local function project_files()
-  local cwd = my_utils.get_git_root_with_fallback()
   local excluded_folders = { 'node_modules', '.git' }
   local excluded = ''
   for _, value in pairs(excluded_folders) do
-    excluded = excluded .. ' --exclude' .. ' ' .. value
+    excluded = excluded .. string.format('--exclude %s ', value)
   end
-  local cmd = string.format('fd --type file -H %s', excluded)
-  fzf.files({ cmd, cwd = my_utils.get_git_root_with_fallback() })
+  fzf.files({
+    cwd = my_utils.get_git_root_with_fallback(),
+    cmd = string.format('fd --type file -H %s', excluded)
+  })
 end
 
 local function live_grep()
@@ -27,7 +28,7 @@ local function live_grep()
 
   fzf.live_grep({
     cwd = my_utils.get_git_root_with_fallback(),
-    cmd = string.format('rg --column --smart-case --hidden --no-require-git --follow %s', excluded_cmd),
+    cmd = string.format('rg --column --smart-case --hidden --no-require-git --fixed-strings %s', excluded_cmd),
   })
 end
 
