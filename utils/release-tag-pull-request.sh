@@ -21,7 +21,7 @@ grab_tag(){
 }
 
 create_release_version_commit(){
-  git checkout -b "deploy/$1" && echo "version: $1" > $production_environment_version && git add environments/production/version.yaml && git commit -m "chore: deploy version $1"
+  git checkout -b "deploy/$1" && echo "version: '$1'" > $production_environment_version && git add environments/production/version.yaml && git commit -m "chore: deploy version $1"
 }
 
 create_release_version_commit $(grab_tag $selection)
