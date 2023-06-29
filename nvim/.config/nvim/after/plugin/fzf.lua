@@ -14,7 +14,12 @@ local function project_files()
   end
   fzf.files({
     cwd = my_utils.get_git_root_with_fallback(),
-    cmd = string.format('fd --type file -H %s', excluded_cmd)
+    cmd = string.format('fd --type file -H %s', excluded_cmd),
+    winopts = {
+      preview = {
+        layout = 'vertical'
+      }
+    },
   })
 end
 
@@ -28,13 +33,28 @@ local function live_grep()
   fzf.live_grep({
     cwd = my_utils.get_git_root_with_fallback(),
     cmd = string.format('rg --column --smart-case --hidden --no-require-git --fixed-strings %s', excluded_cmd),
+    winopts = {
+      preview = {
+        layout = 'horizontal'
+      }
+    },
+  })
+end
+
+local function buffers()
+  fzf.buffers({
+    winopts = {
+      preview = {
+        hidden = 'hidden'
+      }
+    }
   })
 end
 
 -- mappings
 local nnoremap = require("utils").nnoremap
 
-nnoremap("<leader><space>", fzf.buffers)
+nnoremap("<leader><space>", buffers)
 nnoremap("<leader>sf", project_files)
 nnoremap("<leader>sg", live_grep)
 nnoremap("<leader>sd", fzf.diagnostics_document)

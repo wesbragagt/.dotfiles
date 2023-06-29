@@ -18,8 +18,8 @@ require("neodev").setup({})
 lsp.ensure_installed(
   {
     "lua_ls",
-    "vtsls",
     "volar",
+    "vtsls",
     "tailwindcss",
     "cssls",
     "vimls",
@@ -45,10 +45,29 @@ lsp.configure('lua_ls', {
   },
 })
 
+function is_vue_project()
+  local cwd = vim.fn.getcwd()
+  local util = require("lspconfig.util")
+  local project_root = util.find_node_modules_ancestor(cwd)
+
+  local vue_path = util.path.join(project_root, "node_modules", "vue")
+  local is_vue = vim.fn.isdirectory(vue_path) == 1
+
+  return is_vue
+end
 
 lsp.configure("vtsls", {
   capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
+  filetypes = {
+    "vue",
+    "javascript",
+    "javascript.jsx",
+    "typescript",
+    "typescript.tsx",
+    "javascriptreact",
+    "typescriptreact",
+    "json",
+  },
   root_dir = require("lspconfig").util.root_pattern("tsconfig.json", "jsconfig.json", "package.json"),
   init_options = require("nvim-lsp-ts-utils").init_options,
   on_attach = function(client, bufnr)
@@ -64,11 +83,11 @@ lsp.configure("vtsls", {
     -- use null-ls for this
     client.server_capabilities.document_formatting = false
     client.server_capabilities.document_range_formatting = false
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>es", ":EslintFixAll<CR>", { noremap = true })
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSLspImportCurrent<CR>", opts)
   end,
 })
-
+lsp.configure("volar", {
+  filetypes = {"vue"},
+})
 
 local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
@@ -139,7 +158,7 @@ lsp.setup_nvim_cmp({
   },
   sources = {
     { name = "nvim_lsp" },
-    { name = "buffer", keyword_length = 5 },
+    { name = "buffer",  keyword_length = 5 },
     { name = "path" },
     { name = "nvim_lua" },
     { name = "luasnip" },
@@ -158,7 +177,7 @@ lsp.on_attach(function(client, bufnr)
   nnoremap("<leader>rb", vim.lsp.buf.rename, opts)
   nnoremap("gd", vim.lsp.buf.definition, opts)
   nnoremap("gr", vim.lsp.buf.references, opts)
-  nnoremap("<leader>ca", ":CodeActionMenu<CR>", {buffer = bufnr, nowait = true})
+  nnoremap("<leader>ca", ":CodeActionMenu<CR>", { buffer = bufnr, nowait = true })
   nnoremap("K", vim.lsp.buf.hover, opts)
   nnoremap("L", vim.diagnostic.open_float, opts)
   nnoremap("<leader>f", vim.lsp.buf.format, opts)
