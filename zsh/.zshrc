@@ -36,7 +36,7 @@ source $HOME/.cargo/env &> /dev/null
 export NPM_PREFIX="$HOME/.npm_global"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export FZF_DEFAULT_COMMAND='rg --files --hidden --no-require-git --follow --glob "!.git/*" --glob "!node_modules/*"'
+export FZF_DEFAULT_COMMAND='fd --type file --hidden --no-ignore --exclude node_modules --exclude .git'
 # select all - https://github.com/junegunn/fzf/issues/257
 export FZF_DEFAULT_OPTS="-m --bind ctrl-t:toggle-all"
 
@@ -65,3 +65,10 @@ fi
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/weslleybraga/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# bun completions
+[ -s "/Users/wesbragagt/.bun/_bun" ] && source "/Users/wesbragagt/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

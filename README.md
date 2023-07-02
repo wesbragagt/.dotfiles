@@ -1,11 +1,11 @@
-# My dot files
+# My Dot Files
 
-Use it as an example for crafting your own awesome dot files. I use GNU Stow in order to source my configurations, if you want to learn more about it, check out the article below.
+Use this as an example for creating your own impressive dot files. I utilize GNU Stow to source my configurations. If you want to learn more about it, please refer to the article linked below.
 
 [Stow](https://dbeley.ovh/en/post/2021/01/09/easily-manage-your-linux-config-files-with-stow/)
 
-## Installing my dependencies
+## Installing My Dependencies
 
-I use Ansible to take care of declaring my dependencies when configuring a new machine. You can check out this repo for more information on how I install tools in a new machine.
+To configure a new machine, I rely on Ansible to handle the declaration of my dependencies. For more information on how I install tools on a new machine, you can visit this repository.
 
-[My Ansible setup](https://github.com/wesbragagt/ansible)
+[My Ansible Setup](https://github.com/wesbragagt/ansible)
