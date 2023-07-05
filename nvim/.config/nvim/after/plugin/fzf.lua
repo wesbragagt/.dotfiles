@@ -7,7 +7,7 @@ end
 local my_utils = require("utils")
 
 local function project_files()
-  local excluded = { 'node_modules', '.git' }
+  local excluded = { 'node_modules', '.git', 'dist', 'build' }
   local excluded_cmd = ''
   for _, value in pairs(excluded) do
     excluded_cmd = excluded_cmd .. string.format('--exclude %s ', value)
@@ -24,7 +24,7 @@ local function project_files()
 end
 
 local function live_grep()
-  local excluded = { '!.git/*', '!node_modules/*' }
+  local excluded = { '!.git/*', '!node_modules/*', '!dist/*', '!build/*' }
   local excluded_cmd = ''
   for _, value in pairs(excluded) do
     excluded_cmd = excluded_cmd .. string.format('--glob %s ', value)
