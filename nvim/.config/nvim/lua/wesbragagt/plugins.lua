@@ -136,17 +136,6 @@ return packer.startup(function(use)
   use({ "nvim-pack/nvim-spectre" })
   use({ "ThePrimeagen/vim-be-good" })
   use({ "yioneko/nvim-vtsls" })
-  use({
-    "jackMort/ChatGPT.nvim",
-    config = function()
-      require("chatgpt").setup()
-    end,
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
-  })
   use({ "windwp/nvim-autopairs" })
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
