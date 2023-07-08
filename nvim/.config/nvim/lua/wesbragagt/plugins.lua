@@ -72,7 +72,6 @@ return packer.startup(function(use)
     },
   })
   use({ "windwp/nvim-ts-autotag", commit = "57035b5814f343bc6110676c9ae2eacfcd5340c2" })
-  use({ "jiangmiao/auto-pairs" })
   use({ "folke/lsp-colors.nvim" })
   use({ "folke/trouble.nvim" })
   use({ "folke/neodev.nvim" })
@@ -127,7 +126,6 @@ return packer.startup(function(use)
   use({ "theHamsta/nvim-dap-virtual-text" })
   use({ "ThePrimeagen/harpoon" })
   use({ "SSHari/jest.nvim" })
-  use({ "preservim/nerdtree" })
   use({ "stevearc/oil.nvim" })
   use({
     "iamcco/markdown-preview.nvim",
@@ -137,9 +135,9 @@ return packer.startup(function(use)
   })
   use({ "nvim-pack/nvim-spectre" })
   use({ "ThePrimeagen/vim-be-good" })
-  use({"yioneko/nvim-vtsls"})
+  use({ "yioneko/nvim-vtsls" })
   use({
-  "jackMort/ChatGPT.nvim",
+    "jackMort/ChatGPT.nvim",
     config = function()
       require("chatgpt").setup()
     end,
@@ -148,7 +146,8 @@ return packer.startup(function(use)
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim"
     }
-})
+  })
+  use({ "windwp/nvim-autopairs" })
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
