@@ -46,60 +46,43 @@ lsp.configure('lua_ls', {
 })
 
 function is_vue_project()
-    local cwd = vim.fn.getcwd()
-    local util = require("lspconfig.util")
-    local project_root = util.find_node_modules_ancestor(cwd)
+  local cwd = vim.fn.getcwd()
+  local util = require("lspconfig.util")
+  local project_root = util.find_node_modules_ancestor(cwd)
 
-    local vue_path = util.path.join(project_root, "node_modules", "vue")
-    local is_vue = vim.fn.isdirectory(vue_path) == 1
+  local vue_path = util.path.join(project_root, "node_modules", "vue")
+  local is_vue = vim.fn.isdirectory(vue_path) == 1
 
-    return is_vue
+  return is_vue
 end
 
+lsp.configure("vtsls", {
+  capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
+  root_dir = require("lspconfig").util.root_pattern("tsconfig.json", "jsconfig.json", "package.json"),
+  init_options = require("nvim-lsp-ts-utils").init_options,
+  on_attach = function(client, bufnr)
+    local ts_utils = require("nvim-lsp-ts-utils")
+    ts_utils.setup({
+      auto_inlay_hints = false
+    })
+    -- required to fix code action ranges and filter diagnostics
+    ts_utils.setup_client(client)
 
- lsp.configure("vtsls", {
-   capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
-   root_dir = require("lspconfig").util.root_pattern("tsconfig.json", "jsconfig.json", "package.json"),
-   init_options = require("nvim-lsp-ts-utils").init_options,
-   on_attach = function(client, bufnr)
-     local ts_utils = require("nvim-lsp-ts-utils")
-     ts_utils.setup({
-       auto_inlay_hints = false
-     })
-     -- required to fix code action ranges and filter diagnostics
-     ts_utils.setup_client(client)
-
-     -- no default maps, so you may want to define some here
-     local opts = { silent = true }
-     -- use null-ls for this
-     client.server_capabilities.document_formatting = false
-     client.server_capabilities.document_range_formatting = false
-     vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>es", ":EslintFixAll<CR>", { noremap = true })
-     vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSLspImportCurrent<CR>", opts)
-   end,
- })
+    -- no default maps, so you may want to define some here
+    local opts = { silent = true }
+    -- use null-ls for this
+    client.server_capabilities.document_formatting = false
+    client.server_capabilities.document_range_formatting = false
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>es", ":EslintFixAll<CR>", { noremap = true })
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSLspImportCurrent<CR>", opts)
+  end,
+})
 
 lsp.configure('volar', {
   filetypes = {
     "vue",
-    "javascript",
-    "javascript.jsx",
-    "typescript",
-    "typescript.tsx",
-    "javascriptreact",
-    "typescriptreact",
-    "json",
   },
-  on_attach = function()
-    lsp.configure('vtsls', {
-      autostart = false,
-      root_dir = function()
-        return false
-      end,
-      single_file_support = false,
-    })
-  end
 })
 
 
