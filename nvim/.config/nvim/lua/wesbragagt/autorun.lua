@@ -49,5 +49,5 @@ vim.api.nvim_create_user_command("AutoRun", function()
 	attatch_buff_number(tonumber(run_buffer), pattern, command)
 end, {})
 
-create_playground("TSPlayground", "*.ts", "ts-node playground.ts")
+create_playground("TSPlayground", "*.ts", "bun run playground.ts")
 create_playground("BashPlayground", "*.sh", "bash playground.sh")
