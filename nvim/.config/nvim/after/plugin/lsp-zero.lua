@@ -8,9 +8,6 @@ local lsp = require("lsp-zero").preset({
   },
 })
 
--- https://github.com/yioneko/nvim-vtsls
-require("lspconfig").vtsls.setup({ --[[ your custom server config here ]] })
-
 -- Neovim setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
 -- https://github.com/folke/neodev.nvim
 require("neodev").setup({})
@@ -19,7 +16,7 @@ lsp.ensure_installed(
   {
     "lua_ls",
     "volar",
-    "vtsls",
+    "tsserver",
     "tailwindcss",
     "cssls",
     "vimls",
@@ -56,7 +53,7 @@ function is_vue_project()
   return is_vue
 end
 
-lsp.configure("vtsls", {
+lsp.configure("tsserver", {
   capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
   root_dir = require("lspconfig").util.root_pattern("tsconfig.json", "jsconfig.json", "package.json"),

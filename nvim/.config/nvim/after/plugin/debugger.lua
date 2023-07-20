@@ -133,9 +133,9 @@ for _, language in ipairs({ "typescript", "javascript" }) do
       skipFiles = { "<node_internals>/**" },
       runtimeExecutable = "yarn",
       runtimeArgs = {
+        "--inspect-brk",
         "mocha",
         "${file}",
-        "--inspect-brk"
       },
       console = "integratedTerminal",
       internalConsoleOptions = "neverOpen",

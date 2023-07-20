@@ -27,7 +27,8 @@ export EDITOR="$VISUAL"
 
 # fnm
 if command -v fnm &> /dev/null;then
-  eval "$(fnm env --use-on-cd)"
+  eval "$(fnm env --use-on-cd)" &&
+  export NODEJS_PATH=$(which node)
 fi
 
 # Rust or bust
