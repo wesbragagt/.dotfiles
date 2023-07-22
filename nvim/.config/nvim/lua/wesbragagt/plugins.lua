@@ -76,6 +76,12 @@ return packer.startup(function(use)
   use({ "folke/trouble.nvim" })
   use({ "folke/neodev.nvim" })
   use({ "jose-elias-alvarez/nvim-lsp-ts-utils" })
+  use({
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
+  })
+
   use({ "nvim-telescope/telescope.nvim" })
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use { 'ibhagwan/fzf-lua',
@@ -137,7 +143,22 @@ return packer.startup(function(use)
   use({ "ThePrimeagen/vim-be-good" })
   use({ "yioneko/nvim-vtsls" })
   use({ "windwp/nvim-autopairs" })
-  use({"github/copilot.vim"})
+  use({ "github/copilot.vim" })
+  use {
+    'chipsenkbeil/distant.nvim',
+    branch = 'v0.2',
+    config = function()
+      require('distant').setup {
+        -- Applies Chip's personal settings to every machine you connect to
+        --
+        -- 1. Ensures that distant servers terminate with no connections
+        -- 2. Provides navigation bindings for remote directories
+        -- 3. Provides keybinding to jump into a remote file's parent directory
+        ['*'] = require('distant.settings').chip_default()
+      }
+    end
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
