@@ -148,10 +148,6 @@ lsp.on_attach(function(client, bufnr)
   if client.name == "eslint" then
     nnoremap("<leader>e", ":EslintFixAll<cr>")
   end
-
-  if client.name == "tsserver" then
-    nnoremap("<leader>fr", ":TSLspRenameFile<CR>")
-  end
 end)
 
 
