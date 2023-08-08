@@ -16,6 +16,7 @@ lsp.ensure_installed(
   {
     "lua_ls",
     "volar",
+    "vtsls",
     "tailwindcss",
     "cssls",
     "vimls",
@@ -30,8 +31,6 @@ lsp.ensure_installed(
     "pyright"
   }
 )
-require("typescript-tools").setup({})
-
 lsp.configure('lua_ls', {
   settings = {
     Lua = {
@@ -45,6 +44,18 @@ lsp.configure('lua_ls', {
 lsp.configure('volar', {
   filetypes = {
     "vue",
+  },
+})
+
+lsp.configure('vtsls', {
+  filetypes = {
+    "typescript",
+    "typescriptreact",
+    "typescript.tsx",
+    "javascript",
+    "javascriptreact",
+    "javascript.jsx",
+    "json"
   },
 })
 
