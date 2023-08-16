@@ -16,7 +16,7 @@ lsp.ensure_installed(
   {
     "lua_ls",
     "volar",
-    "vtsls",
+    "tsserver",
     "tailwindcss",
     "cssls",
     "vimls",
@@ -47,7 +47,7 @@ lsp.configure('volar', {
   },
 })
 
-lsp.configure('vtsls', {
+lsp.configure('tsserver', {
   filetypes = {
     "typescript",
     "typescriptreact",
