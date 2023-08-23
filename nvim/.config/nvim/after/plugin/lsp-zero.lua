@@ -12,11 +12,12 @@ local lsp = require("lsp-zero").preset({
 -- https://github.com/folke/neodev.nvim
 require("neodev").setup({})
 
+require('typescript-tools').setup{}
+
 lsp.ensure_installed(
   {
     "lua_ls",
     "volar",
-    "tsserver",
     "tailwindcss",
     "cssls",
     "vimls",
@@ -46,20 +47,6 @@ lsp.configure('volar', {
     "vue",
   },
 })
-
-lsp.configure('tsserver', {
-  filetypes = {
-    "typescript",
-    "typescriptreact",
-    "typescript.tsx",
-    "javascript",
-    "javascriptreact",
-    "javascript.jsx",
-    "json"
-  },
-})
-
-
 
 local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
