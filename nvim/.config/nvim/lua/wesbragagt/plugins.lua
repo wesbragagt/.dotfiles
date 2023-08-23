@@ -77,7 +77,7 @@ return packer.startup(function(use)
   use({ "folke/neodev.nvim" })
   use({
     "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
   })
 
   use({ "nvim-telescope/telescope.nvim" })
@@ -85,6 +85,7 @@ return packer.startup(function(use)
   use { 'ibhagwan/fzf-lua',
     -- optional for icon support
     requires = { 'nvim-tree/nvim-web-devicons', { 'junegunn/fzf', run = './install --bin', } },
+    commit = "b7bda51ba7d0c07aaa30e8428a6531e939f6c3a3"
   }
   use({ "nvim-lua/plenary.nvim" })
   -- ICONS
