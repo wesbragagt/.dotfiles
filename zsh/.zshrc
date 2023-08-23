@@ -73,3 +73,5 @@ export PATH="/Users/weslleybraga/.rd/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+#java
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
