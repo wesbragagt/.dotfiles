@@ -12,8 +12,12 @@
 
 -- utils.nnoremap("<leader>pt", ":NERDTreeToggle<CR>")
 
+local is_oil_ok, oil = pcall(require, "oil")
+if not is_oil_ok then
+  return
+end
 -- https://github.com/stevearc/oil.nvim
-require("oil").setup({
+oil.setup({
   -- Id is automatically added at the beginning, and name at the end
   -- See :help oil-columns
   columns = {
@@ -133,4 +137,4 @@ require("oil").setup({
   },
 })
 
-require("utils").nnoremap('-', require("oil").open)
+require("utils").nnoremap('-', oil.open)
