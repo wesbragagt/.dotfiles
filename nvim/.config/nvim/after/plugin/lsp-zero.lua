@@ -1,4 +1,10 @@
-local lsp = require("lsp-zero").preset({
+local is_lsp_zero_ok ,lsp_zero = pcall(require, "lsp-zero")
+
+if not is_lsp_zero_ok then
+  return
+end
+
+local lsp = lsp_zero.preset({
   name = "recommended",
   sign_icons = {
     error = "",
@@ -8,11 +14,20 @@ local lsp = require("lsp-zero").preset({
   },
 })
 
--- Neovim setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
--- https://github.com/folke/neodev.nvim
-require("neodev").setup({})
+local is_neodev_ok, neodev = pcall(require, "neodev")
+if is_neodev_ok then
+  -- Neovim setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
+  -- See: https://github.com/folke/neodev.nvim
+  -- Als: https://github.com/rcarriga/nvim-dap-ui
+  neodev.setup({
+    library = { plugins = { "nvim-dap-ui", types = true } }
+  })
+end
 
-require('typescript-tools').setup{}
+local is_typescript_tools_ok, typescript_tools = pcall(require, "typescript-tools")
+if is_typescript_tools_ok then
+  typescript_tools.setup {}
+end
 
 lsp.ensure_installed(
   {
