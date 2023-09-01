@@ -109,8 +109,15 @@ return packer.startup(function(use)
     "nvim-lualine/lualine.nvim",
   })
   -- Treesitter
-  use({ "nvim-treesitter/nvim-treesitter" })
-  use({ "nvim-treesitter/nvim-treesitter-context" })
+  use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+  use({
+    "nvim-treesitter/nvim-treesitter-context",
+    after = "nvim-treesitter",
+  })
+  use({
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    after = "nvim-treesitter",
+  })
 
   -- Tmux
   use({ "christoomey/vim-tmux-navigator" })
