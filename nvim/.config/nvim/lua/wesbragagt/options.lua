@@ -78,3 +78,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	group = highlight_group,
 	pattern = "*",
 })
+-- fix a problem with calling :GBrowse
+-- Netrw not found. Define your own :Browse to use :GBrowse
+vim.cmd[[command! -nargs=1 Browse silent execute '!open' shellescape(<q-args>,1)]]
