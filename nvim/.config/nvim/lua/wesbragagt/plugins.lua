@@ -79,9 +79,6 @@ return packer.startup(function(use)
     "pmizio/typescript-tools.nvim",
     requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
   })
-
-  use({ "nvim-telescope/telescope.nvim" })
-  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use { 'ibhagwan/fzf-lua',
     -- optional for icon support
     requires = { 'nvim-tree/nvim-web-devicons', { 'junegunn/fzf', run = './install --bin', } },
@@ -100,10 +97,7 @@ return packer.startup(function(use)
   use({ "lukas-reineke/indent-blankline.nvim" })
 
   -- COLORSCHEMES
-  use({ "EdenEast/nightfox.nvim" })
-  use({ "catppuccin/nvim" })
   use { "rebelot/kanagawa.nvim" }
-
   use({ "nvim-lua/popup.nvim" })
   use({
     "nvim-lualine/lualine.nvim",
@@ -146,8 +140,6 @@ return packer.startup(function(use)
     end,
   })
   use({ "nvim-pack/nvim-spectre" })
-  use({ "ThePrimeagen/vim-be-good" })
-  use({ "yioneko/nvim-vtsls" })
   use({ "windwp/nvim-autopairs" })
   use({ "github/copilot.vim" })
   -- Automatically set up your configuration after cloning packer.nvim
