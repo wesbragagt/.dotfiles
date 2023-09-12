@@ -29,6 +29,7 @@ alias key="ssh-add ~/.ssh/id_rsa"
 alias gitd="nvim -c ':tab G'"
 alias release="bash $DOTFILES/utils/release-tag-pull-request.sh"
 alias tags="git show-ref --tags -d | fzf"
+alias npx="bunx"
 
 ss(){
    print -z yarn $(jq '.scripts | keys[]' package.json | sed 's/"//g' | fzf)
