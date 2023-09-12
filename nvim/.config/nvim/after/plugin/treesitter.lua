@@ -6,7 +6,6 @@ end
 configs.setup({
   ensure_installed = {
     "c",
-    "help",
     "bash",
     "cmake",
     "comment",
