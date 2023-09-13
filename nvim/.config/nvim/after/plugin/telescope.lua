@@ -4,8 +4,6 @@ if not ok then
 	return
 end
 
-telescope.load_extension("fzf")
-
 telescope.setup({
 	defaults = {
 		preview = {
@@ -64,19 +62,16 @@ local function telescope_live_grep()
 	end
 end
 
--- mappings
-local nnoremap = require("utils").nnoremap
-
-nnoremap("<leader><space>", require("telescope.builtin").buffers)
-nnoremap("<leader>sf", telescope_project_files)
-nnoremap("<leader>sg", telescope_live_grep)
-nnoremap("<leader>sd", require("telescope.builtin").diagnostics)
-nnoremap("<leader>sb", require("telescope.builtin").current_buffer_fuzzy_find)
-nnoremap("<leader>?", require("telescope.builtin").oldfiles)
-nnoremap("<leader>/", function()
-	-- You can pass additional configuration to telescope to change theme, layout, etc.
-	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-		winblend = 10,
-		previewer = false,
-	}))
-end)
+-- nnoremap("<leader><space>", require("telescope.builtin").buffers)
+-- nnoremap("<leader>sf", telescope_project_files)
+-- nnoremap("<leader>sg", telescope_live_grep)
+-- nnoremap("<leader>sd", require("telescope.builtin").diagnostics)
+-- nnoremap("<leader>sb", require("telescope.builtin").current_buffer_fuzzy_find)
+-- nnoremap("<leader>?", require("telescope.builtin").oldfiles)
+-- nnoremap("<leader>/", function()
+-- 	-- You can pass additional configuration to telescope to change theme, layout, etc.
+-- 	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+-- 		winblend = 10,
+-- 		previewer = false,
+-- 	}))
+-- end)

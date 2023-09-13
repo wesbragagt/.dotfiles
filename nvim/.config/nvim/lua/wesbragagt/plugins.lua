@@ -85,6 +85,11 @@ return packer.startup(function(use)
     commit = "b7bda51ba7d0c07aaa30e8428a6531e939f6c3a3"
   }
   use({ "nvim-lua/plenary.nvim" })
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.2',
+    -- or                            , branch = '0.1.x',
+    requires = { { 'nvim-lua/plenary.nvim' } }
+  }
   -- ICONS
   use({ "nvim-tree/nvim-web-devicons" })
   use({ "ryanoasis/vim-devicons", opt = true })
@@ -131,6 +136,7 @@ return packer.startup(function(use)
   use({ "rcarriga/nvim-dap-ui", commit = "6b6081ad244ae5aa1358775cc3c08502b04368f9" })
   use({ "theHamsta/nvim-dap-virtual-text" })
   use({ "ThePrimeagen/harpoon" })
+  use({ "ThePrimeagen/git-worktree.nvim" })
   use({ "SSHari/jest.nvim" })
   use({ "stevearc/oil.nvim" })
   use({
