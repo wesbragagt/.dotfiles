@@ -87,3 +87,12 @@ browser(){
   osascript $DOTFILES/utils/set-default-browser.scpt $(printf "%s\n" ${BROWSERS[*]} | fzf)
 }
 
+alias work="cd ~/dev/work"
+be(){
+  cd $(ls -d ~/dev/work/* | fzf)
+}
+
+
+clone(){
+  git clone $(curl -s -H "Authorization: token $GITHUB_PERSONAL_ACCESS_TOKEN" https://api.github.com/${COMPANY_ORG:-users/wesbragagt}/repos\?per_page\=500 | jq -r '.[] | .ssh_url' | fzf)
+}

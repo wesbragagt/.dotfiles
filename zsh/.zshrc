@@ -52,6 +52,9 @@ plugins=(
   fzf-tab
 )
 
+# Binds Ctrl+y to confirm suggestion
+bindkey '^y' autosuggest-accept
+
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh-env &> /dev/null
 source $HOME/.aliases &> /dev/null
