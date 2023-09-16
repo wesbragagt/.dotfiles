@@ -4,6 +4,7 @@ links=(
   nvim
   tmux
   zsh
+  raycast
   )
 
 for i in "${links[@]}"
