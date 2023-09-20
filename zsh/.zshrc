@@ -50,6 +50,7 @@ plugins=(
   zsh-autosuggestions
   vi-mode
   fzf-tab
+  z
 )
 
 # Binds Ctrl+y to confirm suggestion
