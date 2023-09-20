@@ -92,7 +92,7 @@ return packer.startup(function(use)
   }
   -- ICONS
   use({ "nvim-tree/nvim-web-devicons" })
-  use({ "ryanoasis/vim-devicons", opt = true })
+  use({ "ryanoasis/vim-devicons"})
 
   -- Git
   use({ "tpope/vim-fugitive" })

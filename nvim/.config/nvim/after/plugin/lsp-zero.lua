@@ -84,32 +84,33 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
 
+-- https://www.nerdfonts.com/cheat-sheet
 local kind_icons = {
-  Text = "",
-  Method = "m",
-  Function = "",
+  Text = "",
+  Method = "",
+  Function = "󰊕",
   Constructor = "",
   Field = "",
-  Variable = "",
-  Class = "",
+  Variable = "",
+  Class = "󰮃",
   Interface = "",
   Module = "",
   Property = "",
   Unit = "",
-  Value = "",
+  Value = "󰗣",
   Enum = "",
   Keyword = "",
   Snippet = "",
-  Color = "",
-  File = "",
+  Color = "",
+  File = "",
   Reference = "",
-  Folder = "",
+  Folder = "",
   EnumMember = "",
-  Constant = "",
+  Constant = "",
   Struct = "",
   Event = "",
-  Operator = "",
-  TypeParameter = "",
+  Operator = "",
+  TypeParameter = "",
 }
 
 lsp.setup_nvim_cmp({
@@ -120,7 +121,6 @@ lsp.setup_nvim_cmp({
       -- Kind icons
       vim_item.dup = { buffer = 1, path = 1, nvim_lsp = 0 }
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-      -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
         buffer = "[Buffer]",
