@@ -92,7 +92,7 @@ return packer.startup(function(use)
   }
   -- ICONS
   use({ "nvim-tree/nvim-web-devicons" })
-  use({ "ryanoasis/vim-devicons"})
+  use({ "ryanoasis/vim-devicons" })
 
   -- Git
   use({ "tpope/vim-fugitive" })
@@ -120,7 +120,12 @@ return packer.startup(function(use)
 
   -- Tmux
   use({ "christoomey/vim-tmux-navigator" })
-  use({ "tpope/vim-commentary" })
+  use({
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  })
   use({ "tpope/vim-rhubarb" })
   use({ "weilbith/nvim-code-action-menu" })
   use({ "williamboman/mason.nvim" })
