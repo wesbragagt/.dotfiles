@@ -7,7 +7,7 @@ if [ "$TMUX" ]; then
     source /etc/profile
   fi
 fi
-
+export WORK_DIR="$HOME/dev/work"
 export XDG_CONFIG_HOME="$HOME/.config"
 export TYPESCRIPT_PLAYGROUND="$HOME/.playground/typescript"
 export BASH_PLAYGROUND="$HOME/.playground/bash"

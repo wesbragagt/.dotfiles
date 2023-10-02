@@ -136,6 +136,7 @@ for _, language in ipairs({ "typescript", "javascript" }) do
         "--inspect-brk",
         "mocha",
         "${file}",
+        "--no-cache"
       },
       console = "integratedTerminal",
       internalConsoleOptions = "neverOpen",
