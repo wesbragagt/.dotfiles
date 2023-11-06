@@ -88,6 +88,22 @@ for _, language in ipairs({ "typescript", "javascript" }) do
       type = "pwa-node",
       cwd = "${workspaceFolder}",
       request = "launch",
+      name = "Node run",
+      runtimeExecutable = "node",
+      runtimeArgs = {
+        "--inspect-brk",
+        "${file}",
+      },
+      console = "integratedTerminal",
+      restart = true,
+      protocol = "auto",
+      port = 9229,
+      autoAttachChildProcesses = true
+    },
+    {
+      type = "pwa-node",
+      cwd = "${workspaceFolder}",
+      request = "launch",
       name = "Nest Debug",
       runtimeExecutable = "yarn",
       runtimeArgs = {
