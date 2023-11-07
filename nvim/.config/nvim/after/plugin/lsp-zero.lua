@@ -66,14 +66,7 @@ lsp.configure('volar', {
   },
 })
 
-local snip_status_ok, luasnip = pcall(require, "luasnip")
-if not snip_status_ok then
-  return
-end
-
-require("luasnip/loaders/from_vscode").lazy_load({
-  path = { "snippets.lua" },
-})
+require("luasnip.loaders.from_vscode").lazy_load()
 
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
