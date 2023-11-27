@@ -32,7 +32,7 @@ alias tags="git show-ref --tags -d | fzf"
 alias npx="bunx"
 
 ss(){
-   print -z yarn $(jq '.scripts | keys[]' package.json | sed 's/"//g' | fzf)
+   print -z bun $(jq '.scripts | keys[]' package.json | sed 's/"//g' | fzf)
 }
 # Run a fuzzy search through test files and run jest
 jj(){

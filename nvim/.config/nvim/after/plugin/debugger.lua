@@ -105,9 +105,8 @@ for _, language in ipairs({ "typescript", "javascript" }) do
       cwd = "${workspaceFolder}",
       request = "launch",
       name = "Nest Debug",
-      runtimeExecutable = "yarn",
+      runtimeExecutable = "bun",
       runtimeArgs = {
-        "run",
         "start:debug",
         "--",
         "--inspect-brk",
@@ -125,7 +124,7 @@ for _, language in ipairs({ "typescript", "javascript" }) do
       cwd = "${workspaceFolder}",
       sourceMaps = "inline",
       skipFiles = { "<node_internals>/**" },
-      runtimeExecutable = "yarn",
+      runtimeExecutable = "bun",
       runtimeArgs = {
         "--inspect-brk",
         "jest",
@@ -147,7 +146,7 @@ for _, language in ipairs({ "typescript", "javascript" }) do
       cwd = "${workspaceFolder}",
       sourceMaps = "inline",
       skipFiles = { "<node_internals>/**" },
-      runtimeExecutable = "yarn",
+      runtimeExecutable = "bun",
       runtimeArgs = {
         "--inspect-brk",
         "mocha",

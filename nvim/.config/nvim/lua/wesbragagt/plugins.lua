@@ -155,7 +155,7 @@ return packer.startup(function(use)
   use({
     "github/copilot.vim",
     config = function()
-      vim.g.copilot_enabled = 0
+      vim.g.copilot_enabled = 1
     end
   })
   use({ "ray-x/go.nvim" })
