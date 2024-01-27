@@ -12,5 +12,5 @@ links=(
 for i in "${links[@]}"
 do
    : 
-    stow $i
+    stow $i --adopt
 done

@@ -52,8 +52,8 @@
                     "identifiers": {
                         "is_keyboard": true,
                         "is_pointing_device": false,
-                        "product_id": 0,
-                        "vendor_id": 0
+                        "product_id": 834,
+                        "vendor_id": 1452
                     },
                     "ignore": false,
                     "manipulate_caps_lock_led": true,
@@ -66,8 +66,8 @@
                     "identifiers": {
                         "is_keyboard": false,
                         "is_pointing_device": true,
-                        "product_id": 0,
-                        "vendor_id": 0
+                        "product_id": 834,
+                        "vendor_id": 1452
                     },
                     "ignore": true,
                     "manipulate_caps_lock_led": false,
