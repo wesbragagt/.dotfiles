@@ -17,7 +17,7 @@ local function project_files()
     cmd = string.format('fd --type file -H %s', excluded_cmd),
     winopts = {
       preview = {
-        layout = 'vertical'
+        layout = 'horizontal'
       }
     },
   })
@@ -58,3 +58,5 @@ nnoremap("<leader><space>", buffers)
 nnoremap("<leader>sf", project_files)
 nnoremap("<leader>sg", live_grep)
 nnoremap("<leader>sd", fzf.diagnostics_document)
+nnoremap("<leader>cmd", fzf.commands)
+nnoremap("<leader>hp", fzf.help_tags)
