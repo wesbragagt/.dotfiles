@@ -7,6 +7,7 @@ links=(
   raycast
   alacritty
   karabiner 
+  wezterm
   )
 
 for i in "${links[@]}"

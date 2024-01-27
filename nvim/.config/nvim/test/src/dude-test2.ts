@@ -15,3 +15,6 @@ export function random() {
 }
 
 console.log(dude2());
+dude
+
+
