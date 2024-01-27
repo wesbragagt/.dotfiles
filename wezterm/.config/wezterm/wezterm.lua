@@ -1,3 +1,5 @@
+-- IMPORTANT! brew upgrade --cask wezterm-nightly --no-quarantine --greedy-latest
+-- https://wezfurlong.org/wezterm/config/lua/config/index.html
 local wezterm = require 'wezterm'
 local config = {}
 
@@ -17,7 +19,10 @@ local fonts = {
 -- Enable/Disable ligatures
 config.harfbuzz_features = { 'calt=0', 'clig=1', 'liga=1' }
 
-config.window_decorations = "NONE"
+-- https://wezfurlong.org/wezterm/config/lua/config/window_decorations.html
+config.window_decorations = "RESIZE"
+
+-- https://wezfurlong.org/wezterm/config/appearance.html#defining-a-color-scheme-in-your-weztermlua
 config.color_scheme = 'Tokyo Night'
 config.hide_tab_bar_if_only_one_tab = true
 
