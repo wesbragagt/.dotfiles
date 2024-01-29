@@ -1,3 +1,11 @@
+# If you get an error like 2: command not found: compdef, then add the following to the beginning of your ~/.zshrc file:
+autoload -Uz compinit
+compinit
+
+# kubectl completion
+if command -v kubectl &> /dev/null; then
+  source <(kubectl completion zsh)
+fi
 # clears path before path_helper so I don't get a screwed up path running tmux
 # https://stackoverflow.com/questions/47442647/when-using-tmux-nvm-isnt-being-sourced
 # https://superuser.com/questions/544989/does-tmux-sort-the-path-variable
@@ -19,6 +27,10 @@ export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$HOME/.npm_global/bin:$PA
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 export PUPPETEER_EXECUTABLE_PATH=chromium not found
 
+# provide auto completion for kubectl
+if command -v kubectl &> /dev/null; then
+  source <(kubectl completion zsh)
+fi
 
 # make git use nvim for editing
 export VISUAL=nvim

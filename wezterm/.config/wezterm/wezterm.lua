@@ -11,9 +11,9 @@ config.window_padding = {
 }
 
 local fonts = {
-  jetbrains_mono = "JetBrains Mono",
-  hack = "Hack Nerd Font",
   fira_code = "FiraCode Nerd Font",
+  hack = "Hack Nerd Font",
+  jetbrains_mono = "JetBrains Mono",
 }
 
 -- Enable/Disable ligatures
@@ -28,8 +28,8 @@ config.hide_tab_bar_if_only_one_tab = true
 
 config.font = wezterm.font_with_fallback {
   fonts.jetbrains_mono,
-  fonts.fira_code,
   fonts.hack,
+  fonts.fira_code,
 }
 
 config.font_size = 14.0
