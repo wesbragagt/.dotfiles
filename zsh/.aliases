@@ -1,5 +1,6 @@
 export DOTFILES=$HOME/.dotfiles
 
+alias p="pnpm"
 alias als="vi $DOTFILES/zsh/.aliases"
 alias dot="cd $DOTFILES"
 alias dotsync="cd $DOTFILES && git add -A && git commit -m 'sync' && git push"
@@ -10,7 +11,7 @@ alias dev="cd ~/dev"
 # fzf combo scripts
 alias ff="bash $DOTFILES/utils/tmux-sessionizer.sh"
 alias to="bash $DOTFILES/utils/fzf-git-checkout.sh"
-alias sf="bash $DOTFILES/utils/fzf-vim.sh"
+alias sf="rg --files --hidden | fzf --preview 'bat --style=numbers --color=always --line-range :500 {}' --bind 'enter:become(nvim {})'"
 alias sg="bash $DOTFILES/utils/fzf-rg.sh"
 alias gpr="bash $DOTFILES/utils/git-pull-request.sh"
 alias countdown="bash $DOTFILES/utils/countdown.sh"
@@ -29,7 +30,6 @@ alias key="ssh-add ~/.ssh/id_rsa"
 alias gitd="nvim -c ':tab G'"
 alias release="bash $DOTFILES/utils/release-tag-pull-request.sh"
 alias tags="git show-ref --tags -d | fzf"
-alias npx="bunx"
 
 ss(){
    print -z bun $(jq '.scripts | keys[]' package.json | sed 's/"//g' | fzf)

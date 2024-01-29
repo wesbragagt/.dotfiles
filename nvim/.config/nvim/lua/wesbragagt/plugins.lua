@@ -156,6 +156,9 @@ return packer.startup(function(use)
     "github/copilot.vim",
     config = function()
       vim.g.copilot_enabled = 1
+      vim.g.copilot_filetypes = {
+        markdown = true
+      }
     end
   })
   use({ "ray-x/go.nvim" })
