@@ -32,7 +32,6 @@ end
 lsp.ensure_installed(
   {
     "lua_ls",
-    "volar",
     "tailwindcss",
     "cssls",
     "vimls",
@@ -60,12 +59,6 @@ lsp.configure('lua_ls', {
   },
 })
 
-lsp.configure('volar', {
-  filetypes = {
-    "vue",
-  },
-})
-
 require("luasnip.loaders.from_vscode").lazy_load()
 
 local cmp = require("cmp")
@@ -79,37 +72,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 
 cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
-
--- https://www.nerdfonts.com/cheat-sheet
-local kind_icons = {
-  Text = "",
-  Method = "",
-  Function = "󰊕",
-  Constructor = "",
-  Field = "",
-  Variable = "",
-  Class = "󰮃",
-  Interface = "",
-  Module = "",
-  Property = "",
-  Unit = "",
-  Value = "󰗣",
-  Enum = "",
-  Keyword = "",
-  Snippet = "",
-  Color = "",
-  File = "",
-  Reference = "",
-  Folder = "",
-  EnumMember = "",
-  Constant = "",
-  Struct = "",
-  Event = "",
-  Operator = "",
-  TypeParameter = "",
-}
-
-
 
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings,
