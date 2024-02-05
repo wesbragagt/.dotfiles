@@ -81,6 +81,7 @@ return packer.startup(function(use)
   use({
     "pmizio/typescript-tools.nvim",
     requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    run = "npm i -g @styled/typescript-styled-plugin typescript-styled-plugin"
   })
   use { 'ibhagwan/fzf-lua',
     -- optional for icon support
