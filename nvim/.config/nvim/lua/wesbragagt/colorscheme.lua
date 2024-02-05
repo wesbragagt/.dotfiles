@@ -1,4 +1,4 @@
-local IsTransparent = true
+local IsTransparent = false
 local utils = require('utils')
 local nnoremap = utils.nnoremap
 
