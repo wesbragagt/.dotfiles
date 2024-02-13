@@ -33,6 +33,6 @@ config.font = wezterm.font_with_fallback {
   fonts.fira_code,
 }
 
-config.font_size = 14.0
+config.font_size = 16.0
 
 return config

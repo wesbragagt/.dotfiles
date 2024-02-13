@@ -102,6 +102,13 @@ lsp.setup_nvim_cmp({
     }),
   },
   sources = {
+    {
+      name = "rg",
+      option = {
+        keyword_length = 3,
+        additional_arguments = "--hidden"
+      }
+    },
     { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "buffer",  keyword_length = 5 },

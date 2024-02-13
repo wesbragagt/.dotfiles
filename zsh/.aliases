@@ -59,11 +59,6 @@ get_external_ip(){
   curl ipecho.net/plain ; echo
 }
 
-# opens the current directory github pages under pull-requests
-op(){
-  open $(git remote get-url --push origin | sed -e 's/git@\(github.com\):\(.*\)\.git/https:\/\/\1\/\2\/pulls/')
-}
-
 # new branch from a jira ticket
 newt(){
   git checkout -b $(jira issue list -a$(jira me) --plain | fzf | rg '\w+-\d+' -io)
