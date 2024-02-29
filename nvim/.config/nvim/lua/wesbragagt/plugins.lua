@@ -68,7 +68,7 @@ return packer.startup(function(use)
       { "saadparwaiz1/cmp_luasnip" },
       { "hrsh7th/cmp-nvim-lsp" },
       { "hrsh7th/cmp-nvim-lua" },
-      {"lukas-reineke/cmp-rg"},
+      { "lukas-reineke/cmp-rg" },
 
       -- Snippets
       { "L3MON4D3/LuaSnip" },
@@ -145,7 +145,10 @@ return packer.startup(function(use)
   })
   use({ "rcarriga/nvim-dap-ui", commit = "6b6081ad244ae5aa1358775cc3c08502b04368f9" })
   use({ "theHamsta/nvim-dap-virtual-text" })
-  use({ "ThePrimeagen/harpoon" })
+  use({
+    "ThePrimeagen/harpoon",
+    requires = { { "nvim-lua/plenary.nvim" } }
+  })
   use({ "ThePrimeagen/git-worktree.nvim" })
   use({ "SSHari/jest.nvim" })
   use({ "stevearc/oil.nvim" })

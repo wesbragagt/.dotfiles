@@ -102,18 +102,18 @@ lsp.setup_nvim_cmp({
     }),
   },
   sources = {
+    { name = "nvim_lsp" },
+    { name = "nvim_lua" },
+    { name = "buffer",  keyword_length = 5 },
     {
       name = "rg",
       option = {
         keyword_length = 3,
-        additional_arguments = "--hidden"
+        additional_arguments = "--hidden --smart-case"
       }
     },
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-    { name = "buffer",  keyword_length = 5 },
     { name = "path" },
-    { name = "nvim_lua" },
+    { name = "luasnip" },
   },
   experimental = {
     ghost_text = false,

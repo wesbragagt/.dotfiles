@@ -20,7 +20,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export TYPESCRIPT_PLAYGROUND="$HOME/.playground/typescript"
 export BASH_PLAYGROUND="$HOME/.playground/bash"
 export DEBUG_ADAPTERS_DIR="$HOME/.debug_adapters"
-export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$HOME/.npm_global/bin:$PATH
+export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$HOME/.npm_global/bin:$HOME/.local/bin:$PATH
 
 # dependencies that rely on chromium fail on M1 macs
 # this will bypass any installs that might error
@@ -40,6 +40,10 @@ export EDITOR="$VISUAL"
 if command -v fnm &> /dev/null;then
   eval "$(fnm env --use-on-cd)" &&
   export NODEJS_PATH=$(which node)
+fi
+
+if command -v direnv &> /dev/null; then
+  eval "$(direnv hook zsh)"
 fi
 
 # Rust or bust
@@ -78,7 +82,13 @@ export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 #
 if command -v pyenv 1>/dev/null 2>&1; then 
-  eval "$(pyenv init --path)"
+  export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+fi
+
+if [[ -d "$HOME/.docker/bin" ]] then
+  export PATH="$HOME/.docker/bin:$PATH"
 fi
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
