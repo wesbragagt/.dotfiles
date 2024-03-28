@@ -136,11 +136,12 @@ return packer.startup(function(use)
   use({ "williamboman/mason.nvim" })
   use({ "williamboman/mason-lspconfig.nvim" })
   use({ "mfussenegger/nvim-dap" })
+  use({ "mfussenegger/nvim-dap-python" })
   use({ "mxsdev/nvim-dap-vscode-js" })
   use({
     "microsoft/vscode-js-debug",
     opt = true,
-    run = "bun install && bun run compile",
+    run = "npm install && npm run compile",
     commit = "88b15b647d7827db05d4b9850d3e7a66eaba74cc",
   })
   use({ "rcarriga/nvim-dap-ui", commit = "6b6081ad244ae5aa1358775cc3c08502b04368f9" })
@@ -170,6 +171,7 @@ return packer.startup(function(use)
     end
   })
   use({ "ray-x/go.nvim" })
+  use({ "mohammad5305/pytest.nvim", config = function() require('pytest').setup() end })
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

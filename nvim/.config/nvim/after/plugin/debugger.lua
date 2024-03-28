@@ -46,7 +46,7 @@ dapui.setup({
         -- Elements can be strings or table with id and size keys.
         "console",
       },
-      size = 0.30,
+      size = 0.50,
       position = "right",
     },
   },
@@ -77,6 +77,56 @@ local dap_vscode_js_ok, dap_vscode_js = pcall(require, "dap-vscode-js")
 if not dap_vscode_js_ok then
   return
 end
+
+dap.adapters.python = {
+  type = 'executable',
+  command = os.getenv("VIRTUAL_ENV") .. "/bin/python",
+  args = { '-m', 'debugpy.adapter' },
+}
+
+dap.configurations.python = {
+  {
+    -- The first three options are required by nvim-dap
+    type = 'python', -- the type here established the link to the adapter definition: `dap.adapters.python`
+    request = 'launch',
+    name = "Launch file",
+    cwd = "${workspaceFolder}", --python is executed from this directory
+    env = {
+      PYTHONPATH = "${workspaceFolder}"
+    },
+
+    program = "${file}", -- This configuration will launch the current file if used.
+    console = "integratedTerminal",
+    restart = true,
+
+    pythonPath = function()
+      -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
+      -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
+      -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
+      -- use the .git root
+      local utils = require('utils')
+      local cwd = utils.get_git_root_with_fallback()
+
+      if vim.fn.executable(cwd .. '/venv/bin/python') == 1 then
+        return cwd .. '/venv/bin/python'
+      elseif vim.fn.executable(cwd .. '/.venv/bin/python') == 1 then
+        return cwd .. '/.venv/bin/python'
+      else
+        return vim.fn.exepath('python')
+      end
+    end,
+  },
+  {
+    type = 'python',
+    request = 'attach',
+    name = "Attach to process",
+    cwd = "${workspaceFolder}",
+    env = {
+      PYTHONPATH = "${workspaceFolder}"
+    },
+    pid = require('dap.utils').pick_process,
+  }
+}
 
 dap_vscode_js.setup({
   adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" }, -- which adapters to register in nvim-dap
