@@ -1,4 +1,4 @@
-vim.cmd([[ 
+vim.cmd([[
 if executable("rg")
     set grepprg=rg\ --vimgrep\ --no-heading
     set grepformat=%f:%l:%c:%m,%f:%l:%m
@@ -16,7 +16,7 @@ set path=**
 ]])
 
 vim.g.editorconfig = false -- editorconfig is enabled by default
-vim.o.guicursor="" -- cursor style
+vim.o.guicursor = ""       -- cursor style
 vim.opt.updatetime = 50
 
 vim.o.foldenable = true
@@ -27,7 +27,7 @@ vim.o.fileencodings = "utf-8"
 vim.o.autoread = true -- automatically reload files that have been changed outside of vim
 
 vim.o.completeopt = "menuone,noselect,noinsert"
-vim.o.wrap = true -- wrap text
+vim.o.wrap = true      -- wrap text
 vim.o.linebreak = true -- don't break in the middle of a word
 vim.o.conceallevel = 0 -- so that ``is visible in markdown files
 vim.o.swapfile = false
@@ -43,9 +43,9 @@ vim.o.scrolloff = 8 -- scroll half of the page
 vim.o.numberwidth = 2
 
 vim.o.autochdir = true
-vim.o.relativenumber = true
+vim.o.relativenumber = false
 
-vim.o.hidden = true -- preserve buffers
+vim.o.hidden = true     -- preserve buffers
 vim.o.splitright = true -- force all horizontal splits to go below current window
 vim.o.splitbelow = true -- force all vertical splits to go to the right of current window
 
@@ -72,12 +72,24 @@ vim.g.netrw_winsize = 25
 
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
-	callback = function()
-		vim.highlight.on_yank()
-	end,
-	group = highlight_group,
-	pattern = "*",
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = "*",
 })
 -- fix a problem with calling :GBrowse
 -- Netrw not found. Define your own :Browse to use :GBrowse
-vim.cmd[[command! -nargs=1 Browse silent execute '!open' shellescape(<q-args>,1)]]
+vim.cmd [[command! -nargs=1 Browse silent execute '!open' shellescape(<q-args>,1)]]
+
+-- if the filetype is json turn syntax off to speed up loading
+local json_group = vim.api.nvim_create_augroup("JsonSyntaxOff", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function()
+    if vim.bo.filetype == "json" then
+      vim.opt_local.syntax = "off"
+    end
+  end,
+  group = json_group,
+  pattern = "*",
+})

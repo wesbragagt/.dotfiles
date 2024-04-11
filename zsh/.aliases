@@ -12,7 +12,7 @@ alias dev="cd ~/dev"
 # fzf combo scripts
 alias ff="bash $DOTFILES/utils/tmux-sessionizer.sh"
 alias to="bash $DOTFILES/utils/fzf-git-checkout.sh"
-alias sf="rg --files --hidden | fzf --preview 'bat --style=numbers --color=always --line-range :500 {}' --bind 'enter:become(nvim {})'"
+alias sf="bash $DOTFILES/utils/fzf-vim.sh"
 alias sg="bash $DOTFILES/utils/fzf-rg.sh"
 alias gpr="bash $DOTFILES/utils/git-pull-request.sh"
 alias countdown="bash $DOTFILES/utils/countdown.sh"
