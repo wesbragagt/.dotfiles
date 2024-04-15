@@ -39,7 +39,7 @@ dapui.setup({
         "watches",
       },
       size = 0.20,
-      position = "left",
+      position = "bottom",
     },
     {
       elements = {
@@ -78,11 +78,35 @@ if not dap_vscode_js_ok then
   return
 end
 
-local dap_python_ok, dap_python = pcall(require, "dap-python")
-if not dap_python_ok then
-  return
+-- local dap_python_ok, dap_python = pcall(require, "dap-python")
+-- if not dap_python_ok then
+--   return
+-- end
+
+-- dap_python.setup('~/.virtualenvsualenvs/debugpy/bin/python')
+local function get_python_path()
+  if os.getenv("VIRTUAL_ENV") then
+    return os.getenv("VIRTUAL_ENV") .. "/bin/python"
+  end
+
+  return os.getenv("HOME") .. "/.virtualenvs/debugpy/bin/python"
 end
-dap_python.setup('~/.virtualenvs/debugpy/bin/python')
+
+dap.adapters.python = {
+  type = "executable",
+  command = "python",
+  args = { "-m", "debugpy.adapter" },
+  pythonPath = get_python_path(),
+}
+
+dap.configurations.python = {
+  {
+    type = "python",
+    request = "launch",
+    name = "Launch file",
+    program = "${file}",
+  }
+}
 
 dap_vscode_js.setup({
   adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" }, -- which adapters to register in nvim-dap
@@ -183,6 +207,18 @@ nnoremap("<leader>9", function()
   dap.toggle_breakpoint()
 end)
 nnoremap("<leader>0", function()
+  -- if already debugging skip the launch.json setup
+  if dap.session() then
+    dap.continue()
+    return
+  end
+
+  local path_to_launch_json = require('utils').get_git_root() .. "/.vscode/launch.json"
+
+  if vim.fn.filereadable(path_to_launch_json) then
+    require('dap.ext.vscode').load_launchjs(path_to_launch_json)
+  end
+
   dap.continue()
 end)
 nnoremap("<leader>du", function()

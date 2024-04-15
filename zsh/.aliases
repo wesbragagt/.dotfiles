@@ -32,6 +32,11 @@ alias gitd="nvim -c ':tab G'"
 alias release="bash $DOTFILES/utils/release-tag-pull-request.sh"
 alias tags="git show-ref --tags -d | fzf"
 
+# sources a .env file into the current shell
+env(){
+  export $(cat $1 | xargs)
+}
+
 ss(){
    print -z bun $(jq '.scripts | keys[]' package.json | sed 's/"//g' | fzf)
 }

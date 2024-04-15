@@ -50,14 +50,13 @@ lsp.ensure_installed(
     "terraformls",
     "tflint",
     "eslint",
-    "rust_analyzer",
     "emmet_ls",
     "pyright"
   }
 )
 
 require("go").setup({})
-
+local lspconfig = require("lspconfig")
 lsp.configure('lua_ls', {
   settings = {
     Lua = {
@@ -67,6 +66,31 @@ lsp.configure('lua_ls', {
     },
   },
 })
+
+lsp.configure('pyright', {
+  root_dir = lspconfig.util.root_pattern("pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile"),
+  settings = {
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        diagnosticMode = "openFilesOnly",
+        useLibraryCodeForTypes = true
+      }
+    }
+  }
+})
+
+lsp.on_attach(function(client, bufnr)
+  if client.name == "pyright" then
+    -- set the PYTHONPATH based on lspconfig.util.root_pattern
+    local root_dir = lspconfig.util.root_pattern("pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile")(bufnr)
+
+    if root_dir then
+      vim.env.PYTHONPATH = root_dir
+    end
+
+  end
+end)
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
