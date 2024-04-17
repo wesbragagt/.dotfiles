@@ -32,6 +32,8 @@ alias gitd="nvim -c ':tab G'"
 alias release="bash $DOTFILES/utils/release-tag-pull-request.sh"
 alias tags="git show-ref --tags -d | fzf"
 
+alias grepv="printenv | grep -i"
+
 # sources a .env file into the current shell
 env(){
   export $(cat $1 | xargs)

@@ -88,3 +88,5 @@ end)
 
 -- Markdown
 nnoremap("<leader>mp", ":MarkdownPreviewToggle<CR>")
+
+nnoremap("<leader>log", ":vsp ~/.local/state/nvim/log<CR>")

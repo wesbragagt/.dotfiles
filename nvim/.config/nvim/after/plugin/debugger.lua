@@ -86,10 +86,18 @@ end
 -- dap_python.setup('~/.virtualenvsualenvs/debugpy/bin/python')
 local function get_python_path()
   if os.getenv("VIRTUAL_ENV") then
-    return os.getenv("VIRTUAL_ENV") .. "/bin/python"
+    local path = os.getenv("VIRTUAL_ENV") .. "/bin/python"
+
+    print("Using virtualenv python path: " .. path)
+
+    return path
   end
 
-  return os.getenv("HOME") .. "/.virtualenvs/debugpy/bin/python"
+  local path = vim.fn.exepath("python3") or vim.fn.exepath("python")
+
+  print("Using system python path: " .. path)
+
+  return path
 end
 
 dap.adapters.python = {

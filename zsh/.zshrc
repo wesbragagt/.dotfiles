@@ -52,6 +52,12 @@ source $HOME/.cargo/env &> /dev/null
 # Golang
 export GOPATH=$HOME/go
 
+# Python
+# Make sure the virtualenv prompt always shows up
+export VIRTUAL_ENV_DISABLE_PROMPT=
+
+# on cd make sure to try to source a .venv/bin/activate
+
 export NPM_PREFIX="$HOME/.npm_global"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -90,10 +96,6 @@ fi
 if [[ -d "$HOME/.docker/bin" ]] then
   export PATH="$HOME/.docker/bin:$PATH"
 fi
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/weslleybraga/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # bun completions
 [ -s "/Users/wesbragagt/.bun/_bun" ] && source "/Users/wesbragagt/.bun/_bun"
