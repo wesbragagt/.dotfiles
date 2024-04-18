@@ -78,33 +78,35 @@ if not dap_vscode_js_ok then
   return
 end
 
--- local dap_python_ok, dap_python = pcall(require, "dap-python")
--- if not dap_python_ok then
---   return
+ local dap_python_ok, dap_python = pcall(require, "dap-python")
+ if not dap_python_ok then
+   return
+ end
+
+--  dap_python.setup('~/.virtualenvs/debugpy/bin/python')
+-- local function get_python_path()
+--   if os.getenv("VIRTUAL_ENV") then
+--     local path = os.getenv("VIRTUAL_ENV") .. "/bin/python"
+--
+--     print("Using virtualenv python path: " .. path)
+--
+--     return path
+--   end
+--
+--   local path = vim.fn.exepath("python")
+--
+--   print("Using system python path: " .. path)
+--
+--   return path
 -- end
-
--- dap_python.setup('~/.virtualenvsualenvs/debugpy/bin/python')
-local function get_python_path()
-  if os.getenv("VIRTUAL_ENV") then
-    local path = os.getenv("VIRTUAL_ENV") .. "/bin/python"
-
-    print("Using virtualenv python path: " .. path)
-
-    return path
-  end
-
-  local path = vim.fn.exepath("python3") or vim.fn.exepath("python")
-
-  print("Using system python path: " .. path)
-
-  return path
-end
 
 dap.adapters.python = {
   type = "executable",
   command = "python",
   args = { "-m", "debugpy.adapter" },
-  pythonPath = get_python_path(),
+  pythonPath = function()
+    return "~/.pyenv/shims/python3.11"
+  end
 }
 
 dap.configurations.python = {

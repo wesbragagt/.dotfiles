@@ -89,4 +89,18 @@ end)
 -- Markdown
 nnoremap("<leader>mp", ":MarkdownPreviewToggle<CR>")
 
-nnoremap("<leader>log", ":vsp ~/.local/state/nvim/log<CR>")
+-- Copies all lines selected by a search for example /dude
+-- first :g/pattern/y A
+-- then :let @+ = @a
+local function copy_lines_selected_by_search()
+  -- clean up register
+  vim.cmd(":let @a = ''")
+  vim.cmd(":g//y A")
+  -- avoid cursor from moving to last occurance
+  vim.cmd(":normal! ``")
+  -- clear previous yanked text
+  vim.cmd(":let @+ = @a")
+  -- clean up register
+  vim.cmd(":let @a = ''")
+end
+nnoremap("<leader>vy", copy_lines_selected_by_search)
