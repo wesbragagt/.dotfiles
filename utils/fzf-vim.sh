@@ -3,13 +3,7 @@
 # pipes fzf selection to open vim on selected file
 set -e
 
-files_exclude_args=(
-  --exclude .git/*
-  --exclude node_modules
-  --exclude .cache/*
-  --exclude .pycache/*
-)
-FZF_DEFAULT_COMMAND='fd --type f --hidden'
+FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude={.git,node_modules,.cache,.pycache}'
 FZF_DEFAULT_OPTS="-m --bind ctrl-t:toggle-all --preview-window 'up,60%,border-bottom,+{2}+3/3,~3'"
 
 if [[ $# -eq 1 ]]; then

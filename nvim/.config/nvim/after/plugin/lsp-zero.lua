@@ -51,7 +51,8 @@ lsp.ensure_installed(
     "tflint",
     "eslint",
     "emmet_ls",
-    "pyright"
+    "pylsp",
+    "ruff_lsp"
   }
 )
 
@@ -72,9 +73,9 @@ lsp.configure('pyright', {
   settings = {
     python = {
       analysis = {
+        typeCheckingMode = "off",
         autoSearchPaths = true,
-        diagnosticMode = "openFilesOnly",
-        useLibraryCodeForTypes = true
+        useLibraryCodeForTypes = true,
       }
     }
   }
