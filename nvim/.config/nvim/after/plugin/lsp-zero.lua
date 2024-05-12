@@ -51,8 +51,8 @@ lsp.ensure_installed(
     "tflint",
     "eslint",
     "emmet_ls",
-    "pylsp",
-    "ruff_lsp"
+    "ruff_lsp",
+    "pyright",
   }
 )
 
