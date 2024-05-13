@@ -110,3 +110,12 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 # https://github.com/NixOS/nix/issues/2280#issuecomment-1559447638
 export PATH="$NIX_LINK/bin:/nix/var/nix/profiles/default/bin:$PATH"
 export PATH="$HOME/.nix-profile/bin:$PATH"
+
+# show virtual environment prompt
+setopt PROMPT_SUBST
+show_virtual_env() {
+  if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
+    echo "($(basename $VIRTUAL_ENV))"
+  fi
+}
+PS1='$(show_virtual_env)'$PS1
