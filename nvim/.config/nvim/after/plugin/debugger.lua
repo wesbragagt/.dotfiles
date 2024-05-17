@@ -105,7 +105,12 @@ dap.adapters.python = {
   command = "python",
   args = { "-m", "debugpy.adapter" },
   pythonPath = function()
-    return "~/.pyenv/shims/python3.11"
+    -- prioritize virtualenv python path
+    if os.getenv("VIRTUAL_ENV") then
+      return os.getenv("VIRTUAL_ENV") .. "/bin/python"
+    end
+    -- execute which python and return its path
+    return vim.fn.exepath("python")
   end
 }
 
