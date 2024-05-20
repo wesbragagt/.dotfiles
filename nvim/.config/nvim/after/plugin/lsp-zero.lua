@@ -52,7 +52,7 @@ lsp.ensure_installed(
     "eslint",
     "emmet_ls",
     "ruff_lsp",
-    "pylsp",
+    "pyright",
   }
 )
 
@@ -68,11 +68,15 @@ lsp.configure('lua_ls', {
   },
 })
 
-lsp.configure('basedpyright', {
+lsp.configure('pyright', {
   root_dir = lspconfig.util.root_pattern("pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile"),
   settings = {
-    basedpyright = {
-      typeCheckingMode = "off",
+    python = {
+      analysis = {
+        typeCheckingMode = "basic",
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+      }
     }
   }
 })
@@ -80,12 +84,12 @@ lsp.configure('basedpyright', {
 lsp.on_attach(function(client, bufnr)
   if client.name == "pyright" then
     -- set the PYTHONPATH based on lspconfig.util.root_pattern
-    local root_dir = lspconfig.util.root_pattern("pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile")(
-    bufnr)
+    local root_dir = lspconfig.util.root_pattern("pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile")(bufnr)
 
     if root_dir then
       vim.env.PYTHONPATH = root_dir
     end
+
   end
 end)
 

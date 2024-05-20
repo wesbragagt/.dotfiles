@@ -35,7 +35,7 @@ local function live_grep()
     cmd = string.format('rg --column --smart-case --hidden --no-require-git --fixed-strings %s', excluded_cmd),
     winopts = {
       preview = {
-        layout = 'horizontal'
+        layout = 'vertical'
       }
     },
   })
