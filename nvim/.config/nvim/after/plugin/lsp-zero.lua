@@ -24,19 +24,19 @@ if is_neodev_ok then
   })
 end
 
-local is_typescript_tools_ok, typescript_tools = pcall(require, "typescript-tools")
-if is_typescript_tools_ok then
-  typescript_tools.setup {
-    settings = {
-      tsserver_plugins = {
-        -- for TypeScript v4.9+
-        "@styled/typescript-styled-plugin",
-        -- or for older TypeScript versions
-        -- "typescript-styled-plugin",
-      },
-    },
-  }
-end
+-- local is_typescript_tools_ok, typescript_tools = pcall(require, "typescript-tools")
+-- if is_typescript_tools_ok then
+--   typescript_tools.setup {
+--     settings = {
+--       tsserver_plugins = {
+--         -- for TypeScript v4.9+
+--         "@styled/typescript-styled-plugin",
+--         -- or for older TypeScript versions
+--         -- "typescript-styled-plugin",
+--       },
+--     },
+--   }
+-- end
 
 lsp.ensure_installed(
   {
@@ -53,6 +53,7 @@ lsp.ensure_installed(
     "emmet_ls",
     "ruff_lsp",
     "pyright",
+    "tsserver"
   }
 )
 
