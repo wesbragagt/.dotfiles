@@ -1,5 +1,7 @@
 import { dude2 } from "./common";
 
+function withArgs(arg: string, arg2: number, arg3: boolean){}
+
 export const dude = {
   getChicken: () => console.log("chicken"),
 };
