@@ -119,3 +119,10 @@ show_virtual_env() {
   fi
 }
 PS1='$(show_virtual_env)'$PS1
+
+# amazing history fuzzy search
+source <(fzf --zsh)
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
