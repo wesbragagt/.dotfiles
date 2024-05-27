@@ -57,6 +57,35 @@ lsp.ensure_installed(
   }
 )
 
+lsp.configure("tsserver", {
+  settings = {
+    typescript = {
+      inlayHints = {
+        includeInlayParameterNameHints = 'all',
+        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+      }
+    },
+    javascript = {
+      inlayHints = {
+        includeInlayParameterNameHints = 'all',
+        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+      }
+    }
+  }
+})
+
 require("go").setup({})
 local lspconfig = require("lspconfig")
 lsp.configure('lua_ls', {
@@ -73,26 +102,14 @@ lsp.configure('pyright', {
   root_dir = lspconfig.util.root_pattern("pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile"),
   settings = {
     python = {
-      analysis = {
-        typeCheckingMode = "off",
-        autoSearchPaths = true,
-        useLibraryCodeForTypes = true,
-      }
+        analysis = {
+          typeCheckingMode = "off",
+          autoSearchPaths = true,
+          useLibraryCodeForTypes = true,
+        }
     }
   }
 })
-
-lsp.on_attach(function(client, bufnr)
-  if client.name == "pyright" then
-    -- set the PYTHONPATH based on lspconfig.util.root_pattern
-    local root_dir = lspconfig.util.root_pattern("pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile")(bufnr)
-
-    if root_dir then
-      vim.env.PYTHONPATH = root_dir
-    end
-
-  end
-end)
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -147,6 +164,11 @@ lsp.setup_nvim_cmp({
   },
 })
 
+vim.lsp.inlay_hint.enable(true)
+local function toggle_inlay_hints()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end
+
 local nnoremap = require("utils").nnoremap
 lsp.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr }
@@ -161,6 +183,7 @@ lsp.on_attach(function(client, bufnr)
   nnoremap("<leader>f", vim.lsp.buf.format, opts)
   nnoremap("<leader>ls", ":LspInfo<cr>", opts)
   nnoremap("<leader>lr", ":LspRestart<cr>", opts)
+  nnoremap("<leader>4", toggle_inlay_hints, opts)
 
   if client.name == "eslint" then
     nnoremap("<leader>e", ":EslintFixAll<cr>")
