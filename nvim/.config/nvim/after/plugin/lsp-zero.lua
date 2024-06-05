@@ -24,19 +24,19 @@ if is_neodev_ok then
   })
 end
 
--- local is_typescript_tools_ok, typescript_tools = pcall(require, "typescript-tools")
--- if is_typescript_tools_ok then
---   typescript_tools.setup {
---     settings = {
---       tsserver_plugins = {
---         -- for TypeScript v4.9+
---         "@styled/typescript-styled-plugin",
---         -- or for older TypeScript versions
---         -- "typescript-styled-plugin",
---       },
---     },
---   }
--- end
+local is_typescript_tools_ok, typescript_tools = pcall(require, "typescript-tools")
+if is_typescript_tools_ok then
+  typescript_tools.setup {
+    settings = {
+      tsserver_plugins = {
+        -- for TypeScript v4.9+
+        "@styled/typescript-styled-plugin",
+        -- or for older TypeScript versions
+        -- "typescript-styled-plugin",
+      },
+    },
+  }
+end
 
 lsp.ensure_installed(
   {
@@ -52,39 +52,9 @@ lsp.ensure_installed(
     "eslint",
     "emmet_ls",
     "ruff_lsp",
-    "pyright",
-    "tsserver"
+    "pyright"
   }
 )
-
-lsp.configure("tsserver", {
-  settings = {
-    typescript = {
-      inlayHints = {
-        includeInlayParameterNameHints = 'all',
-        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayVariableTypeHints = true,
-        includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayEnumMemberValueHints = true,
-      }
-    },
-    javascript = {
-      inlayHints = {
-        includeInlayParameterNameHints = 'all',
-        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayVariableTypeHints = true,
-        includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayEnumMemberValueHints = true,
-      }
-    }
-  }
-})
 
 require("go").setup({})
 local lspconfig = require("lspconfig")
@@ -103,7 +73,7 @@ lsp.configure('pyright', {
   settings = {
     python = {
         analysis = {
-          typeCheckingMode = "off",
+          typeCheckingMode = "basic",
           autoSearchPaths = true,
           useLibraryCodeForTypes = true,
         }

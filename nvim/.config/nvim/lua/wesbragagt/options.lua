@@ -1,8 +1,9 @@
 vim.cmd([[
 if executable("rg")
-    set grepprg=rg\ --vimgrep\ --no-heading
-    set grepformat=%f:%l:%c:%m,%f:%l:%m
+  set grepprg=rg\ --vimgrep\ --smart-case\ --hidden\ --column
+  set grepformat=%f:%l:%c:%m
 endif
+
 
 " open quickfix list as soon as items are inserted"
 augroup quickfix

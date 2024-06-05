@@ -54,7 +54,21 @@ mm(){
 
 # fuzzy search through files in the current directory and cd to the dir of the file selected
 cdl(){
-  cd $(dirname `fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'`)
+  selection=$(fzf --preview 'bat --style=numbers --color=always --line-range :500 {}')
+  if [ -z "$selection" ]; then
+    exit 0
+  fi
+  
+  sleep 0.3
+  local dir
+  dir=$(dirname $selection)
+
+  if [ -n "$dir" ]; then
+    echo "Changing directory to $dir"
+    cd "$dir"
+  else 
+    exit 0
+  fi
 }
 
 # cd to .git root of the current dir
