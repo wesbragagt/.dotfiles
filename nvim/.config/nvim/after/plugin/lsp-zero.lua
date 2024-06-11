@@ -24,19 +24,19 @@ if is_neodev_ok then
   })
 end
 
-local is_typescript_tools_ok, typescript_tools = pcall(require, "typescript-tools")
-if is_typescript_tools_ok then
-  typescript_tools.setup {
-    settings = {
-      tsserver_plugins = {
-        -- for TypeScript v4.9+
-        "@styled/typescript-styled-plugin",
-        -- or for older TypeScript versions
-        -- "typescript-styled-plugin",
-      },
-    },
-  }
-end
+-- local is_typescript_tools_ok, typescript_tools = pcall(require, "typescript-tools")
+-- if is_typescript_tools_ok then
+--   typescript_tools.setup {
+--     settings = {
+--       tsserver_plugins = {
+--         -- for TypeScript v4.9+
+--         "@styled/typescript-styled-plugin",
+--         -- or for older TypeScript versions
+--         -- "typescript-styled-plugin",
+--       },
+--     },
+--   }
+-- end
 
 lsp.ensure_installed(
   {
@@ -49,10 +49,11 @@ lsp.ensure_installed(
     "jsonls",
     "terraformls",
     "tflint",
-    "eslint",
     "emmet_ls",
     "ruff_lsp",
-    "pyright"
+    "pyright",
+    "tsserver",
+    "eslint"
   }
 )
 
@@ -68,15 +69,24 @@ lsp.configure('lua_ls', {
   },
 })
 
+lsp.configure('eslint', {
+  settings = {
+    useFlatConfig = false,        -- set if using flat config
+    experimental = {
+      useFlatConfig = nil,       -- option not in the latest eslint-lsp
+    },
+  },
+})
+
 lsp.configure('pyright', {
   root_dir = lspconfig.util.root_pattern("pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile"),
   settings = {
     python = {
-        analysis = {
-          typeCheckingMode = "basic",
-          autoSearchPaths = true,
-          useLibraryCodeForTypes = true,
-        }
+      analysis = {
+        typeCheckingMode = "basic",
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+      }
     }
   }
 })
