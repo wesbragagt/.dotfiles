@@ -18,7 +18,7 @@ set path=**
 
 vim.g.editorconfig = false -- editorconfig is enabled by default
 vim.o.guicursor = ""       -- cursor style
-vim.opt.updatetime = 50
+vim.opt.updatetime = 200
 
 vim.o.foldenable = true
 vim.o.foldmethod = "indent"
@@ -44,6 +44,7 @@ vim.o.scrolloff = 8 -- scroll half of the page
 vim.o.numberwidth = 2
 
 vim.o.autochdir = true
+vim.o.number = true
 vim.o.relativenumber = false
 
 vim.o.hidden = true     -- preserve buffers

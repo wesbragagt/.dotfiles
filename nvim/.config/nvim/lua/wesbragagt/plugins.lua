@@ -137,7 +137,7 @@ return packer.startup(function(use)
   use({ "williamboman/mason-lspconfig.nvim" })
   use({ "mfussenegger/nvim-dap" })
   use({ "mfussenegger/nvim-dap-python" })
-  use({ "mxsdev/nvim-dap-vscode-js" })
+  use({ "mxsdev/nvim-dap-vscode-js", commit = "b91e4e3634fe10f766960a8131bc9e42e47dddc9" })
   use({
     "microsoft/vscode-js-debug",
     opt = true,
@@ -154,8 +154,8 @@ return packer.startup(function(use)
       vim.fn["mkdp#util#install"]()
     end,
   })
-  use({ "nvim-pack/nvim-spectre" })
   use({ "windwp/nvim-autopairs" })
+  use({"nvim-pack/nvim-spectre"})
   use({
     "github/copilot.vim",
     config = function()

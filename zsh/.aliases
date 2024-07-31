@@ -39,7 +39,7 @@ env(){
   export $(cat $1 | xargs)
 }
 
-ss(){
+nss(){
    print -z bun $(jq '.scripts | keys[]' package.json | sed 's/"//g' | fzf)
 }
 # Run a fuzzy search through test files and run jest

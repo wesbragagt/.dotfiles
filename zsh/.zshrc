@@ -22,6 +22,9 @@ export BASH_PLAYGROUND="$HOME/.playground/bash"
 export DEBUG_ADAPTERS_DIR="$HOME/.debug_adapters"
 export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$HOME/.npm_global/bin:$HOME/.local/bin:$PATH
 
+# I hate pagers as default behavior on CLIs
+export AWS_PAGER=""
+
 # dependencies that rely on chromium fail on M1 macs
 # this will bypass any installs that might error
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
@@ -126,3 +129,6 @@ HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
+
+# https://stackoverflow.com/questions/44084846/cannot-connect-to-the-docker-daemon-on-macos
+export DOCKER_HOST=unix:///Users/$USER/Library/Containers/com.docker.docker/Data/docker.raw.sock

@@ -77,11 +77,16 @@ local dap_vscode_js_ok, dap_vscode_js = pcall(require, "dap-vscode-js")
 if not dap_vscode_js_ok then
   return
 end
+dap_vscode_js.setup({
+  adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" }, -- which adapters to register in nvim-dap
+  node_path = vim.fn.exepath("node"),
+})
 
- local dap_python_ok, dap_python = pcall(require, "dap-python")
- if not dap_python_ok then
-   return
- end
+
+local dap_python_ok, dap_python = pcall(require, "dap-python")
+if not dap_python_ok then
+  return
+end
 
 --  dap_python.setup('~/.virtualenvs/debugpy/bin/python')
 -- local function get_python_path()
@@ -123,10 +128,6 @@ dap.configurations.python = {
   }
 }
 
-dap_vscode_js.setup({
-  adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" }, -- which adapters to register in nvim-dap
-})
-
 for _, language in ipairs({ "typescript", "javascript" }) do
   dap.configurations[language] = {
     {
@@ -163,23 +164,22 @@ for _, language in ipairs({ "typescript", "javascript" }) do
       autoAttachChildProcesses = true,
     },
     {
-      name = "Debug Jest Tests",
       type = "pwa-node",
       request = "launch",
+      name = "Debug Jest Tests",
+      -- trace = true, -- include debugger info
       cwd = "${workspaceFolder}",
       sourceMaps = "inline",
       skipFiles = { "<node_internals>/**" },
+
       runtimeExecutable = "bun",
       runtimeArgs = {
         "--inspect-brk",
         "jest",
+        "${file}",
         "--runInBand",
         "--no-cache",
-        "--no-collect-coverage",
-        "--test-timeout=0",
-        "--force-exit",
-        "--findRelatedTests",
-        "${file}",
+        "--detectOpenHandles",
       },
       console = "integratedTerminal",
       internalConsoleOptions = "neverOpen",
@@ -222,6 +222,9 @@ nnoremap("<leader>9", function()
   dap.toggle_breakpoint()
 end)
 nnoremap("<leader>0", function()
+  -- set the env NODE_PATH to `which node`
+  vim.fn.setenv("NODE_PATH", vim.fn.exepath("node"))
+
   -- if already debugging skip the launch.json setup
   if dap.session() then
     dap.continue()
