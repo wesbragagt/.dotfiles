@@ -5,6 +5,16 @@ if not dap_ok then
   return
 end
 
+dap.defaults.fallback.external_terminal = {
+  command = "tmux",
+  args = {
+    "split-window",
+    "-h",
+    "-p",
+    "50",
+  }
+}
+
 local dapui_ok, dapui = pcall(require, "dapui")
 
 if not dapui_ok then
@@ -148,66 +158,49 @@ for _, language in ipairs({ "typescript", "javascript" }) do
     },
     {
       type = "pwa-node",
-      cwd = "${workspaceFolder}",
-      request = "launch",
-      name = "Nest Debug",
-      runtimeExecutable = "bun",
-      runtimeArgs = {
-        "start:debug",
-        "--",
-        "--inspect-brk",
-      },
-      console = "integratedTerminal",
-      restart = true,
-      protocol = "auto",
-      port = 9229,
-      autoAttachChildProcesses = true,
-    },
-    {
-      type = "pwa-node",
-      request = "launch",
-      name = "Debug Jest Tests",
-      -- trace = true, -- include debugger info
-      cwd = "${workspaceFolder}",
-      sourceMaps = "inline",
-      skipFiles = { "<node_internals>/**" },
-
-      runtimeExecutable = "bun",
-      runtimeArgs = {
-        "--inspect-brk",
-        "jest",
-        "${file}",
-        "--runInBand",
-        "--no-cache",
-        "--detectOpenHandles",
-      },
-      console = "integratedTerminal",
-      internalConsoleOptions = "neverOpen",
-    },
-    {
-      name = "Debug Mocha Tests",
-      type = "pwa-node",
-      request = "launch",
-      cwd = "${workspaceFolder}",
-      sourceMaps = "inline",
-      skipFiles = { "<node_internals>/**" },
-      runtimeExecutable = "bun",
-      runtimeArgs = {
-        "--inspect-brk",
-        "mocha",
-        "${file}",
-        "--no-cache"
-      },
-      console = "integratedTerminal",
-      internalConsoleOptions = "neverOpen",
-    },
-    {
-      type = "pwa-node",
       request = "attach",
       name = "Attach",
       processId = require 'dap.utils'.pick_process,
       cwd = "${workspaceFolder}",
     }
+    -- {
+    --   type = "pwa-node",
+    --   cwd = "${workspaceFolder}",
+    --   request = "launch",
+    --   name = "Nest Debug",
+    --   runtimeExecutable = "bun",
+    --   runtimeArgs = {
+    --     "start:debug",
+    --     "--",
+    --     "--inspect-brk",
+    --   },
+    --   console = "integratedTerminal",
+    --   restart = true,
+    --   protocol = "auto",
+    --   port = 9229,
+    --   autoAttachChildProcesses = true,
+    -- },
+    -- {
+    --   type = "pwa-node",
+    --   request = "launch",
+    --   name = "Debug Jest Tests",
+    --   -- trace = true, -- include debugger info
+    --   cwd = "${workspaceFolder}",
+    --   sourceMaps = "inline",
+    --   skipFiles = { "<node_internals>/**" },
+    --
+    --   runtimeExecutable = "bun",
+    --   runtimeArgs = {
+    --     "--inspect-brk",
+    --     "jest",
+    --     "${file}",
+    --     "--runInBand",
+    --     "--no-cache",
+    --     "--detectOpenHandles",
+    --   },
+    --   console = "integratedTerminal",
+    --   internalConsoleOptions = "neverOpen",
+    -- },
   }
 end
 
@@ -221,23 +214,33 @@ dap.set_log_level("DEBUG")
 nnoremap("<leader>9", function()
   dap.toggle_breakpoint()
 end)
-nnoremap("<leader>0", function()
-  -- set the env NODE_PATH to `which node`
-  vim.fn.setenv("NODE_PATH", vim.fn.exepath("node"))
 
-  -- if already debugging skip the launch.json setup
-  if dap.session() then
-    dap.continue()
-    return
-  end
-
+function load_launchjson()
   local path_to_launch_json = require('utils').get_git_root() .. "/.vscode/launch.json"
+  print("Path to launch.json:", path_to_launch_json)
 
-  if vim.fn.filereadable(path_to_launch_json) then
-    require('dap.ext.vscode').load_launchjs(path_to_launch_json)
+  local is_launch_json_readable = vim.fn.filereadable(path_to_launch_json) == 1
+
+  if is_launch_json_readable then
+    print("Before loading dap.configurations", vim.inspect(dap.configurations))
+    require('dap.ext.vscode').load_launchjs(path_to_launch_json, {
+      ["pwa-node"] = { "typescript", "javascript" }
+    })
+    print("Loaded launch.json")
   end
+end
+
+nnoremap("<leader>0", function()
+  load_launchjson()
+  -- if already debugging skip the launch.json setup
 
   dap.continue()
+  -- after that constantly check to see if the dap session is active and if not close the session
+end)
+nnoremap("<leader>8", function()
+  dap.terminate()
+  dap.terminate()
+  dapui.close({})
 end)
 nnoremap("<leader>du", function()
   dapui.toggle({})
@@ -249,23 +252,3 @@ end)
 nnoremap("H", function()
   dapui.eval()
 end)
-
-local function setup_vscode_launch_json()
-  local root_dir = require("utils").get_git_root()
-  local path = vim.fn.expand(root_dir) .. "/.vscode/launch.json"
-  local launch_file_exists = vim.fn.filereadable(path)
-  if launch_file_exists then
-    local launch_configs = vim.fn.readfile(path)
-    local launch_config = vim.fn.json_decode(launch_configs)
-    if launch_config then
-      local configurations = launch_config["configurations"]
-      require("utils").print_table(configurations)
-      -- figure out why path fails here
-      for _, language in ipairs({ "typescript", "javascript" }) do
-        dap.configurations[language] = configurations
-      end
-    end
-  end
-end
-
-nnoremap("<leader>djo", setup_vscode_launch_json)
