@@ -64,7 +64,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=
 export NPM_PREFIX="$HOME/.npm_global"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export FZF_DEFAULT_COMMAND='fd --type file --hidden --no-ignore --exclude node_modules --exclude .git --exclude build --exclude dist'
+export FZF_DEFAULT_COMMAND='fd --type file --hidden --no-ignore --exclude node_modules --exclude .git --exclude build --exclude dist --exclude .terragrunt-cache'
 # select all - https://github.com/junegunn/fzf/issues/257
 export FZF_DEFAULT_OPTS="-m --bind ctrl-t:toggle-all"
 
