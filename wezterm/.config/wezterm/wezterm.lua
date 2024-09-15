@@ -25,6 +25,7 @@ config.window_decorations = "RESIZE"
 -- https://wezfurlong.org/wezterm/config/appearance.html#defining-a-color-scheme-in-your-weztermlua
 config.color_scheme = 'Tokyo Night'
 config.window_background_opacity = 1
+config.macos_window_background_blur = 1
 config.hide_tab_bar_if_only_one_tab = true
 
 config.font = wezterm.font_with_fallback {
@@ -33,7 +34,8 @@ config.font = wezterm.font_with_fallback {
   fonts.fira_code,
 }
 
-config.font_size = 16.0
+config.font_size = 14.0
 config.audible_bell = "Disabled"
+config.line_height = 1.3
 
 return config

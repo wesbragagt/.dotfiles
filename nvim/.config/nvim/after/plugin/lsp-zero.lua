@@ -91,6 +91,12 @@ lsp.configure('pyright', {
   }
 })
 
+lsp.configure('tailwindcss', {
+  settings = {
+    filetypes = { "astro", "astro-markdown", "html",  "mdx", "css", "less", "postcss", "sass", "scss", "stylus", "javascriptreact", "typescriptreact" }
+  }
+})
+
 require("luasnip.loaders.from_vscode").lazy_load()
 
 local cmp = require("cmp")
