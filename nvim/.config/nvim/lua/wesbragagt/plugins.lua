@@ -154,6 +154,13 @@ return packer.startup(function(use)
       vim.fn["mkdp#util#install"]()
     end,
   })
+  use({
+  "epwalsh/obsidian.nvim",
+  tag = "v3.9.0",  -- recommended, use latest release instead of latest commit
+  requires = {
+    "nvim-lua/plenary.nvim",
+  },
+})
   use({ "windwp/nvim-autopairs" })
   use({ "nvim-pack/nvim-spectre" })
   use({

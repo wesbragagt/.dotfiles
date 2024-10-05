@@ -51,6 +51,16 @@ local function buffers()
   })
 end
 
+local function fzf_commands()
+  fzf.commands({
+    winopts = {
+      preview = {
+        hidden = 'hidden'
+      }
+    }
+  })
+end
+
 -- mappings
 local nnoremap = require("utils").nnoremap
 
@@ -58,5 +68,5 @@ nnoremap("<leader><space>", buffers)
 nnoremap("<leader>sf", project_files)
 nnoremap("<leader>sg", live_grep)
 nnoremap("<leader>sd", fzf.diagnostics_document)
-nnoremap("<leader>cmd", fzf.commands)
+nnoremap("<leader>cmd", fzf_commands)
 nnoremap("<leader>hp", fzf.help_tags)
