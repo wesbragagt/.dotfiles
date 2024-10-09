@@ -83,7 +83,7 @@ lsp.configure('pyright', {
 
 lsp.configure('tailwindcss', {
   settings = {
-    filetypes = { "astro", "astro-markdown", "html",  "mdx", "css", "less", "postcss", "sass", "scss", "stylus", "javascriptreact", "typescriptreact" }
+    filetypes = { "css", "less", "postcss", "sass", "scss", "stylus", "javascriptreact", "typescriptreact" }
   }
 })
 

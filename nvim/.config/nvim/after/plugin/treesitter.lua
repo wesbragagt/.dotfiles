@@ -100,7 +100,8 @@ require("treesitter-context").setup({
       "entity_declaration",
     },
     markdown = {
-      "section",
+      enable = true
+      -- Configuration https://github.com/tadmccorkle/markdown.nvim
     },
     elixir = {
       "anonymous_function",

@@ -122,6 +122,10 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter-textobjects",
     after = "nvim-treesitter",
   })
+  use({
+    "tadmccorkle/markdown.nvim",
+    after = "nvim-treesitter"
+  })
 
   -- Tmux
   use({ "christoomey/vim-tmux-navigator" })
