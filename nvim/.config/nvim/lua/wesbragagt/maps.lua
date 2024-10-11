@@ -89,6 +89,10 @@ end)
 -- Markdown
 nnoremap("<leader>mp", ":MarkdownPreviewToggle<CR>")
 
+-- Toggle copilot
+nnoremap("<leader>cp-", ":Copilot disable<CR>")
+nnoremap("<leader>cp=", ":Copilot enable<CR>")
+
 -- Copies all lines selected by a search for example /dude
 -- first :g/pattern/y A
 -- then :let @+ = @a
