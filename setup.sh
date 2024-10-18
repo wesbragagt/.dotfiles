@@ -8,6 +8,7 @@ links=(
   alacritty
   karabiner 
   wezterm
+  sesh
   )
 
 for i in "${links[@]}"

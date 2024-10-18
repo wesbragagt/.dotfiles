@@ -1,0 +1,14 @@
+[[session]]
+name = "Implentio"
+path = "~/dev/work/implentio"
+startup_command = "nvim -c ':FzfLua files'"
+
+[[session]]
+name = "Work Notes"
+path = "~/notes/work/"
+startup_command = "nvim -c ':FzfLua files'"
+
+[[session]]
+name = "Dotfiles"
+path = "~/dotfiles"
+startup_command = "nvim -c ':FzfLua files'"
