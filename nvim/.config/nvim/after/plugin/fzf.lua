@@ -23,6 +23,11 @@ local function project_files()
   })
 end
 
+-- create a vim command that uses project_files
+vim.api.nvim_create_user_command('ProjectFiles', project_files, {
+  nargs = 0
+})
+
 local function live_grep()
   local excluded = { '!.git/*', '!node_modules/*', '!dist/*', '!build/*' }
   local excluded_cmd = ''
@@ -40,6 +45,10 @@ local function live_grep()
     },
   })
 end
+
+vim.api.nvim_create_user_command('LiveGrep', live_grep, {
+  nargs = 0
+})
 
 local function buffers()
   fzf.buffers({

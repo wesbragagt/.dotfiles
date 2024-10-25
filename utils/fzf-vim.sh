@@ -3,7 +3,7 @@
 # pipes fzf selection to open vim on selected file
 set -e
 
-FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude={.git,node_modules,.cache,.pycache}'
+FZF_DEFAULT_COMMAND='fd --type=file --hidden --follow --exclude=.git'
 FZF_DEFAULT_OPTS="-m --bind ctrl-t:toggle-all --preview-window 'up,60%,border-bottom,+{2}+3/3,~3'"
 
 if [[ $# -eq 1 ]]; then
@@ -18,5 +18,7 @@ else
 fi
 
 if [[ -n "$selected" ]]; then
+    # if a file name contains spaces it ends up opening multiple buffers for each word. We do not want that.
+    # We can use the following to open the file in a single buffer
     nvim $selected
 fi

@@ -9,6 +9,7 @@ links=(
   karabiner 
   wezterm
   sesh
+  nix
   )
 
 for i in "${links[@]}"
