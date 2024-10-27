@@ -20,5 +20,6 @@ fi
 if [[ -n "$selected" ]]; then
     # if a file name contains spaces it ends up opening multiple buffers for each word. We do not want that.
     # We can use the following to open the file in a single buffer
-    nvim $selected
+    # open in a single buffer
+    nvim "$selected"
 fi

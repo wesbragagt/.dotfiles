@@ -11,9 +11,9 @@ vim.g.mapleader = " "
 nnoremap("<C-u>", "<C-u>zz")
 nnoremap("<C-d>", "<C-d>zz")
 
-nnoremap("<leader><Enter>", ":so %<cr>") -- source current file
+nnoremap("<leader><Enter>", ":so %<cr>")                         -- source current file
 nnoremap("<leader>co", ":vsp ~/.dotfiles/nvim/.config/nvim<cr>") -- open nvim config directory in a split
-nnoremap("<leader>to", "viw~<cr>") -- uppercase current word
+nnoremap("<leader>to", "viw~<cr>")                               -- uppercase current word
 
 -- Open git status split
 nnoremap("<leader>gs", ":vert G<cr>")
@@ -49,6 +49,20 @@ nnoremap("<leader>qh", ":cprev<CR>")
 nnoremap("<leader>bl", ":bnext<CR>")
 nnoremap("<leader>bh", ":bprevious<CR>")
 
+-- Hover link open in browser
+
+local function link_open_in_browser()
+  -- Get the current link under the cursor
+  local str_link = vim.fn.expand("<cWORD>")
+  -- Match just the inside of (http|https://link.com)
+  local url = str_link:match("%(([^)]+)%)")
+  print("Opening link: " .. url)
+  vim.fn.jobstart("open " .. url, { detach = true })
+  -- Open the link in the browser
+  -- vim.fn.jobstart("open " .. link, {detach = true})
+end
+nnoremap("<leader>lat", link_open_in_browser)
+
 vim.cmd([[
 " Relative or absolute number lines
 function! NumberToggle()
@@ -65,12 +79,12 @@ nnoremap <leader>8 :call NumberToggle()<CR>
 ]])
 
 local function replace_on_quickfix_list()
-	local ok, replacer = pcall(require, "replacer")
-	if not ok then
-		return
-	end
+  local ok, replacer = pcall(require, "replacer")
+  if not ok then
+    return
+  end
 
-	replacer.run()
+  replacer.run()
 end
 
 -- Replacer quickfix list
@@ -83,7 +97,7 @@ nnoremap("<leader>q", vim.diagnostic.setloclist)
 
 -- Explorer
 nnoremap("<leader>pt", function()
-	vim.cmd(":Oil")
+  vim.cmd(":Oil")
 end)
 
 -- Markdown
