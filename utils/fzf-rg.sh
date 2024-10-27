@@ -1,8 +1,18 @@
 #!/bin/bash
 
+excluded_files=(
+  node_modules
+  .git
+  .obsidian
+  .terragrunt-cache
+  .terraform
+  .venv
+)
+GLOBS=`echo ${excluded_files[@]} | xargs -n1 | awk '{print "--glob=!" $1}' | xargs`
+
 # allows selecting files
 INITIAL_QUERY="${*:-}"
-RG_PREFIX="rg --column --color=always --smart-case --hidden --no-require-git --fixed-strings --glob '!.git/*' --glob '!node_modules/*'"
+RG_PREFIX="rg --column --color=always --smart-case --hidden --no-require-git --fixed-strings $GLOBS"
 FZF_DEFAULT_COMMAND="$RG_PREFIX '$INITIAL_QUERY'"
 FZF_DEFAULT_OPTS="-m --bind ctrl-t:toggle-all --preview-window 'up,60%,border-bottom,+{2}+3/3,~3'"
 
