@@ -43,9 +43,9 @@ lsp.ensure_installed(
   }
 )
 
-lsp.configure('terraformls', {
-  filetypes = { "hcl", "tf", "tfvars" }
-})
+-- lsp.configure('terraformls', {
+--   -- filetypes = { "hcl", "tf", "tfvars" }
+-- })
 
 require("go").setup({})
 local lspconfig = require("lspconfig")

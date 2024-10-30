@@ -56,7 +56,7 @@ dapui.setup({
         -- Elements can be strings or table with id and size keys.
         "console",
       },
-      size = 0.30,
+      size = 0.50,
       position = "right",
     },
   },
@@ -93,32 +93,15 @@ dap_vscode_js.setup({
 })
 
 
-local dap_python_ok, dap_python = pcall(require, "dap-python")
-if not dap_python_ok then
-  return
-end
-
---  dap_python.setup('~/.virtualenvs/debugpy/bin/python')
--- local function get_python_path()
---   if os.getenv("VIRTUAL_ENV") then
---     local path = os.getenv("VIRTUAL_ENV") .. "/bin/python"
---
---     print("Using virtualenv python path: " .. path)
---
---     return path
---   end
---
---   local path = vim.fn.exepath("python")
---
---   print("Using system python path: " .. path)
---
---   return path
--- end
-
 dap.adapters.python = {
   type = "executable",
   command = "python",
   args = { "-m", "debugpy.adapter" },
+  cwd = function()
+    local _cwd = require("lspconfig").util.root_pattern("pyproject.toml")(vim.fn.getcwd())
+    print(_cwd)
+    return _cwd
+  end,
   pythonPath = function()
     -- prioritize virtualenv python path
     if os.getenv("VIRTUAL_ENV") then
