@@ -77,7 +77,7 @@ return packer.startup(function(use)
   })
   use({ "windwp/nvim-ts-autotag", commit = "57035b5814f343bc6110676c9ae2eacfcd5340c2" })
   use({ "folke/lsp-colors.nvim" })
-  use({"folke/trouble.nvim"})
+  use({ "folke/trouble.nvim" })
   use({ "folke/neodev.nvim" })
   use({
     "pmizio/typescript-tools.nvim",
@@ -159,22 +159,23 @@ return packer.startup(function(use)
     end,
   })
   use({
-  "epwalsh/obsidian.nvim",
-  tag = "v3.9.0",  -- recommended, use latest release instead of latest commit
-  requires = {
-    "nvim-lua/plenary.nvim",
-  },
-})
+    "epwalsh/obsidian.nvim",
+    tag = "v3.9.0", -- recommended, use latest release instead of latest commit
+    requires = {
+      "nvim-lua/plenary.nvim",
+    },
+  })
   use({ "windwp/nvim-autopairs" })
   use({ "nvim-pack/nvim-spectre" })
+  use({ "zbirenbaum/copilot.lua" })
   use({
-    "github/copilot.vim",
-    config = function()
-      vim.g.copilot_enabled = 1 -- disable by default
-      vim.g.copilot_filetypes = {
-        markdown = true
-      }
-    end
+    "CopilotC-Nvim/CopilotChat.nvim",
+    tag = "v2.15.0",
+    requires = {
+      "zbirenbaum/copilot.lua",
+      "nvim-lua/plenary.nvim",
+    },
+    run = "make tiktoken", -- Only on MacOS or Linux
   })
   use({ "ray-x/go.nvim" })
   use {
@@ -186,8 +187,10 @@ return packer.startup(function(use)
   use({
     "tpope/vim-dispatch"
   })
-  use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons', config = function() require(
-    "bufferline").setup {} end }
+  use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons', config = function()
+    require(
+      "bufferline").setup {}
+  end }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
