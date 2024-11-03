@@ -2,6 +2,9 @@
 autoload -Uz compinit
 compinit
 
+# https://superuser.com/questions/1403020/enter-key-prints-m-in-certain-situations-in-iterm
+stty sane
+
 # kubectl completion
 if command -v kubectl &> /dev/null; then
   source <(kubectl completion zsh)
