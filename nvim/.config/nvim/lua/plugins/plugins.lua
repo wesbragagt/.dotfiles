@@ -54,7 +54,11 @@ return {
   { "tpope/vim-fugitive" },
   { "sindrets/diffview.nvim" },
   { "lewis6991/gitsigns.nvim" },
-  { "f-person/git-blame.nvim" },
+  {
+    "f-person/git-blame.nvim",
+    event = "VeryLazy",
+    opts = { enabled = false }
+  },
   { "lukas-reineke/indent-blankline.nvim" },
 
   -- COLORSCHEMES
