@@ -37,18 +37,13 @@ lsp.ensure_installed(
     "terraformls",
     "tflint",
     "emmet_ls",
-    "ruff_lsp",
+    "ruff",
     "pyright",
     "ts_ls",
     "eslint"
   }
 )
 
--- lsp.configure('terraformls', {
---   -- filetypes = { "hcl", "tf", "tfvars" }
--- })
-
-require("go").setup({})
 local lspconfig = require("lspconfig")
 lsp.configure('lua_ls', {
   settings = {
@@ -181,7 +176,6 @@ vim.diagnostic.config({
     focusable = false,
     style = "minimal",
     border = "rounded",
-    source = "always",
     header = "",
     prefix = "",
   },

@@ -16,6 +16,9 @@ set iskeyword+=-
 set path=**
 ]])
 
+vim.g.gitblame_enabled = 0
+vim.g.gutentags_enabled = 0
+vim.g.rooter_manual_only = 1
 vim.g.editorconfig = false -- editorconfig is enabled by default
 vim.o.guicursor = ""       -- cursor style
 vim.opt.updatetime = 200

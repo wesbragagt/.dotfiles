@@ -31,8 +31,6 @@ local function setup_vscode_launch_json()
   end
 end
 
-local clients = vim.lsp.buf_get_clients()
-
 -- print(print_table(clients))
 --
 

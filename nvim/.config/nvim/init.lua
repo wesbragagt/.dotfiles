@@ -1,7 +1,4 @@
--- Enable LuaJIT faster load times
-pcall(require, "luarocks.loader")
-
-require("wesbragagt.plugins")
+require("config.lazy")
 require("wesbragagt.options")
 require("wesbragagt.maps")
 require("wesbragagt.autorun")
