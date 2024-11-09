@@ -103,12 +103,11 @@ dap.adapters.python = {
     return _cwd
   end,
   pythonPath = function()
+    local VIRTUAL_ENV = "VIRTUAL_ENV"
+    local path = os.getenv(VIRTUAL_ENV)
+    print(path)
     -- prioritize virtualenv python path
-    if os.getenv("VIRTUAL_ENV") then
-      return os.getenv("VIRTUAL_ENV") .. "/bin/python"
-    end
-    -- execute which python and return its path
-    return vim.fn.exepath("python")
+    return path or vim.fn.exepath("python")
   end
 }
 
@@ -118,6 +117,21 @@ dap.configurations.python = {
     request = "launch",
     name = "Launch file",
     program = "${file}",
+  },
+  {
+    name = "Python: Pytest - Current File",
+    type = "python",
+    request = "launch",
+    module = "pytest",
+    cwd = "${workspaceFolder}",
+    env = {
+      PYTHONPATH = "${workspaceFolder}"
+    },
+    args = {
+      "${file}"
+    },
+    justMyCode = true,
+    console = "integratedTerminal"
   }
 }
 
@@ -207,7 +221,7 @@ function load_launchjson()
   if is_launch_json_readable then
     print("Before loading dap.configurations", vim.inspect(dap.configurations))
     require('dap.ext.vscode').load_launchjs(path_to_launch_json, {
-      ["pwa-node"] = { "typescript", "javascript" }
+      ["pwa-node"] = { "typescript", "javascript" },
     })
     print("Loaded launch.json")
   end

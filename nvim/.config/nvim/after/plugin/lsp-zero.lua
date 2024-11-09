@@ -26,6 +26,7 @@ end
 
 lsp.ensure_installed(
   {
+    "html",
     "lua_ls",
     "tailwindcss",
     "cssls",

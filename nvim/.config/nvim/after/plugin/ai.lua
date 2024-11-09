@@ -1,10 +1,3 @@
-local ok, copilot = pcall(require, "copilot")
-
-if not ok then
-  print("Copilot plugin not installed")
-  return
-end
-
 local ok_copilot_chat, copilot_chat = pcall(require, "CopilotChat")
 
 if not ok_copilot_chat then
@@ -12,51 +5,15 @@ if not ok_copilot_chat then
   return
 end
 
-copilot.setup({
-  panel = {
-    enabled = true,
-    auto_refresh = false,
-    keymap = {
-      jump_prev = "[[",
-      jump_next = "]]",
-      accept = "<CR>",
-      refresh = "gr",
-      open = "<M-CR>"
-    },
-    layout = {
-      position = "bottom", -- | top | left | right
-      ratio = 0.4
-    },
-  },
-  suggestion = {
-    enabled = true,
-    auto_trigger = false,
-    hide_during_completion = true,
-    debounce = 75,
-    keymap = {
-      accept = "<M-l>",
-      accept_word = false,
-      accept_line = false,
-      next = "<M-]>",
-      prev = "<M-[>",
-      dismiss = "<C-]>",
-    },
-  },
-  filetypes = {
-    yaml = true,
-    markdown = true,
-    help = false,
-    gitcommit = false,
-    gitrebase = false,
-    hgcommit = false,
-    svn = false,
-    cvs = false,
-    ["."] = false,
-  },
-  copilot_node_command = 'node', -- Node.js version must be > 18.x
-  server_opts_overrides = {},
-})
-
 copilot_chat.setup({
-  debug = true
+  debug = true,
+  prompts = {
+    PytestTest = {
+      prompt = [[
+        As a Python pytest expert, write a comprehensive unit test for the following program, aiming to maximize code coverage and ensure thorough testing of edge cases and expected behaviors. Mock dependencies where needed and do not assert unnecessary calls such as loggers.
+      ]],
+      description = "Custom prompt for creating unit tests in python using pytest.",
+      selection = require('CopilotChat.select').visual
+    }
+  }
 })

@@ -167,12 +167,11 @@ return packer.startup(function(use)
   })
   use({ "windwp/nvim-autopairs" })
   use({ "nvim-pack/nvim-spectre" })
-  use({ "zbirenbaum/copilot.lua" })
+  use("github/copilot.vim")
   use({
     "CopilotC-Nvim/CopilotChat.nvim",
     tag = "v2.15.0",
     requires = {
-      "zbirenbaum/copilot.lua",
       "nvim-lua/plenary.nvim",
     },
     run = "make tiktoken", -- Only on MacOS or Linux
