@@ -37,7 +37,6 @@ lsp.ensure_installed(
     "terraformls",
     "tflint",
     "emmet_ls",
-    "ruff",
     "pyright",
     "ts_ls",
     "eslint"
