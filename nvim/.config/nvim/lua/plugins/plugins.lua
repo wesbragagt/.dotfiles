@@ -52,7 +52,10 @@ return {
 
   -- Git
   { "tpope/vim-fugitive" },
-  { "sindrets/diffview.nvim" },
+  {
+    "sindrets/diffview.nvim",
+    event = "VeryLazy"
+  },
   { "lewis6991/gitsigns.nvim" },
   {
     "f-person/git-blame.nvim",
@@ -126,8 +129,8 @@ return {
       "nvim-lua/plenary.nvim",
     },
   },
-  { "windwp/nvim-autopairs", event = "InsertEnter" },
-  { "nvim-pack/nvim-spectre" },
+  { "windwp/nvim-autopairs",  event = "InsertEnter" },
+  { "nvim-pack/nvim-spectre", event = "VeryLazy" },
   {
     "github/copilot.vim"
   },
@@ -139,5 +142,11 @@ return {
     },
     build = "make tiktoken", -- Only on MacOS or Linux
   },
-  { 'akinsho/bufferline.nvim', dependencies = 'nvim-tree/nvim-web-devicons', opts = {} }
+  { 'akinsho/bufferline.nvim', dependencies = 'nvim-tree/nvim-web-devicons', opts = {} },
+  {
+    'akinsho/git-conflict.nvim',
+    version = "*",
+    config = true,
+    event = "VeryLazy"
+  }
 }
