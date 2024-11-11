@@ -82,6 +82,10 @@ if [ -d "$HOME/.zsh/zsh-autosuggestions/" ]; then
   bindkey '^Y' autosuggest-accept
 fi
 
+if [ -d "$HOME/.zsh/fzf-tab/" ]; then
+  source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh
+fi
+
 source $HOME/.zsh-env &> /dev/null
 source $HOME/.aliases &> /dev/null
 
