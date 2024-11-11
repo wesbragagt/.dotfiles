@@ -65,7 +65,6 @@ export VIRTUAL_ENV_DISABLE_PROMPT=
 # on cd make sure to try to source a .venv/bin/activate
 
 export NPM_PREFIX="$HOME/.npm_global"
-# Path to your oh-my-zsh installation.
 export FZF_DEFAULT_COMMAND='fd --type file --hidden --no-ignore --exclude node_modules --exclude .git --exclude build --exclude dist --exclude .terragrunt-cache'
 # select all - https://github.com/junegunn/fzf/issues/257
 export FZF_DEFAULT_OPTS="-m --bind ctrl-t:toggle-all"
@@ -81,18 +80,6 @@ if [ -d "$HOME/.zsh/zsh-autosuggestions/" ]; then
   source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
-# export ZSH="$HOME/.oh-my-zsh"
-# ZSH_THEME="simple"
-# plugins=(
-#   git 
-#   zsh-autosuggestions
-#   vi-mode
-#   fzf-tab
-#   z
-# )
-
-
-source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh-env &> /dev/null
 source $HOME/.aliases &> /dev/null
 
