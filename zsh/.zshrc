@@ -86,6 +86,10 @@ if [ -d "$HOME/.zsh/fzf-tab/" ]; then
   source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh
 fi
 
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init zsh)"
+fi
+
 source $HOME/.zsh-env &> /dev/null
 source $HOME/.aliases &> /dev/null
 
