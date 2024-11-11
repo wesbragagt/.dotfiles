@@ -5,11 +5,13 @@
 add_newline = false
 
 # A minimal left prompt
-format = """$python$directory$character"""
-
-# move the rest of the prompt to the right
-#right_format = """$status$git_branch${custom.git_status_dirty}$git_status"""
-right_format = """$status$cmd_duration$git_branch${custom.git_status_dirty}$git_status"""
+format = """\
+$python\
+$directory\
+$status\
+$git_branch\
+${custom.git_status_dirty}\
+$git_status\""""
 
 palette="wombat"
 
@@ -55,8 +57,8 @@ white = '188'
 yellow = '223'
 
 [character]
-success_symbol = "[❯](purple)[❯](cyan)"
-error_symbol = "[❯](yellow)[❯](red)"
+success_symbol = "[❯](green)[❯](cyan)"
+error_symbol = "[❯](red)[❯](red)"
 vicmd_symbol = "[❮](purple)[❮](cyan)"
 
 [python]
@@ -83,8 +85,8 @@ behind = "⇣${count}"
 
 [custom.git_status_dirty]
 when = 'test -n "$(git status --porcelain 2>/dev/null)"'
-symbol = "•"
-style = "white"
+symbol = "✘"
+style = "red"
 format="[$symbol]($style)"
 shell = ["sh"]
 
