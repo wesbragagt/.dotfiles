@@ -10,6 +10,7 @@ links=(
   wezterm
   sesh
   nix
+  starship
   )
 
 for i in "${links[@]}"

@@ -66,23 +66,31 @@ export VIRTUAL_ENV_DISABLE_PROMPT=
 
 export NPM_PREFIX="$HOME/.npm_global"
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
 export FZF_DEFAULT_COMMAND='fd --type file --hidden --no-ignore --exclude node_modules --exclude .git --exclude build --exclude dist --exclude .terragrunt-cache'
 # select all - https://github.com/junegunn/fzf/issues/257
 export FZF_DEFAULT_OPTS="-m --bind ctrl-t:toggle-all"
 
-ZSH_THEME="simple"
+############################################
+# ZSH Prompt & Plugins
+# https://starship.rs/
+############################################
+eval "$(starship init zsh)"
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+if [ -d "$HOME/.zsh/zsh-autosuggestions/" ]; then
+  # Accept suggestion with Ctrl + E
+  source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
-plugins=(
-  git 
-  zsh-autosuggestions
-  vi-mode
-  fzf-tab
-  z
-)
+# export ZSH="$HOME/.oh-my-zsh"
+# ZSH_THEME="simple"
+# plugins=(
+#   git 
+#   zsh-autosuggestions
+#   vi-mode
+#   fzf-tab
+#   z
+# )
 
-# Binds Ctrl+y to confirm suggestion
-bindkey '^y' autosuggest-accept
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh-env &> /dev/null
