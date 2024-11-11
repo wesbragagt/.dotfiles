@@ -181,6 +181,7 @@ return {
 		"folke/noice.nvim",
 		event = "VeryLazy",
 		opts = {
+      blocking = false,
 			cmdline = {
 				view = "cmdline",
 			},
@@ -209,5 +210,8 @@ return {
 			--   If not available, we use `mini` as the fallback
 			"rcarriga/nvim-notify",
 		}
-	}
+	},
+  {
+    "tpope/vim-dispatch"
+  }
 }
