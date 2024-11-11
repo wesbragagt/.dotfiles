@@ -8,8 +8,7 @@ add_newline = false
 format = """\
 $directory\
 $git_branch\
-${custom.git_status_dirty}\
-$python """
+${custom.git_status_dirty} """
 
 palette="wombat"
 
