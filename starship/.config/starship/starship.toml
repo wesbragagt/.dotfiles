@@ -6,10 +6,10 @@ add_newline = false
 
 # A minimal left prompt
 format = """\
-$python\
 $directory\
 $git_branch\
-${custom.git_status_dirty} """
+${custom.git_status_dirty}\
+$python """
 
 palette="wombat"
 
