@@ -74,6 +74,10 @@ export FZF_DEFAULT_OPTS="-m --bind ctrl-t:toggle-all"
 # https://starship.rs/
 ############################################
 eval "$(starship init zsh)"
+
+bindkey '^P' history-beginning-search-backward
+bindkey '^N' history-beginning-search-forward
+
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 if [ -d "$HOME/.zsh/zsh-autosuggestions/" ]; then
   # Accept suggestion with Ctrl + E
