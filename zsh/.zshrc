@@ -127,15 +127,6 @@ export PATH="$NIX_LINK/bin:/nix/var/nix/profiles/default/bin:$PATH"
 export PATH="$HOME/.nix-profile/bin:$PATH"
 # . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 
-# show virtual environment prompt
-setopt PROMPT_SUBST
-show_virtual_env() {
-  if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
-    echo "($(basename $VIRTUAL_ENV))"
-  fi
-}
-PS1='$(show_virtual_env)'$PS1
-
 # amazing history fuzzy search
 source <(fzf --zsh)
 HISTFILE="$HOME/.zsh_history"
