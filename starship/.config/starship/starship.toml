@@ -8,7 +8,8 @@ add_newline = false
 format = """\
 $directory\
 $git_branch\
-${custom.git_status_dirty} """
+${custom.git_status_dirty}\
+${custom.git_status_clean} """
 
 palette="wombat"
 
@@ -84,6 +85,13 @@ behind = "⇣${count}"
 when = 'test -n "$(git status --porcelain 2>/dev/null)"'
 symbol = "✘"
 style = "red"
+format="[$symbol]($style)"
+shell = ["sh"]
+
+[custom.git_status_clean]
+when = 'test -z "$(git status --porcelain 2>/dev/null)"'
+symbol = "✔"
+style = "green"
 format="[$symbol]($style)"
 shell = ["sh"]
 
