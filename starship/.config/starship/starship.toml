@@ -71,7 +71,7 @@ fish_style_pwd_dir_length = 1
 
 # right prompt uses left space padding
 [git_branch]
-format = ' [$branch]($style)'
+format = '[$branch]($style)'
 style = 'green'
 
 [git_status]
@@ -90,7 +90,7 @@ shell = ["sh"]
 
 [custom.git_status_clean]
 when = 'test -z "$(git status --porcelain 2>/dev/null)"'
-symbol = "✔"
+symbol = " ✔"
 style = "green"
 format="[$symbol]($style)"
 shell = ["sh"]
