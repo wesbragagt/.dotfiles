@@ -83,7 +83,7 @@ behind = "⇣${count}"
 
 [custom.git_status_dirty]
 when = 'test -n "$(git status --porcelain 2>/dev/null)"'
-symbol = "✘"
+symbol = " ✘"
 style = "red"
 format="[$symbol]($style)"
 shell = ["sh"]
