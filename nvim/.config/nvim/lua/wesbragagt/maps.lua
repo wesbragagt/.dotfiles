@@ -107,6 +107,11 @@ nnoremap("<leader>mp", ":MarkdownPreviewToggle<CR>")
 nnoremap("<leader>cp-", ":Copilot disable<CR>")
 nnoremap("<leader>cp=", ":Copilot enable<CR>")
 
+-- Scratch Buffer
+nnoremap("<C-t>", function()
+  Snacks.scratch()
+end)
+
 -- Copies all lines selected by a search for example /dude
 -- first :g/pattern/y A
 -- then :let @+ = @a

@@ -11,11 +11,6 @@ $git_branch\
 ${custom.git_status_dirty}\
 ${custom.git_status_clean} """
 
-right_format = """
-$nix_shell\
-$python\
-$nodejs"""
-
 palette="wombat"
 
 # Define custom colors

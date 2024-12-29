@@ -78,6 +78,9 @@ eval "$(starship init zsh)"
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
 
+# Enable emacs mode for zsh
+set -o emacs
+
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 if [ -d "$HOME/.zsh/zsh-autosuggestions/" ]; then
   # Accept suggestion with Ctrl + E
@@ -112,15 +115,6 @@ if [[ -d "$HOME/.docker/bin" ]] then
   export PATH="$HOME/.docker/bin:$PATH"
 fi
 
-# bun completions
-[ -s "/Users/wesbragagt/.bun/_bun" ] && source "/Users/wesbragagt/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-#java
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-
 # nix working with zsh
 # https://github.com/NixOS/nix/issues/2280#issuecomment-1559447638
 export PATH="$NIX_LINK/bin:/nix/var/nix/profiles/default/bin:$PATH"
@@ -136,3 +130,4 @@ setopt appendhistory
 
 # https://stackoverflow.com/questions/44084846/cannot-connect-to-the-docker-daemon-on-macos
 export DOCKER_HOST=unix:///Users/$USER/Library/Containers/com.docker.docker/Data/docker.raw.sock
+. "/Users/wesbragagt/.deno/env"
