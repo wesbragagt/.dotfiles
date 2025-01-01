@@ -11,6 +11,7 @@ links=(
   sesh
   nix
   starship
+  ghostty
   )
 
 for i in "${links[@]}"
