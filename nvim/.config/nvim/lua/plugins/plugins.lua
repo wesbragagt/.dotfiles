@@ -149,14 +149,15 @@ return {
   { "williamboman/mason-lspconfig.nvim" },
   { "mfussenegger/nvim-dap" },
   { "mfussenegger/nvim-dap-python" },
-  { "mxsdev/nvim-dap-vscode-js",        commit = "b91e4e3634fe10f766960a8131bc9e42e47dddc9" },
   {
     "microsoft/vscode-js-debug",
-    opt = true,
-    build = "npm install && npm run compile",
-    commit = "88b15b647d7827db05d4b9850d3e7a66eaba74cc",
+    build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+    event = "VeryLazy"
   },
-  { "rcarriga/nvim-dap-ui",           commit = "6b6081ad244ae5aa1358775cc3c08502b04368f9" },
+  { "rcarriga/nvim-dap-ui",
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+    event = "VeryLazy"
+  },
   { "theHamsta/nvim-dap-virtual-text" },
   { "SSHari/jest.nvim" },
   { "stevearc/oil.nvim" },

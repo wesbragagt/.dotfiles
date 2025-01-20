@@ -1,5 +1,5 @@
 {
-"version": "0.2.0",
+  "version": "0.2.0",
   "configurations": [
     {
       "type": "pwa-chrome",
@@ -8,7 +8,23 @@
       "url": "http://localhost:5000",
       "webRoot": "${workspaceFolder}",
       "runtimeExecutable": "stable",
-      "runtimeArgs": ["--headless"]
+      "runtimeArgs": [
+        "--headless"
+      ]
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "Jest Test",
+      "args": [
+        "--inspect-brk",
+        "jest",
+        "--runInBand",
+        "--no-cache",
+        "${file}"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
     }
   ]
 }

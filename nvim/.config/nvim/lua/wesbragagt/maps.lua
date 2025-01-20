@@ -112,6 +112,11 @@ nnoremap("<C-t>", function()
   Snacks.scratch()
 end)
 
+-- Create Command for SnacksHistory
+nnoremap("<leader>sch", function()
+  Snacks.notifier.show_history()
+end)
+
 -- Copies all lines selected by a search for example /dude
 -- first :g/pattern/y A
 -- then :let @+ = @a

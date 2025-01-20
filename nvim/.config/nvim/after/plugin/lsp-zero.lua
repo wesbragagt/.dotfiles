@@ -34,8 +34,6 @@ lsp.ensure_installed(
     "yamlls",
     "ansiblels",
     "jsonls",
-    "terraformls",
-    "tflint",
     "emmet_ls",
     "pyright",
     "ts_ls",
