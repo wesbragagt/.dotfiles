@@ -133,11 +133,6 @@ lsp.setup_nvim_cmp({
   },
 })
 
-vim.lsp.inlay_hint.enable(true)
-local function toggle_inlay_hints()
-  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-end
-
 local nnoremap = require("utils").nnoremap
 lsp.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr }
@@ -152,11 +147,6 @@ lsp.on_attach(function(client, bufnr)
   nnoremap("<leader>f", vim.lsp.buf.format, opts)
   nnoremap("<leader>ls", ":LspInfo<cr>", opts)
   nnoremap("<leader>lr", ":LspRestart<cr>", opts)
-  nnoremap("<leader>4", toggle_inlay_hints, opts)
-
-  if client.name == "eslint" then
-    nnoremap("<leader>e", ":EslintFixAll<cr>")
-  end
 end)
 
 
