@@ -37,7 +37,7 @@ lsp.ensure_installed(
     "emmet_ls",
     "pyright",
     "ts_ls",
-    "eslint"
+    -- "eslint" -- buggy
   }
 )
 

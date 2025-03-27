@@ -44,8 +44,7 @@ export EDITOR="$VISUAL"
 
 # fnm
 if command -v fnm &> /dev/null;then
-  eval "$(fnm env --use-on-cd)" &&
-  export NODEJS_PATH=$(which node)
+  eval "$(fnm env --use-on-cd --shell zsh)"
 fi
 
 if command -v direnv &> /dev/null; then
