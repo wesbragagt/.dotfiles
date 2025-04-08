@@ -82,7 +82,6 @@ set -o emacs
 
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 if [ -d "$HOME/.zsh/zsh-autosuggestions/" ]; then
-  # Accept suggestion with Ctrl + E
   source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
   # Ctrl + Y to accept suggestion
   bindkey '^Y' autosuggest-accept
