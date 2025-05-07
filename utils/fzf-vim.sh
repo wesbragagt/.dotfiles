@@ -10,10 +10,12 @@ files_excluded=(
   .terragrunt-cache
   .terraform
   .venv
+  .direnv
+  dist
 )
 
 EXCLUDES=`echo ${files_excluded[@]} | xargs -n1 | awk '{print "--exclude=" $1}' | xargs`
-FZF_DEFAULT_COMMAND="fd --type=file --hidden --follow ${EXCLUDES}"
+FZF_DEFAULT_COMMAND="fd --type=file --hidden --no-ignore --follow ${EXCLUDES}"
 FZF_DEFAULT_OPTS="-m --bind ctrl-t:toggle-all --preview-window 'up,60%,border-bottom,+{2}+3/3,~3'"
 
 if [[ $# -eq 1 ]]; then

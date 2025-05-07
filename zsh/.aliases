@@ -65,7 +65,7 @@ cdl(){
 
   if [ -n "$dir" ]; then
     echo "Changing directory to $dir"
-    cd "$dir"
+    z "$dir"
   else 
     exit 0
   fi

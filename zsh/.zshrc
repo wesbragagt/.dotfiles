@@ -56,6 +56,7 @@ source $HOME/.cargo/env &> /dev/null
 
 # Golang
 export GOPATH=$HOME/go
+export PATH="$GOPATH/bin:$PATH"
 
 # Python
 # Make sure the virtualenv prompt always shows up
