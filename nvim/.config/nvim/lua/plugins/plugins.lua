@@ -5,7 +5,8 @@ return {
   },
   {
     "VonHeikemen/lsp-zero.nvim",
-    branch = "v1.x",
+    -- Not going to change this until migrate to lsp native features in neovim
+    branch = "v2.x",
     dependencies = {
       -- LSP Support
       { "neovim/nvim-lspconfig", },
@@ -123,7 +124,7 @@ return {
     "sindrets/diffview.nvim",
     event = "VeryLazy"
   },
-  { "lewis6991/gitsigns.nvim" },
+  -- { "lewis6991/gitsigns.nvim" },
   {
     "f-person/git-blame.nvim",
     event = "VeryLazy",
@@ -172,11 +173,11 @@ return {
   { "williamboman/mason-lspconfig.nvim" },
   { "mfussenegger/nvim-dap" },
   { "mfussenegger/nvim-dap-python" },
-  {
-    "microsoft/vscode-js-debug",
-    build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
-    event = "VeryLazy"
-  },
+  -- {
+  --   "microsoft/vscode-js-debug",
+  --   build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+  --   event = "VeryLazy"
+  -- },
   {
     "rcarriga/nvim-dap-ui",
     dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },

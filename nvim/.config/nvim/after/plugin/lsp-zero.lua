@@ -24,7 +24,8 @@ if is_neodev_ok then
   })
 end
 
-lsp.ensure_installed(
+require('mason').setup({})
+require('mason-lspconfig').setup(
   {
     "html",
     "lua_ls",
@@ -37,7 +38,6 @@ lsp.ensure_installed(
     "emmet_ls",
     "pyright",
     "ts_ls",
-    -- "eslint" -- buggy
   }
 )
 
@@ -48,15 +48,6 @@ lsp.configure('lua_ls', {
       diagnostics = {
         globals = { "vim", "require" },
       },
-    },
-  },
-})
-
-lsp.configure('eslint', {
-  settings = {
-    useFlatConfig = false,        -- set if using flat config
-    experimental = {
-      useFlatConfig = nil,       -- option not in the latest eslint-lsp
     },
   },
 })
