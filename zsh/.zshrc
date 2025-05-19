@@ -129,4 +129,3 @@ setopt appendhistory
 
 # https://stackoverflow.com/questions/44084846/cannot-connect-to-the-docker-daemon-on-macos
 export DOCKER_HOST=unix:///Users/$USER/Library/Containers/com.docker.docker/Data/docker.raw.sock
-. "/Users/wesbragagt/.deno/env"
