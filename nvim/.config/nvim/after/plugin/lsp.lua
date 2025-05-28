@@ -28,7 +28,7 @@
 --    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
 --    function will be executed to configure the current buffer
 vim.api.nvim_create_autocmd("LspAttach", {
-	group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
+	group = vim.api.nvim_create_augroup("wes-lsp", { clear = true }),
 	callback = function(event)
 		-- NOTE: Remember that Lua is a real programming language, and as such it is possible
 		-- to define small helper and utility functions so you don't have to repeat yourself.
@@ -51,7 +51,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     map("L", vim.diagnostic.open_float, "Shows the diagnostics in a floating window")
     map("K", vim.lsp.buf.hover, "Shows the hover information in a floating window.")
-    map("<leader>f", vim.lsp.buf.format)
+    map("<leader>f", vim.lsp.buf.format, "[F]ormat the current buffer")
 
 		-- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
 		---@param client vim.lsp.Client
@@ -76,7 +76,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			client
 			and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf)
 		then
-			local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
+			local highlight_augroup = vim.api.nvim_create_augroup("wes-lsp-highlight", { clear = false })
 			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 				buffer = event.buf,
 				group = highlight_augroup,
@@ -90,10 +90,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			})
 
 			vim.api.nvim_create_autocmd("LspDetach", {
-				group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
+				group = vim.api.nvim_create_augroup("wes-lsp-detatch", { clear = true }),
 				callback = function(event2)
 					vim.lsp.buf.clear_references()
-					vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
+					vim.api.nvim_clear_autocmds({ group = "wes-lsp-highlight", buffer = event2.buf })
 				end,
 			})
 		end
@@ -192,6 +192,7 @@ local servers = {
 	jsonls = {},
 	emmet_ls = {},
 	ts_ls = {},
+  ["terraform-ls"] = {},
 }
 
 -- Ensure the servers and tools above are installed
@@ -214,7 +215,7 @@ vim.list_extend(ensure_installed, {
 require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 require("mason-lspconfig").setup({
-	ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
+	ensure_installed = {},
 	automatic_installation = false,
   automatic_enable = true,
 	handlers = {
@@ -290,4 +291,34 @@ require("blink.cmp").setup({
 
 			-- Shows a signature help window while you type arguments for a function
 			signature = { enabled = true }
+})
+
+vim.diagnostic.config({
+
+  -- disable virtual text
+
+  virtual_text = true,
+
+  -- show signs
+
+  update_in_insert = true,
+
+  underline = true,
+
+  severity_sort = true,
+
+  float = {
+
+    focusable = false,
+
+    style = "minimal",
+
+    border = "rounded",
+
+    header = "",
+
+    prefix = "",
+
+  },
+
 })
