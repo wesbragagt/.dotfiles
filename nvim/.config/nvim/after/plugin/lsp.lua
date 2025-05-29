@@ -192,7 +192,6 @@ local servers = {
 	jsonls = {},
 	emmet_ls = {},
 	ts_ls = {},
-  ["terraform-ls"] = {},
 }
 
 local lspconfig = require("lspconfig")

@@ -31,7 +31,6 @@
         pkgs.ansible-language-server
         pkgs.emmet-ls
         pkgs.typescript-language-server
-        pkgs.terraform-ls
         pkgs.gcc
         pkgs.python3
         pkgs.luarocks
