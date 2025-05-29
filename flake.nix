@@ -3,38 +3,56 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, neovim-nightly-overlay }:
+  outputs = { self, nixpkgs, neovim-nightly-overlay, flake-utils }:
+    flake-utils.lib.eachDefaultSystem (system:
     let
-      system = "aarch64-darwin";
       pkgs = import nixpkgs {
         inherit system;
+        overlays = [ neovim-nightly-overlay.overlays.default ];
       };
       
       # Define packages once
       myPackages = [
         neovim-nightly-overlay.packages.${system}.default
-        pkgs.stow
+        pkgs.gcc
+        pkgs.gnused
+        pkgs.stow # Manage symlinks
         pkgs.zsh
         pkgs.zsh-autosuggestions
-        pkgs.starship
+        pkgs.starship # Prompt for shell
         pkgs.git
-        pkgs.ripgrep
-        pkgs.fd
-        pkgs.fzf
-        pkgs.tmux
+        pkgs.ripgrep # Grep in Rust
+        pkgs.fd # Fast file finder
+        pkgs.fzf # Fuzzy finder
+        pkgs.tmux # Terminal multiplexer
         pkgs.nodejs_24
+        pkgs.fnm # Node.js version manager
+        pkgs.unzip
+        pkgs.curl
+        pkgs.wget 
+        pkgs.jq # JSON processor
+        pkgs.zoxide # smart directory navigation
+        pkgs.delta # syntax highlighting pager for git
+        pkgs.gh # GitHub CLI
       ];
     in {
-      packages.${system}.default = pkgs.buildEnv {
-        name = "user-packages";
+      packages.default = pkgs.buildEnv {
+        name = "user-packages-${system}";
         paths = myPackages;
       };
 
-      devShells.${system}.default = pkgs.mkShell {
+      devShells.default = pkgs.mkShell {
         packages = myPackages;
       };
-    };
+    }
+    );
 }
