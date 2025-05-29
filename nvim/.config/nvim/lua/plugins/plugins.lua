@@ -15,13 +15,6 @@ return {
 		-- Main LSP Configuration
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			-- Automatically install LSPs and related tools to stdpath for Neovim
-			-- Mason must be loaded before its dependents so we need to set it up here.
-			-- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-			{ "mason-org/mason.nvim", opts = {} },
-			"mason-org/mason-lspconfig.nvim",
-			"WhoIsSethDaniel/mason-tool-installer.nvim",
-
 			-- Useful status updates for LSP.
 			{ "j-hui/fidget.nvim", opts = {} },
 
@@ -29,48 +22,6 @@ return {
 			"saghen/blink.cmp",
 		},
 	},
-
-	-- { -- Autoformat
-	-- 	"stevearc/conform.nvim",
-	-- 	event = { "BufWritePre" },
-	-- 	cmd = { "ConformInfo" },
-	-- 	keys = {
-	-- 		{
-	-- 			"<leader>f",
-	-- 			function()
-	-- 				require("conform").format({ async = true, lsp_format = "fallback" })
-	-- 			end,
-	-- 			mode = "",
-	-- 			desc = "[F]ormat buffer",
-	-- 		},
-	-- 	},
-	-- 	opts = {
-	-- 		notify_on_error = false,
-	-- 		format_on_save = function(bufnr)
-	-- 			-- Disable "format_on_save lsp_fallback" for languages that don't
-	-- 			-- have a well standardized coding style. You can add additional
-	-- 			-- languages here or re-enable it for the disabled ones.
-	-- 			local disable_filetypes = { c = true, cpp = true, kotlin = true }
-	-- 			if disable_filetypes[vim.bo[bufnr].filetype] then
-	-- 				return nil
-	-- 			else
-	-- 				return {
-	-- 					timeout_ms = 500,
-	-- 					lsp_format = "fallback",
-	-- 				}
-	-- 			end
-	-- 		end,
-	-- 		formatters_by_ft = {
-	-- 			lua = { "stylua" },
-	-- 			-- Conform can also run multiple formatters sequentially
-	-- 			-- python = { "isort", "black" },
-	-- 			--
-	-- 			-- You can use 'stop_after_first' to run the first available formatter from the list
-	-- 			-- javascript = { "prettierd", "prettier", stop_after_first = true },
-	-- 		},
-	-- 	},
-	-- },
-
 	{ -- Autocompletion
 		"saghen/blink.cmp",
 		event = "VimEnter",
@@ -225,15 +176,7 @@ return {
 	},
 	{ "tpope/vim-rhubarb" },
 	{ "weilbith/nvim-code-action-menu" },
-	{ "williamboman/mason.nvim" },
-	{ "williamboman/mason-lspconfig.nvim" },
 	{ "mfussenegger/nvim-dap" },
-	{ "mfussenegger/nvim-dap-python" },
-	-- {
-	--   "microsoft/vscode-js-debug",
-	--   build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
-	--   event = "VeryLazy"
-	-- },
 	{
 		"rcarriga/nvim-dap-ui",
 		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },

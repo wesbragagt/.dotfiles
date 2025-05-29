@@ -23,8 +23,20 @@
       # Define packages once
       myPackages = [
         neovim-nightly-overlay.packages.${system}.default
+        pkgs.gopls
+        pkgs.pyright
+        pkgs.lua-language-server
+        pkgs.vscode-langservers-extracted
+        pkgs.yaml-language-server
+        pkgs.ansible-language-server
+        pkgs.emmet-ls
+        pkgs.typescript-language-server
+        pkgs.terraform-ls
         pkgs.gcc
+        pkgs.python3
+        pkgs.luarocks
         pkgs.gnused
+
         pkgs.stow # Manage symlinks
         pkgs.zsh
         pkgs.zsh-autosuggestions
