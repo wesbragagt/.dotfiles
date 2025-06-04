@@ -24,7 +24,7 @@ config.window_decorations = "RESIZE"
 
 -- https://wezfurlong.org/wezterm/config/appearance.html#defining-a-color-scheme-in-your-weztermlua
 config.color_scheme = 'Tokyo Night'
-config.window_background_opacity = 1
+config.window_background_opacity = 0.9
 config.macos_window_background_blur = 1
 config.hide_tab_bar_if_only_one_tab = true
 
