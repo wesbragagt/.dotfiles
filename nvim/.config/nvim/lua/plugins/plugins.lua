@@ -11,6 +11,9 @@ return {
 			},
 		},
 	},
+	-- LSP STUFF
+	{ "williamboman/mason.nvim" },
+	{ "williamboman/mason-lspconfig.nvim" },
 	{
 		-- Main LSP Configuration
 		"neovim/nvim-lspconfig",
@@ -23,58 +26,32 @@ return {
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 
 			-- Useful status updates for LSP.
-			{ "j-hui/fidget.nvim", opts = {} },
+			{ "j-hui/fidget.nvim",    opts = {} },
 
 			-- Allows extra capabilities provided by blink.cmp
 			"saghen/blink.cmp",
 		},
 	},
-
-	-- { -- Autoformat
-	-- 	"stevearc/conform.nvim",
-	-- 	event = { "BufWritePre" },
-	-- 	cmd = { "ConformInfo" },
-	-- 	keys = {
-	-- 		{
-	-- 			"<leader>f",
-	-- 			function()
-	-- 				require("conform").format({ async = true, lsp_format = "fallback" })
-	-- 			end,
-	-- 			mode = "",
-	-- 			desc = "[F]ormat buffer",
-	-- 		},
-	-- 	},
-	-- 	opts = {
-	-- 		notify_on_error = false,
-	-- 		format_on_save = function(bufnr)
-	-- 			-- Disable "format_on_save lsp_fallback" for languages that don't
-	-- 			-- have a well standardized coding style. You can add additional
-	-- 			-- languages here or re-enable it for the disabled ones.
-	-- 			local disable_filetypes = { c = true, cpp = true, kotlin = true }
-	-- 			if disable_filetypes[vim.bo[bufnr].filetype] then
-	-- 				return nil
-	-- 			else
-	-- 				return {
-	-- 					timeout_ms = 500,
-	-- 					lsp_format = "fallback",
-	-- 				}
-	-- 			end
-	-- 		end,
-	-- 		formatters_by_ft = {
-	-- 			lua = { "stylua" },
-	-- 			-- Conform can also run multiple formatters sequentially
-	-- 			-- python = { "isort", "black" },
-	-- 			--
-	-- 			-- You can use 'stop_after_first' to run the first available formatter from the list
-	-- 			-- javascript = { "prettierd", "prettier", stop_after_first = true },
-	-- 		},
-	-- 	},
-	-- },
-
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function()
+			require("copilot").setup({
+        -- It is recommended to disable copilot.lua's suggestion and panel modules, as they can interfere with completions properly appearing in blink-cmp-copilot. To do so, simply place the following in your copilot.lua config:
+        -- https://github.com/giuxtaposition/blink-cmp-copilot
+				suggestion = { enabled = false },
+				panel = { enabled = false },
+			})
+		end,
+	},
 	{ -- Autocompletion
 		"saghen/blink.cmp",
 		event = "VimEnter",
 		dependencies = {
+			{
+				"giuxtaposition/blink-cmp-copilot",
+			},
 			-- Snippet Engine
 			{
 				"L3MON4D3/LuaSnip",
@@ -99,11 +76,11 @@ return {
 					--   end,
 					-- },
 				},
-				opts = {},
 			},
 			"folke/lazydev.nvim",
 		},
 	},
+	-- Use treesitter to autoclose and autorename html tag
 	{ "windwp/nvim-ts-autotag", commit = "57035b5814f343bc6110676c9ae2eacfcd5340c2" },
 	{ "folke/lsp-colors.nvim" },
 	{ "folke/trouble.nvim" },
@@ -123,35 +100,10 @@ return {
 			statuscolumn = { enabled = true },
 			words = { enabled = true },
 		},
-	},
-	{
-		"karb94/neoscroll.nvim",
-		opts = {
-			mappings = { -- Keys to be mapped to their corresponding default scrolling animation
-				"<C-u>",
-				"<C-d>",
-				"<C-b>",
-				"<C-f>",
-				"<C-y>",
-				"<C-e>",
-				"zt",
-				"zz",
-				"zb",
-			},
-			hide_cursor = true, -- Hide cursor while scrolling
-			stop_eof = true, -- Stop at <EOF> when scrolling downwards
-			respect_scrolloff = false, -- Stop scrolling when the cursor reaches the scrolloff margin of the file
-			cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
-			duration_multiplier = 1.0, -- Global duration multiplier
-			easing = "linear", -- Default easing function
-			pre_hook = nil, -- Function to run before the scrolling animation starts
-			post_hook = nil, -- Function to run after the scrolling animation ends
-			performance_mode = false, -- Disable "Performance Mode" on all buffers.
-			ignored_events = { -- Events ignored while scrolling
-				"WinScrolled",
-				"CursorMoved",
-			},
-		},
+		keys = {
+			{ "<leader>ts", function() Snacks.scratch() end,        desc = "Toggle Scratch Buffer" },
+			{ "<leader>tf", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
+		}
 	},
 	{
 		"pmizio/typescript-tools.nvim",
@@ -194,6 +146,12 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 	},
+	{
+		"xiyaowong/transparent.nvim",
+		config = function()
+			vim.g.transparent_enabled = true
+		end
+	},
 	-- Treesitter
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	{
@@ -209,12 +167,11 @@ return {
 		},
 	},
 	{
-		"tadmccorkle/markdown.nvim",
-		dependencies = {
-			"nvim-treesitter",
-		},
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = function() vim.fn["mkdp#util#install"]() end,
 	},
-
 	-- Tmux
 	{ "christoomey/vim-tmux-navigator" },
 	{
@@ -224,9 +181,7 @@ return {
 		end,
 	},
 	{ "tpope/vim-rhubarb" },
-	{ "weilbith/nvim-code-action-menu" },
-	{ "williamboman/mason.nvim" },
-	{ "williamboman/mason-lspconfig.nvim" },
+	-- DEBUGGER
 	{ "mfussenegger/nvim-dap" },
 	{ "mfussenegger/nvim-dap-python" },
 	-- {
@@ -240,19 +195,13 @@ return {
 		event = "VeryLazy",
 	},
 	{ "theHamsta/nvim-dap-virtual-text" },
+	-- File Manager vim editor
 	{ "stevearc/oil.nvim" },
-	{
-		"iamcco/markdown-preview.nvim",
-		build = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-	},
-	{ "windwp/nvim-autopairs", event = "InsertEnter" },
-	{ "nvim-pack/nvim-spectre", event = "VeryLazy" },
-	{
-		"github/copilot.vim",
-	},
-	{ "akinsho/bufferline.nvim", dependencies = "nvim-tree/nvim-web-devicons", opts = {} },
+	{ "windwp/nvim-autopairs",          event = "InsertEnter" },
+	-- Search and Replace
+	{ "nvim-pack/nvim-spectre",         event = "VeryLazy" },
+	-- See file tab like icons on top
+	{ "akinsho/bufferline.nvim",        dependencies = "nvim-tree/nvim-web-devicons", opts = {} },
 	{
 		"akinsho/git-conflict.nvim",
 		version = "*",
