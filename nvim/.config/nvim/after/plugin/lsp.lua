@@ -196,7 +196,8 @@ local servers = {
   ansiblels = {},
   jsonls = {},
   emmet_ls = {},
-  ts_ls = {},
+  -- using typescript tools instead
+  -- ts_ls = {},
   terraformls = {
     cmd = "terraform-lsp"
   }
@@ -236,6 +237,8 @@ require("mason-lspconfig").setup({
     end,
   },
 })
+
+require("typescript-tools").setup({})
 
 -- Auto completion
 require("blink.cmp").setup({
@@ -279,7 +282,7 @@ require("blink.cmp").setup({
   },
 
   sources = {
-    default = { "lsp", "path", "snippets", "buffer", "copilot" },
+    default = { "copilot", "lsp", "path", "snippets", "buffer" },
     providers = {
       copilot = {
         name = "copilot",
