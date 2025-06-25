@@ -1,3 +1,5 @@
 window-decoration = false
 macos-titlebar-style = hidden
 theme = tokyonight
+background-opacity = 0.9
+background-blur-radius = 5
