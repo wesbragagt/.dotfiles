@@ -3,8 +3,8 @@
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "user";
-  home.homeDirectory = "/home/user";
+  home.username = "wes";
+  home.homeDirectory = "/home/wes";
 
   # This value determines the Home Manager release which your
   # configuration is compatible with. This helps avoid breakage
