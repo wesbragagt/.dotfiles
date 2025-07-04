@@ -24,24 +24,31 @@
 
   outputs = { self, nixpkgs, home-manager, hyprland, neovim-nightly-overlay, flake-utils }:
     let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      supportedSystems = [ "x86_64-linux" "aarch64-linux" ];
+      
+      # Generate NixOS configurations for each supported system
+      mkNixosConfiguration = system: nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./configuration.nix
+          hyprland.nixosModules.default
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.user = import ./home.nix;
+          }
+        ];
+      };
     in
     {
       nixosConfigurations = {
-        default = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./configuration.nix
-            hyprland.nixosModules.default
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.user = import ./home.nix;
-            }
-          ];
-        };
+        # x86_64-linux configuration
+        default = mkNixosConfiguration "x86_64-linux";
+        x86_64-linux = mkNixosConfiguration "x86_64-linux";
+        
+        # aarch64-linux configuration  
+        aarch64-linux = mkNixosConfiguration "aarch64-linux";
       };
     } // flake-utils.lib.eachDefaultSystem (system:
       let
