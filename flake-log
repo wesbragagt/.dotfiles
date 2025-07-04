@@ -1,0 +1,29 @@
+building the system configuration...
+error:
+       … while calling the 'head' builtin
+         at /nix/store/h2bn031b0fj0ymv9v7bv5rcdjx58y2l9-source/lib/attrsets.nix:1534:13:
+         1533|           if length values == 1 || pred here (elemAt values 1) (head values) then
+         1534|             head values
+             |             ^
+         1535|           else
+
+       … while evaluating the attribute 'value'
+         at /nix/store/h2bn031b0fj0ymv9v7bv5rcdjx58y2l9-source/lib/modules.nix:1086:7:
+         1085|     // {
+         1086|       value = addErrorContext "while evaluating the option `${showOption loc}':" value;
+             |       ^
+         1087|       inherit (res.defsFinal') highestPrio;
+
+       … while evaluating the option `system.build.toplevel':
+
+       … while evaluating definitions from `/nix/store/h2bn031b0fj0ymv9v7bv5rcdjx58y2l9-source/nixos/modules/system/activation/top-level.nix':
+
+       … while evaluating the option `home-manager.users.user.home.homeDirectory':
+
+       (stack trace truncated; use '--show-trace' to show the full, detailed trace)
+
+       error: The option `home-manager.users.user.home.homeDirectory' has conflicting definition values:
+       - In `/nix/store/h2bn031b0fj0ymv9v7bv5rcdjx58y2l9-source/flake.nix': "/home/user"
+       - In `/nix/store/6jkmysivz923334jhswmv3wly914j358-source/nixos/common.nix': "/var/empty"
+       Use `lib.mkForce value` or `lib.mkDefault value` to change the priority on any of these definitions.
+Command '['nix', '--extra-experimental-features', 'nix-command flakes', 'build', '--print-out-paths', 'git+file:///home/wes/.dotfiles#nixosConfigurations."aarch64-linux".config.system.build.toplevel', '--no-link']' returned non-zero exit status 1.
