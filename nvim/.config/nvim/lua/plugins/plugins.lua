@@ -142,6 +142,7 @@ return {
 
   -- COLORSCHEMES
   { "rebelot/kanagawa.nvim" },
+  { "folke/tokyonight.nvim" },
   { "nvim-lua/popup.nvim" },
   {
     "nvim-lualine/lualine.nvim",

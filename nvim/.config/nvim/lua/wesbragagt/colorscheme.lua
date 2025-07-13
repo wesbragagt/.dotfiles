@@ -15,7 +15,7 @@ end
 local function color_my_pencils(transparent)
   local _transparent = transparent or false
 
-  local colorscheme = "kanagawa-wave"
+  local colorscheme = "tokyonight"
   local ok, error = pcall(function()
     vim.cmd(string.format('colorscheme %s', colorscheme))
   end)
