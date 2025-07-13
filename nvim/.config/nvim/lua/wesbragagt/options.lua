@@ -16,6 +16,7 @@ set iskeyword+=-
 set path=**
 ]])
 
+vim.g.lazyvim_check_order = false
 vim.g.gutentags_enabled = 0
 vim.g.rooter_manual_only = 1
 vim.g.editorconfig = false -- editorconfig is enabled by default
