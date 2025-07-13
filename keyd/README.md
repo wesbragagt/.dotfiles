@@ -6,3 +6,16 @@ I use it to remap:
 
 * capslock to control on hold and escape on tap.
 * left alt key to be super key
+
+## Commands
+
+At first install.
+```sh
+sudo systemctl enable keyd --now
+```
+
+When modifying a file.
+```sh
+sudo keyd reload
+```
+
