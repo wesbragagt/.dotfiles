@@ -12,6 +12,7 @@ links=(
   nix
   starship
   ghostty
+  opencode
   )
 
 for i in "${links[@]}"
