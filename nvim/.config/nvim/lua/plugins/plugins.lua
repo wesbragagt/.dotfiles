@@ -32,26 +32,10 @@ return {
       "saghen/blink.cmp",
     },
   },
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    config = function()
-      require("copilot").setup({
-        -- It is recommended to disable copilot.lua's suggestion and panel modules, as they can interfere with completions properly appearing in blink-cmp-copilot. To do so, simply place the following in your copilot.lua config:
-        -- https://github.com/giuxtaposition/blink-cmp-copilot
-        suggestion = { enabled = false },
-        panel = { enabled = false },
-      })
-    end,
-  },
   { -- Autocompletion
     "saghen/blink.cmp",
     event = "VimEnter",
     dependencies = {
-      {
-        "giuxtaposition/blink-cmp-copilot",
-      },
       -- Snippet Engine
       {
         "L3MON4D3/LuaSnip",
@@ -132,7 +116,6 @@ return {
     "sindrets/diffview.nvim",
     event = "VeryLazy",
   },
-  -- { "lewis6991/gitsigns.nvim" },
   {
     "f-person/git-blame.nvim",
     event = "VeryLazy",
@@ -185,11 +168,6 @@ return {
   -- DEBUGGER
   { "mfussenegger/nvim-dap" },
   { "mfussenegger/nvim-dap-python" },
-  -- {
-  --   "microsoft/vscode-js-debug",
-  --   build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
-  --   event = "VeryLazy"
-  -- },
   {
     "rcarriga/nvim-dap-ui",
     dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
