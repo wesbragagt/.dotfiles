@@ -13,6 +13,7 @@ links=(
   starship
   ghostty
   opencode
+  wallpapers
   )
 
 for i in "${links[@]}"
