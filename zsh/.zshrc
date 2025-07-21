@@ -43,6 +43,11 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 # fnm
+FNM_PATH="/home/wesbragagt/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/wesbragagt/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
 if command -v fnm &> /dev/null;then
   eval "$(fnm env --use-on-cd --shell zsh)"
 fi
@@ -129,3 +134,4 @@ setopt appendhistory
 
 # https://stackoverflow.com/questions/44084846/cannot-connect-to-the-docker-daemon-on-macos
 export DOCKER_HOST=unix:///Users/$USER/Library/Containers/com.docker.docker/Data/docker.raw.sock
+
