@@ -3,15 +3,8 @@
 # Get the name of the current branch
 BRANCH=$(git symbolic-ref --short HEAD)
 
-# Get the name of the branch that the current branch was created from
-PARENT_BRANCH=$(git merge-base --fork-point master $BRANCH)
-
-# If the parent branch is "master", create a pull request against "master"
-if [[ "$PARENT_BRANCH" == "main" ]]; then
-  TARGET_BRANCH="main"
-else
-  TARGET_BRANCH="$PARENT_BRANCH"
-fi
+# Get the default branch (usually main or master)
+DEFAULT_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
 
 # Push the current branch upstream
 git push -u origin head
@@ -20,13 +13,30 @@ git push -u origin head
 REMOTE_URL=$(git config --get remote.origin.url)
 
 # Extract the username and repository name from the remote URL
-USERNAME=$(echo "$REMOTE_URL" | awk -F':' '{print $2}' | sed 's/\/.*//')
-# Sometimes the remote_url will come with repo-name.git
-REPO=$(echo "$REMOTE_URL" | awk -F'/' '{print $2}' | sed 's/\.git//')
+if [[ "$REMOTE_URL" == *"github.com"* ]]; then
+  if [[ "$REMOTE_URL" == *"git@github.com"* ]]; then
+    # SSH format: git@github.com:username/repo.git
+    USERNAME=$(echo "$REMOTE_URL" | sed 's/.*github.com://' | sed 's/\/.*//')
+    REPO=$(echo "$REMOTE_URL" | sed 's/.*github.com:[^/]*\///' | sed 's/\.git$//')
+  else
+    # HTTPS format: https://github.com/username/repo.git
+    USERNAME=$(echo "$REMOTE_URL" | sed 's/.*github.com\///' | sed 's/\/.*//')
+    REPO=$(echo "$REMOTE_URL" | sed 's/.*github.com\/[^/]*\///' | sed 's/\.git$//')
+  fi
+fi
 
-echo $USERNAME
-echo $REPO
+echo "Username: $USERNAME"
+echo "Repository: $REPO"
 
 link="https://github.com/$USERNAME/$REPO/pull/new/$BRANCH"
-# Open the pull request page for the new branch in a web browser
-open $link
+
+# Cross-platform open command
+if command -v xdg-open > /dev/null; then
+  # Linux
+  xdg-open "$link"
+elif command -v open > /dev/null; then
+  # macOS
+  open "$link"
+else
+  echo "Cannot open browser automatically. Please visit: $link"
+fi
