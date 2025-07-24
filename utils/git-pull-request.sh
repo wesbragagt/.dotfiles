@@ -7,7 +7,7 @@ BRANCH=$(git symbolic-ref --short HEAD)
 DEFAULT_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
 
 # Push the current branch upstream
-git push -u origin head
+git push -u origin HEAD
 
 # Get the URL of the remote repository
 REMOTE_URL=$(git config --get remote.origin.url)

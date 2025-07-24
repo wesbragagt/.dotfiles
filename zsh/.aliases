@@ -1,5 +1,4 @@
-export DOTFILES=$HOME/.dotfiles
-
+alias pod="podman"
 alias got="gh pr view --web"
 alias p="pnpm"
 alias als="vi $DOTFILES/zsh/.aliases"
