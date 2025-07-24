@@ -141,3 +141,30 @@ if [[ -d "/opt/zen-browser-bin" ]] then
   export PATH="/opt/zen-browser-bin:$PATH"
   export BROWSER="zen"
 fi
+
+# fnm
+FNM_PATH="/home/wesbragagt/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "`fnm env`"
+fi
+
+# fnm
+FNM_PATH="/home/wesbragagt/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "`fnm env`"
+fi
+
+# fnm
+FNM_PATH="/home/wesbragagt/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "`fnm env`"
+fi
+
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+# Add key if not already loaded
+if ! ssh-add -l > /dev/null 2>&1; then
+    ssh-add ~/.ssh/id_rsa
+fi
