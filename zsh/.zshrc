@@ -163,8 +163,10 @@ if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
 fi
 
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-# Add key if not already loaded
-if ! ssh-add -l > /dev/null 2>&1; then
-    ssh-add ~/.ssh/id_rsa
+#  When it's useful:
+#  - If you have ssh-agent.service configured as a systemd user service
+#  - When you want SSH keys to persist across terminal sessions
+#  - For desktop environments that don't automatically start SSH agents
+if [ -S "$XDG_RUNTIME_DIR/ssh-agent.socket" ]; then
+  export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 fi
