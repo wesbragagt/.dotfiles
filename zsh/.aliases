@@ -1,4 +1,10 @@
 alias pod="podman"
+
+if command -v eza &> /dev/null; then    
+  alias ls="eza -ol --icons=auto"
+  alias tree="eza -ol -T --icons=auto"
+fi
+
 alias got="gh pr view --web"
 alias p="pnpm"
 alias als="vi $DOTFILES/zsh/.aliases"
@@ -24,7 +30,6 @@ alias gtp="git push -u origin head"
 alias discard="git checkout -- . && git clean -fd"
 alias clean="git branch --merged | egrep -v '(^\*|master|main|dev|nonprod)' | xargs git branch -D"
 alias tt="tmux -f $HOME/.config/tmux/.tmux.conf"
-alias ls="ls -a"
 alias new="git checkout -b"
 alias key="ssh-add ~/.ssh/id_rsa"
 alias gitd="nvim -c ':tab G'"
