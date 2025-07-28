@@ -7,6 +7,12 @@ I use it to remap:
 * capslock to control on hold and escape on tap.
 * left alt key to be super key
 
+## Run
+
+```
+sudo stow --target=/ keyd
+```
+
 ## Commands
 
 At first install.
