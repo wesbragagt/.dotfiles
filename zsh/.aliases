@@ -1,9 +1,7 @@
 alias pod="podman"
 
-if command -v eza &> /dev/null; then    
-  alias ls="eza -ol --icons=auto"
-  alias tree="eza -ol -T --icons=auto"
-fi
+alias ls="eza -ol --icons=auto"
+alias tree="eza -ol -T --icons=auto"
 
 alias got="gh pr view --web"
 alias p="pnpm"
