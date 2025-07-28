@@ -1,3 +1,10 @@
+# Auto-exec into Nix-managed zsh if available and we're not already in it
+# This ensures terminal sessions use Nix zsh while keeping system zsh as login shell
+if [[ "$SHELL" != *"nix-profile"* ]] && [[ -x "$HOME/.nix-profile/bin/zsh" ]]; then
+    export SHELL="$HOME/.nix-profile/bin/zsh"
+    exec "$HOME/.nix-profile/bin/zsh"
+fi
+
 # If you get an error like 2: command not found: compdef, then add the following to the beginning of your ~/.zshrc file:
 autoload -Uz compinit
 compinit
