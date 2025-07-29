@@ -21,3 +21,10 @@ do
    : 
     stow $i --adopt
 done
+
+# Stow keyd only on Linux systems
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    sudo stow --target=/ keyd
+    sudo systemctl enable keyd --now
+    sudo keyd reload
+fi
