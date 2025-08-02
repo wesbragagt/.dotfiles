@@ -24,6 +24,7 @@ code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 alias gg="git add . && git commit"
 alias gta="git add -A && git commit --amend --no-edit"
 alias gtf="gta && git push -f"
+alias gwt='$DOTFILES/utils/git-worktree-create.sh'
 alias gtp="git push -u origin head"
 alias discard="git checkout -- . && git clean -fd"
 alias clean="git branch --merged | egrep -v '(^\*|master|main|dev|nonprod)' | xargs git branch -D"

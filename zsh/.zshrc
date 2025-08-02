@@ -65,6 +65,7 @@ if command -v direnv &> /dev/null; then
 fi
 
 # Rust or bust
+export PATH=$HOME/.cargo/bin:$PATH
 source $HOME/.cargo/env &> /dev/null
 
 # Golang
