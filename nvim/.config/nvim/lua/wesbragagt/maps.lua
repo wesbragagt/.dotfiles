@@ -100,6 +100,12 @@ nnoremap("<leader>pt", function()
   vim.cmd(":Oil")
 end)
 
+-- Neo-tree
+nnoremap("<leader>nt", function()
+  local git_root = utils.get_git_root_with_fallback()
+  vim.cmd(":Neotree toggle dir=" .. git_root)
+end)
+
 -- Markdown
 nnoremap("<leader>mp", ":MarkdownPreviewToggle<CR>")
 

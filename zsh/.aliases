@@ -4,14 +4,11 @@ alias ls="eza -ol --icons=auto"
 alias tree="eza -ol -T --icons=auto"
 
 alias got="gh pr view --web"
-alias p="pnpm"
 alias als="vi $DOTFILES/zsh/.aliases"
 alias dot="cd $DOTFILES"
-alias dotsync="cd $DOTFILES && git add -A && git commit -m 'sync' && git push"
 alias vi="nvim"
 alias config="vi $DOTFILES/zsh/.zshrc"
 alias config-nvim="vi $DOTFILES/nvim/.config/nvim/init.vim" 
-alias dev="cd ~/dev"
 # fzf combo scripts
 alias ff="bash $DOTFILES/utils/tmux-sessionizer.sh"
 alias to="bash $DOTFILES/utils/fzf-git-checkout.sh"
@@ -20,7 +17,6 @@ alias sg="bash $DOTFILES/utils/fzf-rg.sh"
 alias gpr="bash $DOTFILES/utils/git-pull-request.sh"
 alias countdown="bash $DOTFILES/utils/countdown.sh"
 alias send-cmd="bash $DOTFILES/utils/tmux-commander.sh"
-code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 alias gg="git add . && git commit"
 alias gta="git add -A && git commit --amend --no-edit"
 alias gtf="gta && git push -f"
@@ -29,31 +25,9 @@ alias gtp="git push -u origin head"
 alias discard="git checkout -- . && git clean -fd"
 alias clean="git branch --merged | egrep -v '(^\*|master|main|dev|nonprod)' | xargs git branch -D"
 alias tt="tmux -f $HOME/.config/tmux/.tmux.conf"
-alias new="git checkout -b"
 alias key="ssh-add ~/.ssh/id_rsa"
 alias gitd="nvim -c ':tab G'"
-alias release="bash $DOTFILES/utils/release-tag-pull-request.sh"
 alias tags="git show-ref --tags -d | fzf"
-
-alias grepv="printenv | grep -i"
-
-# sources a .env file into the current shell
-env(){
-  export $(cat $1 | xargs)
-}
-
-nss(){
-   print -z bun $(jq '.scripts | keys[]' package.json | sed 's/"//g' | fzf)
-}
-# Run a fuzzy search through test files and run jest
-jj(){
-  print -z yarn jest $(rg --files -g '*.spec*' -g '*.test*' | fzf)
-}
-
-# Run a fuzzy search through test files and run mocha
-mm(){
-  print -z yarn mocha $(rg --files -g '*.spec*' -g '*.test*' | fzf)
-}
 
 # fuzzy search through files in the current directory and cd to the dir of the file selected
 cdl(){
@@ -83,11 +57,6 @@ get_external_ip(){
   curl ipecho.net/plain ; echo
 }
 
-# new branch from a jira ticket
-newt(){
-  git checkout -b $(jira issue list -a$(jira me) --plain | fzf | rg '\w+-\d+' -io)
-}
-
 # pipe ripgrep results to a quickfix list in vim
 fpq(){
   nvim -q <(rg --column -g '!.git' -g '!node_modules' $@) +cw
@@ -98,37 +67,7 @@ hh(){
   ssh $(grep -e '^Host \w.*' ~/.ssh/config | sed 's/Host //' | fzf --height 20%)
 }
 
-browser(){
-  BROWSERS=(
-  "chrome"
-  "safari"
-  "firefox"
-  )
-  osascript $DOTFILES/utils/set-default-browser.scpt $(printf "%s\n" ${BROWSERS[*]} | fzf)
-}
-
-alias work="cd ~/dev/work"
-be(){
-  cd $(ls -d ~/dev/work/* | fzf)
-}
-
-
-clone(){
-  git clone $(curl -s -H "Authorization: token $GITHUB_PERSONAL_ACCESS_TOKEN" https://api.github.com/${COMPANY_ORG:-users/wesbragagt}/repos\?per_page\=500 | jq -r '.[] | .ssh_url' | fzf)
-}
-
 timezsh() {
   shell=${1-$SHELL}
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
-
-tk(){
-  task $(task --list-all --json | jq -r '.tasks[].name' | fzf)
-}
-
-alias download-youtube='docker run \
-                  --rm -i \
-                  -e PGID=$(id -g) \
-                  -e PUID=$(id -u) \
-                  -v "$(pwd)":/workdir:rw \
-                  ghcr.io/mikenye/docker-youtube-dl:latest

@@ -170,6 +170,15 @@ return {
   { "theHamsta/nvim-dap-virtual-text" },
   -- File Manager vim editor
   { "stevearc/oil.nvim" },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
   { "windwp/nvim-autopairs",          event = "InsertEnter" },
   -- Search and Replace
   { "nvim-pack/nvim-spectre",         event = "VeryLazy" },
