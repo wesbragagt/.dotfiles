@@ -141,12 +141,6 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
 
-# https://stackoverflow.com/questions/44084846/cannot-connect-to-the-docker-daemon-on-macos
-if [[ "$OSTYPE" == "darwin" ]]; then
-  export DOCKER_HOST=unix:///Users/$USER/Library/Containers/com.docker.docker/Data/docker.raw.sock
-fi
-
-
 ## Zen on linux 
 if [[ -d "/opt/zen-browser-bin" ]] then 
   export PATH="/opt/zen-browser-bin:$PATH"
