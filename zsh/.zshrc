@@ -142,7 +142,10 @@ SAVEHIST=10000
 setopt appendhistory
 
 # https://stackoverflow.com/questions/44084846/cannot-connect-to-the-docker-daemon-on-macos
-export DOCKER_HOST=unix:///Users/$USER/Library/Containers/com.docker.docker/Data/docker.raw.sock
+if [[ "$OSTYPE" == "darwin" ]]; then
+  export DOCKER_HOST=unix:///Users/$USER/Library/Containers/com.docker.docker/Data/docker.raw.sock
+fi
+
 
 ## Zen on linux 
 if [[ -d "/opt/zen-browser-bin" ]] then 
