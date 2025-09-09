@@ -89,11 +89,11 @@ return {
       { "<leader>tf", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
     }
   },
-  {
-    "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    opts = {},
-  },
+  -- {
+  --   "pmizio/typescript-tools.nvim",
+  --   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  --   opts = {},
+  -- },
   {
     "ibhagwan/fzf-lua",
     -- optional for icon support
