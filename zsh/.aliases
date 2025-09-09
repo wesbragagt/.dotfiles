@@ -2,7 +2,7 @@ alias pod="podman"
 
 alias ls="eza -ol --icons=auto"
 alias tree="eza -ol -T --icons=auto"
-
+alias ccd="claude --dangerously-skip-permissions"
 alias got="gh pr view --web"
 alias als="vi $DOTFILES/zsh/.aliases"
 alias dot="cd $DOTFILES"
