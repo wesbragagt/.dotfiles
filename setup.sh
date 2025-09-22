@@ -14,6 +14,7 @@ links=(
   ghostty
   opencode
   wallpapers
+  fish
   )
 
 for i in "${links[@]}"

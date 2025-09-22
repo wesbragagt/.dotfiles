@@ -1,0 +1,80 @@
+alias pod="podman"
+
+alias ls="eza -ol --icons=auto"
+alias tree="eza -ol -T --icons=auto"
+
+alias got="gh pr view --web"
+alias als="vi $DOTFILES/zsh/.aliases"
+alias dot="cd $DOTFILES"
+alias vi="nvim"
+alias config="vi $DOTFILES/zsh/.zshrc"
+alias config-nvim="vi $DOTFILES/nvim/.config/nvim/init.vim"
+# fzf combo scripts
+alias ff="bash $DOTFILES/utils/tmux-sessionizer.sh"
+alias to="bash $DOTFILES/utils/fzf-git-checkout.sh"
+alias sf="bash $DOTFILES/utils/fzf-vim.sh"
+alias sg="bash $DOTFILES/utils/fzf-rg.sh"
+alias gpr="bash $DOTFILES/utils/git-pull-request.sh"
+alias countdown="bash $DOTFILES/utils/countdown.sh"
+alias send-cmd="bash $DOTFILES/utils/tmux-commander.sh"
+alias gg="git add . && git commit"
+alias gta="git add -A && git commit --amend --no-edit"
+alias gtf="gta && git push -f"
+alias gwt="$DOTFILES/utils/git-worktree-create.sh"
+alias gtp="git push -u origin head"
+alias discard="git checkout -- . && git clean -fd"
+alias clean="git branch --merged | egrep -v '(^\*|master|main|dev|nonprod)' | xargs git branch -D"
+alias tt="tmux -f $HOME/.config/tmux/.tmux.conf"
+alias key="ssh-add ~/.ssh/id_rsa"
+alias gitd="nvim -c ':tab G'"
+alias tags="git show-ref --tags -d | fzf"
+
+# fuzzy search through files in the current directory and cd to the dir of the file selected
+function cdl
+  set selection (fzf --preview 'bat --style=numbers --color=always --line-range :500 {}')
+  if test -z "$selection"
+    return 0
+  end
+
+  sleep 0.3
+  set dir (dirname $selection)
+
+  if test -n "$dir"
+    echo "Changing directory to $dir"
+    z "$dir"
+  else
+    return 0
+  end
+end
+
+# cd to .git root of the current dir
+function gr
+  cd (git rev-parse --show-toplevel)
+end
+
+function get_external_ip
+  curl ipecho.net/plain; echo
+end
+
+# pipe ripgrep results to a quickfix list in vim
+function fpq
+  set -l tmpfile (mktemp)
+  rg --column -g '!.git' -g '!node_modules' $argv > $tmpfile
+  nvim -q $tmpfile +cw
+  rm $tmpfile
+end
+
+# fuzzy search my .ssh/config
+function hh
+  set host (grep -e '^Host \w.*' ~/.ssh/config | sed 's/Host //' | fzf --height 20%)
+  if test -n "$host"
+    ssh $host
+  end
+end
+
+function timezsh
+  set shell (test -n "$argv[1]"; and echo $argv[1]; or echo $SHELL)
+  for i in (seq 1 10)
+    /usr/bin/time $shell -i -c exit
+  end
+end
