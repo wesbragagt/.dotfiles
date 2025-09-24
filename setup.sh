@@ -15,6 +15,7 @@ links=(
   opencode
   wallpapers
   fish
+  rofi
   )
 
 for i in "${links[@]}"
