@@ -141,11 +141,17 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
 
+## Brave on Linux
+  if [[ -d "/bin/brave" ]] then 
+    export PATH="/bin/brave:$PATH"
+    export BROWSER="brave"
+  fi
+
 ## Zen on linux 
-if [[ -d "/opt/zen-browser-bin" ]] then 
-  export PATH="/opt/zen-browser-bin:$PATH"
-  export BROWSER="zen"
-fi
+# if [[ -d "/opt/zen-browser-bin" ]] then 
+#   export PATH="/opt/zen-browser-bin:$PATH"
+#   export BROWSER="zen"
+# fi
 
 # fnm
 FNM_PATH="/home/wesbragagt/.local/share/fnm"
