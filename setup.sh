@@ -16,7 +16,7 @@ links=(
   wallpapers
   fish
   rofi
-  )
+)
 
 for i in "${links[@]}"
 do

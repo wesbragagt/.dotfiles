@@ -40,6 +40,19 @@
         "-y",
         "@upstash/context7-mcp@latest"
       ]
+    },
+    "notes-mcp": {
+      "type": "local",
+      "command": [
+        "docker",
+        "run",
+        "--rm",
+        "-i",
+        "-v={env:HOME}/notes:/home/app/notes:rw",
+        "notes-mcp",
+        "python",
+        "main.py"
+      ]
     }
   }
 }

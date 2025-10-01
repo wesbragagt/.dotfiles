@@ -6,6 +6,17 @@ links=(
   zsh
   raycast
   alacritty
+  karabiner 
+  wezterm
+  sesh
+  nix
+  starship
+  ghostty
+  opencode
+  wallpapers
+  fish
+  rofi
+  ai
   )
 
 for i in "${links[@]}"
