@@ -96,7 +96,14 @@ bindkey '^N' history-beginning-search-forward
 set -o emacs
 
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
-if [ -d "$HOME/.zsh/zsh-autosuggestions/" ]; then
+
+# Source ZSH plugins provided by Nix (preferred method)
+if [ -f ~/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+  source ~/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  # Ctrl + Y to accept suggestion
+  bindkey '^Y' autosuggest-accept
+# Fallback to local installation if Nix version not available
+elif [ -d "$HOME/.zsh/zsh-autosuggestions/" ]; then
   source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
   # Ctrl + Y to accept suggestion
   bindkey '^Y' autosuggest-accept
@@ -175,3 +182,6 @@ fi
 if [ -S "$XDG_RUNTIME_DIR/ssh-agent.socket" ]; then
   export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 fi
+
+# opencode
+export PATH=/Users/wesbragagt/.opencode/bin:$PATH
