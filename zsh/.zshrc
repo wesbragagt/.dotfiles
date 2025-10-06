@@ -185,3 +185,8 @@ fi
 
 # opencode
 export PATH=/Users/wesbragagt/.opencode/bin:$PATH
+# https://stackoverflow.com/questions/44084846/cannot-connect-to-the-docker-daemon-on-macos             ┃
+if [[ "$OSTYPE" == "darwin" ]]; then                                                                    
+  export DOCKER_HOST="unix:///Users/$USER/Library/Containers/com.docker.docker/Data/docker.raw.sock      "
+fi                                                                                                      
+
