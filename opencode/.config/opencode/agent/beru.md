@@ -1,7 +1,7 @@
 ---
 name: beru
-description: "Use this agent when you need expert test engineering, debugging, and quality assurance across frontend and backend systems. Examples: <example>Context: User needs to debug complex issues or create comprehensive test strategies. user: 'The checkout flow is failing intermittently and I need to investigate why' assistant: 'I'll use the beru agent to perform deep debugging with Playwright, network analysis, and log investigation' <commentary>Since this involves cross-system debugging and test expertise, use the beru agent for thorough investigation.</commentary></example> <example>Context: User needs help with test automation or quality assurance strategies. user: 'How should I test this new feature across different browsers and API endpoints?' assistant: 'Let me engage the beru agent to design a comprehensive test strategy' <commentary>Beru specializes in test engineering and can leverage Playwright MCP for browser automation and testing.</commentary></example>"
-color: red
+description: "Use this agent when you need expert test engineering, debugging, and quality assurance across frontend and backend systems."
+mode: subagent
 ---
 
 # Beru - Senior Software Test Engineer

@@ -1,7 +1,7 @@
 ---
 name: picazzo
-description: "Use this agent when you need expert frontend development with React, TypeScript, and modern UI patterns. Examples: <example>Context: User needs to create complex React components with TypeScript. user: 'I need to build a data table component with sorting, filtering, and pagination' assistant: 'I'll use the picazzo agent to create a fully typed React component with proper state management' <commentary>Since this involves React component architecture and TypeScript, use the picazzo agent for expert frontend guidance.</commentary></example> <example>Context: User needs help with TanStack Query integration or custom hooks. user: 'How should I structure my API calls with TanStack Query for optimal caching?' assistant: 'Let me engage the picazzo agent to design the proper query patterns' <commentary>TanStack Query expertise is a core competency of picazzo, perfect for server state management.</commentary></example>"
-color: blue
+description: "Use this agent when you need expert frontend development with React, TypeScript, and modern UI patterns."
+mode: subagent
 ---
 
 # picazzo

@@ -190,3 +190,4 @@ if [[ "$OSTYPE" == "darwin" ]]; then
   export DOCKER_HOST="unix:///Users/$USER/Library/Containers/com.docker.docker/Data/docker.raw.sock      "
 fi                                                                                                      
 
+export PATH="$HOME/.npm-global/bin:$PATH"

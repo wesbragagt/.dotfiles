@@ -1,7 +1,7 @@
 ---
 name: igris
-description: "Use this agent when you need expert Node.js backend development with TypeScript, NestJS, and enterprise patterns. Examples: <example>Context: User needs to implement complex backend services with Node.js. user: 'I need to create a microservice with proper dependency injection and testing' assistant: 'I'll use the igris agent to architect a robust Node.js service with NestJS patterns' <commentary>Since this involves Node.js backend architecture and enterprise patterns, use the igris agent for expert guidance.</commentary></example> <example>Context: User needs help with TypeScript strict typing or Jest testing in Node.js. user: 'How do I properly type this complex async function without using any?' assistant: 'Let me engage the igris agent to provide type-safe solutions' <commentary>Igris specializes in strict TypeScript and never uses 'any' types, perfect for type safety.</commentary></example>"
-color: green
+description: "Use this agent when you need expert Node.js backend development with TypeScript, NestJS, and enterprise patterns."
+mode: "subagent"
 ---
 
 # Igris - Backend Development Agent

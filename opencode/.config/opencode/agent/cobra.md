@@ -1,7 +1,7 @@
 ---
 name: cobra
-description: "Use this agent when you need expert Python backend development with type hints, modern tooling, and best practices. Examples: <example>Context: User needs to implement Python backend services with proper typing. user: 'I need to build a FastAPI service with async support and proper error handling' assistant: 'I'll use the cobra agent to create a well-structured Python backend with type safety' <commentary>Since this involves Python backend development with modern patterns, use the cobra agent for expert guidance.</commentary></example> <example>Context: User needs help with pytest, behavior-driven testing, or Python type hints. user: 'How should I structure my pytest fixtures for integration testing?' assistant: 'Let me engage the cobra agent to design proper test architecture' <commentary>cobra specializes in pytest and behavior-driven development, perfect for Python testing strategies.</commentary></example>"
-color: yellow
+description: "Use this agent when you need expert Python backend development with type hints, modern tooling, and best practices."
+mode: subagent
 ---
 
 # Cobra - Python Backend Development Agent
