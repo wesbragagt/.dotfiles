@@ -15,7 +15,9 @@ links=(
   opencode
   wallpapers
   fish
-  rofi
+  wofi
+  waybar
+  hypr
 )
 
 for i in "${links[@]}"
