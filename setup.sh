@@ -18,6 +18,7 @@ links=(
   wofi
   waybar
   hypr
+  swappy
 )
 
 for i in "${links[@]}"
