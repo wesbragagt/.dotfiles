@@ -1,0 +1,29 @@
+# ~/.config/mako/config
+font=JetBrains Mono 10
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#89b4fa
+border-size=2
+border-radius=8
+padding=10
+margin=10
+width=300
+height=120
+max-visible=5
+default-timeout=8000
+anchor=top-right
+layer=overlay
+output=*
+icons=1
+outer-margin=10
+
+[urgency=low]
+border-color=#6c7086
+
+[urgency=normal]
+border-color=#89b4fa
+
+[urgency=high]
+border-color=#f38ba8
+default-timeout=0
+

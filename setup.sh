@@ -15,10 +15,16 @@ links=(
   opencode
   wallpapers
   fish
+  # Launcher
   wofi
+  # Status bar
   waybar
+  # Hyprland
   hypr
+  # Screenshots
   swappy
+  # Notification daemon
+  mako
 )
 
 for i in "${links[@]}"
