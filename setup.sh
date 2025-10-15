@@ -17,6 +17,7 @@ links=(
   fish
   # Launcher
   wofi
+  rofi
   # Status bar
   waybar
   # Hyprland

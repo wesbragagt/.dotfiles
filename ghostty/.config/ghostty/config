@@ -2,3 +2,4 @@ window-decoration = false
 macos-titlebar-style = hidden
 background-opacity = 0.9
 background-blur-radius = 0
+confirm-close-surface = false

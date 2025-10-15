@@ -27,6 +27,7 @@ if [ "$TMUX" ]; then
 fi
 export WORK_DIR="$HOME/dev/work"
 export XDG_CONFIG_HOME="$HOME/.config"
+export TMUX_CONF="$XDG_CONFIG_HOME/tmux/tmux.conf"
 export TYPESCRIPT_PLAYGROUND="$HOME/.playground/typescript"
 export BASH_PLAYGROUND="$HOME/.playground/bash"
 export DEBUG_ADAPTERS_DIR="$HOME/.debug_adapters"

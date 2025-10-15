@@ -1,0 +1,92 @@
+* {
+    font: "JetBrains Mono 10";
+    background: #1e1e2e;
+    foreground: #cdd6f4;
+    border-color: #89b4fa;
+    selected-background: #313244;
+    selected-foreground: #f5e0dc;
+    accent: #89b4fa;
+    border-radius: 12px;
+}
+
+window {
+    width: 85%;
+    border: 1px;
+    border-color: @accent;
+    border-radius: 16px;
+    background-color: rgba(30, 30, 46, 0.95);
+    padding: 20px;
+    location: center;
+}
+
+mainbox {
+    spacing: 12px;
+    border: 0;
+    background-color: @background;
+    children: [inputbar, listview];
+}
+
+inputbar {
+    padding: 5px;
+    background-color: #313244;
+    text-color: @foreground;
+}
+
+entry {
+  background-color: @background;
+  text-color: @accent;
+  padding: 10px;
+}
+
+prompt {
+    text-color: @accent;
+    background-color: @background;
+    padding: 10px;
+}
+
+
+listview {
+    columns: 5;
+    spacing: 12px;
+    cycle: true;
+    dynamic: true;
+    background-color: @background;
+    scrollbar: false;
+}
+
+element {
+    border: 2px;  /* Increased from 1px */
+    border-radius: 12px;
+    padding: 6px;
+    background-color: #181825;
+    text-color: @foreground;
+    orientation: vertical;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+    border-color: #45475a;  /* Changed: visible but subtle gray */
+}
+
+element selected {
+    background-color: #313244;
+    border: 3px;  /* Thicker border for selected state */
+    border-color: #89b4fa;  /* Keep the accent blue */
+    text-color: @selected-foreground;
+}
+
+element-icon {
+    size: 200px;
+    border-radius: 10px;
+    margin: 0px;
+    background-color: #181825;        /* darken behind image */
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 1.0;
+    text-color: #a6adc8;
+    background-color: transparent;
+    border: 0;
+    padding: 6px 0 0 0;
+    font: "JetBrains Mono Medium 9";
+}
+

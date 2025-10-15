@@ -46,7 +46,8 @@
       "class<com.mitchellh.ghostty>": "", // Foot terminal icon
       "title<.*youtube.*>": "", // YouTube icon by title
       "title<.*slack.*>": "",
-      "class<Spotify>": ""
+      "class<Spotify>": "",
+      "class<DBeaver>": "󰆼"
       // Add more rules for other applications
     }
   },
