@@ -12,6 +12,7 @@ links=(
   nix
   starship
   ghostty
+  foot
   opencode
   wallpapers
   fish

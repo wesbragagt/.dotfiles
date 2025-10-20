@@ -199,7 +199,7 @@ local servers = {
   -- using typescript tools instead
   -- ts_ls = {},
   terraformls = {
-    cmd = "terraform-lsp"
+    filetypes = { "terraform", "hcl" }
   }
 }
 

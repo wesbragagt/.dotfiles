@@ -50,6 +50,7 @@ fi
 # make git use nvim for editing
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+export MANPAGER="nvim +Man!"
 
 # fnm
 FNM_PATH="/home/wesbragagt/.local/share/fnm"

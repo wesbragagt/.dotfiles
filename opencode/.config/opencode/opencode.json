@@ -110,9 +110,16 @@
         "-y",
         "@upstash/context7-mcp@latest"
       ]
+    },
+    "ddg-search": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "duckduckgo-mcp-server"
+      ]
     }
   },
-    "keybinds": {
+  "keybinds": {
     "leader": "ctrl+x",
     "app_help": "<leader>h",
     "app_exit": "ctrl+c,<leader>q",

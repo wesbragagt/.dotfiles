@@ -1,0 +1,115 @@
+
+
+services:
+  # Development environment with full Neovim setup
+  neovim-dev:
+    build:
+      context: .
+      target: development
+    image: neovim-dev:latest
+    container_name: neovim-dev
+    stdin_open: true
+    tty: true
+    volumes:
+      - ../nvim/.config/nvim:/app/nvim-config:ro
+      - ./flake.nix:/app/flake.nix:ro
+      - ./flake.lock:/app/flake.lock:ro
+      - neovim-data:/home/neovim-dev/.local/share/nvim
+      - neovim-cache:/home/neovim-dev/.cache/nvim
+    environment:
+      - USER=neovim-dev
+      - HOME=/home/neovim-dev
+      - EDITOR=nvim
+      - VISUAL=nvim
+    working_dir: /app
+    command: nix --extra-experimental-features nix-command --extra-experimental-features flakes develop --command nvim
+    networks:
+      - neovim-network
+
+  # Minimal testing environment
+  neovim-test:
+    build:
+      context: .
+      target: test
+    image: neovim-test:latest
+    container_name: neovim-test
+    environment:
+      - USER=testuser
+      - HOME=/home/testuser
+    working_dir: /app
+    command: nix --extra-experimental-features nix-command --extra-experimental-features flakes develop --command bash -c "echo '🧪 Running minimal test...' && nvim --version && echo '✅ Basic test passed!'"
+    networks:
+      - neovim-network
+
+  # Production environment
+  neovim-prod:
+    build:
+      context: .
+      target: production
+    image: neovim-prod:latest
+    container_name: neovim-prod
+    stdin_open: true
+    tty: true
+    volumes:
+      - neovim-prod-data:/home/neovim-dev/.local/share/nvim
+      - neovim-prod-cache:/home/neovim-dev/.cache/nvim
+    environment:
+      - USER=neovim-dev
+      - HOME=/home/neovim-dev
+      - EDITOR=nvim
+      - VISUAL=nvim
+    working_dir: /app
+    profiles:
+      - production
+    networks:
+      - neovim-network
+
+  # CI/CD testing environment
+  neovim-ci:
+    build:
+      context: .
+      target: ci
+    image: neovim-ci:latest
+    container_name: neovim-ci
+    environment:
+      - CI=true
+      - NONINTERACTIVE=true
+      - USER=testuser
+      - HOME=/home/testuser
+    working_dir: /app
+    command: bash /app/test.sh
+    profiles:
+      - ci
+    networks:
+      - neovim-network
+
+  # Service for running specific commands
+  neovim-cmd:
+    build:
+      context: .
+      target: development
+    image: neovim-dev:latest
+    container_name: neovim-cmd
+    environment:
+      - USER=neovim-dev
+      - HOME=/home/neovim-dev
+    working_dir: /app
+    command: nix --extra-experimental-features nix-command --extra-experimental-features flakes develop --command bash
+    profiles:
+      - commands
+    networks:
+      - neovim-network
+
+volumes:
+  neovim-data:
+    driver: local
+  neovim-cache:
+    driver: local
+  neovim-prod-data:
+    driver: local
+  neovim-prod-cache:
+    driver: local
+
+networks:
+  neovim-network:
+    driver: bridge
