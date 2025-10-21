@@ -6,15 +6,14 @@
   "spacing": 4,
   // Choose the order of the modules
   "modules-left": [
-    "hyprland/workspaces",
-    "custom/sep",
     "hyprland/window",
     "custom/sep"
   ],
   "modules-center": [
-    "clock"
+    "hyprland/workspaces"
   ],
   "modules-right": [
+    "pulseaudio",
     "custom/sep",
     "network",
     "custom/sep",
@@ -25,7 +24,8 @@
     "disk",
     "custom/sep",
     "custom/sep",
-    "tray"
+    "tray",
+    "clock"
   ],
   // Modules configuration
   // "hyprland/workspaces": {
@@ -43,7 +43,7 @@
     "window-rewrite-default": "", // Default icon for unknown windows
     "window-rewrite": {
       "class<zen>": "", // Firefox icon
-      "class<com.mitchellh.ghostty>": "", // Foot terminal icon
+      "class<foot>": "", // Foot terminal icon
       "title<.*youtube.*>": "", // YouTube icon by title
       "title<.*slack.*>": "",
       "class<Spotify>": "",
@@ -81,5 +81,18 @@
   "custom/sep": {
     "format": "|",
     "interval": 0
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-icons": {
+      "default": [
+        "\uf026",
+        "\uf027",
+        "\uf028"
+      ]
+    },
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "format-muted": "\uf00d {volume}%"
   }
 }
