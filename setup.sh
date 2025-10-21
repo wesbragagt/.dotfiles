@@ -9,7 +9,6 @@ links=(
   karabiner 
   wezterm
   sesh
-  nix
   starship
   ghostty
   foot
@@ -27,6 +26,9 @@ links=(
   swappy
   # Notification daemon
   mako
+
+  # database management
+  harlequin
 )
 
 for i in "${links[@]}"
