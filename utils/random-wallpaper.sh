@@ -1,10 +1,5 @@
-#!/usr/bin/env bash
+    #!/usr/bin/bash
 
-WALLPAPER_DIR="$HOME/wallpapers/"
-CURRENT_WALL=$(hyprctl hyprpaper listloaded)
-
-# Get a random wallpaper that is not the current one
-WALLPAPER=$(find "$WALLPAPER_DIR" -type f ! -name "$(basename "$CURRENT_WALL")" | shuf -n 1)
-
-# Apply the selected wallpaper
-hyprctl hyprpaper reload ,"$WALLPAPER"
+    WALLPAPERS_DIR=~/wallpapers/anime-original-freedom-flight.jpg # Adjust this path as needed
+    WALLPAPER=$(find "$WALLPAPERS_DIR" -type f | shuf -n 1) # Randomly select an image
+    swww img "$WALLPAPER" --transition-type wipe --transition-duration 2

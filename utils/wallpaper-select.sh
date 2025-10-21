@@ -42,7 +42,7 @@ generate_thumb() {
 
 # --- BUILD ROFI INPUT LIST ---
 LIST_FILE=$(mktemp)
-for img in "$WALLPAPER_DIR"/*.{jpg,jpeg,png}; do
+for img in "$WALLPAPER_DIR"/*.{jpg,jpeg,png,gif}; do
     [[ -e "$img" ]] || continue
     thumb=$(generate_thumb "$img")
     name=$(basename "${img%.*}")
