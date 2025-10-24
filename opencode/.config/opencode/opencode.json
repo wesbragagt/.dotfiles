@@ -100,7 +100,8 @@
       "command": [
         "npx",
         "-y",
-        "@playwright/mcp@latest"
+        "@playwright/mcp@latest",
+        "--isolated"
       ]
     },
     "context7": {
