@@ -89,11 +89,6 @@ return {
       { "<leader>tf", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
     }
   },
-  -- {
-  --   "pmizio/typescript-tools.nvim",
-  --   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-  --   opts = {},
-  -- },
   {
     "ibhagwan/fzf-lua",
     -- optional for icon support
@@ -159,15 +154,6 @@ return {
     end,
   },
   { "tpope/vim-rhubarb" },
-  -- DEBUGGER
-  { "mfussenegger/nvim-dap" },
-  { "mfussenegger/nvim-dap-python" },
-  {
-    "rcarriga/nvim-dap-ui",
-    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
-    event = "VeryLazy",
-  },
-  { "theHamsta/nvim-dap-virtual-text" },
   -- File Manager vim editor
   { "stevearc/oil.nvim" },
   {
@@ -189,29 +175,5 @@ return {
     version = "*",
     config = true,
     event = "VeryLazy",
-  },
-  {
-  "coder/claudecode.nvim",
-  dependencies = { "folke/snacks.nvim" },
-  config = true,
-  keys = {
-    { "<leader>ai", nil, desc = "AI/Claude Code" },
-    { "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
-    { "<leader>af", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude" },
-    { "<leader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
-    { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
-    { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
-    { "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>", desc = "Add current buffer" },
-    { "<leader>as", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Send to Claude" },
-    {
-      "<leader>as",
-      "<cmd>ClaudeCodeTreeAdd<cr>",
-      desc = "Add file",
-      ft = { "NvimTree", "neo-tree", "oil", "minifiles" },
-    },
-    -- Diff management
-    { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
-    { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
-  },
-}
+  }
 }
