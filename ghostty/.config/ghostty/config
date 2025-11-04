@@ -1,3 +1,6 @@
+font-size = 14
+background = "1e1e2e"
+foreground = "c6d0e8"
 window-decoration = false
 macos-titlebar-style = hidden
 background-opacity = 0.9
