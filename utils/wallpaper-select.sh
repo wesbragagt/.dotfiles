@@ -54,7 +54,7 @@ SELECTED=$(rofi -dmenu \
     -theme "$THEME" \
     -p "Select wallpaper:" \
     -show-icons \
-    -theme-str 'listview { columns: 4; lines: 2; } window { width: 1200px; }' \
+    -theme-str 'listview { columns: 4; lines: 4; } window { width: 1200px; }' \
     -format "s" < "$LIST_FILE" 2>/dev/null)
 
 [ -z "$SELECTED" ] && exit 0

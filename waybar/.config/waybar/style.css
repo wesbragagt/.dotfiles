@@ -1,4 +1,7 @@
 /* style.css — Catppuccin Mocha inspired */
+@define-color blur_background rgba(26, 17, 15, 0.3);
+@define-color blur_background8 rgba(26, 17, 15, 0.8);
+
 @define-color bg #1e1e2e;
 @define-color fg #cdd6f4;
 @define-color accent #1e66f5;
