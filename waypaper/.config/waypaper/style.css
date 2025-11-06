@@ -1,0 +1,128 @@
+/* Tokyo Night palette
+   bg:    #1a1b26
+   bg+1:  #1f2335
+   bg+2:  #24283b
+   ui:    #3b4261
+   text:  #c0caf5
+   sub:   #a9b1d6
+   accent:#7aa2f7
+   magenta:#bb9af7
+   red:   #f7768e
+*/
+
+/* Window */
+window {
+    background-color: #1a1b26;
+    color: #c0caf5;
+    border: 1px solid #3b4261;
+    border-radius: 12px;
+}
+
+/* Generic text */
+label, entry, combobox, button, spinbutton {
+    color: #c0caf5;
+}
+
+/* Inputs */
+entry, combobox, spinbutton {
+    background: #1f2335;
+    border: 1px solid #3b4261;
+    border-radius: 8px;
+    caret-color: #7aa2f7;
+}
+entry selection, textview text selection {
+    background-color: #7aa2f7;
+    color: #1a1b26;
+}
+
+/* Buttons */
+button {
+    background: #24283b;
+    border: 1px solid #3b4261;
+    border-radius: 10px;
+    transition: background 120ms ease, border-color 120ms ease, transform 120ms ease;
+}
+button:hover {
+    background: #2a2f45;
+    border-color: #7aa2f7;
+    transform: translateY(-1px);
+    box-shadow: 0 0 0 1px rgba(122,162,247,0.35);
+}
+button:active {
+    background: #1f2335;
+    border-color: #7aa2f7;
+    transform: translateY(0);
+}
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(122,162,247,0.35);
+    border-color: #7aa2f7;
+}
+
+/* Keep icons crisp, no weird glow */
+button > image,
+button:hover > image {
+    -gtk-icon-shadow: none;
+    -gtk-icon-effect: none;
+}
+
+/* Highlighted/selected action */
+.highlighted-button {
+    background: #2e3a59;            /* slight violet tint */
+    border: 1px solid #7aa2f7;
+    box-shadow: inset 0 0 0 1px rgba(187,154,247,0.35);
+}
+.highlighted-button > image,
+.highlighted-button:hover > image {
+    -gtk-icon-effect: highlight;
+}
+
+/* Flowbox (thumbnail grid) — Waypaper uses GtkFlowBox */
+flowboxchild {
+    background: #1f2335;
+    border: 1px solid #2a2f45;
+    border-radius: 8px;
+}
+flowboxchild:hover {
+    border-color: #7aa2f7;
+}
+flowboxchild:selected,
+flowboxchild:selected:focus {
+    border-color: #7aa2f7;
+    box-shadow: 0 0 0 2px rgba(122,162,247,0.35);
+}
+
+/* Toolbars / header rows (top controls) */
+toolbar, headerbar, .titlebar {
+    background: #1a1b26;
+    border-bottom: 1px solid #3b4261;
+}
+toolbar entry, toolbar combobox {
+    background: #1f2335;
+}
+
+/* Progress bars (bottom stripes in Waypaper) */
+progressbar trough {
+    background: #1f2335;
+    border: 1px solid #2a2f45;
+    border-radius: 6px;
+}
+progressbar progress,
+scale highlight {
+    background: #7aa2f7;
+    border-radius: 6px;
+}
+
+/* Scrollbar */
+scrollbar trough { background: #1f2335; }
+scrollbar slider {
+    background: #2a2f45;
+    border: 1px solid #3b4261;
+    border-radius: 6px;
+}
+scrollbar slider:hover { background: #33406a; }
+
+/* Badges / warnings (optional) */
+.error, .destructive-action { color: #f7768e; }
+.dim-label { color: #a9b1d6; }
+
