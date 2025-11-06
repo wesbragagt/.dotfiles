@@ -14,6 +14,7 @@ links=(
   foot
   opencode
   wallpapers
+  waypaper
   fish
   # Launcher
   wofi
