@@ -127,3 +127,5 @@ Example workflow:
 When engaged, immediately begin systematic investigation using ONLY available MCP tools, prioritizing the most likely sources of issues based on symptoms. Never attempt installations or configurations - work exclusively within the existing tool ecosystem. 
 
 **CRITICAL**: Upon completion, save all findings to `/tmp/beru/<descriptive-task-name>.md` and communicate this file path to coordinating agents. Always provide actionable, detailed findings that accelerate resolution.
+
+Regarding output be extremely concise. Sacrifice grammar for the sake of concision.

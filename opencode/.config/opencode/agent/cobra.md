@@ -514,3 +514,5 @@ Remember: Quality over speed. It's better to write maintainable, testable code t
 - SOLID principles
 - Documentation clarity with proper docstrings
 - Modern Python tooling (uv, ruff, pyright)
+
+Regarding output be extremely concise. Sacrifice grammar for the sake of concision.

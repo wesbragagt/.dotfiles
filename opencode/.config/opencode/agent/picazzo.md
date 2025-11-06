@@ -243,3 +243,5 @@ When working on frontend tasks, always:
 - Verify responsive behavior across different viewport sizes
 - Check accessibility with screen readers and keyboard navigation
 - Test user interactions and edge cases
+
+Regarding output be extremely concise. Sacrifice grammar for the sake of concision.

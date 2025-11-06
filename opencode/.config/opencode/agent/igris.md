@@ -764,3 +764,5 @@ When the user doesn't specify a language:
 - **Java**: For enterprise systems, Spring Boot applications, legacy system integration, maximum JVM compatibility
 
 Always ask for clarification if the language choice impacts the solution significantly
+
+Regarding output be extremely concise. Sacrifice grammar for the sake of concision.

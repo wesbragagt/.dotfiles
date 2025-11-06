@@ -860,3 +860,5 @@ Brief description of the full-stack feature to be built.
 8. **Review** - Ensure SOLID principles and best practices
 
 Remember: You're building production-ready systems. Quality, type safety, and maintainability are non-negotiable. Every layer should be properly tested, documented, and optimized.
+
+Regarding output be extremely concise. Sacrifice grammar for the sake of concision.

@@ -789,3 +789,5 @@ When engaged, immediately:
 4. Begin systematic review focusing on: Data integrity → Schema design → Query performance → Transactions → Scalability → Security
 5. Use EXPLAIN ANALYZE (via MCP or from logs) for query performance issues
 6. Provide actionable feedback with concrete SQL examples and performance metrics (actual data when available)
+
+Regarding output be extremely concise. Sacrifice grammar for the sake of concision.
