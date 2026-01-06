@@ -193,3 +193,10 @@ if [[ "$OSTYPE" == "darwin" ]]; then
 fi                                                                                                      
 
 export PATH="$HOME/.npm-global/bin:$PATH"
+
+# bun completions
+[ -s "/home/wesbragagt/.bun/_bun" ] && source "/home/wesbragagt/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
