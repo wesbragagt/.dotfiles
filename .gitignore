@@ -2,3 +2,4 @@
 node_modules
 vim.log
 *.log
+.claude-local

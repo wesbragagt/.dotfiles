@@ -21,6 +21,8 @@ grep -q ".claude-local" .gitignore 2>/dev/null || echo ".claude-local/" >> .giti
 .claude-local/
 ├── jobs/
 │   ├── <job-name>/
+│   │   ├── prompt.txt   # Task prompt (auto-generated)
+│   │   ├── run.sh       # Runner script (auto-generated)
 │   │   ├── log.txt      # Execution output (auto-captured)
 │   │   ├── notes.md     # Progress, decisions, results
 │   │   └── artifacts/   # Generated files
@@ -43,6 +45,8 @@ grep -q ".claude-local" .gitignore 2>/dev/null || echo ".claude-local/" >> .giti
 ~/.claude/skills/tmux/dispatch.sh "<job-name>" "<task>" [model]
 # model: haiku (fast/cheap), sonnet (default), opus (complex)
 ```
+
+**Note:** Task descriptions are written to a file before execution, so quotes, special characters (`$`, backticks, etc.) are handled safely. No need to escape.
 
 ## Task Decomposition Rules
 
@@ -67,13 +71,11 @@ Examples: `api-auth`, `ui-dashboard`, `test-e2e`, `db-migration`
 ~/.claude/skills/tmux/dispatch.sh "ui-components" "Create React components" haiku
 ~/.claude/skills/tmux/dispatch.sh "db-schema" "Design database tables" haiku
 
-# Dependent task - reference other jobs' notes
-~/.claude/skills/tmux/dispatch.sh "integration" "
-Wire up frontend to API.
+# Dependent task - multi-line descriptions work safely
+~/.claude/skills/tmux/dispatch.sh "integration" "Wire up frontend to API.
 Read specs from:
 - .claude-local/jobs/api-endpoints/notes.md
-- .claude-local/jobs/ui-components/notes.md
-" sonnet
+- .claude-local/jobs/ui-components/notes.md" sonnet
 ```
 
 ## Monitoring
