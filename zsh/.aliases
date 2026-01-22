@@ -1,6 +1,5 @@
 alias pod="podman"
 
-alias harlequin="harlequin --theme tokyo-night"
 alias ls="eza -ol --icons=auto"
 alias tree="eza -ol -T --icons=auto"
 alias ccd="claude --dangerously-skip-permissions"
