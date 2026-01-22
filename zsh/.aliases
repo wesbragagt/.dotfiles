@@ -3,6 +3,12 @@ alias pod="podman"
 alias ls="eza -ol --icons=auto"
 alias tree="eza -ol -T --icons=auto"
 alias ccd="claude --dangerously-skip-permissions"
+ccq(){
+  claude -p --dangerously-skip-permissions --model opus --tools "" --allowedTools "WebSearch" --system-prompt "You answer questions concisely for terminal output. Use WebSearch to find current information when needed. Format responses in markdown, keeping them under 50 lines. Be direct and factual. Include sources when citing specific facts." "$*" | glow
+}
+ccqq(){
+claude -p --dangerously-skip-permissions --model sonnet --tools "" --allowedTools "mcp__exa__get_code_context_exa" --system-prompt "You are a code assistant. Use the mcp__exa__get_code_context_exa tool to find relevant code examples, API documentation, and library usage patterns. Return concise, practical answers under 50 lines. Focus on working code examples. Format with markdown code blocks." "$*" | glow
+}
 alias got="gh pr view --web"
 alias als="vi $DOTFILES/zsh/.aliases"
 alias dot="cd $DOTFILES"
