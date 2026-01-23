@@ -7,6 +7,9 @@ TASK="$2"
 MODEL="${3:-sonnet}"
 WS=".claude-local/jobs/$JOB"
 
+# Minimal tools for autonomous agents
+TOOLS="Bash,Read,Edit,Write,Glob,Grep"
+
 if [ -z "$JOB" ] || [ -z "$TASK" ]; then
   echo "Usage: $0 <job-name> <task-description> [model]"
   echo "  model: haiku, sonnet, opus (default: sonnet)"
@@ -44,6 +47,7 @@ WORKDIR="$(pwd)"
 JOBDIR="$WS"
 MODEL="$MODEL"
 JOBNAME="$JOB"
+TOOLS="$TOOLS"
 RUNNER_VARS
 
 # Append the rest without expansion (uses single-quoted heredoc marker)
@@ -51,13 +55,15 @@ cat >> "$WS/run.sh" << 'RUNNER_BODY'
 cd "$WORKDIR" || exit 1
 echo '═══════════════════════════════════════════════════'
 echo "Job: $JOBNAME (model: $MODEL)"
+echo "Tools: $TOOLS"
 echo 'Detach: Ctrl-b d | Stop: Ctrl-c'
 echo '═══════════════════════════════════════════════════'
 echo ''
 # Export vars so they're available inside script -c subshell
 export CLAUDE_PROMPT="$(cat "$JOBDIR/prompt.txt")"
 export MODEL
-script -q -c 'FORCE_COLOR=1 claude --model "$MODEL" --dangerously-skip-permissions --verbose "$CLAUDE_PROMPT"' "$JOBDIR/log.txt"
+export TOOLS
+script -q -c 'FORCE_COLOR=1 claude --model "$MODEL" --permission-mode bypassPermissions --tools "$TOOLS" --verbose "$CLAUDE_PROMPT"' "$JOBDIR/log.txt"
 EXIT_CODE=$?
 echo ''
 echo '═══════════════════════════════════════════════════'
@@ -69,7 +75,7 @@ RUNNER_BODY
 chmod +x "$WS/run.sh"
 tmux new-window -n "$JOB" "$WS/run.sh"
 
-echo "✓ Dispatched: $JOB"
+echo "✓ Dispatched: $JOB (tools: $TOOLS)"
 echo "  Attach:  tmux select-window -t $JOB"
 echo "  Monitor: tail -f $WS/log.txt"
 echo "  Notes:   cat $WS/notes.md"

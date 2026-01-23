@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chmod:*)",
+      "mcp__server-fetch__fetch",
+      "WebFetch(domain:github.com)",
+      "Bash(ls:*)",
+      "Bash(tree:*)",
+      "mcp__notes-mcp__write_work"
+    ],
+    "deny": []
+  }
+}

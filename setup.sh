@@ -12,10 +12,8 @@ links=(
   starship
   ghostty
   foot
-  opencode
   wallpapers
   waypaper
-  fish
   # Launcher
   wofi
   rofi
@@ -27,9 +25,6 @@ links=(
   swappy
   # Notification daemon
   mako
-
-  # database management
-  harlequin
 )
 
 for i in "${links[@]}"
