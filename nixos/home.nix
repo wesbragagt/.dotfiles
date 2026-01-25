@@ -125,7 +125,7 @@ in
 
   # Link wallpapers
   home.file.".dotfiles/wallpapers" = {
-    source = "${dotfiles}/wallpapers";
+    source = ./wallpapers;
     recursive = true;
   };
 
