@@ -4,7 +4,7 @@ let
   dotfiles = pkgs.fetchgit {
     url = "https://github.com/wesbragagt/.dotfiles.git";
     rev = "503bb07";
-    sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+    sha256 = "sha256-PR2dTe8c4PFRUXnV4hApbjZx7SfR8t+EIV6IbybX8qQ=";
     fetchLFS = true;
   };
 
