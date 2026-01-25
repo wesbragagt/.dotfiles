@@ -73,6 +73,8 @@ in
     networkmanagerapplet
     fzf
     git-lfs
+    rofi
+    papirus-icon-theme
 
     # Neovim dependencies (neovim provided by custom module)
     ripgrep

@@ -39,7 +39,50 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "zen-browser": "zen-browser"
+      }
+    },
+    "zen-browser": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "zen-browser-flake": "zen-browser-flake"
+      },
+      "locked": {
+        "lastModified": 1762567904,
+        "narHash": "sha256-g8I5kVZkK8jlkF2ncKfqh3S5dapuDVk56A78nk9g3Iw=",
+        "owner": "LunaCOLON3",
+        "repo": "zen-browser-nix",
+        "rev": "464d671d83ea16a2f427b8426a21a214aa1da26d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LunaCOLON3",
+        "repo": "zen-browser-nix",
+        "type": "github"
+      }
+    },
+    "zen-browser-flake": {
+      "inputs": {
+        "nixpkgs": [
+          "zen-browser",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1761883599,
+        "narHash": "sha256-ntnfAAqSuXI/+uqXAWUjbY5arB7sRK9cpgFbHbCZgK8=",
+        "owner": "youwen5",
+        "repo": "zen-browser-flake",
+        "rev": "5355c0dc6857a2aa34b126fb4a93a454ed702f52",
+        "type": "github"
+      },
+      "original": {
+        "owner": "youwen5",
+        "repo": "zen-browser-flake",
+        "type": "github"
       }
     }
   },
