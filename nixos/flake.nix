@@ -22,7 +22,12 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.wesbragagt = import ./home.nix;
+          home-manager.users.wesbragagt = { config, pkgs, lib, ... }: {
+            imports = [
+              ./home.nix
+              zen-browser.homeManagerModules.zen-browser
+            ];
+          };
           home-manager.extraSpecialArgs = { inherit zen-browser; };
         }
       ];
