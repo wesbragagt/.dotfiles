@@ -82,6 +82,7 @@ in
     pavucontrol
     networkmanagerapplet
     fzf
+    git-lfs
 
     # Neovim dependencies (neovim provided by custom module)
     ripgrep
