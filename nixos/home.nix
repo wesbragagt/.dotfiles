@@ -73,7 +73,6 @@ in
     networkmanagerapplet
     fzf
     git-lfs
-    rofi
 
     # Neovim dependencies (neovim provided by custom module)
     ripgrep
