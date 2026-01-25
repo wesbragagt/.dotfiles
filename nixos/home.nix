@@ -1,13 +1,6 @@
 { config, pkgs, lib, ... }:
 
 let
-  dotfiles = pkgs.fetchgit {
-    url = "https://github.com/wesbragagt/.dotfiles.git";
-    rev = "503bb07";
-    sha256 = "sha256-PR2dTe8c4PFRUXnV4hApbjZx7SfR8t+EIV6IbybX8qQ=";
-    fetchLFS = true;
-  };
-
   neovim-dev = pkgs.neovim-unwrapped.overrideAttrs (oldAttrs: {
     version = "v0.12.0-dev";
     src = pkgs.fetchFromGitHub {
@@ -98,14 +91,6 @@ in
     };
     "waybar" = {
       source = ./modules/waybar;
-      recursive = true;
-    };
-    "foot" = {
-      source = "${dotfiles}/foot/.config/foot";
-      recursive = true;
-    };
-    "mako" = {
-      source = "${dotfiles}/mako/.config/mako";
       recursive = true;
     };
     "tmux" = {
