@@ -18,6 +18,7 @@
       system = "aarch64-linux";
       modules = [
         ./configuration.nix
+        { nixpkgs.overlays = [ zen-browser.overlay ]; }
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
@@ -28,7 +29,6 @@
               zen-browser.homeManagerModules.zen-browser
             ];
           };
-          home-manager.extraSpecialArgs = { inherit zen-browser; };
         }
       ];
     };
