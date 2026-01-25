@@ -7,9 +7,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser = {
+      url = "github:LunaCOLON3/zen-browser-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }: {
+  outputs = { self, nixpkgs, home-manager, zen-browser, ... }: {
     nixosConfigurations.nixos-arm = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
@@ -19,6 +23,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.wesbragagt = import ./home.nix;
+          home-manager.extraSpecialArgs = { inherit zen-browser; };
         }
       ];
     };
