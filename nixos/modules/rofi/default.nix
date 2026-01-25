@@ -264,7 +264,8 @@ in
       recursive = true;
     };
 
-    home.packages = home.packages ++ [
+    # Theme selector script
+    home.packages = [
       (pkgs.writeShellScriptBin {
         name = "rofi-theme-selector";
         text = builtins.readFile ./theme-selector.sh;
