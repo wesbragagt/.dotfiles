@@ -32,7 +32,11 @@
     isNormalUser = true;
     description = "wesbragagt";
     extraGroups = [ "networkmanager" "wheel" "video" ];
+    shell = pkgs.zsh;
   };
+
+  # Zsh
+  programs.zsh.enable = true;
 
   # Hyprland
   programs.hyprland = {
@@ -50,7 +54,7 @@
         user = "wesbragagt";
       };
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --asterisks --remember --remember-user-session --time --cmd 'uwsm start hyprland-uwsm.desktop'";
+        command = "${pkgs.tuigreet}/bin/tuigreet --asterisks --remember --remember-user-session --time --cmd 'uwsm start hyprland-uwsm.desktop'";
         user = "greeter";
       };
     };

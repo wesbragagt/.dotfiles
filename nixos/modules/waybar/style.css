@@ -1,0 +1,60 @@
+/* style.css — Catppuccin Mocha inspired */
+@define-color blur_background rgba(26, 17, 15, 0.3);
+@define-color blur_background8 rgba(26, 17, 15, 0.8);
+
+@define-color bg #1e1e2e;
+@define-color fg #cdd6f4;
+@define-color accent #1e66f5;
+@define-color sep #45475a;
+@define-color highlight #b4befe;
+
+* {
+  border: none;
+  font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
+  font-size: 13px;
+  color: @fg;
+  background: transparent;
+}
+
+window#waybar {
+  background: @bg;
+  border-radius: 12px;
+  margin: 6px 10px;
+  padding: 4px 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+#workspaces button {
+  padding: 0 6px;
+  margin: 0 3px;
+  border-radius: 8px;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+#workspaces button.active {
+  background: @accent;
+  color: #1e1e2e;
+  font-weight: bold;
+}
+#workspaces button:hover {
+  background: @highlight;
+  color: #1e1e2e;
+}
+
+#clock,
+#cpu,
+#memory,
+#disk,
+#tray,
+#network,
+#window {
+  padding: 0 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  margin: 0 3px;
+}
+
+#custom-sep {
+  color: @sep;
+}
+
