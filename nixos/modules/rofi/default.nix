@@ -258,8 +258,8 @@ in
       }
     '');
 
-    # Theme selector script
-    xdg.dataFile."rofi/themes" = {
+    # Themes directory
+    xdg.configFile."rofi/themes" = {
       source = ./themes;
       recursive = true;
     };

@@ -44,12 +44,29 @@ gtk.iconTheme = {
 
 ### Available Themes
 
-Built-in themes in the module:
+Built-in themes in module:
 - `default` - Dark blue/cyan theme
 - `dracula` - Dracula color scheme
 - `nord` - Nord color scheme
 - `gruvbox-dark` - Gruvbox dark theme
 - `catppuccin` - Catppuccin (Mocha flavor)
+- `fresh` - Clean modern blue theme
+
+### Theme Selector
+
+Use the included theme selector to switch themes:
+
+```bash
+rofi-theme-selector
+```
+
+Or run directly:
+
+```bash
+rofi-theme-selector list  # List available themes
+rofi-theme-selector set catppuccin  # Set specific theme
+rofi-theme-selector set fresh  # Set specific theme
+```
 
 ### Configuration
 
