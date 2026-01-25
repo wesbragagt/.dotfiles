@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   dotfiles = pkgs.fetchgit {
@@ -16,12 +16,13 @@ in
   # Let home-manager manage itself
   programs.home-manager.enable = true;
 
-  # Cursor theme (traditional/default style)
+  # Cursor theme
   home.pointerCursor = {
     name = "Vanilla-DMZ";
     package = pkgs.vanilla-dmz;
     size = 24;
     gtk.enable = true;
+    x11.enable = true;
   };
 
   # Packages for hyprland setup
@@ -68,8 +69,7 @@ in
     pavucontrol
     networkmanagerapplet
 
-    # Neovim and dependencies
-    neovim
+    # Neovim dependencies (neovim provided by custom module)
     ripgrep
     fd
     bat
@@ -97,10 +97,6 @@ in
       source = "${dotfiles}/tmux/.config/tmux";
       recursive = true;
     };
-    "nvim" = {
-      source = "${dotfiles}/nvim/.config/nvim";
-      recursive = true;
-    };
   };
 
   # Link utils scripts to ~/.dotfiles/utils
@@ -113,5 +109,24 @@ in
   home.file.".dotfiles/wallpapers" = {
     source = "${dotfiles}/wallpapers";
     recursive = true;
+  };
+
+  # Link zsh dotfiles
+  home.file.".dotfiles/zsh" = {
+    source = "${dotfiles}/zsh";
+    recursive = true;
+  };
+
+  # Custom Neovim with vim.pack
+  services.neovim-custom = {
+    enable = true;
+    version = "v0.12.0-dev";
+  };
+
+  programs.zsh = {
+    enable = true;
+    initContent = lib.mkOrder 1000 ''
+      source $HOME/.dotfiles/zsh/.zshrc
+    '';
   };
 }
