@@ -118,18 +118,6 @@ in
     };
   };
 
-  # Link utils scripts to ~/.dotfiles/utils
-  home.file.".dotfiles/utils" = {
-    source = "${dotfiles}/utils";
-    recursive = true;
-  };
-
-  # Link wallpapers from dotfiles root wallpapers folder
-  home.file.".dotfiles/wallpapers" = {
-    source = "${dotfiles}/wallpapers";
-    recursive = true;
-  };
-
   # Link zsh config from local module
   programs.zsh = {
     enable = true;
