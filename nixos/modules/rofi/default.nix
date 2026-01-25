@@ -8,8 +8,8 @@ in
   options.programs.rofi-custom = {
     enable = lib.mkEnableOption "Enable custom Rofi configuration with themes and icons";
     theme = lib.mkOption {
-      type = lib.types.enum [ "default" "dracula" "nord" "gruvbox-dark" "catppuccin" ];
-      default = "default";
+      type = lib.types.enum [ "default" "dracula" "nord" "gruvbox-dark" "catppuccin" "fresh" ];
+      default = "nord";
       description = "Rofi theme to use";
     };
     iconTheme = lib.mkOption {
@@ -186,6 +186,41 @@ in
       separator {
         border-color: #45475a;
       }
+    '' else if cfg.theme == "fresh" then ''
+      /* Fresh Theme Colors */
+      * {
+        bg-color: #1a1b26;
+        fg-color: #a6accd;
+        selected-bg: #3ddbd9;
+        selected-fg: #1a1b26;
+        separator-color: #465c70;
+        urgent-bg: #e78a4e;
+        urgent-fg: #1a1b26;
+      }
+
+      window {
+        background-color: #1a1b26;
+        border-color: #3ddbd9;
+        border: 2;
+        border-radius: 8;
+        padding: 15;
+        width: 50;
+        height: 30;
+      }
+
+      element.selected {
+        background-color: #3ddbd9;
+        text-color: #1a1b26;
+      }
+
+      element.normal.normal {
+        background-color: #1a1b26;
+        text-color: #a6accd;
+      }
+
+      separator {
+        border-color: #465c70;
+      }
     '' else ''
       /* Default Theme Colors */
       * {
@@ -222,5 +257,18 @@ in
         border-color: #44475a;
       }
     '');
+
+    # Theme selector script
+    xdg.dataFile."rofi/themes" = {
+      source = ./themes;
+      recursive = true;
+    };
+
+    home.packages = home.packages ++ [
+      (pkgs.writeShellScriptBin {
+        name = "rofi-theme-selector";
+        text = builtins.readFile ./theme-selector.sh;
+      })
+    ];
   };
 }
