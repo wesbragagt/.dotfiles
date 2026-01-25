@@ -1,0 +1,108 @@
+* {
+  bg-color: #1e1e2e;
+  fg-color: #cdd6f4;
+  selected-bg: #f5c2e7;
+  selected-fg: #1e1e2e;
+  separator-color: #45475a;
+  urgent-bg: #eba0ac;
+  urgent-fg: #cdd6f4;
+  alternative-normal-bg: #181825;
+  alternative-normal-fg: #cdd6f4;
+  alternate-active-bg: #1e1e2e;
+  alternate-active-fg: #cdd6f4;
+  line-margin: 10;
+  line-padding: 2;
+  separator-style: dash;
+  hide-scrollbar: true;
+}
+
+window {
+  background-color: #1e1e2e;
+  border-color: #f5c2e7;
+  text-color: #cdd6f4;
+  padding: 15;
+  children: [ mainbox ];
+  border: 2;
+  border-radius: 8;
+}
+
+mainbox {
+  children: [ inputbar, message, listview ];
+  spacing: 10px;
+}
+
+inputbar {
+  children: [ textbox-prompt-colon, entry, mode-switcher ];
+  spacing: 10px;
+}
+
+textbox-prompt-colon {
+  expand: false;
+  str: "›";
+  text-color: #f5c2e7;
+  padding: 10px;
+}
+
+entry {
+  text-color: #cdd6f4;
+  placeholder-color: #585b70;
+  expand: true;
+  placeholder: "Search";
+  padding: 10px;
+  blink: true;
+}
+
+listview {
+  children: [ element ];
+  scrollbar: false;
+  spacing: 5px;
+}
+
+element {
+  padding: 10px;
+  border: 0;
+  border-radius: 5;
+  text-color: #cdd6f4;
+}
+
+element.selected {
+  background-color: #f5c2e7;
+  text-color: #1e1e2e;
+}
+
+element.normal.normal {
+  background-color: #1e1e2e;
+  text-color: #cdd6f4;
+}
+
+element.normal.active {
+  background-color: #f5c2e7;
+  text-color: #1e1e2e;
+}
+
+element.alternate.normal {
+  background-color: #181825;
+  text-color: #cdd6f4;
+}
+
+element.alternate.active {
+  background-color: #1e1e2e;
+  text-color: #cdd6f4;
+}
+
+mode-switcher {
+  expand: false;
+  children: [ button ];
+}
+
+button {
+  padding: 10px;
+  border-radius: 5;
+  background-color: #f5c2e7;
+  text-color: #1e1e2e;
+  border: 0;
+}
+
+button.selected {
+  background-color: #cba6f7;
+}
