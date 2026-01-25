@@ -105,7 +105,6 @@ in
   # Import local modules
   imports = [
     ./modules/nvim/default.nix
-    ./modules/rofi/default.nix
   ];
 
   # Link zsh config from local module
@@ -119,11 +118,4 @@ in
   programs.starship.enable = true;
 
   programs.zen-browser.enable = true;
-
-  # Enable custom rofi module
-  programs.rofi-custom = {
-    enable = true;
-    theme = "nord";
-    iconTheme = "papirus";
-  };
 }
