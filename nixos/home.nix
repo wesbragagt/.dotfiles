@@ -47,13 +47,10 @@ in
     swww
     waypaper
 
-
+    
     # Clipboard
     wl-clipboard
     cliphist
-
-    # App launcher
-    walker
 
     # Terminal
     foot
@@ -76,6 +73,7 @@ in
     networkmanagerapplet
     fzf
     git-lfs
+    rofi
 
     # Neovim dependencies (neovim provided by custom module)
     ripgrep
@@ -103,6 +101,12 @@ in
     };
   };
 
+  # Import local modules
+  imports = [
+    ./modules/nvim/default.nix
+    ./modules/rofi/default.nix
+  ];
+
   # Link zsh config from local module
   programs.zsh = {
     enable = true;
@@ -114,4 +118,11 @@ in
   programs.starship.enable = true;
 
   programs.zen-browser.enable = true;
+
+  # Enable custom rofi module
+  programs.rofi-custom = {
+    enable = true;
+    theme = "nord";
+    iconTheme = "papirus";
+  };
 }
