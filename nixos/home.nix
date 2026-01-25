@@ -123,9 +123,9 @@ in
     recursive = true;
   };
 
-  # Link wallpapers
+  # Link wallpapers from dotfiles root wallpapers folder
   home.file.".dotfiles/wallpapers" = {
-    source = ./wallpapers;
+    source = "${dotfiles}/wallpapers";
     recursive = true;
   };
 
