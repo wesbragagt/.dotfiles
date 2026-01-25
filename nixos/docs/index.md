@@ -1,0 +1,16 @@
+# Documentation Index
+
+This folder contains validated solutions and implementations for the NixOS configuration.
+
+## Key Documentation
+
+- **nixos-flake-validation.md** - Commands for validating flake changes before committing
+- **home-manager-git-lfs.md** - Fetching dotfiles from GitHub with git-lfs support
+- **hyprland-gestures.md** - Hyprland gestures syntax changes (0.51+)
+- **hyprland-autologin-greetd.md** - Auto-start Hyprland with greetd (recommended over getty)
+- **hyprpaper-wallpaper-shuffle.md** - Wallpaper shuffling with systemd timer
+- **zsh-home-manager.md** - Zsh setup with home-manager to source dotfiles
+
+## Adding New Documentation
+
+When documenting findings, follow the format specified in `contributing.md`.
