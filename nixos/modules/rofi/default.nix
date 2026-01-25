@@ -20,12 +20,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [
-      rofi
-    ] ++ lib.optionals (cfg.iconTheme == "papirus") [ pkgs.papirus-icon-theme ]
-      ++ lib.optionals (cfg.iconTheme == "hicolor") [ pkgs.hicolor-icon-theme ]
-      ++ lib.optionals (cfg.iconTheme == "adwaita") [ pkgs.adwaita-icon-theme ];
-
     # GTK icon theme
     gtk.iconTheme = {
       name = if cfg.iconTheme == "papirus" then "Papirus"
