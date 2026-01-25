@@ -67,6 +67,12 @@ in
     pamixer
     pavucontrol
     networkmanagerapplet
+
+    # Neovim and dependencies
+    neovim
+    ripgrep
+    fd
+    bat
   ];
 
   # Link configs from fetched dotfiles repo
@@ -89,6 +95,10 @@ in
     };
     "tmux" = {
       source = "${dotfiles}/tmux/.config/tmux";
+      recursive = true;
+    };
+    "nvim" = {
+      source = "${dotfiles}/nvim/.config/nvim";
       recursive = true;
     };
   };
