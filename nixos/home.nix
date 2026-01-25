@@ -112,4 +112,6 @@ in
   };
 
   programs.starship.enable = true;
+
+  programs.zen-browser.enable = true;
 }
