@@ -7,6 +7,16 @@ let
     sha256 = "sha256-PsYTGrXV/OwtMgU6Kdt0F2fbN421kcQQzPggE6c9w4s=";
     fetchLFS = true;
   };
+
+  neovim-dev = pkgs.neovim-unwrapped.overrideAttrs (oldAttrs: {
+    version = "v0.12.0-dev";
+    src = pkgs.fetchFromGitHub {
+      owner = "neovim";
+      repo = "neovim";
+      rev = "c39d18ee93";
+      sha256 = "sha256-KOVSBncEUsn5ZqbkaDo5GhXWCoKqdZGij/KnLH5CoVI=";
+    };
+  });
 in
 {
   home.username = "wesbragagt";
@@ -56,6 +66,9 @@ in
     foot
     tmux
 
+    # Neovim (built from v0.12.0-dev)
+    neovim-dev
+
     # Screenshot/recording
     grim
     slurp
@@ -68,6 +81,7 @@ in
     pamixer
     pavucontrol
     networkmanagerapplet
+    fzf
 
     # Neovim dependencies (neovim provided by custom module)
     ripgrep
@@ -75,14 +89,14 @@ in
     bat
   ];
 
-  # Link configs from fetched dotfiles repo
+  # Link configs from local modules
   xdg.configFile = {
     "hypr" = {
-      source = "${dotfiles}/hypr/.config/hypr";
+      source = ./modules/hypr;
       recursive = true;
     };
     "waybar" = {
-      source = "${dotfiles}/waybar/.config/waybar";
+      source = ./modules/waybar;
       recursive = true;
     };
     "foot" = {
@@ -94,7 +108,11 @@ in
       recursive = true;
     };
     "tmux" = {
-      source = "${dotfiles}/tmux/.config/tmux";
+      source = ./modules/tmux;
+      recursive = true;
+    };
+    "starship" = {
+      source = ./modules/starship;
       recursive = true;
     };
   };
@@ -111,22 +129,13 @@ in
     recursive = true;
   };
 
-  # Link zsh dotfiles
-  home.file.".dotfiles/zsh" = {
-    source = "${dotfiles}/zsh";
-    recursive = true;
-  };
-
-  # Custom Neovim with vim.pack
-  services.neovim-custom = {
-    enable = true;
-    version = "v0.12.0-dev";
-  };
-
+  # Link zsh config from local module
   programs.zsh = {
     enable = true;
     initContent = lib.mkOrder 1000 ''
-      source $HOME/.dotfiles/zsh/.zshrc
+      source ${./modules/zsh/.zshrc}
     '';
   };
+
+  programs.starship.enable = true;
 }

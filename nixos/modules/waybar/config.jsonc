@@ -1,0 +1,98 @@
+// -*- mode: jsonc -*-
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "spacing": 4,
+  // Choose the order of the modules
+  "modules-left": [
+    "hyprland/window",
+    "custom/sep"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "custom/sep",
+    "network",
+    "custom/sep",
+    "cpu",
+    "custom/sep",
+    "memory",
+    "custom/sep",
+    "disk",
+    "custom/sep",
+    "custom/sep",
+    "tray",
+    "clock"
+  ],
+  // Modules configuration
+  // "hyprland/workspaces": {
+  //     "disable-scroll": true,
+  //     "all-outputs": true,
+  //     "warp-on-scroll": false,
+  //     "format": "{name}",
+  //     "persistent-workspaces": {
+  //         "*" : 9
+  //     }
+  // },
+  "hyprland/workspaces": {
+    "format": "{name}: {windows}", // Example format
+    "format-window-separator": " ",
+    "window-rewrite-default": "", // Default icon for unknown windows
+    "window-rewrite": {
+      "class<zen>": "", // Firefox icon
+      "class<foot>": "", // Foot terminal icon
+      "title<.*youtube.*>": "", // YouTube icon by title
+      "title<.*slack.*>": "",
+      "class<Spotify>": "",
+      "class<DBeaver>": "󰆼"
+      // Add more rules for other applications
+    }
+  },
+  "hyprland/window": {
+    "max-length": 40,
+    "seperate-outputs": false
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "clock": {
+    "format": " {:%I:%M %p  %b %d, %Y}",
+    "tooltip-format": "<big>{:%A, %B %d, %Y}</big>"
+  },
+  "cpu": {
+    "format": "CPU: {usage}%",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "Mem: {used}GiB"
+  },
+  "disk": {
+    "interval": 60,
+    "path": "/",
+    "format": "Disk: {free}"
+  },
+  "network": {
+    "format": "Online",
+    "format-disconnected": "Disconnected ⚠"
+  },
+  "custom/sep": {
+    "format": "|",
+    "interval": 0
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-icons": {
+      "default": [
+        "\uf026",
+        "\uf027",
+        "\uf028"
+      ]
+    },
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "format-muted": "\uf00d {volume}%"
+  }
+}
