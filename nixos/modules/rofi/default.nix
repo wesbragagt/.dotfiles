@@ -28,8 +28,12 @@ in
 
     # GTK icon theme
     gtk.iconTheme = {
-      name = lib.mkDefault "Papirus" (cfg.iconTheme == "papirus") "Adwaita" (cfg.iconTheme == "adwaita") "Hicolor" (cfg.iconTheme == "hicolor");
-      package = pkgs.papirus-icon-theme;
+      name = if cfg.iconTheme == "papirus" then "Papirus"
+             else if cfg.iconTheme == "adwaita" then "Adwaita"
+             else "Hicolor";
+      package = if cfg.iconTheme == "papirus" then pkgs.papirus-icon-theme
+                else if cfg.iconTheme == "adwaita" then pkgs.adwaita-icon-theme
+                else pkgs.hicolor-icon-theme;
     };
 
     # Generate rofi config based on theme selection
