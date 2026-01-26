@@ -120,6 +120,17 @@ in
     '';
   };
 
+  # Link dotfiles and utils to home
+  home.file = {
+    ".aliases" = {
+      source = ./modules/zsh/.aliases;
+    };
+    ".dotfiles/utils" = {
+      source = ./modules/utils;
+      recursive = true;
+    };
+  };
+
   programs.starship.enable = true;
 
   programs.zen-browser.enable = true;
