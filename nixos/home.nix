@@ -130,9 +130,38 @@ in
       source = ./modules/utils;
       recursive = true;
     };
+    "wallpapers" = {
+      source = ../wallpapers/wallpapers;
+      recursive = true;
+    };
   };
 
   programs.starship.enable = true;
 
   programs.zen-browser.enable = true;
+
+  systemd.user.services.wallpaper-shuffler = {
+    Unit = {
+      Description = "Shuffle wallpapers with swww";
+    };
+
+    Service = {
+      Type = "oneshot";
+      ExecStart = "%h/.dotfiles/utils/random-wallpaper.sh";
+    };
+  };
+
+  systemd.user.timers.wallpaper-shuffler = {
+    Unit = {
+      Description = "Timer to shuffle wallpapers every 5 minutes";
+    };
+
+    Timer = {
+      OnBootSec = "1min";
+      OnUnitActiveSec = "5min";
+      Unit = "wallpaper-shuffler.service";
+    };
+
+    Install = { WantedBy = [ "timers.target" ]; };
+  };
 }
