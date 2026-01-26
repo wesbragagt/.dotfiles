@@ -109,7 +109,7 @@ in
   # Rofi configuration
   services.rofi-custom = {
     enable = true;
-    theme = "rounded-nord-dark";
+    theme = "default";
   };
 
   # Link zsh config from local module
