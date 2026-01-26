@@ -78,6 +78,7 @@ in
     ripgrep
     fd
     bat
+    eza
   ];
 
   # Link configs from local modules
