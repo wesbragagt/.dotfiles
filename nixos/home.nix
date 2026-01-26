@@ -73,8 +73,6 @@ in
     networkmanagerapplet
     fzf
     git-lfs
-    rofi
-    papirus-icon-theme
 
     # Neovim dependencies (neovim provided by custom module)
     ripgrep
@@ -105,7 +103,14 @@ in
   # Import local modules
   imports = [
     ./modules/nvim/default.nix
+    ./modules/rofi/default.nix
   ];
+
+  # Rofi configuration
+  services.rofi-custom = {
+    enable = true;
+    theme = "rounded-nord-dark";
+  };
 
   # Link zsh config from local module
   programs.zsh = {

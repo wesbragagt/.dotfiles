@@ -1,5 +1,3 @@
-alias pod="podman"
-
 alias ls="eza -ol --icons=auto"
 alias tree="eza -ol -T --icons=auto"
 alias ccd="claude --dangerously-skip-permissions"
@@ -10,24 +8,16 @@ ccqq(){
 claude -p --dangerously-skip-permissions --model sonnet --tools "" --allowedTools "mcp__exa__get_code_context_exa" --system-prompt "You are a code assistant. Use the mcp__exa__get_code_context_exa tool to find relevant code examples, API documentation, and library usage patterns. Return concise, practical answers under 50 lines. Focus on working code examples. Format with markdown code blocks." "$*" | glow
 }
 alias got="gh pr view --web"
-alias als="vi $DOTFILES/zsh/.aliases"
-alias dot="cd $DOTFILES"
 alias vi="nvim"
-alias config="vi $DOTFILES/zsh/.zshrc"
-alias config-nvim="vi $DOTFILES/nvim/.config/nvim/init.vim" 
 # fzf combo scripts
-alias ff="bash $DOTFILES/utils/tmux-sessionizer.sh"
 alias to="bash $DOTFILES/utils/fzf-git-checkout.sh"
 alias sf="bash $DOTFILES/utils/fzf-vim.sh"
 alias sg="bash $DOTFILES/utils/fzf-rg.sh"
 alias gpr="bash $DOTFILES/utils/git-pull-request.sh"
-alias countdown="bash $DOTFILES/utils/countdown.sh"
-alias send-cmd="bash $DOTFILES/utils/tmux-commander.sh"
 alias gg="git add . && git commit"
 alias gta="git add -A && git commit --amend --no-edit"
 alias gtf="gta && git push -f"
 alias gwt='$DOTFILES/utils/git-worktree-create.sh'
-alias gtp="git push -u origin head"
 alias discard="git checkout -- . && git clean -fd"
 alias clean="git branch --merged | egrep -v '(^\*|master|main|dev|nonprod)' | xargs git branch -D"
 alias tt="tmux -f $TMUX_CONF attach || tmux -f $TMUX_CONF new"
@@ -59,21 +49,7 @@ cd/(){
   cd $(git rev-parse --show-toplevel)
 }
 
-get_external_ip(){
-  curl ipecho.net/plain ; echo
-}
-
 # pipe ripgrep results to a quickfix list in vim
 fpq(){
   nvim -q <(rg --column -g '!.git' -g '!node_modules' $@) +cw
-}
-
-# fuzzy search my .ssh/config
-hh(){
-  ssh $(grep -e '^Host \w.*' ~/.ssh/config | sed 's/Host //' | fzf --height 20%)
-}
-
-timezsh() {
-  shell=${1-$SHELL}
-  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
