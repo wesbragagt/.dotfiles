@@ -93,7 +93,6 @@ in
     # Install packages
     home.packages = with pkgs; [
       rofi
-      rofi-wayland
       cfg.iconTheme.package
       themeSelector
     ];
