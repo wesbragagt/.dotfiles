@@ -1,0 +1,51 @@
+alias ls="eza -ol --icons=auto"
+alias tree="eza -ol -T --icons=auto"
+alias ccd="claude --dangerously-skip-permissions"
+ccq(){
+  claude -p --dangerously-skip-permissions --model opus --tools "" --allowedTools "WebSearch" --system-prompt "You answer questions concisely for terminal output. Use WebSearch to find current information when needed. Format responses in markdown, keeping them under 50 lines. Be direct and factual. Include sources when citing specific facts." "$*" | glow
+}
+ccqq(){
+  claude -p --dangerously-skip-permissions --model sonnet --tools "" --allowedTools "mcp__exa__get_code_context_exa" --system-prompt "You are a code assistant. Use the mcp__exa__get_code_context_exa tool to find relevant code examples, API documentation, and library usage patterns. Return concise, practical answers under 50 lines. Focus on working code examples. Format with markdown code blocks." "$*" | glow
+}
+alias got="gh pr view --web"
+alias vi="nvim"
+alias to="bash $DOTFILES/utils/fzf-git-checkout.sh"
+alias sf="bash $DOTFILES/utils/fzf-vim.sh"
+alias sg="bash $DOTFILES/utils/fzf-rg.sh"
+alias gpr="bash $DOTFILES/utils/git-pull-request.sh"
+alias gg="git add . && git commit"
+alias gta="git add -A && git commit --amend --no-edit"
+alias gtf="gta && git push -f"
+alias gwt='$DOTFILES/utils/git-worktree-create.sh'
+alias discard="git checkout -- . && git clean -fd"
+alias clean="git branch --merged | egrep -v '(^\*|master|main|dev|nonprod)' | xargs git branch -D"
+alias tt="tmux -f $TMUX_CONF attach || tmux -f $TMUX_CONF new"
+alias key="ssh-add ~/.ssh/id_rsa"
+alias gitd="nvim -c ':tab G'"
+alias tags="git show-ref --tags -d | fzf"
+
+cdl(){
+  selection=$(fzf --preview 'bat --style=numbers --color=always --line-range :500 {}')
+  if [ -z "$selection" ]; then
+    exit 0
+  fi
+  
+  sleep 0.3
+  local dir
+  dir=$(dirname $selection)
+
+  if [ -n "$dir" ]; then
+    echo "Changing directory to $dir"
+    z "$dir"
+  else 
+    exit 0
+  fi
+}
+
+cd/(){
+  cd $(git rev-parse --show-toplevel)
+}
+
+fpq(){
+  nvim -q <(rg --column -g '!.git' -g '!node_modules' $@) +cw
+}
