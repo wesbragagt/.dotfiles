@@ -74,6 +74,11 @@ in
     fzf
     git-lfs
 
+    # File manager
+    thunar
+    xfce.thunar-plugins
+    file-roller
+
     # Neovim dependencies (neovim provided by custom module)
     ripgrep
     fd
@@ -143,11 +148,15 @@ in
   systemd.user.services.wallpaper-shuffler = {
     Unit = {
       Description = "Shuffle wallpapers with swww";
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+      Requires = [ "graphical-session.target" ];
     };
 
     Service = {
       Type = "oneshot";
-      ExecStart = "%h/.dotfiles/utils/random-wallpaper.sh";
+      ExecStart = "${pkgs.bash}/bin/bash %h/.dotfiles/utils/random-wallpaper.sh";
+      PassEnvironment = [ "WAYLAND_DISPLAY" "DISPLAY" ];
     };
   };
 
