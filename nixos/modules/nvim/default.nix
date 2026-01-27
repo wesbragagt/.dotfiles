@@ -29,12 +29,7 @@ let
     lazydev-nvim
     blink-cmp
     luasnip
-    mini-nvim
-    snacks-nvim
-    oil-nvim
-    diffview-nvim
-    nvim-comment
-    git-blame-nvim;
+    mini-nvim;
 in
 {
   config = {
@@ -62,11 +57,6 @@ in
         kanagawa-nvim
         todo-comments-nvim
         mini-nvim
-        snacks-nvim
-        oil-nvim
-        diffview-nvim
-        nvim-comment
-        git-blame-nvim
         (nvim-treesitter.withPlugins (
           p: [ p.bash p.c p.diff p.html p.lua p.luadoc p.markdown p.markdown_inline p.query p.vim p.vimdoc ]
         ))
