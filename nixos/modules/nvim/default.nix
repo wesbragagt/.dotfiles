@@ -18,9 +18,6 @@ let
     telescope-fzf-native-nvim
     telescope-ui-select-nvim
     nvim-lspconfig
-    mason-nvim
-    mason-lspconfig-nvim
-    mason-tool-installer-nvim
     fidget-nvim
     gitsigns-nvim
     which-key-nvim
@@ -53,9 +50,6 @@ in
         telescope-ui-select-nvim
         lazydev-nvim
         nvim-lspconfig
-        mason-nvim
-        mason-lspconfig-nvim
-        mason-tool-installer-nvim
         fidget-nvim
         blink-cmp
         luasnip
@@ -71,6 +65,9 @@ in
       extraPackages = with pkgs; [
         ripgrep
         fd
+        lua-language-server
+        nodePackages.typescript-language-server
+        nodePackages.pyright
       ];
 
       initLua = lib.strings.fileContents ./kickstart-init.lua;

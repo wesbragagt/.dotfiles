@@ -410,18 +410,18 @@ end
 
 local lspconfig = require('lspconfig')
 
-require('mason').setup({})
-require('mason-lspconfig').setup({
-  ensure_installed = { 'lua_ls', 'tsserver', 'rust_analyzer', 'pyright' },
-  handlers = {
-    function(server_name)
-      lspconfig[server_name].setup({
-        on_attach = on_attach,
-        capabilities = cmp.get_lsp_capabilities(),
-      })
-    end,
-  },
-})
+local servers = {
+  lua_ls = {},
+  tsserver = {},
+  pyright = {},
+}
+
+for server, config in pairs(servers) do
+  lspconfig[server].setup(vim.tbl_deep_extend('force', config, {
+    on_attach = on_attach,
+    capabilities = cmp.get_lsp_capabilities(),
+  }))
+end
 
 require('fidget').setup({})
 
