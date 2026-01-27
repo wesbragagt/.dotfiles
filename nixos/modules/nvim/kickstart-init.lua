@@ -408,20 +408,20 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end
 
-local lspconfig = require('lspconfig')
+vim.lsp.enable('lua_ls', {
+  on_attach = on_attach,
+  capabilities = cmp.get_lsp_capabilities(),
+})
 
-local servers = {
-  lua_ls = {},
-  tsserver = {},
-  pyright = {},
-}
+vim.lsp.enable('ts_ls', {
+  on_attach = on_attach,
+  capabilities = cmp.get_lsp_capabilities(),
+})
 
-for server, config in pairs(servers) do
-  lspconfig[server].setup(vim.tbl_deep_extend('force', config, {
-    on_attach = on_attach,
-    capabilities = cmp.get_lsp_capabilities(),
-  }))
-end
+vim.lsp.enable('pyright', {
+  on_attach = on_attach,
+  capabilities = cmp.get_lsp_capabilities(),
+})
 
 require('fidget').setup({})
 
