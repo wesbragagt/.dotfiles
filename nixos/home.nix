@@ -130,7 +130,7 @@ in
 
   # Enable GUI applications
   wesbragagt.apps = {
-    browsers.enable = false;
+    browsers.enable = true;
     communication.enable = false;
     media.enable = false;
     office.enable = false;
