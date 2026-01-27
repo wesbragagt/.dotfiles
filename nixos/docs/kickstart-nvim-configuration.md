@@ -12,8 +12,9 @@ Successfully integrated kickstart.nvim into NixOS using home-manager with a sing
 
 - **Module**: `/Users/wesbragagt/.dotfiles/nixos/modules/nvim/default.nix`
   - Home-manager module for Neovim configuration
+  - Builds custom neovim v0.12.0-dev from source
   - Declares all plugins as nixpkgs packages
-  - Uses standard home-manager `programs.neovim`
+  - Uses `programs.neovim` with custom `package` option
 
 - **Lua Config**: `/Users/wesbragagt/.dotfiles/nixos/modules/nvim/kickstart-init.lua`
   - Complete kickstart.nvim configuration in single file
@@ -21,7 +22,7 @@ Successfully integrated kickstart.nvim into NixOS using home-manager with a sing
 
 - **Integration**: `/Users/wesbragagt/.dotfiles/nixos/home.nix`
   - Links `kickstart-init.lua` to `~/.config/nvim/init.lua` via `xdg.configFile`
-  - Enables neovim-nixvim service
+  - Forces config creation with `force = true`
 
 ## Key Features
 
@@ -40,10 +41,11 @@ Plugins are installed declaratively via nixpkgs:
 ### System Packages
 - ripgrep (required for telescope)
 - fd (required for telescope)
+- Custom neovim v0.12.0-dev build from source
 
 ## Testing
 
-On the NixOS ARM VM:
+On NixOS ARM VM:
 
 ```bash
 # Pull changes
@@ -55,8 +57,9 @@ cd nixos
 sudo nixos-rebuild switch --impure --flake .#nixos-arm
 
 # Test Neovim
-nvim
-# Should see kickstart configuration loaded with all plugins
+nvim --version
+# Should show NVIM v0.11.5-dev
+nvim -c 'print(vim.version())' -c 'qa'
 ```
 
 ## Customization
@@ -77,23 +80,60 @@ To modify configuration:
    sudo nixos-rebuild switch --impure --flake .#nixos-arm
    ```
 
+4. Force config recreation:
+   - If neovim config doesn't update, remove `nvim` config and rebuild:
+   ```bash
+   ssh vm 'rm -rf ~/.config/nvim'
+   cd ~/.dotfiles/nixos && sudo nixos-rebuild switch --impure --flake .#nixos-arm
+   ```
+
 ## Notes
 
-- Configuration uses home-manager's `xdg.configFile` to link init.lua
+- Configuration uses home-manager's `xdg.configFile` with `force = true` option
 - All plugins managed through nixpkgs ensure reproducibility
 - Single init.lua file makes configuration easy to understand and modify
-- Standard home-manager `programs.neovim` options used (no nixvim module required)
-- Approach avoids complexity of nixvim module system while maintaining declarative plugin management
+- Custom neovim v0.12.0-dev built from GitHub source
+- Uses `initLua` option (renamed from `extraLuaConfig` in newer home-manager)
+
+## Troubleshooting
+
+### Neovim not updating after rebuild
+
+If neovim configuration doesn't update after making changes to `kickstart-init.lua`:
+
+1. Check if config file exists on VM:
+   ```bash
+   ssh vm 'ls -la ~/.config/nvim/'
+   ```
+
+2. If it exists but changes aren't applied:
+   ```bash
+   ssh vm 'rm -rf ~/.config/nvim'
+   ssh vm 'cd ~/.dotfiles/nixos && git pull'
+   ssh vm 'cd ~/.dotfiles/nixos && sudo nixos-rebuild switch --impure --flake .#nixos-arm'
+   ```
+
+3. Verify neovim is using custom build:
+   ```bash
+   nvim --version
+   # Should show: NVIM v0.11.5-dev
+   # (Not system neovim which might be older)
+   ```
+
+4. Check home-manager logs:
+   ```bash
+   journalctl --user -u home-manager-wesbragagt -n 20 --no-pager
+   ```
 
 ## Alternative Approaches Considered
 
-### 1. Using nixvim directly
-Complex to integrate with existing home-manager setup, requires separate module system. Deferred for simplicity.
+### 1. Using nixvim module directly
+Complex to integrate with existing home-manager setup. Deferred for simplicity.
 
 ### 2. Using kickstart.nixvim
-Direct Nix implementation of kickstart, external dependency. Not chosen to maintain full control and use standard nixpkgs.
+Direct Nix implementation, external dependency. Not chosen to maintain full control and use standard nixpkgs.
 
-### 3. Using vim.pack
+### 3. Using vim.pack with lazy.nvim
 Less declarative than nixpkgs plugin management. Chose nixpkgs for reproducibility.
 
 ## References
