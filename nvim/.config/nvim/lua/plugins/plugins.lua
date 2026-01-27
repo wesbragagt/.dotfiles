@@ -153,7 +153,6 @@ return {
       require("Comment").setup()
     end,
   },
-  { "tpope/vim-rhubarb" },
   -- File Manager vim editor
   { "stevearc/oil.nvim" },
   {
@@ -170,10 +169,4 @@ return {
   { "nvim-pack/nvim-spectre",         event = "VeryLazy" },
   -- See file tab like icons on top
   { "akinsho/bufferline.nvim",        dependencies = "nvim-tree/nvim-web-devicons", opts = {} },
-  {
-    "akinsho/git-conflict.nvim",
-    version = "*",
-    config = true,
-    event = "VeryLazy",
-  }
 }

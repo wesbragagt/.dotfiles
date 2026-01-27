@@ -105,10 +105,6 @@ in
       source = ./modules/starship;
       recursive = true;
     };
-    "nvim" = {
-      source = ./modules/nvim/kickstart-init.lua;
-      force = true;
-    };
   };
 
   # Import local modules
