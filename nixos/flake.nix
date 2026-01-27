@@ -18,7 +18,10 @@
       system = "aarch64-linux";
       modules = [
         ./configuration.nix
-        { nixpkgs.overlays = [ zen-browser.overlay ]; }
+        { 
+          nixpkgs.overlays = [ zen-browser.overlay ];
+          nixpkgs.config.allowUnsupportedSystem = true;
+        }
         home-manager.nixosModules.home-manager
         {
           nix.settings = {
