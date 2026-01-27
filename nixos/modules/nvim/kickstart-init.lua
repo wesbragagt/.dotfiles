@@ -475,7 +475,8 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 -- Oil file explorer
-require('oil').setup({
+local oil = require('oil')
+oil.setup({
   columns = { "icon" },
   buf_options = {
     buflisted = false,
