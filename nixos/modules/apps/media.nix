@@ -12,7 +12,8 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      spotify
+      # spotify - Not available on aarch64-linux
+      # Use Chromium web wrapper: chromium --app="https://open.spotify.com"
     ];
   };
 }
