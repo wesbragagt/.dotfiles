@@ -60,7 +60,7 @@ in
         blink-cmp
         luasnip
         conform-nvim
-        tokyonight-nvim
+        kanagawa-nvim
         todo-comments-nvim
         mini-nvim
         (nvim-treesitter.withPlugins (
