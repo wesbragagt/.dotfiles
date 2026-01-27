@@ -4,6 +4,7 @@ This folder contains validated solutions and implementations for the NixOS confi
 
 ## Key Documentation
 
+- **gui-apps-module-structure.md** - Modular structure for managing GUI applications (Spotify, Slack, etc.)
 - **nixos-flake-validation.md** - Commands for validating flake changes before committing
 - **home-manager-git-lfs.md** - Fetching dotfiles from GitHub with git-lfs support
 - **hyprland-gestures.md** - Hyprland gestures syntax changes (0.51+)
