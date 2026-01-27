@@ -74,6 +74,8 @@ in
     networkmanagerapplet
     fzf
     git-lfs
+    # Markdown
+    glow
 
     # File manager
     thunar
