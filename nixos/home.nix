@@ -131,7 +131,7 @@ in
   # Enable GUI applications
   wesbragagt.apps = {
     browsers.enable = true;
-    communication.enable = false;
+    communication.enable = true;
     media.enable = false;
     office.enable = false;
   };
