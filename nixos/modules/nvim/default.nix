@@ -25,7 +25,7 @@ let
     gitsigns-nvim
     which-key-nvim
     conform-nvim
-    tokyonight-nvim
+    kanagawa-nvim
     todo-comments-nvim
     nvim-treesitter
     plenary-nvim
