@@ -133,7 +133,7 @@ in
     browsers.enable = true;
     communication.enable = true;
     media.enable = false;
-    office.enable = false;
+    office.enable = true;
   };
 
   # Link zsh config from local module
