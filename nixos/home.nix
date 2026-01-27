@@ -129,6 +129,7 @@ in
     communication.enable = true;
     media.enable = false;
     office.enable = true;
+    web.enable = true;
   };
 
   # Enable screenshot tools
