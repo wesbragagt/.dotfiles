@@ -3,16 +3,14 @@
 with lib;
 
 let
-  cfg = config.wesbragagt.apps.web;
+  cfg = config.wesbragagt.web-apps;
 in
 {
-  options.wesbragagt.apps.web = {
-    enable = mkEnableOption "Enable web applications (PWAs)";
+  options.wesbragagt.web-apps = {
+    enable = mkEnableOption "Enable web applications (PWAs) via Chrome";
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ ];
-
     xdg.desktopEntries = {
       spotify-web = {
         name = "Spotify";

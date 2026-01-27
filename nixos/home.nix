@@ -57,7 +57,6 @@ in
     swww
     waypaper
 
-    
     # Clipboard
     wl-clipboard
     cliphist
@@ -74,12 +73,14 @@ in
     networkmanagerapplet
     fzf
     git-lfs
-    # Markdown
     glow
 
     # File manager
     thunar
     file-roller
+
+    # Browsers
+    google-chrome
 
     # Neovim dependencies (neovim provided by custom module)
     ripgrep
@@ -114,7 +115,7 @@ in
     ./modules/nvim/default.nix
     ./modules/rofi/default.nix
     ./modules/screenshot.nix
-    ./modules/apps/default.nix
+    ./modules/web-apps.nix
   ];
 
   # Rofi configuration
@@ -123,14 +124,8 @@ in
     theme = "rounded-nord-dark";
   };
 
-  # Enable GUI applications
-  wesbragagt.apps = {
-    browsers.enable = true;
-    communication.enable = true;
-    media.enable = false;
-    office.enable = true;
-    web.enable = true;
-  };
+  # Enable web applications
+  wesbragagt.web-apps.enable = true;
 
   # Enable screenshot tools
   wesbragagt.screenshot.enable = true;
@@ -163,8 +158,6 @@ in
   };
 
   programs.starship.enable = true;
-
-  programs.zen-browser.enable = true;
 
   systemd.user.services.wallpaper-shuffler = {
     Unit = {
