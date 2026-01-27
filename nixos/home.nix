@@ -119,12 +119,21 @@ in
   imports = [
     ./modules/nvim/default.nix
     ./modules/rofi/default.nix
+    ./modules/apps/default.nix
   ];
 
   # Rofi configuration
   services.rofi-custom = {
     enable = true;
     theme = "rounded-nord-dark";
+  };
+
+  # Enable GUI applications
+  wesbragagt.apps = {
+    browsers.enable = true;
+    communication.enable = true;
+    media.enable = true;
+    office.enable = true;
   };
 
   # Link zsh config from local module
