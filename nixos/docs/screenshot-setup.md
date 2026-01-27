@@ -24,14 +24,14 @@ Hyprland screenshot configuration using Wayland-native tools for capturing and e
 
 The keybinding `Super + Shift + P` runs:
 ```bash
-grim -g "$(slurp -d)" - | swappy -f -
+grim -g "$(slurp -d)" $HOME/Pictures/screenshots/screenshot_$(date +%Y%m%d_%H%M%S).png && swappy -f $HOME/Pictures/screenshots/screenshot_$(date +%Y%m%d_%H%M%S).png
 ```
 
 This:
 1. Opens `slurp` to select a region
-2. Captures the selected area with `grim`
+2. Captures selected area with `grim` to `~/Pictures/screenshots/screenshot_<timestamp>.png`
 3. Opens `swappy` for editing
-4. Saves edited screenshot
+4. Saves edited screenshot to same location
 
 ### Screen Recording
 
