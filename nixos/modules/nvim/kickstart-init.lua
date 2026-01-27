@@ -474,4 +474,64 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- Oil file explorer
+require('oil').setup({
+  columns = { "icon" },
+  buf_options = {
+    buflisted = false,
+    bufhidden = "hide",
+  },
+  win_options = {
+    wrap = false,
+    signcolumn = "no",
+    cursorcolumn = false,
+    spell = false,
+    list = false,
+  },
+  default_file_explorer = true,
+  delete_to_trash = false,
+  view_options = {
+    show_hidden = true,
+  },
+})
+
+vim.keymap.set('n', '-', oil.open, { desc = 'Open file explorer' })
+vim.keymap.set('n', '<leader>pt', function()
+  vim.cmd(':Oil')
+end, { desc = 'Toggle file explorer' })
+
+-- Snacks (scratch buffer + notifier)
+require('snacks').setup({
+  bigfile = { enabled = true },
+  notifier = { enabled = true },
+  quickfile = { enabled = true },
+})
+
+vim.keymap.set('n', '<C-t>', function()
+  Snacks.scratch()
+end, { desc = 'Toggle scratch buffer' })
+vim.keymap.set('n', '<leader>sch', function()
+  Snacks.notifier.show_history()
+end, { desc = 'Show notification history' })
+
+-- Diffview for git diffs
+require('diffview').setup({})
+
+vim.keymap.set('n', '<leader>dfo', ':DiffviewOpen<CR>', { desc = 'Open diffview' })
+vim.keymap.set('n', '<leader>dff', ':DiffviewFileHistory %<CR>', { desc = 'Open file history' })
+vim.keymap.set('n', '<leader>dfx', ':DiffviewClose<CR>', { desc = 'Close diffview' })
+
+-- Git blame
+require('gitsigns').setup({
+  current_line_blame = true,
+  current_line_blame_opts = {
+    delay = 0,
+  },
+})
+
+vim.keymap.set('n', '<leader>ba', ':GitBlameToggle<CR>', { desc = 'Toggle git blame' })
+
+-- Comments
+require('Comment').setup()
+
 print("Neovim configuration loaded with Kanagawa colorscheme!")
