@@ -69,12 +69,6 @@ in
     # Neovim (built from v0.12.0-dev)
     neovim-dev
 
-    # Screenshot/recording
-    grim
-    slurp
-    swappy
-    wf-recorder
-
     # Utilities
     brightnessctl
     playerctl
@@ -119,6 +113,7 @@ in
   imports = [
     ./modules/nvim/default.nix
     ./modules/rofi/default.nix
+    ./modules/screenshot.nix
     ./modules/apps/default.nix
   ];
 
@@ -135,6 +130,9 @@ in
     media.enable = false;
     office.enable = true;
   };
+
+  # Enable screenshot tools
+  wesbragagt.screenshot.enable = true;
 
   # Link zsh config from local module
   programs.zsh = {
