@@ -533,6 +533,6 @@ require('gitsigns').setup({
 vim.keymap.set('n', '<leader>ba', ':GitBlameToggle<CR>', { desc = 'Toggle git blame' })
 
 -- Comments
-require('Comment').setup()
+require('nvim_comment').setup()
 
 print("Neovim configuration loaded with Kanagawa colorscheme!")
