@@ -66,9 +66,6 @@ in
     foot
     tmux
 
-    # Neovim (built from v0.12.0-dev)
-    neovim-dev
-
     # Utilities
     brightnessctl
     playerctl
@@ -107,6 +104,9 @@ in
       source = ./modules/starship;
       recursive = true;
     };
+    "nvim" = {
+      source = ./modules/nvim/kickstart-init.lua;
+    };
   };
 
   # Import local modules
@@ -116,6 +116,9 @@ in
     ./modules/screenshot.nix
     ./modules/apps/default.nix
   ];
+
+  # Enable nixvim-based Neovim with kickstart.nvim
+  services.neovim-nixvim.enable = true;
 
   # Rofi configuration
   services.rofi-custom = {
