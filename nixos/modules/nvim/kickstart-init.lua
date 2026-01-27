@@ -465,24 +465,13 @@ vim.keymap.set({ "n", "v" }, "<leader>mp", function()
   })
 end, { desc = "Format file or range (in visual mode)" })
 
-require('nvim-treesitter.configs').setup({
-  highlight = { enable = true },
-  indent = { enable = true },
-  ensure_installed = {
-    "bash",
-    "c",
-    "diff",
-    "html",
-    "lua",
-    "luadoc",
-    "markdown",
-    "markdown_inline",
-    "query",
-    "vim",
-    "vimdoc",
-    "javascript",
-    "typescript",
-  },
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'javascript', 'typescript' },
+  callback = function()
+    if pcall(vim.treesitter.start) then
+      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end
+  end,
 })
 
 print("Neovim configuration loaded with Kanagawa colorscheme!")
