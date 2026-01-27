@@ -27,6 +27,9 @@ Successfully integrated kickstart.nvim into NixOS using home-manager with a sing
 ## Key Features
 
 ### Plugin Management
+
+**IMPORTANT**: This setup does NOT use lazy.nvim or any external plugin manager. All plugins are managed exclusively via Nix through `programs.neovim.plugins`.
+
 Plugins are installed declaratively via nixpkgs:
 - **LSP**: nvim-lspconfig, mason, mason-lspconfig, mason-tool-installer
 - **Fuzzy Finding**: telescope, plenary, telescope-fzf-native, telescope-ui-select
@@ -35,8 +38,10 @@ Plugins are installed declaratively via nixpkgs:
 - **Editing**: conform-nvim (formatting)
 - **UI**: which-key, mini-nvim (statusline, surrounding, AI)
 - **Syntax**: nvim-treesitter
-- **Theme**: tokyonight-nvim
+- **Theme**: kanagawa-nvim
 - **Utilities**: todo-comments, lazydev
+
+All plugins are loaded automatically from `~/.local/share/nvim/site/pack/hm/start/` which is managed by home-manager.
 
 ### System Packages
 - ripgrep (required for telescope)
@@ -68,11 +73,12 @@ To modify configuration:
 
 1. Edit `/Users/wesbragagt/.dotfiles/nixos/modules/nvim/kickstart-init.lua`
    - All Lua configuration is in this single file
-   - Add/modify plugin configurations
+   - Add/modify plugin configurations as needed
 
 2. To add new plugins:
    - Add to `plugins = [...]` list in `modules/nvim/default.nix`
-   - Or add plugin configuration in `kickstart-init.lua` if using lazy.nvim
+   - Plugin must be available in nixpkgs under `vimPlugins`
+   - DO NOT use lazy.nvim setup - plugins are loaded automatically from `~/.local/share/nvim/site/pack/hm/start/`
 
 3. Rebuild on VM:
    ```bash
@@ -89,11 +95,13 @@ To modify configuration:
 
 ## Notes
 
-- Configuration uses home-manager's `xdg.configFile` with `force = true` option
+- **NO lazy.nvim**: This setup does NOT use lazy.nvim or any external plugin manager. All plugins are managed exclusively by Nix.
+- Configuration uses home-manager's `initLua` option to load the single kickstart-init.lua file
 - All plugins managed through nixpkgs ensure reproducibility
+- Plugins are automatically loaded from `~/.local/share/nvim/site/pack/hm/start/` directory
 - Single init.lua file makes configuration easy to understand and modify
 - Custom neovim v0.12.0-dev built from GitHub source
-- Uses `initLua` option (renamed from `extraLuaConfig` in newer home-manager)
+- Do NOT attempt to install plugins using vim.pack or lazy.nvim - use only nixpkgs declarations
 
 ## Troubleshooting
 
@@ -133,8 +141,11 @@ Complex to integrate with existing home-manager setup. Deferred for simplicity.
 ### 2. Using kickstart.nixvim
 Direct Nix implementation, external dependency. Not chosen to maintain full control and use standard nixpkgs.
 
-### 3. Using vim.pack with lazy.nvim
-Less declarative than nixpkgs plugin management. Chose nixpkgs for reproducibility.
+### 3. Using lazy.nvim plugin manager
+Did NOT choose this approach. While commonly used in Neovim setups, it's not reproducible in NixOS and requires lazy.nvim setup code. Chose native Nix plugin loading through `programs.neovim.plugins` for full reproducibility.
+
+### 4. Using vim.pack (native Neovim plugin manager)
+Less declarative than nixpkgs plugin management. Chose nixpkgs for reproducibility and easier integration with home-manager.
 
 ## References
 
