@@ -76,7 +76,6 @@ in
 
     # File manager
     thunar
-    xfce.thunar-plugins
     file-roller
 
     # Neovim dependencies (neovim provided by custom module)
