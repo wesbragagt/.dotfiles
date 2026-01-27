@@ -12,7 +12,6 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      # slack - Not available on aarch64-linux
       signal-desktop
     ];
   };
