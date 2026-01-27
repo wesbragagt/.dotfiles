@@ -79,7 +79,7 @@ in
         fd
       ];
 
-      extraLuaConfig = lib.strings.fileContents ./kickstart-init.lua;
+      initLua = lib.strings.fileContents ./kickstart-init.lua;
     };
   };
 }
