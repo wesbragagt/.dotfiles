@@ -84,6 +84,7 @@ in
     fd
     bat
     eza
+    zoxide
   ];
 
   # Link configs from local modules
@@ -116,9 +117,6 @@ in
     ./modules/screenshot.nix
     ./modules/apps/default.nix
   ];
-
-  # Enable nixvim-based Neovim with kickstart.nvim
-  services.neovim-nixvim.enable = true;
 
   # Rofi configuration
   services.rofi-custom = {
