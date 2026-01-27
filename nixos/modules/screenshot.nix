@@ -19,6 +19,6 @@ in
     ];
 
     home.file."Videos/.gitkeep".text = "";
-    home.file."Pictures/.gitkeep".text = "";
+    home.file."Pictures/screenshots/.gitkeep".text = "";
   };
 }
