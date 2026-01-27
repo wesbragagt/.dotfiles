@@ -107,6 +107,7 @@ in
     };
     "nvim" = {
       source = ./modules/nvim/kickstart-init.lua;
+      force = true;
     };
   };
 
