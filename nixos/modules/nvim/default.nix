@@ -1,8 +1,6 @@
 { config, lib, pkgs, ... }:
 
 let
-  cfg = config.services.neovim-nixvim;
-
   # Custom Neovim v0.12.0-dev build
   neovim-dev = pkgs.neovim-unwrapped.overrideAttrs (oldAttrs: {
     version = "v0.12.0-dev";
@@ -37,11 +35,7 @@ let
     mini-nvim;
 in
 {
-  options.services.neovim-nixvim = {
-    enable = lib.mkEnableOption "Enable Nixvim-based Neovim with kickstart.nvim configuration";
-  };
-
-  config = lib.mkIf cfg.enable {
+  config = {
     home.packages = [ neovim-dev ];
 
     programs.neovim = {
