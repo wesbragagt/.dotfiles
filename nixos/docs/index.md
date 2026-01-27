@@ -1,6 +1,6 @@
 # Documentation Index
 
-This folder contains validated solutions and implementations for the NixOS configuration.
+This folder contains validated solutions and implementations for NixOS configuration.
 
 ## Key Documentation
 
@@ -11,6 +11,7 @@ This folder contains validated solutions and implementations for the NixOS confi
 - **hyprland-autologin-greetd.md** - Auto-start Hyprland with greetd (recommended over getty)
 - **hyprpaper-wallpaper-shuffle.md** - Wallpaper shuffling with systemd timer
 - **zsh-home-manager.md** - Zsh setup with home-manager to source dotfiles
+- **web-apps.md** - Chrome/Chromium PWAs with xdg.desktopEntries
 
 ## Adding New Documentation
 

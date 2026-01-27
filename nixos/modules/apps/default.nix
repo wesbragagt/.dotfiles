@@ -8,5 +8,6 @@ with lib;
     ./communication.nix
     ./media.nix
     ./office.nix
+    ./web.nix
   ];
 }
