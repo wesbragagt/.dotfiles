@@ -319,6 +319,8 @@ end, {})
 create_playground("TSPlayground", "*.ts", "node --no-warnings playground.ts")
 create_playground("BashPlayground", "*.sh", "bash playground.sh")
 
+vim.opt.termguicolors = true
+
 require('kanagawa').setup({
   compile = false,
   undercurl = true,
@@ -352,49 +354,7 @@ require('kanagawa').setup({
   },
 })
 
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
-      { "\nPress any key to exit..." },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
-end
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup({
-  spec = {
-    { import = "plugins" },
-  },
-  defaults = {
-    lazy = false,
-    version = false,
-  },
-  install = {
-    missing = true,
-    colorscheme = { "kanagawa" },
-  },
-  checker = {
-    enabled = true,
-  },
-  performance = {
-    rtp = {
-      disabled_plugins = {
-        "gzip",
-        "tarPlugin",
-        "tohtml",
-        "tutor",
-        "zipPlugin",
-      },
-    },
-  },
-})
+vim.cmd.colorscheme("kanagawa")
 
 local diagnostic_signs = {
   Error = " ",
@@ -419,30 +379,6 @@ vim.diagnostic.config({
   },
 })
 
-local lsp_zero = require('lsp-zero')
-
-lsp_zero.on_attach(function(client, bufnr)
-  local opts = { buffer = bufnr, remap = false }
-
-  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-  vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-  vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-  vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-  vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-  vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-  vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-  vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-  vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-end)
-
-require('mason').setup({})
-require('mason-lspconfig').setup({
-  handlers = {
-    lsp_zero.default_setup,
-  },
-})
-
 local cmp = require('blink.cmp')
 
 cmp.setup({
@@ -458,6 +394,36 @@ cmp.setup({
     default = { 'lsp', 'path', 'snippets', 'buffer' },
   },
 })
+
+local on_attach = function(client, bufnr)
+  local opts = { buffer = bufnr, remap = false }
+
+  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+  vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+  vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
+  vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+  vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+  vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+  vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+end
+
+local lspconfig = require('lspconfig')
+
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = { 'lua_ls', 'tsserver', 'rust_analyzer', 'pyright' },
+  handlers = {
+    function(server_name)
+      lspconfig[server_name].setup({
+        on_attach = on_attach,
+        capabilities = cmp.get_lsp_capabilities(),
+      })
+    end,
+  },
+})
+
+require('fidget').setup({})
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
