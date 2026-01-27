@@ -130,10 +130,10 @@ in
 
   # Enable GUI applications
   wesbragagt.apps = {
-    browsers.enable = true;
-    communication.enable = true;
-    media.enable = true;
-    office.enable = true;
+    browsers.enable = false;
+    communication.enable = false;
+    media.enable = false;
+    office.enable = false;
   };
 
   # Link zsh config from local module
