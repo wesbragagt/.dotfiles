@@ -97,12 +97,6 @@ in
       themeSelector
     ];
 
-    # Set GTK icon theme
-    gtk.iconTheme = {
-      name = cfg.iconTheme.name;
-      package = cfg.iconTheme.package;
-    };
-
     # Generate rofi configuration
     xdg.configFile."rofi/config.rasi".source = rofiConfig;
 
