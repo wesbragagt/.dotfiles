@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, agenix, ... }:
 
 {
   imports = [
@@ -79,6 +79,7 @@
     wget
     git
     git-lfs
+    agenix.packages.${pkgs.system}.default
   ];
 
   # SSH
@@ -89,6 +90,26 @@
       PermitRootLogin = "yes";
     };
   };
+
+  # Agenix secrets
+  age.secrets.test-secret = {
+    file = ./secrets/test-secret.age;
+    mode = "600";
+    owner = "root";
+    group = "root";
+  };
+
+  # Example: systemd service that reads secret at startup
+  systemd.services.test-secret-reader = {
+    description = "Read test secret on startup";
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.bash}/bin/bash -c 'echo \"Secret content: $(cat ${config.age.secrets.test-secret.path})\"'";
+    };
+  };
+
+
 
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

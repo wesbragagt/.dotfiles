@@ -11,18 +11,24 @@
       url = "github:LunaCOLON3/zen-browser-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, zen-browser, ... }: {
+  outputs = { self, nixpkgs, home-manager, zen-browser, agenix, ... }: {
     nixosConfigurations.nixos-arm = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
+      specialArgs = { inherit agenix; };
       modules = [
         ./configuration.nix
-        { 
+        {
           nixpkgs.overlays = [ zen-browser.overlay ];
           nixpkgs.config.allowUnsupportedSystem = true;
         }
         home-manager.nixosModules.home-manager
+        agenix.nixosModules.default
         {
           nix.settings = {
             extra-substituters = [

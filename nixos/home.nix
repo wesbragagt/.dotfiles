@@ -90,6 +90,11 @@ in
     zoxide
   ];
 
+  # UV package manager
+  programs.uv = {
+    enable = true;
+  };
+
   # Link configs from local modules
   xdg.configFile = {
     "hypr" = {
@@ -134,6 +139,12 @@ in
   programs.zsh = {
     enable = true;
     initContent = lib.mkOrder 1000 ''
+      # Setup npm global packages
+      mkdir -p ~/.npm_global
+      npm config set prefix ~/.npm_global
+      export PATH="$HOME/.npm_global/bin:$PATH"
+
+      # Source dotfiles
       source ${./modules/zsh/.zshrc}
     '';
   };
