@@ -33,7 +33,7 @@ let
     snacks-nvim
     oil-nvim
     diffview-nvim
-    vim-comment
+    nvim-comment
     git-blame-nvim;
 in
 {
@@ -65,7 +65,7 @@ in
         snacks-nvim
         oil-nvim
         diffview-nvim
-        vim-comment
+        nvim-comment
         git-blame-nvim
         (nvim-treesitter.withPlugins (
           p: [ p.bash p.c p.diff p.html p.lua p.luadoc p.markdown p.markdown_inline p.query p.vim p.vimdoc ]
