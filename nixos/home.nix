@@ -155,6 +155,10 @@ in
       source = ../wallpapers/wallpapers;
       recursive = true;
     };
+    "Pictures/Screenshots/.gitkeep".text = "";
+    "Pictures/.gitkeep".text = "";
+    "Videos/.gitkeep".text = "";
+    "Documents/.gitkeep".text = "";
   };
 
   programs.starship.enable = true;
