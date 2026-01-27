@@ -67,7 +67,7 @@ in
         fd
         lua-language-server
         nodePackages.typescript-language-server
-        nodePackages.pyright
+        pyright
       ];
 
       initLua = lib.strings.fileContents ./kickstart-init.lua;
