@@ -28,6 +28,26 @@ in
     x11.enable = true;
   };
 
+  # GTK theme and icons
+  gtk = {
+    enable = true;
+
+    theme = {
+      package = pkgs.adwaita-gtk3;
+      name = "adwaita";
+    };
+
+    iconTheme = {
+      package = pkgs.qogir-icon-theme;
+      name = "Qogir";
+    };
+
+    font = {
+      name = "Sans";
+      size = 11;
+    };
+  };
+
   # Packages for hyprland setup
   home.packages = with pkgs; [
     # Fonts
