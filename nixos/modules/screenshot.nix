@@ -18,7 +18,11 @@ in
       wf-recorder
     ];
 
+    home.file.".config/swappy/config".source = ./swappy.conf;
+
+    home.file."Pictures/.gitkeep".text = "";
+    home.file."Pictures/Screenshots/.gitkeep".text = "";
     home.file."Videos/.gitkeep".text = "";
-    home.file."Pictures/screenshots/.gitkeep".text = "";
+    home.file."Documents/.gitkeep".text = "";
   };
 }
