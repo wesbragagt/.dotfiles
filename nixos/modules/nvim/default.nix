@@ -2,6 +2,39 @@
 
 let
   cfg = config.services.neovim-nixvim;
+
+  # Custom Neovim v0.12.0-dev build
+  neovim-dev = pkgs.neovim-unwrapped.overrideAttrs (oldAttrs: {
+    version = "v0.12.0-dev";
+    src = pkgs.fetchFromGitHub {
+      owner = "neovim";
+      repo = "neovim";
+      rev = "c39d18ee93";
+      sha256 = "sha256-KOVSBncEUsn5ZqbkaDo5GhXWCoKqdZGij/KnLH5CoVI=";
+    };
+  });
+
+  # Get all required plugins from nixpkgs
+  inherit (pkgs.vimPlugins)
+    telescope-nvim
+    telescope-fzf-native-nvim
+    telescope-ui-select-nvim
+    nvim-lspconfig
+    mason-nvim
+    mason-lspconfig-nvim
+    mason-tool-installer-nvim
+    fidget-nvim
+    gitsigns-nvim
+    which-key-nvim
+    conform-nvim
+    tokyonight-nvim
+    todo-comments-nvim
+    nvim-treesitter
+    plenary-nvim
+    lazydev-nvim
+    blink-cmp
+    luasnip
+    mini-nvim;
 in
 {
   options.services.neovim-nixvim = {
@@ -9,16 +42,14 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [
-      ripgrep
-      fd
-    ];
+    home.packages = [ neovim-dev ];
 
     programs.neovim = {
       enable = true;
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
+      package = neovim-dev;
       plugins = with pkgs.vimPlugins; [
         gitsigns-nvim
         which-key-nvim
@@ -47,6 +78,8 @@ in
         ripgrep
         fd
       ];
+
+      extraLuaConfig = lib.strings.fileContents ./kickstart-init.lua;
     };
   };
 }
