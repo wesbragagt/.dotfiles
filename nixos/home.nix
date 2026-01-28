@@ -98,6 +98,10 @@ in
 
     # AI tools
     opencode
+
+    # Secrets tools
+    age
+    sops
   ];
 
   # UV package manager
