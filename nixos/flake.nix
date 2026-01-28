@@ -17,13 +17,11 @@
     nixosConfigurations.vm-aarch64 = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
+        { nixpkgs.overlays = [ zen-browser.overlay ]; }
         ./hosts/vm-aarch64/configuration.nix
-        {
-          nixpkgs.overlays = [ zen-browser.overlay ];
-          nixpkgs.config.allowUnsupportedSystem = true;
-        }
         home-manager.nixosModules.home-manager
         {
+          nixpkgs.config.allowUnsupportedSystem = true;
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.wesbragagt = { config, pkgs, lib, ... }: {
