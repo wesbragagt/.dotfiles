@@ -83,7 +83,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=
 export NPM_PREFIX="$HOME/.npm_global"
 export FZF_DEFAULT_COMMAND='fd --type file --hidden --no-ignore --exclude node_modules --exclude .git --exclude build --exclude dist --exclude .terragrunt-cache'
 # select all - https://github.com/junegunn/fzf/issues/257
-export FZF_DEFAULT_OPTS="-m --bind ctrl-t:toggle-all --height 40%"
+export FZF_DEFAULT_OPTS="-m --bind ctrl-t:toggle-all --height=40%"
 
 ############################################
 # ZSH Prompt & Plugins
