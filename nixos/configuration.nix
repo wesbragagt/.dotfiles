@@ -93,7 +93,7 @@
 
   # Agenix secrets
   age.identityPaths = [
-    "/home/wesbragagt/.ssh/nixos_id_ed25519"
+    "/home/wesbragagt/.ssh/nixos_id"
   ];
 
   age.secrets.test-secret = {
