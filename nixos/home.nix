@@ -123,6 +123,10 @@ in
       source = ./modules/starship;
       recursive = true;
     };
+    "foot" = {
+      source = ../../foot/.config/foot;
+      recursive = true;
+    };
   };
 
   # Import local modules
