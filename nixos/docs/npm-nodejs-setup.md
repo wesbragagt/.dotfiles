@@ -17,9 +17,58 @@ The following packages are available in `home.packages`:
 
 NPM is configured to install global packages in `~/.npm_global` instead of system directories. This avoids permission issues and keeps packages isolated.
 
+### Declarative Packages (via Nix)
+
+Use the npm module to install packages from nixpkgs declaratively:
+
+```nix
+# In home.nix
+wesbragagt.npm = {
+  enable = true;
+  globalPackages = [
+    "pnpm"
+    "typescript"
+  ];
+};
+```
+
 ### Configuration Location
 
-The setup is in `home.nix`:
+The npm module is in `modules/npm.nix`:
+
+```nix
+{ config, lib, pkgs, ... }:
+
+with lib;
+
+let
+  cfg = config.wesbragagt.npm;
+in
+{
+  options.wesbragagt.npm = {
+    enable = mkEnableOption "Enable npm global packages";
+    
+    globalPackages = mkOption {
+      type = types.listOf types.str;
+      default = [];
+      description = "List of npm global packages to install from nixpkgs";
+    };
+  };
+
+  config = mkIf cfg.enable {
+    home.packages = map (pkg: 
+      if hasAttr pkg pkgs.nodePackages then
+        pkgs.nodePackages.${pkg}
+      else
+        throw "npm package '${pkg}' not found in nixpkgs nodePackages"
+    ) cfg.globalPackages;
+  };
+}
+```
+
+### Imperative Packages (via npm)
+
+For packages not in nixpkgs, you can still use npm directly:
 
 ```nix
 programs.zsh = {
