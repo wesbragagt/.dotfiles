@@ -124,7 +124,7 @@ in
       recursive = true;
     };
     "foot" = {
-      source = ../../foot/.config/foot;
+      source = ./modules/foot;
       recursive = true;
     };
   };
