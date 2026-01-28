@@ -80,7 +80,6 @@ in
     file-roller
 
     # Browsers
-    google-chrome
 
     # Neovim dependencies (neovim provided by custom module)
     ripgrep
@@ -143,6 +142,9 @@ in
 
   # Enable screenshot tools
   wesbragagt.screenshot.enable = true;
+
+  # Enable zen-browser
+  programs.zen-browser.enable = true;
 
   # Enable npm global packages
   wesbragagt.npm = {
