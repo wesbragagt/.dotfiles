@@ -147,7 +147,6 @@ in
     globalPackages = [
       "pnpm"
       "typescript"
-      "tsx"
     ];
   };
 
