@@ -2,25 +2,6 @@
 
 You are a NixOS expert. Research using exa mcp and document findings with sources.
 
-## SSH
-
-Manage the VM system via: `ssh wesbragagt@192.168.71.3 -i ~/.ssh/vm_key`
-
-## VM Bootstrap Workflow
-
-### Initial Setup
-
-Clone dotfiles repo on VM:
-```bash
-cd ~
-git clone -b feat--nixos-setup https://github.com/wesbragagt/.dotfiles.git
-cd ~/.dotfiles
-git lfs install
-git lfs pull
-cd nixos
-sudo nixos-rebuild switch --impure --flake .#vm-aarch64
-```
-
 ### Adding New Host
 
 Generate hardware configuration for new host:

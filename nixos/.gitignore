@@ -1,3 +1,1 @@
 .tasks
-# Machine-specific hardware configurations
-hosts/*/hardware-configuration.nix
