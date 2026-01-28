@@ -3,7 +3,18 @@
 ## Quick Start
 
 ```bash
-# 1. Generate hardware config (on new machine)
+# 0. Install prerequisites (on new machine)
+nix-shell -p vim git git-lfs curl
+
+# 1. Enable flakes in configuration.nix
+sudo vim /etc/nixos/configuration.nix
+# Add this line inside the top-level { } block:
+#   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+# Apply flakes
+sudo nixos-rebuild switch
+
+# 2. Generate hardware config (on new machine)
 nixos-generate-config --root /tmp/config --no-filesystems
 
 # 2. Create host directory
