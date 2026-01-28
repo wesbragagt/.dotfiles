@@ -105,6 +105,10 @@ in
     # Secrets tools
     age
     sops
+
+    # Data tools
+    duckdb
+    harlequin
   ];
 
   # UV package manager
