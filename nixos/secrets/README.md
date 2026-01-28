@@ -4,7 +4,27 @@ This directory contains encrypted secrets managed by agenix.
 
 ## Setup Instructions
 
-### 1. Get Your SSH Public Key
+### Private Key Configuration
+
+**Private key location:** `/home/wesbragagt/.ssh/nixos_id_ed25519`
+**Private key name:** `nixos_id_ed25519`
+
+This key is used by the VM to decrypt secrets at system boot.
+
+### Generate the Key (VM)
+
+On the VM, generate the dedicated private key:
+
+```bash
+ssh-keygen -t ed25519 -f ~/.ssh/nixos_id_ed25519 -C "nixos@agenix"
+```
+
+**Then add the public key to `secrets.nix`:**
+```bash
+cat ~/.ssh/nixos_id_ed25519.pub
+```
+
+### 1. Get Your SSH Public Key (Local Machine)
 
 On your local machine:
 ```bash
@@ -16,16 +36,21 @@ Or get from GitHub:
 curl https://github.com/YOUR_USERNAME.keys
 ```
 
-### 2. Get VM Host Key
+### 2. Update secrets.nix
 
-On the VM:
-```bash
-cat /etc/ssh/ssh_host_ed25519_key.pub
-```
+Replace the `system` key in `secrets.nix` with your new key's public key:
 
-Or from your local machine:
-```bash
-ssh-keyscan 192.168.71.3
+```nix
+let
+  # Your SSH public key (from local machine)
+  user = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF4xsJwfA16E7aNlRCKwNWzPRNtPz5ZyKj5n+6LbWhsS";
+
+  # VM SSH HOST KEY (nixos_id_ed25519 public key)
+  # Get this from VM: cat ~/.ssh/nixos_id_ed25519.pub
+  system = "ssh-ed25519 YOUR_NEW_PUBLIC_KEY_HERE";
+
+  keys = [ user system ];
+in
 ```
 
 ### 3. Update secrets.nix
