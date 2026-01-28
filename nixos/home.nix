@@ -88,6 +88,11 @@ in
     bat
     eza
     zoxide
+
+    # Node.js and package managers
+    nodejs
+    fnm
+    bun
   ];
 
   # UV package manager
