@@ -2,8 +2,8 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 30,
-  "spacing": 4,
+  "height": 40,
+  "spacing": 6,
   // Choose the order of the modules
   "modules-left": [
     "hyprland/window",
@@ -27,16 +27,6 @@
     "tray",
     "clock"
   ],
-  // Modules configuration
-  // "hyprland/workspaces": {
-  //     "disable-scroll": true,
-  //     "all-outputs": true,
-  //     "warp-on-scroll": false,
-  //     "format": "{name}",
-  //     "persistent-workspaces": {
-  //         "*" : 9
-  //     }
-  // },
   "hyprland/workspaces": {
     "format": "{name}: {windows}", // Example format
     "format-window-separator": " ",
@@ -47,7 +37,11 @@
       "title<.*youtube.*>": "", // YouTube icon by title
       "title<.*slack.*>": "",
       "class<Spotify>": "",
-      "class<DBeaver>": "󰆼"
+      "class<DBeaver>": "󰆼",
+      "class<thunar>": "",
+      "class<libreoffice-calc>": "󱎏",
+      "title<.*chrome.*>": "",
+      "title<.*roam.*": ""
       // Add more rules for other applications
     }
   },
@@ -56,7 +50,7 @@
     "seperate-outputs": false
   },
   "tray": {
-    "spacing": 10
+    "spacing": 20
   },
   "clock": {
     "format": " {:%I:%M %p  %b %d, %Y}",
