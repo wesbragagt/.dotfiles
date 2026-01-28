@@ -126,7 +126,7 @@ in
     ./modules/rofi/default.nix
     ./modules/screenshot.nix
     ./modules/web-apps.nix
-    ./modules/node-packages.nix
+    ./modules/npm.nix
   ];
 
   # Rofi configuration
@@ -140,6 +140,16 @@ in
 
   # Enable screenshot tools
   wesbragagt.screenshot.enable = true;
+
+  # Enable npm global packages
+  wesbragagt.npm = {
+    enable = true;
+    globalPackages = [
+      "pnpm"
+      "typescript"
+      "tsx"
+    ];
+  };
 
   # Link zsh config from local module
   programs.zsh = {
