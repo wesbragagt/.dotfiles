@@ -1,60 +1,134 @@
-/* style.css — Catppuccin Mocha inspired */
-@define-color blur_background rgba(26, 17, 15, 0.3);
-@define-color blur_background8 rgba(26, 17, 15, 0.8);
+/* ============================================================
+ * Waybar Glassmorphism — Catppuccin Mocha
+ * Apple-style frosted glass look (Hyprland blur required)
+ * ============================================================ */
+
+/* ---------------- Colors ---------------- */
+@define-color blur_background rgba(26, 17, 15, 0.22);
+@define-color glass rgba(255, 255, 255, 0.06);
+@define-color glass-hover rgba(255, 255, 255, 0.14);
+@define-color glass-active rgba(255, 255, 255, 0.22);
 
 @define-color bg #1e1e2e;
 @define-color fg #cdd6f4;
 @define-color accent #1e66f5;
-@define-color sep #45475a;
 @define-color highlight #b4befe;
+@define-color sep #45475a;
 
+/* ---------------- Global ---------------- */
 * {
   border: none;
-  font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
-  font-size: 13px;
+  font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 15px;
   color: @fg;
   background: transparent;
+
+  /* subtle macOS-like text depth */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
+/* ---------------- Waybar Window ---------------- */
 window#waybar {
-  background: @bg;
-  border-radius: 12px;
+  background: @blur_background;
+  border-radius: 14px;
   margin: 6px 10px;
-  padding: 4px 8px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  padding: 6px 10px;
+
+  /* glass edge + depth */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.35),
+    inset 0 1px rgba(255, 255, 255, 0.06);
 }
 
-#workspaces button {
-  padding: 0 6px;
-  margin: 0 3px;
-  border-radius: 8px;
-  background: transparent;
-  transition: all 0.2s ease;
-}
-#workspaces button.active {
-  background: @accent;
-  color: #1e1e2e;
-  font-weight: bold;
-}
-#workspaces button:hover {
-  background: @highlight;
-  color: #1e1e2e;
-}
-
+/* ---------------- Modules (Glass Pills) ---------------- */
 #clock,
 #cpu,
 #memory,
 #disk,
 #tray,
 #network,
+#pulseaudio,
+#battery,
 #window {
-  padding: 0 8px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
-  margin: 0 3px;
+  padding: 2px 10px;
+  margin: 0 4px;
+  border-radius: 10px;
+
+  background: @glass;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.08);
 }
 
+/* Hover polish */
+#clock:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#network:hover,
+#pulseaudio:hover,
+#battery:hover {
+  background: @glass-hover;
+}
+
+/* ---------------- Workspaces ---------------- */
+#workspaces {
+  margin: 0 6px;
+}
+
+#workspaces button {
+  padding: 2px 8px;
+  margin: 0 4px;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.04);
+  color: @fg;
+
+  transition: all 0.2s ease;
+}
+
+#workspaces button.active {
+  background: @glass-active;
+  color: @fg;
+
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.2);
+}
+
+#workspaces button:hover {
+  background: @glass-hover;
+}
+
+/* ---------------- Tray ---------------- */
+#tray > .passive {
+  opacity: 0.6;
+}
+
+#tray > .needs-attention {
+  background: rgba(255, 0, 0, 0.25);
+  border-radius: 8px;
+}
+
+/* ---------------- Separators ---------------- */
 #custom-sep {
   color: @sep;
+  margin: 0 6px;
+}
+
+/* ---------------- Tooltip ---------------- */
+tooltip {
+  background: rgba(30, 30, 46, 0.85);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+tooltip label {
+  padding: 6px 10px;
+  color: @fg;
 }
 

@@ -6,17 +6,24 @@
   "spacing": 6,
   // Choose the order of the modules
   "modules-left": [
-    "hyprland/window"
+    "hyprland/window",
+    "custom/sep"
   ],
   "modules-center": [
     "hyprland/workspaces"
   ],
   "modules-right": [
     "pulseaudio",
+    "custom/sep",
     "network",
+    "custom/sep",
     "cpu",
+    "custom/sep",
     "memory",
+    "custom/sep",
     "disk",
+    "custom/sep",
+    "custom/sep",
     "tray",
     "clock"
   ],
@@ -34,8 +41,7 @@
       "class<thunar>": "",
       "class<libreoffice-calc>": "󱎏",
       "title<.*chrome.*>": "",
-      "title<.*roam.*": "",
-      "class<Bitwarden>": ""
+      "title<.*roam.*": ""
       // Add more rules for other applications
     }
   },
@@ -55,20 +61,20 @@
     "tooltip": false
   },
   "memory": {
-    "format": "🧠 {used}GiB/{total}GiB",
-    "tooltip": true,
-    "tooltip-format": "Memory: {used}GiB / {total}GiB"
+    "format": "Mem: {used}GiB"
   },
   "disk": {
     "interval": 60,
     "path": "/",
-    "format": "💾 {free}",
-    "tooltip": true,
-    "tooltip-format": "Disk: {free} available"
+    "format": "Disk: {free}"
   },
   "network": {
     "format": "Online",
     "format-disconnected": "Disconnected ⚠"
+  },
+  "custom/sep": {
+    "format": "|",
+    "interval": 0
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
