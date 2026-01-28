@@ -1,4 +1,3 @@
 .tasks
-# this should be symlinked from /etc/nixos/hardware-configuration.nix
-# sudo ln -s /etc/nixos/hardware-configuration.nix ~/.dotfiles/nixos/hardware-configuration.nix
-./hardware-configuration.nix
+# Machine-specific hardware configurations
+hosts/*/hardware-configuration.nix
