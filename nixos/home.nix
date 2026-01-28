@@ -18,6 +18,9 @@ in
 
   # Let home-manager manage itself
   programs.home-manager.enable = true;
+  
+  # Monitor through btm
+  programs.bottom.enable = true;
 
   # Cursor theme
   home.pointerCursor = {
