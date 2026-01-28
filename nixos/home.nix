@@ -80,6 +80,9 @@ in
     file-roller
 
     # Browsers
+    firefox
+
+    # Browsers
 
     # Neovim dependencies (neovim provided by custom module)
     ripgrep
