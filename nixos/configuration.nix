@@ -92,6 +92,10 @@
   };
 
   # Agenix secrets
+  age.identityPaths = [
+    "/home/wesbragagt/.ssh/nixos_id_ed25519"
+  ];
+
   age.secrets.test-secret = {
     file = ./secrets/test-secret.age;
     mode = "600";
