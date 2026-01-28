@@ -1,18 +1,35 @@
 # Documentation Index
 
-This folder contains validated solutions and implementations for NixOS configuration.
+Validated solutions for NixOS configuration.
 
-## Key Documentation
+## Setup & Operations
 
-- **gui-apps-module-structure.md** - Modular structure for managing GUI applications (Spotify, Slack, etc.)
-- **nixos-flake-validation.md** - Commands for validating flake changes before committing
-- **home-manager-git-lfs.md** - Fetching dotfiles from GitHub with git-lfs support
-- **hyprland-gestures.md** - Hyprland gestures syntax changes (0.51+)
-- **hyprland-autologin-greetd.md** - Auto-start Hyprland with greetd (recommended over getty)
-- **hyprpaper-wallpaper-shuffle.md** - Wallpaper shuffling with systemd timer
-- **zsh-home-manager.md** - Zsh setup with home-manager to source dotfiles
+- **adding-new-host.md** - Quick guide for adding a new host
+- **hardware-configuration.md** - Managing hardware-configuration.nix and multi-system configs
+- **nixos-flake-validation.md** - Validating flake changes before committing
+
+## Application Modules
+
+- **gui-apps-module-structure.md** - Modular structure for GUI applications
 - **web-apps.md** - Chrome/Chromium PWAs with xdg.desktopEntries
 
-## Adding New Documentation
+## Hyprland
 
-When documenting findings, follow the format specified in `contributing.md`.
+- **hyprland-gestures.md** - Gestures syntax changes (0.51+)
+
+## Development
+
+- **kickstart-nvim-configuration.md** - Neovim Kickstart setup
+- **nixos-neovim-vim-pack.md** - Vim-pack plugin management
+- **npm-nodejs-setup.md** - Node.js and npm global packages
+
+## Theming
+
+- **gtk-icon-themes.md** - GTK icon theme for Thunar (info in AGENTS.md)
+
+## Utilities
+
+- **rofi-launcher-setup.md** - Rofi Wayland launcher setup
+- **rofi-wayland-merge.md** - Rofi Wayland fixes
+- **screenshot-setup.md** - Screenshot tools setup
+- **swww-wallpaper-shuffle.md** - Wallpaper shuffling (swww)

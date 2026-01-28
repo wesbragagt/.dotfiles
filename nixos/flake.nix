@@ -14,10 +14,10 @@
   };
 
   outputs = { self, nixpkgs, home-manager, zen-browser, ... }: {
-    nixosConfigurations.nixos-arm = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.vm-aarch64 = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
-        ./configuration.nix
+        ./hosts/vm-aarch64/configuration.nix
         {
           nixpkgs.overlays = [ zen-browser.overlay ];
           nixpkgs.config.allowUnsupportedSystem = true;
