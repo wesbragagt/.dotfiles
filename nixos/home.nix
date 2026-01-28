@@ -93,6 +93,9 @@ in
     nodejs
     fnm
     bun
+
+    # AI tools
+    opencode
   ];
 
   # UV package manager
