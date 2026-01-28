@@ -1,24 +1,23 @@
-# NixOS System Guide
+# NixOS Bootstrap Guide
 
-Quick setup guide for a new NixOS system using this dotfiles configuration.
+Bootstrapping a new NixOS machine with this dotfiles configuration.
 
-## What This Is
+## Bootstrap Steps
 
-Flake-based NixOS configuration using:
-- Home Manager for user configuration
-- Modular structure in `modules/`
-- Git + Git LFS for dotfiles management
-- Hyprland + Waybar desktop
+### 1. Enable Flakes
 
-## Initial Setup
-
-### 1. Prerequisites
-```bash
-# Enable flakes (add to /etc/nixos/configuration.nix)
+Add to `/etc/nixos/configuration.nix`:
+```nix
 nix.settings.experimental-features = [ "nix-command" "flakes" ]
 ```
 
+Then apply:
+```bash
+sudo nixos-rebuild switch
+```
+
 ### 2. Clone Dotfiles
+
 ```bash
 cd ~
 git clone -b feat--nixos-setup https://github.com/wesbragagt/.dotfiles.git
@@ -27,9 +26,28 @@ git lfs install
 git lfs pull
 ```
 
-### 3. Build System
+### 3. Link Hardware Configuration
+
 ```bash
-cd nixos
+cd ~/.dotfiles/nixos
+sudo ln -s /etc/nixos/hardware-configuration.nix ~/.dotfiles/nixos/hardware-configuration.nix
+```
+
+### 4. Add Agenix Private Key
+
+Add your existing private key to the VM:
+```bash
+# Copy your private key to the VM
+scp /path/to/your/private/key wesbragagt@192.168.71.3:~/.ssh/nixos_id
+
+# Or if already on the VM, create it from your existing key
+# Make sure the public key in secrets/secrets.nix matches this private key
+```
+
+### 5. Build System
+
+```bash
+cd ~/.dotfiles/nixos
 sudo nixos-rebuild switch --impure --flake .#nixos-arm
 ```
 

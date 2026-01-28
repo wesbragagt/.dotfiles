@@ -3,8 +3,8 @@ let
   user = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF4xsJwfA16E7aNlRCKwNWzPRNtPz5ZyKj5n+6LbWhsS";
 
   # VM dedicated agenix key PUBLIC KEY (commit this to repo)
-  # Generate on VM: ssh-keygen -t ed25519 -f ~/.ssh/nixos_id_ed25519
-  # Then add public key here: cat ~/.ssh/nixos_id_ed25519.pub
+  # Generate on VM: ssh-keygen -t ed25519 -f ~/.ssh/nixos_id
+  # Then add public key here: cat ~/.ssh/nixos_id.pub
   system = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFWNii0RMkG5StDS+R6pue6T8rCRvSfcZIYKlAlO69cU";
 
   keys = [ user system ];
