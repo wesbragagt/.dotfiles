@@ -126,6 +126,7 @@ in
     ./modules/rofi/default.nix
     ./modules/screenshot.nix
     ./modules/web-apps.nix
+    ./modules/node-packages.nix
   ];
 
   # Rofi configuration
