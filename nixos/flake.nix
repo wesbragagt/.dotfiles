@@ -11,9 +11,13 @@
       url = "github:LunaCOLON3/zen-browser-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    elephant = {
+      url = "github:abenz1267/elephant";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, zen-browser, ... }: {
+  outputs = { self, nixpkgs, home-manager, zen-browser, elephant, ... }: {
     nixosConfigurations.vm-aarch64 = nixpkgs.lib.nixosSystem {
       modules = [
         {
@@ -30,7 +34,8 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.wesbragagt = { config, pkgs, lib, ... }: {
+            extraSpecialArgs = { inherit elephant; };
+            users.wesbragagt = { config, pkgs, lib, elephant, ... }: {
               imports = [
                 ./home.nix
                 zen-browser.homeManagerModules.zen-browser
