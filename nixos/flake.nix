@@ -18,7 +18,6 @@
       modules = [
         {
           nixpkgs.hostPlatform = "aarch64-linux";
-          nixpkgs.overlays = [ zen-browser.overlay ];
           nixpkgs.config = {
             allowUnsupportedSystem = true;
             allowUnfree = true;
@@ -37,6 +36,9 @@
               ];
             };
           };
+        }
+        {
+          nixpkgs.overlays = [ zen-browser.overlay ];
         }
       ];
     };
