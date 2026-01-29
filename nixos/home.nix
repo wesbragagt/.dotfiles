@@ -151,7 +151,7 @@ in
       recursive = true;
     };
     "wallpapers" = {
-      source = ../../wallpapers/wallpapers;
+      source = ./wallpapers;
       recursive = true;
       force = true;
     };
@@ -160,6 +160,18 @@ in
       text = ''
         #!/usr/bin/env bash
         exec ${pkgs.waypaper}/bin/waypaper "$@"
+      '';
+    };
+    ".config/waypaper/config.ini" = {
+      text = ''
+        [General]
+        backend = swww
+        folder = ~/wallpapers
+        monitors = all
+        fill = fill
+        sort = name
+        numbering = false
+        display = one
       '';
     };
     "Pictures/Screenshots/.gitkeep".text = "";
