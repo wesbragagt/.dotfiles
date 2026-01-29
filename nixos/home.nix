@@ -191,6 +191,35 @@ in
         exec ${pkgs.waypaper}/bin/waypaper "$@"
       '';
     };
+    ".config/waypaper/config.ini" = {
+      text = ''
+        [Settings]
+        language = en
+        folder = ~/wallpapers
+        monitors = All
+        wallpaper =
+        show_path_in_tooltip = True
+        backend = swww
+        fill = fill
+        sort = name
+        color = #ffffff
+        subfolders = False
+        all_subfolders = False
+        show_hidden = False
+        show_gifs_only = False
+        zen_mode = False
+        post_command =
+        number_of_columns = 3
+        www_transition_type = any
+        www_transition_step = 63
+        www_transition_angle = 0
+        www_transition_duration = 2
+        www_transition_fps = 60
+        mpv_paper_sound = False
+        mpv_paper_options =
+        use_xdg_state = False
+      '';
+    };
     "Pictures/Screenshots/.gitkeep".text = "";
     "Pictures/.gitkeep".text = "";
     "Videos/.gitkeep".text = "";
