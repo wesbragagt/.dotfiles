@@ -52,6 +52,10 @@ in
     hyprpaper
     hyprpolkitagent
 
+    # Launcher
+    walker
+    elephant.packages.${pkgs.system}.default
+
     # Bar and notifications
     waybar
     mako
@@ -243,5 +247,22 @@ in
     };
 
     Install = { WantedBy = [ "timers.target" ]; };
+  };
+
+  systemd.user.services.elephant = {
+    Unit = {
+      Description = "Elephant backend service for Walker";
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+      Requires = [ "graphical-session.target" ];
+    };
+
+    Service = {
+      ExecStart = "${elephant.packages.${pkgs.system}.default}/bin/elephant";
+      Restart = "on-failure";
+      PassEnvironment = [ "WAYLAND_DISPLAY" "DISPLAY" ];
+    };
+
+    Install = { WantedBy = [ "graphical-session.target" ]; };
   };
 }
