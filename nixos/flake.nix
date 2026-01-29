@@ -15,20 +15,24 @@
 
   outputs = { self, nixpkgs, home-manager, zen-browser, ... }: {
     nixosConfigurations.vm-aarch64 = nixpkgs.lib.nixosSystem {
-      system = "aarch64-linux";
       modules = [
-        { nixpkgs.overlays = [ zen-browser.overlay ]; }
+        {
+          nixpkgs.hostPlatform = "aarch64-linux";
+          nixpkgs.overlays = [ zen-browser.overlay ];
+          nixpkgs.config.allowUnsupportedSystem = true;
+        }
         ./hosts/vm-aarch64/configuration.nix
         home-manager.nixosModules.home-manager
         {
-          nixpkgs.config.allowUnsupportedSystem = true;
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.wesbragagt = { config, pkgs, lib, ... }: {
-            imports = [
-              ./home.nix
-              zen-browser.homeManagerModules.zen-browser
-            ];
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.wesbragagt = { config, pkgs, lib, ... }: {
+              imports = [
+                ./home.nix
+                zen-browser.homeManagerModules.zen-browser
+              ];
+            };
           };
         }
       ];
