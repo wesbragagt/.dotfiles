@@ -139,16 +139,7 @@ in
       source = ./modules/foot;
       recursive = true;
     };
-  };
-
-  # Link wallpapers directory (symlink so you can add images)
-  home.file = {
-    "wallpapers" = {
-      source = ../../wallpapers/wallpapers;
-      recursive = true;
-      force = true;
-    };
-    ".config/waypaper/config.ini" = {
+    "waypaper/config.ini" = {
       text = ''
         [Settings]
         language = en
@@ -177,6 +168,33 @@ in
         use_xdg_state = False
       '';
     };
+  };
+
+  # Link dotfiles and wallpapers directory
+  home.file = {
+    ".aliases" = {
+      source = ./modules/zsh/.aliases;
+    };
+    ".dotfiles/utils" = {
+      source = ./modules/utils;
+      recursive = true;
+    };
+    "wallpapers" = {
+      source = ../../wallpapers/wallpapers;
+      recursive = true;
+      force = true;
+    };
+    ".local/bin/waypaper" = {
+      executable = true;
+      text = ''
+        #!/usr/bin/env bash
+        exec ${pkgs.waypaper}/bin/waypaper "$@"
+      '';
+    };
+    "Pictures/Screenshots/.gitkeep".text = "";
+    "Pictures/.gitkeep".text = "";
+    "Videos/.gitkeep".text = "";
+    "Documents/.gitkeep".text = "";
   };
 
   # Import local modules
