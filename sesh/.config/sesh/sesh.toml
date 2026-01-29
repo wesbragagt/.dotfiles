@@ -1,19 +1,4 @@
 [[session]]
-name = "Implentio"
-path = "~/dev/work/implentio"
-startup_command = "nvim -c ':ProjectFiles'"
-
-[[session]]
-name = "Work Notes"
-path = "~/notes/work/"
-startup_command = "nvim -c ':ProjectFiles'"
-
-[[session]]
-name = "Personal Notes"
-path = "~/notes/personal/"
-startup_command = "nvim -c ':ProjectFiles'"
-
-[[session]]
 name = "Dotfiles"
 path = "~/dotfiles"
 startup_command = "nvim -c 'ProjectFiles'"
