@@ -28,6 +28,7 @@
         home-manager.nixosModules.home-manager
         {
           home-manager = {
+            useGlobalPkgs = true;
             useUserPackages = true;
             users.wesbragagt = { config, pkgs, lib, ... }: {
               imports = [
@@ -36,7 +37,6 @@
               ];
             };
           };
-          nixpkgs.config.allowUnfree = true;
         }
       ];
     };
