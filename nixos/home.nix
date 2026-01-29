@@ -104,6 +104,7 @@ in
 
     # Secrets tools
     age
+    age-plugin-yubikey
     sops
 
     # Data tools
