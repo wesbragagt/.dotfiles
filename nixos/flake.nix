@@ -22,12 +22,12 @@
             allowUnsupportedSystem = true;
             allowUnfree = true;
           };
+          nixpkgs.overlays = [ zen-browser.overlay ];
         }
         ./hosts/vm-aarch64/configuration.nix
         home-manager.nixosModules.home-manager
         {
           home-manager = {
-            useGlobalPkgs = true;
             useUserPackages = true;
             users.wesbragagt = { config, pkgs, lib, ... }: {
               imports = [
@@ -36,9 +36,6 @@
               ];
             };
           };
-        }
-        {
-          nixpkgs.overlays = [ zen-browser.overlay ];
         }
       ];
     };
