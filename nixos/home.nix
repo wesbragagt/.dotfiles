@@ -152,6 +152,7 @@ in
     };
     "wallpapers" = {
       source = config.lib.file.mkOutOfStoreSymlink "/home/wesbragagt/.dotfiles/wallpapers/wallpapers";
+      force = true;
     };
     ".local/bin/waypaper" = {
       executable = true;
@@ -171,6 +172,7 @@ in
         numbering = false
         display = one
       '';
+      force = true;
     };
     "Pictures/Screenshots/.gitkeep".text = "";
     "Pictures/.gitkeep".text = "";
