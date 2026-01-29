@@ -161,19 +161,6 @@ in
         exec ${pkgs.waypaper}/bin/waypaper "$@"
       '';
     };
-    ".config/waypaper/config.ini" = {
-      text = ''
-        [General]
-        backend = swww
-        folder = ~/wallpapers
-        monitors = all
-        fill = fill
-        sort = name
-        numbering = false
-        display = one
-      '';
-      force = true;
-    };
     "Pictures/Screenshots/.gitkeep".text = "";
     "Pictures/.gitkeep".text = "";
     "Videos/.gitkeep".text = "";
