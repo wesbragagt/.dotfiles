@@ -215,32 +215,6 @@ in
     '';
   };
 
-  # Link dotfiles and utils to home
-  home.file = {
-    ".aliases" = {
-      source = ./modules/zsh/.aliases;
-    };
-    ".dotfiles/utils" = {
-      source = ./modules/utils;
-      recursive = true;
-    };
-    "wallpapers" = {
-      source = ../wallpapers/wallpapers;
-      recursive = true;
-    };
-    ".local/bin/waypaper" = {
-      executable = true;
-      text = ''
-        #!/usr/bin/env bash
-        exec ${pkgs.waypaper}/bin/waypaper "$@"
-      '';
-    };
-    "Pictures/Screenshots/.gitkeep".text = "";
-    "Pictures/.gitkeep".text = "";
-    "Videos/.gitkeep".text = "";
-    "Documents/.gitkeep".text = "";
-  };
-
   programs.starship.enable = true;
 
   systemd.user.services.wallpaper-shuffler = {
