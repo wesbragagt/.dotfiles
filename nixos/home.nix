@@ -201,6 +201,13 @@ in
       source = ../wallpapers/wallpapers;
       recursive = true;
     };
+    ".local/bin/waypaper" = {
+      executable = true;
+      text = ''
+        #!/usr/bin/env bash
+        exec ${pkgs.waypaper}/bin/waypaper "$@"
+      '';
+    };
     "Pictures/Screenshots/.gitkeep".text = "";
     "Pictures/.gitkeep".text = "";
     "Videos/.gitkeep".text = "";
