@@ -151,9 +151,7 @@ in
       recursive = true;
     };
     "wallpapers" = {
-      source = ./wallpapers;
-      recursive = true;
-      force = true;
+      source = config.lib.file.mkOutOfStoreSymlink "/home/wesbragagt/.dotfiles/wallpapers/wallpapers";
     };
     ".local/bin/waypaper" = {
       executable = true;
