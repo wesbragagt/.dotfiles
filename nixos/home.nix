@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, elephant, ... }:
 
 let
   neovim-dev = pkgs.neovim-unwrapped.overrideAttrs (oldAttrs: {
