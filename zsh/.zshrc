@@ -185,6 +185,10 @@ if [ -S "$XDG_RUNTIME_DIR/ssh-agent.socket" ]; then
   export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 fi
 
+if [ -S "/$HOME/.bitwarden-ssh-agent.sock" ]; then
+  export SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock"
+fi
+
 # opencode
 export PATH=/Users/wesbragagt/.opencode/bin:$PATH
 # https://stackoverflow.com/questions/44084846/cannot-connect-to-the-docker-daemon-on-macos             ┃
