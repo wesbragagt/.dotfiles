@@ -49,10 +49,9 @@ window#waybar {
 #tray,
 #network,
 #pulseaudio,
-#battery,
-#window {
+#battery {
   padding: 2px 10px;
-  margin: 0 4px;
+  margin: 0 8px;
   border-radius: 10px;
 
   background: @glass;
@@ -60,6 +59,19 @@ window#waybar {
 
   box-shadow:
     inset 0 1px rgba(255, 255, 255, 0.08);
+}
+
+#window {
+  padding: 2px 10px;
+  margin: 0 8px;
+  border-radius: 10px;
+
+  background: rgba(30, 102, 245, 0.15);
+  border: 1px solid @accent;
+
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.1),
+    0 0 10px rgba(30, 102, 245, 0.2);
 }
 
 /* Hover polish */
@@ -90,11 +102,13 @@ window#waybar {
 }
 
 #workspaces button.active {
-  background: @glass-active;
-  color: @fg;
+  background: @accent;
+  color: #ffffff;
 
   box-shadow:
-    inset 0 1px rgba(255, 255, 255, 0.2);
+    0 0 15px rgba(30, 102, 245, 0.5),
+    inset 0 1px rgba(255, 255, 255, 0.3);
+  font-weight: bold;
 }
 
 #workspaces button:hover {
@@ -111,24 +125,20 @@ window#waybar {
   border-radius: 8px;
 }
 
-/* ---------------- Separators ---------------- */
-#custom-sep {
-  color: @sep;
-  margin: 0 6px;
-}
-
 /* ---------------- Tooltip ---------------- */
 tooltip {
-  background: rgba(30, 30, 46, 0.85);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(30, 30, 46, 0.95);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 
   box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.45);
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    inset 0 1px rgba(255, 255, 255, 0.1);
 }
 
 tooltip label {
-  padding: 6px 10px;
+  padding: 8px 12px;
   color: @fg;
+  font-size: 13px;
 }
 
