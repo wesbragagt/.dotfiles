@@ -32,7 +32,7 @@ alias discard="git checkout -- . && git clean -fd"
 alias clean="git branch --merged | egrep -v '(^\*|master|main|dev|nonprod)' | xargs git branch -D"
 alias tt="tmux -f $TMUX_CONF attach || tmux -f $TMUX_CONF new"
 alias key="ssh-add ~/.ssh/id_rsa"
-alias gitd="nvim -c ':tab G'"
+alias gitd="lazygit"
 alias tags="git show-ref --tags -d | fzf"
 
 # fuzzy search through files in the current directory and cd to the dir of the file selected
