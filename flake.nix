@@ -30,6 +30,7 @@
         pkgs.zsh-autosuggestions
         pkgs.starship # Prompt for shell
         pkgs.git
+        pkgs.lazygit
         pkgs.ripgrep # Grep in Rust
         pkgs.fd # Fast file finder
         pkgs.fzf # Fuzzy finder
