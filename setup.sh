@@ -25,6 +25,7 @@ links=(
   swappy
   # Notification daemon
   mako
+  lazygit
 )
 
 for i in "${links[@]}"
