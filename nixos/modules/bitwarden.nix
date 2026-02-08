@@ -7,11 +7,12 @@ let
 in
 {
   options.wesbragagt.bitwarden = {
-    enable = mkEnableOption "Enable Bitwarden CLI and SSH agent integration";
+    enable = mkEnableOption "Enable Bitwarden desktop application and SSH agent integration";
   };
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
+      bitwarden-desktop
       bitwarden-cli
     ];
 

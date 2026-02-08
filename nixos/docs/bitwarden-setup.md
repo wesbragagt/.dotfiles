@@ -2,17 +2,15 @@
 
 ## Installation
 
-Bitwarden CLI is installed via Nix in `modules/bitwarden.nix`.
+Bitwarden desktop application and CLI are installed via Nix in `modules/bitwarden.nix`.
 
 ## Desktop App Setup
 
-You'll need the Bitwarden desktop app to use the SSH agent feature. Install it via Flatpak:
+The Bitwarden desktop app (`bitwarden-desktop`) is automatically installed via Home Manager. You can launch it from your application launcher or from the command line:
 
 ```bash
-flatpak install flathub com.bitwarden.desktop
+bitwarden-desktop
 ```
-
-Or download from [bitwarden.com](https://bitwarden.com/download/).
 
 ## Login with CLI
 
