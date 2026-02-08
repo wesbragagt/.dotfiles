@@ -36,8 +36,8 @@ in
     enable = true;
 
     theme = {
-      name = "Graphite-Dark-nord";
-      package = pkgs.graphite-gtk-theme;
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
     };
 
     iconTheme = {
@@ -57,7 +57,7 @@ in
   };
 
   home.sessionVariables = {
-    GTK_THEME = "Graphite-Dark-nord";
+    GTK_THEME = "Adwaita-dark";
     GTK_APPLICATION_PREFER_DARK_THEME = "1";
   };
 
@@ -99,7 +99,7 @@ in
     pavucontrol
 
     # GTK themes
-    graphite-gtk-theme
+    gnome-themes-extra
     adwaita-icon-theme
     networkmanagerapplet
     fzf
