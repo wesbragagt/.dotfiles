@@ -35,10 +35,30 @@ in
   gtk = {
     enable = true;
 
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
+    };
+
     iconTheme = {
       package = pkgs.qogir-icon-theme;
       name = "Qogir";
     };
+
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
+
+  home.sessionVariables = {
+    GTK_THEME = "Adwaita-dark";
+    GTK_APPLICATION_PREFER_DARK_THEME = "1";
   };
 
   # Packages for hyprland setup
@@ -77,6 +97,10 @@ in
     playerctl
     pamixer
     pavucontrol
+
+    # GTK themes
+    gnome-themes-extra
+    adwaita-icon-theme
     networkmanagerapplet
     fzf
     git-lfs
