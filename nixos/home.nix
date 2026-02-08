@@ -86,6 +86,9 @@ in
     thunar
     file-roller
 
+    # Video player
+    mpv
+
     # Browsers
     firefox
 
