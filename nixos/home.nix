@@ -113,6 +113,9 @@ in
     # Video player
     mpv
 
+    # Image viewer
+    swayimg
+
     # Browsers
     firefox
 
@@ -213,9 +216,16 @@ in
     "video/quicktime" = "mpv.desktop";
     "video/x-matroska" = "mpv.desktop";
     "video/*" = "mpv.desktop";
+    "image/jpeg" = "swayimg.desktop";
+    "image/png" = "swayimg.desktop";
+    "image/gif" = "swayimg.desktop";
+    "image/webp" = "swayimg.desktop";
+    "image/svg+xml" = "swayimg.desktop";
+    "image/*" = "swayimg.desktop";
   };
   xdg.mimeApps.associations.added = {
     "video/*" = ["mpv.desktop"];
+    "image/*" = ["swayimg.desktop"];
   };
   xdg.configFile."mimeapps.list".force = true;
 
