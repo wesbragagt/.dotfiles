@@ -6,10 +6,21 @@ Bitwarden desktop application is installed via Nix in `modules/bitwarden.nix`.
 
 ## Desktop App Setup
 
-The Bitwarden desktop app (`bitwarden-desktop`) is automatically installed via Home Manager. You can launch it from your application launcher or from the command line:
+The Bitwarden desktop app is automatically installed and configured with Wayland support. It starts automatically as a systemd user service.
 
+**Environment variables configured:**
+- `SSH_AUTH_SOCK=$HOME/.bitwarden-ssh-agent.sock` - Points to Bitwarden SSH agent socket
+- `NIXOS_OZONE_WL=1` - Enables Wayland support for Electron
+- `ELECTRON_OZONE_PLATFORM_HINT=auto` - Auto-detects platform
+
+**To manually start the service:**
 ```bash
-bitwarden-desktop
+systemctl --user start bitwarden-desktop
+```
+
+**To check service status:**
+```bash
+systemctl --user status bitwarden-desktop
 ```
 
 ## Login with CLI
