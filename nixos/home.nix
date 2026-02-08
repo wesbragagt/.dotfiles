@@ -181,6 +181,20 @@ in
     "Documents/.gitkeep".text = "";
   };
 
+  # Default applications
+  xdg.mimeApps.enable = true;
+  xdg.mimeApps.defaultApplications = {
+    "video/mp4" = "mpv.desktop";
+    "video/webm" = "mpv.desktop";
+    "video/quicktime" = "mpv.desktop";
+    "video/x-matroska" = "mpv.desktop";
+    "video/*" = "mpv.desktop";
+  };
+  xdg.mimeApps.associations.added = {
+    "video/*" = ["mpv.desktop"];
+  };
+  };
+
   # Import local modules
   imports = [
     ./modules/nvim/default.nix
