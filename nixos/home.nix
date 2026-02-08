@@ -178,6 +178,7 @@ in
     ./modules/screenshot.nix
     ./modules/web-apps.nix
     ./modules/npm.nix
+    ./modules/bitwarden.nix
   ];
 
   # Rofi configuration
@@ -203,6 +204,9 @@ in
       "typescript"
     ];
   };
+
+  # Enable bitwarden CLI and SSH agent
+  wesbragagt.bitwarden.enable = true;
 
   # Link zsh config from local module
   programs.zsh = {
