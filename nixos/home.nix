@@ -193,6 +193,7 @@ in
   xdg.mimeApps.associations.added = {
     "video/*" = ["mpv.desktop"];
   };
+  xdg.configFile."mimeapps.list".force = true;
 
   # Import local modules
   imports = [
