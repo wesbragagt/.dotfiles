@@ -10,8 +10,8 @@ Validated solutions for NixOS configuration.
 
 ## Application Modules
 
-- **gui-apps-module-structure.md** - Modular structure for GUI applications
 - **web-apps.md** - Chrome/Chromium PWAs with xdg.desktopEntries
+- **bitwarden-setup.md** - Bitwarden Desktop and SSH agent configuration
 
 ## Hyprland
 
@@ -21,7 +21,9 @@ Validated solutions for NixOS configuration.
 
 - **kickstart-nvim-configuration.md** - Neovim Kickstart setup
 - **nixos-neovim-vim-pack.md** - Vim-pack plugin management
-- **npm-nodejs-setup.md** - Node.js and npm global packages
+- **npm-nodejs-setup.md** - Node.js, npm, fnm, bun, and uv configuration
+- **starship-home-manager.md** - Starship prompt configuration
+- **zen-browser-nixos.md** - Zen Browser configuration
 
 ## Theming
 
@@ -29,7 +31,5 @@ Validated solutions for NixOS configuration.
 
 ## Utilities
 
-- **rofi-launcher-setup.md** - Rofi Wayland launcher setup
-- **rofi-wayland-merge.md** - Rofi Wayland fixes
 - **screenshot-setup.md** - Screenshot tools setup
 - **swww-wallpaper-shuffle.md** - Wallpaper shuffling (swww)
