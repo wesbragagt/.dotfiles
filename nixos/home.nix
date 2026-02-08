@@ -36,7 +36,7 @@ in
     enable = true;
 
     theme = {
-      name = "Graphite-Dark";
+      name = "Graphite-Dark-nord";
       package = pkgs.graphite-gtk-theme;
     };
 
@@ -57,7 +57,7 @@ in
   };
 
   home.sessionVariables = {
-    GTK_THEME = "Graphite-Dark";
+    GTK_THEME = "Graphite-Dark-nord";
     GTK_APPLICATION_PREFER_DARK_THEME = "1";
   };
 
