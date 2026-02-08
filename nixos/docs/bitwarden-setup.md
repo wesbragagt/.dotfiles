@@ -2,7 +2,7 @@
 
 ## Installation
 
-Bitwarden desktop application and CLI are installed via Nix in `modules/bitwarden.nix`.
+Bitwarden desktop application is installed via Nix in `modules/bitwarden.nix`.
 
 ## Desktop App Setup
 
