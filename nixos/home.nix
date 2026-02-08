@@ -238,6 +238,7 @@ in
         HostName github.com
         User git
         IdentityAgent ~/.bitwarden-ssh-agent.sock
+        IdentityFile ~/.ssh/github_key.pub
         IdentitiesOnly yes
     '';
   };
