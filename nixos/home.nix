@@ -15,7 +15,6 @@ in
   home.username = "wesbragagt";
   home.homeDirectory = "/home/wesbragagt";
   home.stateVersion = "24.11";
-  home-manager.backupFileExtension = "backup";
 
   # Let home-manager manage itself
   programs.home-manager.enable = true;
