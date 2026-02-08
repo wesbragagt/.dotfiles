@@ -16,6 +16,7 @@ in
       slurp
       swappy
       wf-recorder
+      libnotify
     ];
 
     home.file.".config/swappy/config".source = ./swappy.conf;
