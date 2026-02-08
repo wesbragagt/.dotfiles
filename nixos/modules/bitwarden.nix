@@ -30,7 +30,7 @@ in
       };
 
       Service = {
-        ExecStart = "${pkgs.bitwarden-desktop}/bin/bitwarden-desktop --ozone-platform=wayland --enable-features=UseOzonePlatform";
+        ExecStart = "${pkgs.bitwarden-desktop}/bin/bitwarden --ozone-platform=wayland --enable-features=UseOzonePlatform";
         Restart = "on-failure";
         PassEnvironment = [ "WAYLAND_DISPLAY" "DISPLAY" "NIXOS_OZONE_WL" "ELECTRON_OZONE_PLATFORM_HINT" ];
         Environment = [
