@@ -231,6 +231,17 @@ in
 
   programs.starship.enable = true;
 
+  programs.ssh = {
+    enable = true;
+    extraConfig = ''
+      Host github.com
+        HostName github.com
+        User git
+        IdentityAgent ~/.bitwarden-ssh-agent.sock
+        IdentitiesOnly yes
+    '';
+  };
+
   systemd.user.services.wallpaper-shuffler = {
     Unit = {
       Description = "Shuffle wallpapers with swww";
