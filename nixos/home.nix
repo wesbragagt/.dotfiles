@@ -126,22 +126,27 @@ in
     "hypr" = {
       source = ./modules/hypr;
       recursive = true;
+      force = true;
     };
     "waybar" = {
       source = ./modules/waybar;
       recursive = true;
+      force = true;
     };
     "tmux" = {
       source = ./modules/tmux;
       recursive = true;
+      force = true;
     };
     "starship" = {
       source = ./modules/starship;
       recursive = true;
+      force = true;
     };
     "foot" = {
       source = ./modules/foot;
       recursive = true;
+      force = true;
     };
   };
 
@@ -149,10 +154,12 @@ in
   home.file = {
     ".aliases" = {
       source = ./modules/zsh/.aliases;
+      force = true;
     };
     ".dotfiles/utils" = {
       source = ./modules/utils;
       recursive = true;
+      force = true;
     };
     "wallpapers" = {
       source = config.lib.file.mkOutOfStoreSymlink "/home/wesbragagt/.dotfiles/wallpapers/wallpapers";
