@@ -283,6 +283,10 @@ in
       # Source dotfiles
       source ${./modules/zsh/.zshrc}
     '';
+    interactiveShellInit = ''
+      # Bind Ctrl+Y to accept autosuggestions
+      bindkey '^Y' autosuggest-accept
+    '';
   };
 
   programs.starship.enable = true;
