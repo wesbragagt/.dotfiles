@@ -199,8 +199,20 @@ in
       executable = true;
       text = ''
         #!/usr/bin/env bash
-        exec ${pkgs.waypaper}/bin/waypaper "$@"
+          exec ${pkgs.waypaper}/bin/waypaper "$@"
+        '';
+    };
+    ".local/bin/nixos-screensaver" = {
+      executable = true;
+      text = ''
+        #!/usr/bin/env bash
+        ${builtins.readFile ./modules/screensaver/screensaver.sh}
       '';
+    };
+    ".dotfiles/screensaver" = {
+      source = ./modules/screensaver;
+      recursive = true;
+      force = true;
     };
     "Pictures/Screenshots/.gitkeep".text = "";
     "Pictures/.gitkeep".text = "";
