@@ -95,5 +95,20 @@
   # Passwordless sudo for wheel group
   security.sudo.wheelNeedsPassword = false;
 
+  # Keyd - Caps Lock: hold = Ctrl, tap = Esc
+  services.keyd = {
+    enable = true;
+    keyboards = {
+      default = {
+        ids = [ "*" ];
+        settings = {
+          main = { 
+            capslock = "overload(control, esc)";
+          };
+        };
+      };
+    };
+  };
+
   system.stateVersion = "24.11";
 }
