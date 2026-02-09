@@ -270,8 +270,10 @@ in
   # Link zsh config from local module
   programs.zsh = {
     enable = true;
-    autosuggestions.enable = true;
-    autosuggestions.highlightStyle = "fg=#888";
+    autosuggestion = {
+      enable = true;
+      highlightStyle = "fg=#888";
+    };
     initContent = lib.mkOrder 1000 ''
       # Setup npm global packages
       mkdir -p ~/.npm_global
