@@ -118,6 +118,7 @@ in
 
     # Browsers
     firefox
+    google-chrome
 
     # Browsers
 
