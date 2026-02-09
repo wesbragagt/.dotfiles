@@ -66,6 +66,9 @@ in
     # Fonts
     nerd-fonts.jetbrains-mono
 
+    # System monitor
+    btop
+
     # Hyprland ecosystem
     hypridle
     hyprlock
