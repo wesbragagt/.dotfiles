@@ -86,17 +86,14 @@ set -o emacs
 
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
-# Source ZSH plugins provided by Nix (preferred method)
-if [ -f ~/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-  source ~/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-  # Ctrl + Y to accept suggestion
-  bindkey '^Y' autosuggest-accept
-# Fallback to local installation if Nix version not available
-elif [ -d "$HOME/.zsh/zsh-autosuggestions/" ]; then
-  source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-  # Ctrl + Y to accept suggestion
-  bindkey '^Y' autosuggest-accept
-fi
+# Bind Ctrl+Y to accept autosuggestions (must be after zle initialization)
+_zsh_autosuggest_bindkey() {
+  if zle -la autosuggest-accept >/dev/null 2>&1; then
+    bindkey '^Y' autosuggest-accept
+  fi
+}
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd _zsh_autosuggest_bindkey
 
 if [ -d "$HOME/.zsh/fzf-tab/" ]; then
   source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh

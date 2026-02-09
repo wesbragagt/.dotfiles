@@ -278,9 +278,6 @@ in
       highlight = "fg=#888";
     };
     initContent = lib.mkOrder 1000 ''
-      # Bind Ctrl+Y to accept autosuggestions
-      bindkey '^Y' autosuggest-accept
-
       # Setup npm global packages
       mkdir -p ~/.npm_global
       npm config set prefix ~/.npm_global
