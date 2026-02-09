@@ -91,6 +91,7 @@ in
     # Terminal
     foot
     tmux
+    zsh-autosuggestions
 
     # Utilities
     brightnessctl
