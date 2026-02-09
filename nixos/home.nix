@@ -272,7 +272,7 @@ in
     enable = true;
     autosuggestion = {
       enable = true;
-      highlightStyle = "fg=#888";
+      highlight = "fg=#888";
     };
     initContent = lib.mkOrder 1000 ''
       # Setup npm global packages
