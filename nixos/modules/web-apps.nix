@@ -15,7 +15,7 @@ in
       spotify-web = {
         name = "Spotify";
         genericName = "Music Streaming";
-        exec = "${pkgs.google-chrome}/bin/google-chrome-stable --app=https://open.spotify.com --ozone-platform=wayland";
+        exec = "${pkgs.chromium}/bin/chromium --app=https://open.spotify.com --ozone-platform=wayland";
         icon = "spotify";
         terminal = false;
         categories = [ "Audio" "Music" "Player" ];
@@ -25,7 +25,7 @@ in
       slack-web = {
         name = "Slack";
         genericName = "Team Communication";
-        exec = "${pkgs.google-chrome}/bin/google-chrome-stable --app=https://slack.com --ozone-platform=wayland";
+        exec = "${pkgs.chromium}/bin/chromium --app=https://slack.com --ozone-platform=wayland";
         icon = "slack";
         terminal = false;
         categories = [ "Network" "Chat" "InstantMessaging" ];
@@ -35,7 +35,7 @@ in
       telegram-web = {
         name = "Telegram";
         genericName = "Messaging";
-        exec = "${pkgs.google-chrome}/bin/google-chrome-stable --app=https://web.telegram.org --ozone-platform=wayland";
+        exec = "${pkgs.chromium}/bin/chromium --app=https://web.telegram.org --ozone-platform=wayland";
         icon = "telegram";
         terminal = false;
         categories = [ "Network" "Chat" "InstantMessaging" ];

@@ -118,7 +118,7 @@ in
 
     # Browsers
     firefox
-    google-chrome
+    chromium
 
     # Browsers
 
