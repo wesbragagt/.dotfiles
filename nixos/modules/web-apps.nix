@@ -31,6 +31,16 @@ in
         categories = [ "Network" "Chat" "InstantMessaging" ];
         mimeType = [ "x-scheme-handler/slack" ];
       };
+
+      telegram-web = {
+        name = "Telegram";
+        genericName = "Messaging";
+        exec = "${pkgs.google-chrome}/bin/google-chrome-stable --app=https://web.telegram.org --ozone-platform=wayland";
+        icon = "telegram";
+        terminal = false;
+        categories = [ "Network" "Chat" "InstantMessaging" ];
+        mimeType = [ "x-scheme-handler/tg" ];
+      };
     };
   };
 }
