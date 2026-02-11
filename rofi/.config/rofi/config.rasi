@@ -1,4 +1,4 @@
-@theme "~/.config/rofi/nord.rasi"
+@theme "~/.config/rofi/raycast-nord.rasi"
 
 configuration {
     modi: "drun,run,window";
