@@ -74,7 +74,7 @@ in
     hyprlock
     hyprpaper
     hyprpolkitagent
-
+    nwg-dock-hyprland
 
 
     # Bar and notifications
