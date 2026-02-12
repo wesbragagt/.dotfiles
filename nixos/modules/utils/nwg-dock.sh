@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # nwg-dock-hyprland launch script
 # -i 32: icon size 32px
 # -w 5: window width (number of icons before wrapping)
