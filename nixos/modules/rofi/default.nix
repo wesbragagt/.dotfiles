@@ -18,7 +18,7 @@ let
       font: "${cfg.font}";
       icon-theme: "${cfg.iconTheme.name}";
       show-icons: true;
-      terminal: "kitty";
+      terminal: "foot";
       drun-display-format: "{name}";
       disable-history: false;
       hide-scrollbar: true;
