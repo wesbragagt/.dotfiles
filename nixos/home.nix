@@ -208,11 +208,6 @@ in
     "Pictures/.gitkeep".text = "";
     "Videos/.gitkeep".text = "";
     "Documents/.gitkeep".text = "";
-    ".dotfiles/utils/nwg-dock.sh" = {
-      executable = true;
-      source = ./modules/utils/nwg-dock.sh;
-      force = true;
-    };
   };
 
   # Default applications
