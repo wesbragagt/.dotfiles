@@ -136,19 +136,22 @@ element {
     padding:        12px 16px;
     spacing:        14px;
     border-radius:  10px;
-    background-color: transparent;
+    background-color: @nord0;
     children: [ element-icon, element-text ];
 }
 
 element normal normal {
+    background-color: @nord0;
     text-color: @nord4;
 }
 
 element normal active {
+    background-color: @nord0;
     text-color: @nord8;
 }
 
 element normal urgent {
+    background-color: @nord0;
     text-color: @nord11;
 }
 
