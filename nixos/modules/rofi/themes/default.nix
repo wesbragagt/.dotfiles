@@ -55,7 +55,7 @@ entry {
     '';
   };
 
-  # Raycast Nord theme with high contrast (from dotfiles)
+  # Simple dark theme with good contrast (inspired by onedark/gruvbox)
   raycast-nord = {
     content = ''
 configuration {
@@ -68,18 +68,17 @@ configuration {
 }
 
 * {
-    nord0:   #2E3440;
-    nord1:   #3B4252;
-    nord3:   #4C566A;
-    nord4:   #D8DEE9;
-    nord6:   #ECEFF4;
-    nord8:   #88C0D0;
-    nord9:   #81A1C1;
-    nord11:  #BF616A;
-    nord13:  #EBCB8B;
+    bg-dark:    #1E1E2E;
+    bg-light:   #2E2E3E;
+    bg-active:  #3B3B4D;
+    fg-text:    #CDD6F4;
+    fg-bright:  #F5E0DC;
+    fg-dim:     #A6ADC8;
+    accent:     #89B4FA;
+    accent-alt: #F38BA8;
 
     background-color:   transparent;
-    text-color:         @nord6;
+    text-color:         @fg-text;
 
     margin:     0px;
     padding:    0px;
@@ -88,11 +87,12 @@ configuration {
 
 window {
     location:       center;
-    width:          600;
-    border-radius:  14px;
+    width:          620;
+    border-radius:  16px;
 
-    background-color:   @nord0;
+    background-color:   @bg-dark;
     padding:        24px;
+    border: 1px solid @bg-active;
 }
 
 mainbox {
@@ -101,22 +101,23 @@ mainbox {
 }
 
 inputbar {
-    background-color:   @nord1;
+    background-color:   @bg-light;
     border-radius:  12px;
+    border: 1px solid @bg-active;
 
-    padding:    14px 18px;
+    padding:    14px 20px;
     spacing:    14px;
     children:   [ prompt, entry ];
 }
 
 prompt {
-    text-color: @nord8;
+    text-color: @accent;
 }
 
 entry {
     placeholder:        "Search";
-    placeholder-color:  @nord3;
-    text-color:     @nord6;
+    placeholder-color:  @fg-dim;
+    text-color:     @fg-text;
     background-color: transparent;
 }
 
@@ -126,65 +127,68 @@ listview {
     margin:     0;
     lines:      8;
     columns:    1;
-    spacing:    6px;
+    spacing:    8px;
 
     fixed-height: false;
     scrollbar: false;
 }
 
 element {
-    padding:        12px 16px;
+    padding:        14px 18px;
     spacing:        14px;
-    border-radius:  10px;
-    background-color: @nord0;
+    border-radius:  12px;
+    background-color: @bg-light;
     children: [ element-icon, element-text ];
 }
 
 element normal normal {
-    background-color: @nord0;
-    text-color: @nord4;
+    background-color: @bg-light;
+    text-color: @fg-text;
 }
 
 element normal active {
-    background-color: @nord0;
-    text-color: @nord8;
+    background-color: @bg-light;
+    text-color: @accent;
 }
 
 element normal urgent {
-    background-color: @nord0;
-    text-color: @nord11;
+    background-color: @bg-light;
+    text-color: @accent-alt;
 }
 
 element selected normal, element selected active {
-    background-color:   @nord8;
-    text-color: @nord0;
+    background-color:   @accent;
+    text-color: @bg-dark;
 }
 
 element selected urgent {
-    background-color:   @nord11;
-    text-color: @nord6;
+    background-color:   @accent-alt;
+    text-color: @bg-dark;
 }
 
 element alternate normal {
-    text-color: @nord4;
+    background-color: @bg-light;
+    text-color: @fg-text;
 }
 
 element alternate active {
-    text-color: @nord8;
+    background-color: @bg-light;
+    text-color: @accent;
 }
 
 element alternate urgent {
-    text-color: @nord11;
+    background-color: @bg-light;
+    text-color: @accent-alt;
 }
 
 element alternate selected normal, element alternate selected active {
-    background-color:   @nord8;
-    text-color: @nord0;
+    background-color:   @accent;
+    text-color: @bg-dark;
 }
 
 element alternate selected urgent {
-    background-color:   @nord11;
-    text-color: @nord6;
+    background-color:   @accent-alt;
+    text-color: @bg-dark;
 }
 
 element-icon {
@@ -197,7 +201,7 @@ element-text {
 }
 
 textbox {
-    text-color: @nord6;
+    text-color: @fg-bright;
 }
     '';
   };
