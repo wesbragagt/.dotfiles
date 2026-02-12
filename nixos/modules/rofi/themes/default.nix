@@ -55,11 +55,11 @@ entry {
     '';
   };
 
-  # Raycast Nord theme (from dotfiles)
+  # Raycast Nord theme with high contrast (from dotfiles)
   raycast-nord = {
     content = ''
 configuration {
-    font: "JetBrains Mono 11";
+    font: "JetBrains Mono 12";
     show-icons: true;
     icon-theme: "Papirus-Dark";
     display-drun: " ";
@@ -68,17 +68,18 @@ configuration {
 }
 
 * {
-    bg0:    #2E3440E8;
-    bg1:    #3B4252;
-    bg2:    #4C566A40;
-    bg3:    #88C0D0;
-    fg0:    #D8DEE9;
-    fg1:    #ECEFF4;
-    fg2:    #D8DEE9;
-    fg3:    #4C566A;
+    nord0:   #2E3440;
+    nord1:   #3B4252;
+    nord3:   #4C566A;
+    nord4:   #D8DEE9;
+    nord6:   #ECEFF4;
+    nord8:   #88C0D0;
+    nord9:   #81A1C1;
+    nord11:  #BF616A;
+    nord13:  #EBCB8B;
 
     background-color:   transparent;
-    text-color:         @fg0;
+    text-color:         @nord6;
 
     margin:     0px;
     padding:    0px;
@@ -88,34 +89,34 @@ configuration {
 window {
     location:       center;
     width:          600;
-    border-radius:  12px;
+    border-radius:  14px;
 
-    background-color:   @bg0;
-    padding:        20px;
+    background-color:   @nord0;
+    padding:        24px;
 }
 
 mainbox {
-    spacing:    16px;
+    spacing:    20px;
     children:   [ inputbar, listview ];
 }
 
 inputbar {
-    background-color:   @bg1;
-    border-radius:  10px;
+    background-color:   @nord1;
+    border-radius:  12px;
 
-    padding:    12px 16px;
-    spacing:    12px;
+    padding:    14px 18px;
+    spacing:    14px;
     children:   [ prompt, entry ];
 }
 
 prompt {
-    text-color: @bg3;
+    text-color: @nord8;
 }
 
 entry {
     placeholder:        "Search";
-    placeholder-color:  @fg3;
-    text-color:     @fg1;
+    placeholder-color:  @nord3;
+    text-color:     @nord6;
     background-color: transparent;
 }
 
@@ -125,66 +126,66 @@ listview {
     margin:     0;
     lines:      8;
     columns:    1;
-    spacing:    4px;
+    spacing:    6px;
 
     fixed-height: false;
     scrollbar: false;
 }
 
 element {
-    padding:        10px 14px;
-    spacing:        12px;
-    border-radius:  8px;
+    padding:        12px 16px;
+    spacing:        14px;
+    border-radius:  10px;
     background-color: transparent;
     children: [ element-icon, element-text ];
 }
 
 element normal normal {
-    text-color: @fg0;
+    text-color: @nord4;
 }
 
 element normal active {
-    text-color: @bg3;
+    text-color: @nord8;
 }
 
 element normal urgent {
-    text-color: #bf616a;
+    text-color: @nord11;
 }
 
 element selected normal, element selected active {
-    background-color:   @bg3;
-    text-color: @bg1;
+    background-color:   @nord8;
+    text-color: @nord0;
 }
 
 element selected urgent {
-    background-color:   #bf616a;
-    text-color: @fg1;
+    background-color:   @nord11;
+    text-color: @nord6;
 }
 
 element alternate normal {
-    text-color: @fg0;
+    text-color: @nord4;
 }
 
 element alternate active {
-    text-color: @bg3;
+    text-color: @nord8;
 }
 
 element alternate urgent {
-    text-color: #bf616a;
+    text-color: @nord11;
 }
 
 element alternate selected normal, element alternate selected active {
-    background-color:   @bg3;
-    text-color: @bg1;
+    background-color:   @nord8;
+    text-color: @nord0;
 }
 
 element alternate selected urgent {
-    background-color:   #bf616a;
-    text-color: @fg1;
+    background-color:   @nord11;
+    text-color: @nord6;
 }
 
 element-icon {
-    size:           28px;
+    size:           32px;
     vertical-align: 0.5;
 }
 
@@ -193,7 +194,7 @@ element-text {
 }
 
 textbox {
-    text-color: @fg1;
+    text-color: @nord6;
 }
     '';
   };
