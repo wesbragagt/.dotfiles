@@ -89,10 +89,11 @@ window {
     location:       center;
     width:          620;
     border-radius:  16px;
+    border:         1px;
+    border-color:   @bg-active;
 
     background-color:   @bg-dark;
     padding:        24px;
-    border: 1px solid @bg-active;
 }
 
 mainbox {
@@ -103,7 +104,8 @@ mainbox {
 inputbar {
     background-color:   @bg-light;
     border-radius:  12px;
-    border: 1px solid @bg-active;
+    border:         1px;
+    border-color:   @bg-active;
 
     padding:    14px 20px;
     spacing:    14px;
