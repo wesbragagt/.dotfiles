@@ -9,7 +9,7 @@ let
   # Get selected theme content
   themeContent = if builtins.hasAttr cfg.theme themes
     then themes.${cfg.theme}.content
-    else themes.default.content;
+    else themes.raycast-nord.content;
 
   # Rofi configuration
   rofiConfig = pkgs.writeText "config.rasi" ''
@@ -69,8 +69,8 @@ in
 
     theme = lib.mkOption {
       type = lib.types.str;
-      default = "default";
-      description = "Theme to use: default, dracula, gruvbox, catppuccin, fresh, rounded-nord-dark";
+      default = "raycast-nord";
+      description = "Theme to use: default, dracula, gruvbox, catppuccin, fresh, rounded-nord-dark, raycast-nord";
     };
 
     font = lib.mkOption {
@@ -107,5 +107,6 @@ in
     xdg.configFile."rofi/themes/gruvbox.rasi".text = themes.gruvbox.content;
     xdg.configFile."rofi/themes/catppuccin.rasi".text = themes.catppuccin.content;
     xdg.configFile."rofi/themes/fresh.rasi".text = themes.fresh.content;
+    xdg.configFile."rofi/themes/raycast-nord.rasi".text = themes.raycast-nord.content;
   };
 }
