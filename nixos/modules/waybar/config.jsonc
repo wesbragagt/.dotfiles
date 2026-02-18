@@ -52,10 +52,11 @@
   },
   "cpu": {
     "format": "CPU: {usage}%",
-    "tooltip": false
+    "tooltip-format": "CPU Usage: {usage}%"
   },
   "memory": {
-    "format": " {used:0.2f}GiB/{total:0.2f}GiB"
+    "format": "Mem: {percentage}%",
+    "tooltip-format": "Memory Used: {used}GiB / Total: {total}GiB ({percentage}%)"
   },
   "disk": {
     "interval": 60,
