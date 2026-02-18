@@ -20,7 +20,23 @@
     "battery"
   ],
   "hyprland/workspaces": {
-    "format": "{name}"
+    "format": "{name} {windows}",
+    "format-window-separator": " ",
+    "window-rewrite-default": "", // Default icon for unknown windows
+    "window-rewrite": {
+      "class<zen>": "", // Firefox icon
+      "class<foot>": "", // Foot terminal icon
+      "title<.*youtube.*>": "", // YouTube icon by title
+      "title<.*slack.*>": "",
+      "class<Spotify>": "",
+      "class<DBeaver>": "󰆼",
+      "class<thunar>": "",
+      "class<libreoffice-calc>": "󱎏",
+      "class<bitwarden>": "",
+      "title<.*chrome.*>": "",
+      "title<.*roam.*": ""
+      // Add more rules for other applications
+    }
   },
     "window-rewrite": {
       "class<zen>": "", // Firefox icon
