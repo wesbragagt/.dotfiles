@@ -6,18 +6,16 @@
   "spacing": 6,
   // Choose the order of the modules
   "modules-left": [
-    "hyprland/window",
-    "custom/sep"
+    "battery",
+    "pulseaudio",
+    "cpu",
+    "memory"
   ],
   "modules-center": [
     "hyprland/workspaces"
   ],
   "modules-right": [
     "network",
-    "cpu",
-    "memory",
-    "battery",
-    "pulseaudio",
     "clock"
   ],
   "hyprland/workspaces": {
@@ -96,7 +94,9 @@
       "critical": 15
     },
     "format": "{icon} {capacity}%",
-    "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"],
+    "format-icons": ["", "", "", "", ""],
+    "format-charging": "⚡ {capacity}%",
+    "format-plugged": "🔌 {capacity}%",
     "max-length": 25
   }
 }
