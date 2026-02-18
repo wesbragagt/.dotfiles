@@ -19,7 +19,6 @@
     "custom/sep",
     "network",
     "custom/sep",
-    "custom/sep",
     "tray",
     "clock",
     "custom/sep",
@@ -30,7 +29,7 @@
     "disk"
   ],
   "hyprland/workspaces": {
-    "format": "{name}: {windows}", // Example format
+    "format": "{name}",
     "format-window-separator": " ",
     "window-rewrite-default": "", // Default icon for unknown windows
     "window-rewrite": {
