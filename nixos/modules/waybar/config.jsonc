@@ -13,12 +13,12 @@
     "hyprland/workspaces"
   ],
   "modules-right": [
-    "pulseaudio",
     "network",
     "cpu",
     "memory",
     "disk",
     "battery",
+    "pulseaudio",
     "clock"
   ],
   "hyprland/workspaces": {
