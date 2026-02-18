@@ -16,7 +16,6 @@
     "network",
     "cpu",
     "memory",
-    "disk",
     "battery",
     "pulseaudio",
     "clock"
