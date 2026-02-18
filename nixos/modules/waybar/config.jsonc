@@ -91,10 +91,9 @@
       "warning": 30,
       "critical": 15
     },
-    "format": " {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-charging": " {capacity}%",
-    "format-icons": ["", "", "", ""],
+    "format": "\ue250 {capacity}%",
+    "format-plugged": "\ue250 {capacity}%",
+    "format-charging": "\ue258 {capacity}%",
     "max-length": 25
   }
 }
