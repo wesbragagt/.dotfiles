@@ -14,17 +14,11 @@
   ],
   "modules-right": [
     "pulseaudio",
-    "custom/sep",
     "network",
-    "custom/sep",
     "cpu",
-    "custom/sep",
     "memory",
-    "custom/sep",
     "disk",
-    "custom/sep",
-    "custom/sep",
-    "tray",
+    "battery",
     "clock"
   ],
   "hyprland/workspaces": {
