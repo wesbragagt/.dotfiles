@@ -2,6 +2,7 @@ alias ls="eza -ol --icons=auto"
 alias tree="eza -ol -T --icons=auto"
 alias ccd="claude --dangerously-skip-permissions"
 
+unalias rebuild 2>/dev/null || true
 rebuild() {
   local host=$(hostname)
   sudo nixos-rebuild switch --impure --flake ~/.dotfiles/nixos#$host
