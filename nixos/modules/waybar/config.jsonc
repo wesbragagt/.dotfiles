@@ -91,9 +91,8 @@
       "warning": 30,
       "critical": 15
     },
-    "format": " {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-charging": " {capacity}%",
+    "format": "{icon} {capacity}%",
+    "format-icons": ["", "", "", "", ""],
     "max-length": 25
   }
 }
