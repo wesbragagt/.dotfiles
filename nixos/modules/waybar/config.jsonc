@@ -17,7 +17,6 @@
     "cpu",
     "memory",
     "disk",
-    "clock",
     "battery"
   ],
   "hyprland/workspaces": {
