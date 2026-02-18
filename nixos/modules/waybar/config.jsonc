@@ -56,12 +56,12 @@
     "tooltip": false
   },
   "memory": {
-    "format": "Mem: {used}GiB"
+    "format": " {used:0.2f}GiB/{total:0.2f}GiB"
   },
   "disk": {
     "interval": 60,
     "path": "/",
-    "format": "Disk: {free}"
+    "format": " {free}"
   },
   "network": {
     "format": "Online",
