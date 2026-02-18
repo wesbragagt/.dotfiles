@@ -64,8 +64,12 @@
     "format": " {free}"
   },
   "network": {
-    "format": "Online",
-    "format-disconnected": "Disconnected ⚠"
+    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-ethernet": " Wired",
+    "format-disconnected": " Disconnected",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}\n{frequency} GHz",
+    "tooltip-format-ethernet": "{ifname}: {ipaddr}",
+    "on-click-right": "nm-connection-editor"
   },
   "custom/sep": {
     "format": "|",
