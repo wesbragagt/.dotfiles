@@ -6,25 +6,18 @@
   "spacing": 6,
   // Choose the order of the modules
   "modules-left": [
-    "hyprland/window",
-    "custom/sep"
+    "hyprland/window"
   ],
   "modules-center": [
     "hyprland/workspaces"
   ],
   "modules-right": [
     "pulseaudio",
-    "custom/sep",
     "network",
-    "custom/sep",
     "cpu",
-    "custom/sep",
     "memory",
-    "custom/sep",
     "disk",
-    "custom/sep",
     "clock",
-    "custom/sep",
     "battery"
   ],
   "hyprland/workspaces": {
