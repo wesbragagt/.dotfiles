@@ -6,6 +6,7 @@ add_newline = false
 
 # A minimal left prompt
 format = """\
+$hostname\
 $directory\
 $git_branch\
 ${custom.git_status_dirty}\
@@ -53,6 +54,11 @@ purple = '171'
 red = '203'
 white = '188'
 yellow = '223'
+
+[hostname]
+ssh_only = false
+format = '[$hostname]($style) '
+style = 'purple'
 
 [character]
 success_symbol = "[❯](green)[❯](cyan)"
