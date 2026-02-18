@@ -14,6 +14,10 @@
   networking.hostName = "macpro-nixos";
   networking.networkmanager.enable = true;
 
+  # WiFi - generic firmware + Broadcom proprietary driver
+  wesbragagt.wifi.enable = true;
+  wesbragagt.wifi.enableBroadcom = true;
+
   # Time zone
   time.timeZone = "America/Chicago";
 

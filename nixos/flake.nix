@@ -24,6 +24,7 @@
           };
           nixpkgs.overlays = [ zen-browser.overlay ];
         }
+        ./modules/wifi.nix
         ./hosts/vm-aarch64/configuration.nix
         home-manager.nixosModules.home-manager
         {
@@ -50,6 +51,7 @@
           };
           nixpkgs.overlays = [ zen-browser.overlay ];
         }
+        ./modules/wifi.nix
         ./hosts/macpro-nixos/configuration.nix
         home-manager.nixosModules.home-manager
         {
