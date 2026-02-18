@@ -91,10 +91,10 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "{icon} {capacity}%",
-    "format-plugged": "{icon} {capacity}%",
-    "format-charging": "{icon} {capacity}%",
-    "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"],
+    "format": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-icons": ["", "", "", ""],
     "max-length": 25
   }
 }
