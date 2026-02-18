@@ -32,7 +32,33 @@
             useUserPackages = true;
             users.wesbragagt = { config, pkgs, lib, ... }: {
               imports = [
-                ./home.nix
+                ./home-manager/default.nix
+                zen-browser.homeManagerModules.zen-browser
+              ];
+            };
+          };
+        }
+      ];
+    };
+
+    nixosConfigurations.macpro-nixos = nixpkgs.lib.nixosSystem {
+      modules = [
+        {
+          nixpkgs.hostPlatform = "x86_64-linux";
+          nixpkgs.config = {
+            allowUnfree = true;
+          };
+          nixpkgs.overlays = [ zen-browser.overlay ];
+        }
+        ./hosts/macpro-nixos/configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.wesbragagt = { config, pkgs, lib, ... }: {
+              imports = [
+                ./home-manager/default.nix
                 zen-browser.homeManagerModules.zen-browser
               ];
             };
