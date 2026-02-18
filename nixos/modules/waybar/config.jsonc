@@ -48,7 +48,7 @@
     "spacing": 20
   },
   "clock": {
-    "format": " {:%I:%M %p  %b %d, %Y}",
+    "format": " {:%I:%M %p}",
     "tooltip-format": "<big>{:%A, %B %d, %Y}</big>"
   },
   "cpu": {
