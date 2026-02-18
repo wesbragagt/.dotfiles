@@ -29,7 +29,7 @@
     "disk"
   ],
   "hyprland/workspaces": {
-    "format": "{name}",
+    "format": "{name} {windows}",
     "format-window-separator": " ",
     "window-rewrite-default": "", // Default icon for unknown windows
     "window-rewrite": {
