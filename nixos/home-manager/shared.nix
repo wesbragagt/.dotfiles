@@ -11,13 +11,12 @@
   # Monitor through btm
   programs.bottom.enable = true;
 
-  # Cursor theme
+  # Cursor theme (Wayland doesn't need x11.enable)
   home.pointerCursor = {
     name = "Vanilla-DMZ";
     package = pkgs.vanilla-dmz;
     size = 24;
     gtk.enable = true;
-    x11.enable = true;
   };
 
   # GTK theme and icons
