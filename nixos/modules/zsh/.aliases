@@ -1,6 +1,6 @@
 alias ls="eza -ol --icons=auto"
 alias tree="eza -ol -T --icons=auto"
-alias rebuild="sudo nixos-rebuild switch --impure --flake ~/.dotfiles/nixos#vm-aarch64"
+alias rebuild="sudo nixos-rebuild switch --impure --flake ~/.dotfiles/nixos#\$(hostname)"
 alias ccd="claude --dangerously-skip-permissions"
 ccq(){
   claude -p --dangerously-skip-permissions --model opus --tools "" --allowedTools "WebSearch" --system-prompt "You answer questions concisely for terminal output. Use WebSearch to find current information when needed. Format responses in markdown, keeping them under 50 lines. Be direct and factual. Include sources when citing specific facts." "$*" | glow
