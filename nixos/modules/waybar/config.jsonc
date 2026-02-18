@@ -6,38 +6,31 @@
   "spacing": 6,
   // Choose the order of the modules
   "modules-left": [
-    "hyprland/window"
+    "hyprland/window",
+    "custom/sep"
   ],
   "modules-center": [
     "hyprland/workspaces"
   ],
   "modules-right": [
     "pulseaudio",
+    "custom/sep",
     "network",
+    "custom/sep",
     "cpu",
+    "custom/sep",
     "memory",
+    "custom/sep",
     "disk",
-    "battery"
+    "custom/sep",
+    "custom/sep",
+    "tray",
+    "clock"
   ],
   "hyprland/workspaces": {
-    "format": "{name} {windows}",
+    "format": "{name}: {windows}", // Example format
     "format-window-separator": " ",
     "window-rewrite-default": "", // Default icon for unknown windows
-    "window-rewrite": {
-      "class<zen>": "", // Firefox icon
-      "class<foot>": "", // Foot terminal icon
-      "title<.*youtube.*>": "", // YouTube icon by title
-      "title<.*slack.*>": "",
-      "class<Spotify>": "",
-      "class<DBeaver>": "󰆼",
-      "class<thunar>": "",
-      "class<libreoffice-calc>": "󱎏",
-      "class<bitwarden>": "",
-      "title<.*chrome.*>": "",
-      "title<.*roam.*": ""
-      // Add more rules for other applications
-    }
-  },
     "window-rewrite": {
       "class<zen>": "", // Firefox icon
       "class<foot>": "", // Foot terminal icon
@@ -96,18 +89,5 @@
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "on-click-right": "pavucontrol",
     "format-muted": "\uf00d {volume}%"
-  },
-  "battery": {
-    "bat": "BAT0",
-    "interval": 60,
-    "states": {
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{capacity}% {icon}",
-    "format-plugged": "{capacity}% ",
-    "format-charging": "{capacity}% ",
-    "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"],
-    "max-length": 25
   }
 }
