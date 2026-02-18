@@ -13,20 +13,17 @@
     "hyprland/workspaces"
   ],
   "modules-right": [
-    "battery",
-    "custom/sep",
     "pulseaudio",
     "custom/sep",
     "network",
-    "custom/sep",
-    "tray",
-    "clock",
     "custom/sep",
     "cpu",
     "custom/sep",
     "memory",
     "custom/sep",
-    "disk"
+    "disk",
+    "custom/sep",
+    "clock"
   ],
   "hyprland/workspaces": {
     "format": "{name} {windows}",
