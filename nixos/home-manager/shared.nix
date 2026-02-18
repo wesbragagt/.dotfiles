@@ -57,6 +57,29 @@
     # System monitor
     btop
 
+    # Hyprland/Wayland ecosystem
+    hypridle
+    hyprlock
+    hyprpaper
+    hyprpolkitagent
+    nwg-dock-hyprland
+
+    # Bar and notifications
+    waybar
+    mako
+
+    # Wallpaper
+    swww
+    waypaper
+
+    # Clipboard
+    wl-clipboard
+    cliphist
+
+    # Terminal
+    foot
+    tmux
+
     # Utilities
     brightnessctl
     playerctl
@@ -115,6 +138,35 @@
     enable = true;
   };
 
+  # Link configs from local modules
+  xdg.configFile = {
+    "hypr" = {
+      source = ./../modules/hypr;
+      recursive = true;
+      force = true;
+    };
+    "waybar" = {
+      source = ./../modules/waybar;
+      recursive = true;
+      force = true;
+    };
+    "tmux" = {
+      source = ./../modules/tmux;
+      recursive = true;
+      force = true;
+    };
+    "starship" = {
+      source = ./../modules/starship;
+      recursive = true;
+      force = true;
+    };
+    "foot" = {
+      source = ./../modules/foot;
+      recursive = true;
+      force = true;
+    };
+  };
+
   # Link dotfiles and wallpapers directory
   home.file = {
     ".aliases" = {
@@ -129,6 +181,13 @@
     "wallpapers" = {
       source = config.lib.file.mkOutOfStoreSymlink "/home/wesbragagt/.dotfiles/wallpapers/wallpapers";
       force = true;
+    };
+    ".local/bin/waypaper" = {
+      executable = true;
+      text = ''
+        #!/usr/bin/env bash
+          exec ${pkgs.waypaper}/bin/waypaper "$@"
+        '';
     };
     "Pictures/Screenshots/.gitkeep".text = "";
     "Pictures/.gitkeep".text = "";
@@ -156,6 +215,43 @@
     "image/*" = ["swayimg.desktop"];
   };
   xdg.configFile."mimeapps.list".force = true;
+
+  # Import local modules
+  imports = [
+    ./../modules/nvim/default.nix
+    ./../modules/rofi/default.nix
+    ./../modules/screenshot.nix
+    ./../modules/web-apps.nix
+    ./../modules/npm.nix
+    ./../modules/bitwarden.nix
+  ];
+
+  # Rofi configuration
+  services.rofi-custom = {
+    enable = true;
+    theme = "raycast-nord";
+  };
+
+  # Enable web applications
+  wesbragagt.web-apps.enable = true;
+
+  # Enable screenshot tools
+  wesbragagt.screenshot.enable = true;
+
+  # Enable zen-browser
+  programs.zen-browser.enable = true;
+
+  # Enable npm global packages
+  wesbragagt.npm = {
+    enable = true;
+    globalPackages = [
+      "pnpm"
+      "typescript"
+    ];
+  };
+
+  # Enable bitwarden CLI and SSH agent
+  wesbragagt.bitwarden.enable = true;
 
   # Link zsh config from local module
   programs.zsh = {
@@ -187,5 +283,35 @@
         IdentityFile ~/.ssh/github_key.pub
         IdentitiesOnly yes
     '';
+  };
+
+  # Wallpaper shuffler systemd service
+  systemd.user.services.wallpaper-shuffler = {
+    Unit = {
+      Description = "Shuffle wallpapers with swww";
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+      Requires = [ "graphical-session.target" ];
+    };
+
+    Service = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.bash}/bin/bash %h/.dotfiles/utils/random-wallpaper.sh";
+      PassEnvironment = [ "WAYLAND_DISPLAY" "DISPLAY" ];
+    };
+  };
+
+  systemd.user.timers.wallpaper-shuffler = {
+    Unit = {
+      Description = "Timer to shuffle wallpapers every 5 minutes";
+    };
+
+    Timer = {
+      OnBootSec = "1min";
+      OnUnitActiveSec = "5min";
+      Unit = "wallpaper-shuffler.service";
+    };
+
+    Install = { WantedBy = [ "timers.target" ]; };
   };
 }
