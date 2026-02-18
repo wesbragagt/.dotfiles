@@ -12,10 +12,12 @@ Validated solutions for NixOS configuration.
 
 - **web-apps.md** - Chrome/Chromium PWAs with xdg.desktopEntries
 - **bitwarden-setup.md** - Bitwarden Desktop and SSH agent configuration
+- **podman-setup.md** - Podman container runtime configuration
 
 ## Hyprland
 
 - **hyprland-gestures.md** - Gestures syntax changes (0.51+)
+- **waybar-battery.md** - Waybar battery module configuration
 
 ## Development
 

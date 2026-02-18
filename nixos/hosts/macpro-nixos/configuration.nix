@@ -35,7 +35,7 @@
   users.users.wesbragagt = {
     isNormalUser = true;
     description = "wesbragagt";
-    extraGroups = [ "networkmanager" "wheel" "video" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "podman" ];
     shell = pkgs.zsh;
   };
 
@@ -84,6 +84,16 @@
   services.logind.lidSwitch = "ignore";
   services.logind.lidSwitchDocked = "ignore";
   services.logind.lidSwitchExternalPower = "ignore";
+
+  # Podman container runtime
+  virtualisation = {
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
 
   # Keyd - Caps Lock: hold = Ctrl, tap = Esc
   services.keyd = {

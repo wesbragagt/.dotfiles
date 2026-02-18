@@ -13,6 +13,8 @@
     "hyprland/workspaces"
   ],
   "modules-right": [
+    "battery",
+    "custom/sep",
     "pulseaudio",
     "custom/sep",
     "network",
@@ -89,5 +91,18 @@
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "on-click-right": "pavucontrol",
     "format-muted": "\uf00d {volume}%"
+  },
+  "battery": {
+    "bat": "BAT0",
+    "interval": 60,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-plugged": "{capacity}% ",
+    "format-charging": "{capacity}% ",
+    "format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"],
+    "max-length": 25
   }
 }

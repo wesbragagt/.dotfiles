@@ -239,6 +239,7 @@ in
     ./modules/web-apps.nix
     ./modules/npm.nix
     ./modules/bitwarden.nix
+    ./modules/podman.nix
   ];
 
   # Rofi configuration
@@ -267,6 +268,9 @@ in
 
   # Enable bitwarden CLI and SSH agent
   wesbragagt.bitwarden.enable = true;
+
+  # Enable Podman container runtime
+  wesbragagt.podman.enable = true;
 
   # Link zsh config from local module
   programs.zsh = {
