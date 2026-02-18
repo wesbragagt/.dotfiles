@@ -23,7 +23,9 @@
     "custom/sep",
     "disk",
     "custom/sep",
-    "clock"
+    "clock",
+    "custom/sep",
+    "battery"
   ],
   "hyprland/workspaces": {
     "format": "{name} {windows}",
