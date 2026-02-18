@@ -19,15 +19,15 @@
     "custom/sep",
     "network",
     "custom/sep",
+    "custom/sep",
+    "tray",
+    "clock",
+    "custom/sep",
     "cpu",
     "custom/sep",
     "memory",
     "custom/sep",
-    "disk",
-    "custom/sep",
-    "custom/sep",
-    "tray",
-    "clock"
+    "disk"
   ],
   "hyprland/workspaces": {
     "format": "{name}: {windows}", // Example format
