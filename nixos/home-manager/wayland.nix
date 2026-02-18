@@ -156,27 +156,27 @@ in
   # Link configs from local modules
   xdg.configFile = {
     "hypr" = {
-      source = ./modules/hypr;
+      source = ./../modules/hypr;
       recursive = true;
       force = true;
     };
     "waybar" = {
-      source = ./modules/waybar;
+      source = ./../modules/waybar;
       recursive = true;
       force = true;
     };
     "tmux" = {
-      source = ./modules/tmux;
+      source = ./../modules/tmux;
       recursive = true;
       force = true;
     };
     "starship" = {
-      source = ./modules/starship;
+      source = ./../modules/starship;
       recursive = true;
       force = true;
     };
     "foot" = {
-      source = ./modules/foot;
+      source = ./../modules/foot;
       recursive = true;
       force = true;
     };
@@ -185,11 +185,11 @@ in
   # Link dotfiles and wallpapers directory
   home.file = {
     ".aliases" = {
-      source = ./modules/zsh/.aliases;
+      source = ./../modules/zsh/.aliases;
       force = true;
     };
     ".dotfiles/utils" = {
-      source = ./modules/utils;
+      source = ./../modules/utils;
       recursive = true;
       force = true;
     };
@@ -233,12 +233,12 @@ in
 
   # Import local modules
   imports = [
-    ./modules/nvim/default.nix
-    ./modules/rofi/default.nix
-    ./modules/screenshot.nix
-    ./modules/web-apps.nix
-    ./modules/npm.nix
-    ./modules/bitwarden.nix
+    ./../modules/nvim/default.nix
+    ./../modules/rofi/default.nix
+    ./../modules/screenshot.nix
+    ./../modules/web-apps.nix
+    ./../modules/npm.nix
+    ./../modules/bitwarden.nix
   ];
 
   # Rofi configuration
@@ -282,7 +282,7 @@ in
       export PATH="$HOME/.npm_global/bin:$PATH"
 
       # Source dotfiles
-      source ${./modules/zsh/.zshrc}
+      source ${./../modules/zsh/.zshrc}
     '';
   };
 
