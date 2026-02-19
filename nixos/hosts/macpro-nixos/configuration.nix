@@ -40,7 +40,7 @@
   users.users.wesbragagt = {
     isNormalUser = true;
     description = "wesbragagt";
-    extraGroups = [ "networkmanager" "wheel" "video" "podman" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "docker" ];
     shell = pkgs.zsh;
   };
 
@@ -96,14 +96,10 @@
   # Automatic Ripping Machine
   wesbragagt.arm.enable = true;
 
-  # Podman container runtime
-  virtualisation = {
-    containers.enable = true;
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = true;
-    };
+  # Docker container runtime (needed for ARM privileged device access)
+  virtualisation.docker = {
+    enable = true;
+    autoPrune.enable = true;
   };
 
   # Keyd - Caps Lock: hold = Ctrl, tap = Esc
