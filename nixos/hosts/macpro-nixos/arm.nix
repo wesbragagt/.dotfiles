@@ -5,33 +5,6 @@ with lib;
 let
   cfg = config.wesbragagt.arm;
 
-  # Host-side udev trigger script for disc insertion.
-  # Docker runs as root so this is straightforward — no namespace workarounds needed.
-  armTriggerScript = pkgs.writeShellScript "arm-trigger.sh" ''
-    DEVNAME="$1"
-    CONTAINER="automatic-ripping-machine"
-    LOG="/var/log/arm-trigger.log"
-    DATE="${pkgs.coreutils}/bin/date"
-    DOCKER="${pkgs.docker}/bin/docker"
-    UDEVADM="${pkgs.systemd}/bin/udevadm"
-
-    echo "$($DATE) [ARM] Disc event on $DEVNAME" >> $LOG
-
-    if ! $DOCKER exec "$CONTAINER" true 2>/dev/null; then
-      echo "$($DATE) [ARM] Container not running, skipping" >> $LOG
-      exit 0
-    fi
-
-    # Pass host udev disc type env vars into the container
-    UDEV_ENVS=""
-    for var in $($UDEVADM info --query=env "/dev/$DEVNAME" 2>/dev/null | ${pkgs.gnugrep}/bin/grep '^ID_CDROM\|^ID_FS_TYPE'); do
-      UDEV_ENVS="$UDEV_ENVS -e $var"
-    done
-
-    echo "$($DATE) [ARM] Triggering rip for $DEVNAME" >> $LOG
-    $DOCKER exec $UDEV_ENVS "$CONTAINER" /opt/arm/scripts/docker/docker_arm_wrapper.sh "$DEVNAME" &
-  '';
-
   composeFile = pkgs.writeText "docker-compose.yml" ''
     version: '3.8'
 
@@ -93,11 +66,6 @@ in
 
     # Open the ARM web UI port
     networking.firewall.allowedTCPPorts = [ cfg.port ];
-
-    # Host-side udev rule to trigger ARM when a disc is inserted
-    services.udev.extraRules = ''
-      KERNEL=="sr[0-9]*", ACTION=="change", SUBSYSTEM=="block", ENV{ID_CDROM_MEDIA_STATE}!="blank", RUN+="${armTriggerScript} %k"
-    '';
 
     # Systemd service to set up directories and run docker compose
     systemd.services.arm = {
