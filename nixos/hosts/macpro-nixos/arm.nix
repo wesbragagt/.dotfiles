@@ -18,6 +18,8 @@ let
           - cdrom
         devices:
           - '/dev/sr0:/dev/sr0'
+          - '/dev/sg0:/dev/sg0'
+          - '/dev/sg1:/dev/sg1'
         ports:
           - "${toString cfg.port}:8080"
         volumes:
@@ -69,6 +71,9 @@ in
 
   config = mkIf cfg.enable {
     # ARM requires Docker with privileged access for optical drive ioctl
+
+    # MakeMKV needs the SCSI generic (sg) kernel module for optical drive access
+    boot.kernelModules = [ "sg" ];
 
     # Open the ARM web UI port
     networking.firewall.allowedTCPPorts = [ cfg.port ];
