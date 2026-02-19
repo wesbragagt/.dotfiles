@@ -26,6 +26,12 @@ let
           - ${cfg.dataDir}/arm-logs:/home/arm/logs
           - ${cfg.dataDir}/arm-music:/home/arm/music
           - ${cfg.dataDir}/arm-config:/etc/arm/config
+        entrypoint: /bin/bash
+        command:
+          - -c
+          - |
+            sed -i 's/{err:s}/{err}/g' /opt/arm/arm/models/system_drives.py
+            exec /sbin/my_init
         environment:
           - ARM_UID=${toString cfg.uid}
           - ARM_GID=${toString cfg.gid}
