@@ -98,7 +98,7 @@ in
       wantedBy = [ "multi-user.target" ];
       before = [ "arm.service" ];
 
-      path = [ pkgs.coreutils ];
+      path = [ pkgs.coreutils pkgs.podman ];
 
       serviceConfig = {
         Type = "oneshot";
@@ -115,10 +115,13 @@ in
         # Copy compose file
         cp ${composeFile} ${cfg.dataDir}/docker-compose.yml
 
-        # Fix ownership for podman rootless user namespace
-        # Files need to be owned by the subuid-mapped UID/GID so that
-        # container UID 1000:100 can access them.
+        # First ensure host user owns everything so podman unshare can operate
         chown -R ${toString cfg.uid}:${toString cfg.gid} ${cfg.dataDir}
+
+        # Then remap ownership for podman rootless user namespace.
+        # podman unshare runs in the user namespace where host UID 1000 = container UID 0.
+        # We chown to 1000:100 inside the namespace so container sees files as 1000:100.
+        ${pkgs.util-linux}/bin/runuser -u wesbragagt -- ${pkgs.podman}/bin/podman unshare chown -R ${toString cfg.uid}:${toString cfg.gid} ${cfg.dataDir}/arm-home ${cfg.dataDir}/arm-media ${cfg.dataDir}/arm-logs ${cfg.dataDir}/arm-music ${cfg.dataDir}/arm-config
       '';
     };
 
