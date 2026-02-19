@@ -12,21 +12,30 @@ let
     DEVNAME="$1"
     CONTAINER="automatic-ripping-machine"
     LOG="/var/log/arm-trigger.log"
+    DATE="${pkgs.coreutils}/bin/date"
     PODMAN="${pkgs.podman}/bin/podman"
     SYSTEMD_RUN="${pkgs.systemd}/bin/systemd-run"
+    UDEVADM="${pkgs.systemd}/bin/udevadm"
+    XDG="XDG_RUNTIME_DIR=/run/user/${toString cfg.uid}"
 
-    echo "$(${pkgs.coreutils}/bin/date) [ARM] Disc event on $DEVNAME" >> $LOG
+    echo "$($DATE) [ARM] Disc event on $DEVNAME" >> $LOG
 
     # Use systemd-run to get a proper user session environment for podman rootless.
-    # udev's minimal environment lacks XDG_RUNTIME_DIR and cgroup access that
-    # podman needs, but systemd-run --uid sets these up correctly.
-    if ! $SYSTEMD_RUN --uid=${toString cfg.uid} --gid=${toString cfg.gid} --pipe --wait --collect -E XDG_RUNTIME_DIR=/run/user/${toString cfg.uid} $PODMAN exec "$CONTAINER" true 2>/dev/null; then
-      echo "$(${pkgs.coreutils}/bin/date) [ARM] Container not running, skipping" >> $LOG
+    if ! $SYSTEMD_RUN --uid=${toString cfg.uid} --gid=${toString cfg.gid} --pipe --wait --collect -E $XDG $PODMAN exec "$CONTAINER" true 2>/dev/null; then
+      echo "$($DATE) [ARM] Container not running, skipping" >> $LOG
       exit 0
     fi
 
-    echo "$(${pkgs.coreutils}/bin/date) [ARM] Triggering rip for $DEVNAME" >> $LOG
-    $SYSTEMD_RUN --uid=${toString cfg.uid} --gid=${toString cfg.gid} --collect -E XDG_RUNTIME_DIR=/run/user/${toString cfg.uid} $PODMAN exec "$CONTAINER" /opt/arm/scripts/docker/docker_arm_wrapper.sh "$DEVNAME"
+    # Query udev on the host for disc type env vars and pass them into the container.
+    # The ARM wrapper script uses ID_CDROM_MEDIA_DVD, ID_CDROM_MEDIA_BD, etc.
+    # to determine disc type. Without these, it falls back to "unknown".
+    UDEV_ENVS=""
+    for var in $($UDEVADM info --query=env "/dev/$DEVNAME" 2>/dev/null | ${pkgs.gnugrep}/bin/grep '^ID_CDROM\|^ID_FS_TYPE'); do
+      UDEV_ENVS="$UDEV_ENVS -e $var"
+    done
+
+    echo "$($DATE) [ARM] Triggering rip for $DEVNAME with env:$UDEV_ENVS" >> $LOG
+    $SYSTEMD_RUN --uid=${toString cfg.uid} --gid=${toString cfg.gid} --collect -E $XDG $PODMAN exec $UDEV_ENVS "$CONTAINER" /opt/arm/scripts/docker/docker_arm_wrapper.sh "$DEVNAME"
   '';
 
   composeFile = pkgs.writeText "docker-compose.yml" ''
