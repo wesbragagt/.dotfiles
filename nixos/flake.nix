@@ -52,6 +52,7 @@
           nixpkgs.overlays = [ zen-browser.overlay ];
         }
         ./modules/wifi.nix
+        ./modules/tailscale.nix
         ./hosts/macpro-nixos/configuration.nix
         home-manager.nixosModules.home-manager
         {

@@ -89,6 +89,9 @@
   services.logind.lidSwitchDocked = "ignore";
   services.logind.lidSwitchExternalPower = "ignore";
 
+  # Tailscale VPN
+  wesbragagt.tailscale.enable = true;
+
   # Podman container runtime
   virtualisation = {
     containers.enable = true;
