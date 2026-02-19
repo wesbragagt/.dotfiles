@@ -92,16 +92,20 @@ in
       KERNEL=="sr[0-9]*", ACTION=="change", SUBSYSTEM=="block", ENV{ID_CDROM_MEDIA_STATE}!="blank", RUN+="${armTriggerScript} %k"
     '';
 
-    # Systemd service to set up directories and run podman compose
-    systemd.services.arm = {
-      description = "Automatic Ripping Machine (ARM)";
-      after = [ "network-online.target" "podman.service" ];
-      wants = [ "network-online.target" "podman.service" ];
+    # Systemd service to set up ARM directories (runs as root for chown)
+    systemd.services.arm-setup = {
+      description = "Automatic Ripping Machine (ARM) - Directory Setup";
       wantedBy = [ "multi-user.target" ];
+      before = [ "arm.service" ];
 
-      path = [ pkgs.podman pkgs.podman-compose pkgs.shadow pkgs.coreutils ];
+      path = [ pkgs.coreutils ];
 
-      preStart = ''
+      serviceConfig = {
+        Type = "oneshot";
+        RemainAfterExit = true;
+      };
+
+      script = ''
         # Create data directories if they don't exist
         mkdir -p ${cfg.dataDir}/{arm-home,arm-media,arm-logs,arm-music,arm-config}
         mkdir -p ${cfg.dataDir}/arm-home/{db,logs,media,music,.MakeMKV}
@@ -112,8 +116,21 @@ in
         cp ${composeFile} ${cfg.dataDir}/docker-compose.yml
 
         # Fix ownership for podman rootless user namespace
-        chown -R ${toString cfg.uid}:${toString cfg.gid} ${cfg.dataDir}/arm-home ${cfg.dataDir}/arm-media ${cfg.dataDir}/arm-logs ${cfg.dataDir}/arm-music ${cfg.dataDir}/arm-config
+        # Files need to be owned by the subuid-mapped UID/GID so that
+        # container UID 1000:100 can access them.
+        chown -R ${toString cfg.uid}:${toString cfg.gid} ${cfg.dataDir}
       '';
+    };
+
+    # Systemd service to run podman compose (runs as wesbragagt)
+    systemd.services.arm = {
+      description = "Automatic Ripping Machine (ARM)";
+      after = [ "network-online.target" "podman.service" "arm-setup.service" ];
+      wants = [ "network-online.target" "podman.service" ];
+      requires = [ "arm-setup.service" ];
+      wantedBy = [ "multi-user.target" ];
+
+      path = [ pkgs.podman pkgs.podman-compose ];
 
       serviceConfig = {
         Type = "oneshot";
