@@ -12,21 +12,21 @@ let
     DEVNAME="$1"
     CONTAINER="automatic-ripping-machine"
     LOG="/var/log/arm-trigger.log"
+    PODMAN="${pkgs.podman}/bin/podman"
+    SYSTEMD_RUN="${pkgs.systemd}/bin/systemd-run"
 
-    # udev runs with a minimal environment; podman rootless needs XDG_RUNTIME_DIR
-    # to find its socket.
-    export XDG_RUNTIME_DIR="/run/user/${toString cfg.uid}"
+    echo "$(${pkgs.coreutils}/bin/date) [ARM] Disc event on $DEVNAME" >> $LOG
 
-    echo "$(date) [ARM] Disc event on $DEVNAME" >> $LOG
-
-    # Run podman exec as wesbragagt since the container is rootless
-    if ! ${pkgs.util-linux}/bin/runuser -u wesbragagt -- env XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" ${pkgs.podman}/bin/podman exec "$CONTAINER" true 2>/dev/null; then
-      echo "$(date) [ARM] Container not running, skipping" >> $LOG
+    # Use systemd-run to get a proper user session environment for podman rootless.
+    # udev's minimal environment lacks XDG_RUNTIME_DIR and cgroup access that
+    # podman needs, but systemd-run --uid sets these up correctly.
+    if ! $SYSTEMD_RUN --uid=${toString cfg.uid} --gid=${toString cfg.gid} --pipe --wait --collect -E XDG_RUNTIME_DIR=/run/user/${toString cfg.uid} $PODMAN exec "$CONTAINER" true 2>/dev/null; then
+      echo "$(${pkgs.coreutils}/bin/date) [ARM] Container not running, skipping" >> $LOG
       exit 0
     fi
 
-    echo "$(date) [ARM] Triggering rip for $DEVNAME" >> $LOG
-    ${pkgs.util-linux}/bin/runuser -u wesbragagt -- env XDG_RUNTIME_DIR="$XDG_RUNTIME_DIR" ${pkgs.podman}/bin/podman exec "$CONTAINER" /opt/arm/scripts/docker/docker_arm_wrapper.sh "$DEVNAME" &
+    echo "$(${pkgs.coreutils}/bin/date) [ARM] Triggering rip for $DEVNAME" >> $LOG
+    $SYSTEMD_RUN --uid=${toString cfg.uid} --gid=${toString cfg.gid} --collect -E XDG_RUNTIME_DIR=/run/user/${toString cfg.uid} $PODMAN exec "$CONTAINER" /opt/arm/scripts/docker/docker_arm_wrapper.sh "$DEVNAME"
   '';
 
   composeFile = pkgs.writeText "docker-compose.yml" ''
