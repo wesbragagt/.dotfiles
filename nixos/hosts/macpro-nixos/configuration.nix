@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./arm.nix
   ];
 
   # Bootloader
@@ -91,6 +92,9 @@
 
   # Tailscale VPN
   wesbragagt.tailscale.enable = true;
+
+  # Automatic Ripping Machine
+  wesbragagt.arm.enable = true;
 
   # Podman container runtime
   virtualisation = {
