@@ -301,6 +301,12 @@ in
         IdentityAgent ~/.bitwarden-ssh-agent.sock
         IdentityFile ~/.ssh/github_key.pub
         IdentitiesOnly yes
+
+      Host wall-e walle-e
+        HostName wall-e
+        User wesbragagt
+        IdentityAgent ~/.bitwarden-ssh-agent.sock
+        IdentitiesOnly yes
     '';
   };
 
