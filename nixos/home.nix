@@ -302,10 +302,11 @@ in
         IdentityFile ~/.ssh/github_key.pub
         IdentitiesOnly yes
 
-      Host wall-e walle-e
-        HostName wall-e
+      Host walle wall-e
+        HostName wall-e.tail585d38.ts.net
         User wesbragagt
         IdentityAgent ~/.bitwarden-ssh-agent.sock
+        IdentityFile ~/.ssh/walle-nas-key.pub
         IdentitiesOnly yes
     '';
   };
