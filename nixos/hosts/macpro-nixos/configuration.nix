@@ -123,7 +123,12 @@
     wget
     git
     git-lfs
+    gvfs
+    sshfs
   ];
+
+  # GVFS for SMB/USB mounting in Thunar
+  services.gvfs.enable = true;
 
   # SSH
   services.openssh = {

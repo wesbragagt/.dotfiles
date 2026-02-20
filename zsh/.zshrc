@@ -52,6 +52,9 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 export MANPAGER="nvim +Man!"
 
+# Allow to edit the command using an editor
+bindkey '^x^e' edit-command-line
+
 # fnm
 FNM_PATH="/home/wesbragagt/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
