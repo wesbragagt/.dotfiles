@@ -272,18 +272,6 @@
 
   programs.starship.enable = true;
 
-  programs.ssh = {
-    enable = true;
-    extraConfig = ''
-      Host github.com
-        HostName github.com
-        User git
-        IdentityAgent ~/.bitwarden-ssh-agent.sock
-        IdentityFile ~/.ssh/github_key.pub
-        IdentitiesOnly yes
-    '';
-  };
-
   # Wallpaper shuffler systemd service
   systemd.user.services.wallpaper-shuffler = {
     Unit = {
