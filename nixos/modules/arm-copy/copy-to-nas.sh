@@ -12,7 +12,7 @@ for dir in "$ARM"/*/; do
   name=$(basename "$dir")
   grep -qx "$name" "$STATE" && continue
   
-  nas_name=$(echo "$name" | sed 's/ ([0-9]*)$//' | tr '- ' '_' | tr -d "'")
+  nas_name=$(echo "$name" | sed 's/ ([0-9]*)$//' | sed 's/--/_/g' | sed 'y/ -/__/' | tr -d "'")
   
   echo "$(date): Copying $name → $nas_name" >> "$LOG"
   rsync -av --no-i-r --info=NAME "$dir" "$NAS/$nas_name/" >> "$LOG" 2>&1
