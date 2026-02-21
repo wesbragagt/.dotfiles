@@ -180,6 +180,10 @@ in
       recursive = true;
       force = true;
     };
+    "arm-copy/copy-to-nas.sh" = {
+      source = ./modules/arm-copy/copy-to-nas.sh;
+      executable = true;
+    };
   };
 
   # Link dotfiles and wallpapers directory
@@ -319,6 +323,23 @@ in
     };
 
     Install = { WantedBy = [ "timers.target" ]; };
+  };
+
+  systemd.user.services.arm-copy = {
+    Unit.Description = "Copy ARM movies to NAS";
+    Service = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.bash}/bin/bash %h/.config/arm-copy/copy-to-nas.sh";
+    };
+  };
+
+  systemd.user.timers.arm-copy = {
+    Unit.Description = "Copy ARM movies to NAS every 5 minutes";
+    Timer = {
+      OnBootSec = "1min";
+      OnUnitActiveSec = "5min";
+    };
+    Install.WantedBy = [ "timers.target" ];
   };
 
 }
