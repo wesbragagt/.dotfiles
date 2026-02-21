@@ -15,7 +15,7 @@ for dir in "$ARM"/*/; do
   nas_name=$(echo "$name" | sed 's/ ([0-9]*)$//' | tr '- ' '_' | tr -d "'")
   
   echo "$(date): Copying $name → $nas_name" >> "$LOG"
-  rsync -av "$dir" "$NAS/$nas_name/" >> "$LOG" 2>&1
+  rsync -av --no-i-r --info=NAME "$dir" "$NAS/$nas_name/" >> "$LOG" 2>&1
   
   echo "$name" >> "$STATE"
 done
