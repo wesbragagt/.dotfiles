@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ARM="$HOME/arm-compose/arm-media/completed/movies"
 NAS="$HOME/mnt/nas-movies"
 STATE="$HOME/arm-compose/.copied_movies"
