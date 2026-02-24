@@ -6,17 +6,17 @@
   "spacing": 6,
   // Choose the order of the modules
   "modules-left": [
-    "hyprland/window"
+    "hyprland/window",
+    "pulseaudio",
+    "cpu",
+    "memory",
+    "disk"
   ],
   "modules-center": [
     "hyprland/workspaces"
   ],
   "modules-right": [
-    "pulseaudio",
     "network",
-    "cpu",
-    "memory",
-    "disk",
     "tray",
     "clock"
   ],
