@@ -12,6 +12,7 @@ links=(
   starship
   ghostty
   foot
+  opencode
   wallpapers
   waypaper
   # Launcher
