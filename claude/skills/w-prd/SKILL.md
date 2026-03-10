@@ -79,13 +79,13 @@ Plan a feature using the prd-planner subagent.
 
 ## Task Management
 
-Use the `tasks` skill for task operations:
+Use the `w-tasks` skill for task operations:
 
 | Command | Description |
 |---------|-------------|
-| `/tasks pending prd/{feature}/tasks.yaml` | List pending tasks |
-| `/tasks ready prd/{feature}/tasks.yaml` | List ready tasks (no blockers) |
-| `/tasks progress prd/{feature}/tasks.yaml` | List in-progress tasks |
+| `/w-tasks pending prd/{feature}/tasks.yaml` | List pending tasks |
+| `/w-tasks ready prd/{feature}/tasks.yaml` | List ready tasks (no blockers) |
+| `/w-tasks progress prd/{feature}/tasks.yaml` | List in-progress tasks |
 
 Or use yq directly:
 ```bash
