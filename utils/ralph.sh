@@ -5,24 +5,29 @@ MAX_ITERATIONS=10
 VERIFY_CMD=""
 AGENT_CMD=""
 PROMPT_FILES=()
+PROMPT_TEXT=""
+TASKS_FILE=""
 
 usage() {
   cat <<EOF
-Usage: ralph -c 'command' [options] < prompt.txt
+Usage: ralph -c 'command' [options] [-p 'prompt' | -f FILE | < prompt.txt]
 
 Run an agentic CLI in a Ralph Loop (iterates until objective success).
 
 Options:
   -c 'cmd'     Agent command to run (e.g., 'opencode run', 'claude code')
+  -p 'text'    Prompt text (can be combined with -f files)
   -v 'cmd'     Verification command to check success (default: exit code 0)
+  -t FILE      Verify via tasks.yaml (checks all tasks are done)
   -l N         Max iterations/loops (default: 10)
   -f FILE      Read prompt from file (can be used multiple times)
-  -f FILE1 -f FILE2  Concatenate multiple files as prompt
 
 Examples:
-  echo "Fix the bug in auth.ts" | ralph -c 'opencode run'
+  ralph -c 'opencode run' -p "Fix the bug in auth.ts"
   ralph -c 'claude code' -v 'npm test' -f prompt.md
   ralph -c 'opencode run' -f context.md -f task.md -f rules.md
+  ralph -c 'opencode run' -p "Focus on tests" -f context.md -f task.md
+  ralph -c 'opencode run' -t tasks.yaml -f task.md
   cat task.md | ralph -c 'opencode run' -v 'cargo test' -l 5
 
 The loop runs the agent, then verifies with -v command (if provided).
@@ -37,10 +42,12 @@ for arg in "$@"; do
   esac
 done
 
-while getopts "c:v:l:f:h" opt; do
+while getopts "c:p:v:t:l:f:h" opt; do
   case "$opt" in
     c) AGENT_CMD="$OPTARG" ;;
+    p) PROMPT_TEXT="$OPTARG" ;;
     v) VERIFY_CMD="$OPTARG" ;;
+    t) TASKS_FILE="$OPTARG" ;;
     l) MAX_ITERATIONS="$OPTARG" ;;
     f) PROMPT_FILES+=("$OPTARG") ;;
     h) usage 0 ;;
@@ -51,16 +58,31 @@ shift $((OPTIND - 1))
 
 [[ -z "$AGENT_CMD" ]] && { echo "Error: -c command required" >&2; usage 1; }
 
+if [[ -n "$TASKS_FILE" ]]; then
+  if [[ ! -f "$TASKS_FILE" ]]; then
+    echo "Error: tasks file not found: $TASKS_FILE" >&2
+    exit 1
+  fi
+  VERIFY_CMD="yq '[.tasks[].status == \"done\"] | all' '$TASKS_FILE' | grep -q true"
+fi
+
+PROMPT=""
+
+if [[ -n "$PROMPT_TEXT" ]]; then
+  PROMPT+="$PROMPT_TEXT"$'\n'
+fi
+
 if [[ ${#PROMPT_FILES[@]} -gt 0 ]]; then
-  PROMPT=""
   for f in "${PROMPT_FILES[@]}"; do
     PROMPT+="$(cat "$f")"$'\n'
   done
-else
+fi
+
+if [[ -z "$PROMPT" ]]; then
   PROMPT=$(cat)
 fi
 
-[[ -z "$PROMPT" ]] && { echo "Error: No prompt provided via stdin or -f" >&2; exit 1; }
+[[ -z "$PROMPT" ]] && { echo "Error: No prompt provided via -p, -f, or stdin" >&2; exit 1; }
 
 WORKDIR=$(mktemp -d)
 PROMPT_PATH="$WORKDIR/prompt.md"
@@ -77,7 +99,11 @@ trap cleanup EXIT
 
 echo "Starting Ralph Loop (max $MAX_ITERATIONS iterations)"
 echo "Agent: $AGENT_CMD"
-[[ -n "$VERIFY_CMD" ]] && echo "Verify: $VERIFY_CMD"
+if [[ -n "$TASKS_FILE" ]]; then
+  echo "Verify: tasks.yaml ($TASKS_FILE)"
+elif [[ -n "$VERIFY_CMD" ]]; then
+  echo "Verify: $VERIFY_CMD"
+fi
 echo ""
 
 iteration=1

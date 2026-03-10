@@ -1,6 +1,6 @@
 ---
 name: code-writer-simple
-description: "Use this agent for simple, straightforward coding tasks: small edits, single-file changes, adding functions, fixing obvious bugs."
+description: Use for simple, straightforward coding tasks: small edits, single-file changes, adding functions, fixing obvious bugs.
 model: haiku
 tools:
   - Read

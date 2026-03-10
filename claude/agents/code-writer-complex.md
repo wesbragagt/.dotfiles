@@ -1,6 +1,6 @@
 ---
 name: code-writer-complex
-description: "Use this agent for complex coding tasks: multi-file changes, architectural work, difficult debugging, new feature implementation."
+description: Use for complex coding tasks: multi-file changes, architectural work, difficult debugging, new feature implementation.
 model: opus
 tools:
   - Read
