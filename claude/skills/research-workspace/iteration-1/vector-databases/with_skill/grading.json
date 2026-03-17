@@ -1,0 +1,33 @@
+{
+  "eval_id": 3,
+  "run": "with_skill",
+  "expectations": [
+    {
+      "text": "Output has at least 3 markdown H2/H3 sections",
+      "passed": true,
+      "evidence": "7 H2 sections: What They Are, The Landscape, Performance Tradeoffs, Use Cases, How to Pick One, Key Takeaways, Sources"
+    },
+    {
+      "text": "Names at least 3 specific vector DB products",
+      "passed": true,
+      "evidence": "11+ products named: Qdrant, Milvus/Zilliz, Weaviate, Chroma, LanceDB, Pinecone, Redis, pgvector, Elasticsearch/OpenSearch, MongoDB, ScyllaDB"
+    },
+    {
+      "text": "Explains what vector similarity search is",
+      "passed": true,
+      "evidence": "Explains embeddings, ANN, HNSW/IVF/PQ algorithms, distance metrics (cosine, L2, dot product)"
+    },
+    {
+      "text": "Provides criteria for choosing between options",
+      "passed": true,
+      "evidence": "## How to Pick One with 4-step decision framework, selection table by situation, 8 evaluation axes"
+    },
+    {
+      "text": "Has a summary or key takeaways section",
+      "passed": true,
+      "evidence": "## Key Takeaways with 7 bullet points including the critical insight about embedding model choice mattering more than DB choice"
+    }
+  ],
+  "pass_rate": 1.0,
+  "notes": "Strongest with-skill output. Includes Q1 2026 benchmark table with actual latency numbers, market shift analysis ('vectors as feature not category'), ScyllaDB GA coverage, and the embedding model > DB choice insight. Sources are dated and specific. 229 lines vs 385 for baseline but denser with actionable signal."
+}

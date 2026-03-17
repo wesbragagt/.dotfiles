@@ -1,0 +1,32 @@
+{
+  "eval_id": 2,
+  "eval_name": "react-server-components",
+  "prompt": "look into how React Server Components work and when I should actually use them",
+  "assertions": [
+    {
+      "id": "has-multiple-sections",
+      "description": "Output has at least 3 markdown H2/H3 sections",
+      "check": "count of '##' headings >= 3"
+    },
+    {
+      "id": "explains-rendering-model",
+      "description": "Explains the server-side rendering model or how RSC differs from client components",
+      "check": "output contains 'server' and ('render' or 'bundle' or 'client component')"
+    },
+    {
+      "id": "mentions-framework",
+      "description": "Mentions Next.js or another RSC-supporting framework",
+      "check": "output contains 'Next' or 'Remix' or 'framework'"
+    },
+    {
+      "id": "covers-when-to-use",
+      "description": "Provides guidance on when to use vs avoid RSC",
+      "check": "output contains 'when' or 'use case' or 'avoid' or 'don\\'t use'"
+    },
+    {
+      "id": "covers-tradeoffs-or-gotchas",
+      "description": "Mentions limitations, gotchas, or tradeoffs",
+      "check": "output contains 'limitation' or 'gotcha' or 'caveat' or 'tradeoff' or 'cannot' or 'can\\'t'"
+    }
+  ]
+}

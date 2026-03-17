@@ -1,0 +1,33 @@
+{
+  "eval_id": 2,
+  "run": "without_skill",
+  "expectations": [
+    {
+      "text": "Output has at least 3 markdown H2/H3 sections",
+      "passed": true,
+      "evidence": "Many sections: What Are RSC, How They Work, Server vs Client (When to Use), Framework Support, Performance, Gotchas, Mental Model, Quick Decision Guide, Further Reading"
+    },
+    {
+      "text": "Explains the server-side rendering model or how RSC differs from client components",
+      "passed": true,
+      "evidence": "Detailed 6-step rendering pipeline, RSC wire format example, hydration model explained"
+    },
+    {
+      "text": "Mentions Next.js or another RSC-supporting framework",
+      "passed": true,
+      "evidence": "Full ## Framework Support section covering Next.js App Router, Remix, Expo/React Native, standalone React, Vite frameworks"
+    },
+    {
+      "text": "Provides guidance on when to use vs avoid RSC",
+      "passed": true,
+      "evidence": "Detailed 'Use Server Components When' / 'Use Client Components When' sections plus Quick Decision Guide flowchart"
+    },
+    {
+      "text": "Mentions limitations, gotchas, or tradeoffs",
+      "passed": true,
+      "evidence": "## Gotchas and Common Pitfalls with 10 detailed gotchas including serialization, context, 'use client' propagation, async/await React 19 requirement, Server Actions security"
+    }
+  ],
+  "pass_rate": 1.0,
+  "notes": "Very comprehensive — 344 lines vs 178 for with-skill. Covers more gotchas (10 vs 6), has a performance section, mental model table, and quick decision flowchart. The with-skill version is better focused on the actual question but the baseline is arguably more complete on RSC internals. Both are high quality."
+}

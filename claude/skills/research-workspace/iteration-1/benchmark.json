@@ -1,0 +1,186 @@
+{
+  "metadata": {
+    "skill_name": "research",
+    "skill_path": "/home/wesbragagt/.claude/skills/research",
+    "executor_model": "claude-sonnet-4-6",
+    "analyzer_model": "claude-sonnet-4-6",
+    "timestamp": "2026-03-13T00:00:00Z",
+    "evals_run": ["sqlite-vs-postgres", "react-server-components", "vector-databases"],
+    "runs_per_configuration": 1
+  },
+
+  "runs": [
+    {
+      "eval_id": 1,
+      "eval_name": "sqlite-vs-postgres",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 150.8,
+        "tokens": 28133,
+        "tool_calls": 16,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Output has at least 3 markdown H2/H3 sections", "passed": true, "evidence": "6 H2 sections covering distinct angles"},
+        {"text": "Mentions concurrency or write contention as a tradeoff", "passed": true, "evidence": "Dedicated section on SQLITE_BUSY, single-writer model, real-world DeployStack case study"},
+        {"text": "Discusses scalability or growth path", "passed": true, "evidence": "Full 'might grow' decision framework with 3 scenarios"},
+        {"text": "Provides a concrete recommendation or decision guidance", "passed": true, "evidence": "Choose SQLite if / Choose PostgreSQL if lists with SQLITE_BUSY heuristic"},
+        {"text": "Has a key takeaways or summary section", "passed": true, "evidence": "## Key Takeaways with 5 numbered bullets"}
+      ],
+      "notes": ["Includes real-world case study (DeployStack) and sourced URLs", "Covers 2025-2026 SQLite ecosystem (Litestream, Turso, WAL tuning)"]
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "sqlite-vs-postgres",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 59.7,
+        "tokens": 10860,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Output has at least 3 markdown H2/H3 sections", "passed": true, "evidence": "8 H2 sections including comparison table"},
+        {"text": "Mentions concurrency or write contention as a tradeoff", "passed": true, "evidence": "Listed as SQLite weakness; MVCC as PostgreSQL strength"},
+        {"text": "Discusses scalability or growth path", "passed": true, "evidence": "Scalability in comparison table; 'might grow' addressed"},
+        {"text": "Provides a concrete recommendation or decision guidance", "passed": true, "evidence": "## Practical Recommendation: Start with PostgreSQL"},
+        {"text": "Has a key takeaways or summary section", "passed": true, "evidence": "## Key Tradeoffs Summary table + ## Final Verdict"}
+      ],
+      "notes": ["Well-structured with comparison table", "Less depth on modern SQLite ecosystem, no real-world case studies, no source URLs"]
+    },
+    {
+      "eval_id": 2,
+      "eval_name": "react-server-components",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 114.1,
+        "tokens": 20268,
+        "tool_calls": 12,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Output has at least 3 markdown H2/H3 sections", "passed": true, "evidence": "7 H2 sections"},
+        {"text": "Explains the server-side rendering model or how RSC differs from client components", "passed": true, "evidence": "React Flight wire format, RSC payload, streaming pipeline"},
+        {"text": "Mentions Next.js or another RSC-supporting framework", "passed": true, "evidence": "Next.js App Router, React Router v7, TanStack Start"},
+        {"text": "Provides guidance on when to use vs avoid RSC", "passed": true, "evidence": "Explicit Server vs Client use-case lists"},
+        {"text": "Mentions limitations, gotchas, or tradeoffs", "passed": true, "evidence": "6 Common Gotchas: context, serialization, viral 'use client', third-party libs"}
+      ],
+      "notes": ["Focused on user's actual question; covers waterfall problem with concrete solutions", "Includes adoption stats (29% have used RSC)"]
+    },
+    {
+      "eval_id": 2,
+      "eval_name": "react-server-components",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 94.8,
+        "tokens": 12640,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Output has at least 3 markdown H2/H3 sections", "passed": true, "evidence": "Many sections across 344 lines"},
+        {"text": "Explains the server-side rendering model or how RSC differs from client components", "passed": true, "evidence": "6-step render pipeline, RSC wire format with example"},
+        {"text": "Mentions Next.js or another RSC-supporting framework", "passed": true, "evidence": "Full framework section: Next.js, Remix, Expo, Vite, Waku"},
+        {"text": "Provides guidance on when to use vs avoid RSC", "passed": true, "evidence": "Detailed use-case lists + Quick Decision Guide flowchart"},
+        {"text": "Mentions limitations, gotchas, or tradeoffs", "passed": true, "evidence": "10 Gotchas including Server Actions security, async/await React 19 requirement"}
+      ],
+      "notes": ["344 lines vs 178 for with-skill — more comprehensive but potentially overwhelming", "Covers more gotchas (10 vs 6), performance section, mental model table, decision flowchart"]
+    },
+    {
+      "eval_id": 3,
+      "eval_name": "vector-databases",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 175.0,
+        "tokens": 38027,
+        "tool_calls": 13,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Output has at least 3 markdown H2/H3 sections", "passed": true, "evidence": "7 H2 sections"},
+        {"text": "Names at least 3 specific vector DB products", "passed": true, "evidence": "11+ products: Qdrant, Milvus, Weaviate, Chroma, LanceDB, Pinecone, Redis, pgvector, Elasticsearch, MongoDB, ScyllaDB"},
+        {"text": "Explains what vector similarity search is", "passed": true, "evidence": "Embeddings, ANN, HNSW/IVF/PQ algorithms, distance metrics"},
+        {"text": "Provides criteria for choosing between options", "passed": true, "evidence": "4-step decision framework with situation-to-recommendation table"},
+        {"text": "Has a summary or key takeaways section", "passed": true, "evidence": "## Key Takeaways with embedding model > DB choice insight"}
+      ],
+      "notes": ["Q1 2026 benchmark table with actual latency numbers (sourced)", "Covers 2026 market shift: vectors-as-feature trend", "ScyllaDB GA in January 2026 coverage"]
+    },
+    {
+      "eval_id": 3,
+      "eval_name": "vector-databases",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 136.9,
+        "tokens": 14900,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Output has at least 3 markdown H2/H3 sections", "passed": true, "evidence": "Many sections across 385 lines"},
+        {"text": "Names at least 3 specific vector DB products", "passed": true, "evidence": "11 products covered in depth including Vespa, SingleStore, Deep Lake"},
+        {"text": "Explains what vector similarity search is", "passed": true, "evidence": "Embeddings, distance metrics (5 types), k-NN, ANN algorithms (6 types)"},
+        {"text": "Provides criteria for choosing between options", "passed": true, "evidence": "10 comparison criteria + 5-step decision framework + use-case recommendations"},
+        {"text": "Has a summary or key takeaways section", "passed": true, "evidence": "## Key Takeaways (7 bullets) + ## Summary Comparison Table"}
+      ],
+      "notes": ["Very comprehensive at 385 lines; covers more products and criteria", "No benchmark numbers, no real-world sourced data, slightly older framing"]
+    }
+  ],
+
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {"mean": 1.0, "stddev": 0.0, "min": 1.0, "max": 1.0},
+      "time_seconds": {"mean": 146.6, "stddev": 25.0, "min": 114.1, "max": 175.0},
+      "tokens": {"mean": 28809, "stddev": 7266, "min": 20268, "max": 38027}
+    },
+    "without_skill": {
+      "pass_rate": {"mean": 1.0, "stddev": 0.0, "min": 1.0, "max": 1.0},
+      "time_seconds": {"mean": 97.1, "stddev": 31.6, "min": 59.7, "max": 136.9},
+      "tokens": {"mean": 12800, "stddev": 1653, "min": 10860, "max": 14900}
+    },
+    "delta": {
+      "pass_rate": "+0.00",
+      "time_seconds": "+49.5",
+      "tokens": "+16009"
+    }
+  },
+
+  "notes": [
+    "All assertions pass 100% in both configurations — assertions are non-discriminating. They test for presence of content that any competent answer includes.",
+    "Real differentiation is in quality dimensions not captured: source citations, benchmark data, real-world case studies, current ecosystem awareness (2025-2026 data).",
+    "with_skill outputs consistently include sourced URLs and dated references; without_skill outputs do not.",
+    "with_skill is slower (147s avg vs 97s) and uses 2.25x more tokens — overhead from spawning and coordinating multiple haiku agents.",
+    "Eval 2 (RSC) is notable: without_skill produced a longer (344 vs 178 lines) and arguably more thorough answer covering 10 gotchas vs 6. Multi-agent decomposition didn't win on raw completeness here.",
+    "Eval 3 (vector DBs) is where with_skill most clearly adds value: Q1 2026 benchmark table, market trend analysis, ScyllaDB GA coverage.",
+    "Recommendation: strengthen assertions to test for sourced URLs, specific named tool/product counts, and benchmark/date presence to better discriminate between runs."
+  ]
+}

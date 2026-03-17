@@ -1,0 +1,33 @@
+{
+  "eval_id": 1,
+  "run": "without_skill",
+  "expectations": [
+    {
+      "text": "Output has at least 3 markdown H2/H3 sections (evidence of multi-angle coverage)",
+      "passed": true,
+      "evidence": "8 H2 sections including SQLite, PostgreSQL, Key Tradeoffs Summary table, When to Use each, Practical Recommendation, Final Verdict"
+    },
+    {
+      "text": "Mentions concurrency or write contention as a tradeoff",
+      "passed": true,
+      "evidence": "Concurrency listed as SQLite weakness: 'Single writer can operate at a time'; MVCC listed as PostgreSQL strength"
+    },
+    {
+      "text": "Discusses scalability or growth path",
+      "passed": true,
+      "evidence": "Scalability in comparison table and 'When to Use PostgreSQL' section; 'Might grow' addressed in recommendation"
+    },
+    {
+      "text": "Provides a concrete recommendation or decision guidance",
+      "passed": true,
+      "evidence": "## Practical Recommendation section with 'Start with PostgreSQL' as primary advice and clear reasoning"
+    },
+    {
+      "text": "Has a key takeaways or summary section",
+      "passed": true,
+      "evidence": "## Key Tradeoffs Summary table + ## Final Verdict section"
+    }
+  ],
+  "pass_rate": 1.0,
+  "notes": "Well-structured output with comparison table. Good coverage but less depth on the modern SQLite ecosystem (Litestream, Turso, WAL tuning), no real-world case studies, and no source URLs. The recommendation is sound but less nuanced ('start with PostgreSQL' vs with-skill's conditional framework)."
+}

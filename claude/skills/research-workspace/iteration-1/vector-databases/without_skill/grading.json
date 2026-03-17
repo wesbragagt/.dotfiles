@@ -1,0 +1,33 @@
+{
+  "eval_id": 3,
+  "run": "without_skill",
+  "expectations": [
+    {
+      "text": "Output has at least 3 markdown H2/H3 sections",
+      "passed": true,
+      "evidence": "Many sections: What Are Vector DBs, Major Options (11+), Comparison Criteria, Selection Guidance, Summary Comparison Table, Key Takeaways"
+    },
+    {
+      "text": "Names at least 3 specific vector DB products",
+      "passed": true,
+      "evidence": "11 products covered in depth: Pinecone, Weaviate, Qdrant, Milvus, Chroma, Vespa, Redis, pgvector, MongoDB, Elasticsearch, SingleStore"
+    },
+    {
+      "text": "Explains what vector similarity search is",
+      "passed": true,
+      "evidence": "Full section on embeddings, distance metrics (cosine, L2, dot product, Manhattan, Hamming), k-NN problem, ANN algorithms"
+    },
+    {
+      "text": "Provides criteria for choosing between options",
+      "passed": true,
+      "evidence": "10 comparison criteria sections plus a 5-step decision framework and use-case-specific recommendations"
+    },
+    {
+      "text": "Has a summary or key takeaways section",
+      "passed": true,
+      "evidence": "## Key Takeaways with 7 numbered bullets, plus ## Summary Comparison Table"
+    }
+  ],
+  "pass_rate": 1.0,
+  "notes": "Very comprehensive at 385 lines. Covers more products (Vespa, SingleStore, Deep Lake, Turbopuffer). 10 detailed comparison criteria. Large comparison table. More exhaustive overall but no benchmark numbers, no real-world sourced data, and slightly older framing (doesn't capture 2026 market shift toward vectors-as-feature)."
+}

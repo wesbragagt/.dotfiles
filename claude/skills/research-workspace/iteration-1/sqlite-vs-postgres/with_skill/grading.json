@@ -1,0 +1,33 @@
+{
+  "eval_id": 1,
+  "run": "with_skill",
+  "expectations": [
+    {
+      "text": "Output has at least 3 markdown H2/H3 sections (evidence of multi-angle coverage)",
+      "passed": true,
+      "evidence": "6 H2 sections: SQLite Architecture, PostgreSQL Architecture, Scalability/Concurrency/Migration, Selection Criteria, Key Takeaways, Sources"
+    },
+    {
+      "text": "Mentions concurrency or write contention as a tradeoff",
+      "passed": true,
+      "evidence": "Extensive: dedicated section on 'The core scaling constraint: writes', SQLITE_BUSY errors, single-writer model, MVCC"
+    },
+    {
+      "text": "Discusses scalability or growth path",
+      "passed": true,
+      "evidence": "Full section on scalability; discusses horizontal scaling, single-server ceiling, and the 'might grow' decision framework"
+    },
+    {
+      "text": "Provides a concrete recommendation or decision guidance",
+      "passed": true,
+      "evidence": "Explicit 'Choose SQLite if' / 'Choose PostgreSQL if' lists, plus a pragmatic heuristic ('start with SQLite; graduate when SQLITE_BUSY appears')"
+    },
+    {
+      "text": "Has a key takeaways or summary section",
+      "passed": true,
+      "evidence": "## Key Takeaways section with 5 numbered bullets"
+    }
+  ],
+  "pass_rate": 1.0,
+  "notes": "Strong output with real-world case study (DeployStack), sourced URLs, WAL tuning discussion, and 2025-2026 ecosystem context. The multi-agent decomposition added the 'modern SQLite ecosystem' angle that wouldn't naturally appear in a single-shot answer."
+}

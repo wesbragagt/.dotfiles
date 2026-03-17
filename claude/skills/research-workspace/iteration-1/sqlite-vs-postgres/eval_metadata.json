@@ -1,0 +1,32 @@
+{
+  "eval_id": 1,
+  "eval_name": "sqlite-vs-postgres",
+  "prompt": "research the tradeoffs between SQLite and PostgreSQL for a side project that might grow",
+  "assertions": [
+    {
+      "id": "has-multiple-sections",
+      "description": "Output has at least 3 markdown H2/H3 sections (evidence of multi-angle coverage)",
+      "check": "count of '##' headings >= 3"
+    },
+    {
+      "id": "covers-concurrency",
+      "description": "Mentions concurrency or write contention as a tradeoff",
+      "check": "output contains 'concurrent' or 'concurrency' or 'write'"
+    },
+    {
+      "id": "covers-scalability",
+      "description": "Discusses scalability or growth path",
+      "check": "output contains 'scale' or 'scalab' or 'grow'"
+    },
+    {
+      "id": "has-recommendation",
+      "description": "Provides a concrete recommendation or decision guidance",
+      "check": "output contains 'recommend' or 'suggest' or 'start with' or 'choose' or 'pick'"
+    },
+    {
+      "id": "has-key-takeaways",
+      "description": "Has a key takeaways or summary section",
+      "check": "output contains 'takeaway' or 'summary' or 'conclusion' or 'Key'"
+    }
+  ]
+}

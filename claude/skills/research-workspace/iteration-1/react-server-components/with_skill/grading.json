@@ -1,0 +1,33 @@
+{
+  "eval_id": 2,
+  "run": "with_skill",
+  "expectations": [
+    {
+      "text": "Output has at least 3 markdown H2/H3 sections",
+      "passed": true,
+      "evidence": "7 H2 sections: How RSC Works Internally, Server/Client Boundary, Data Fetching Patterns, When to Use, Real-World Usage, Key Takeaways, Sources"
+    },
+    {
+      "text": "Explains the server-side rendering model or how RSC differs from client components",
+      "passed": true,
+      "evidence": "Detailed explanation of React Flight wire format, RSC payload, streaming pipeline, and 'runs once on server' model"
+    },
+    {
+      "text": "Mentions Next.js or another RSC-supporting framework",
+      "passed": true,
+      "evidence": "## Real-World Usage section covers Next.js App Router as primary implementation, plus React Router v7, TanStack Start"
+    },
+    {
+      "text": "Provides guidance on when to use vs avoid RSC",
+      "passed": true,
+      "evidence": "## When to Use Server Components with explicit 'Use Server Components When' / 'Use Client Components When' lists"
+    },
+    {
+      "text": "Mentions limitations, gotchas, or tradeoffs",
+      "passed": true,
+      "evidence": "6 Common Gotchas listed: context, serialization, 'use client' viral, third-party libs, mental model shift, early adoption"
+    }
+  ],
+  "pass_rate": 1.0,
+  "notes": "Focused, well-synthesized output covering the React Flight wire format specifically (unusual depth), data fetching waterfall problem with concrete solutions, and current adoption stats (29%). Sources include primary React docs and key community posts. Tighter than baseline — 178 lines vs 344 but better focused on the user's actual question."
+}

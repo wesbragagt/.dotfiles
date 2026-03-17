@@ -1,0 +1,23 @@
+{
+  "skill_name": "research",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "research the tradeoffs between SQLite and PostgreSQL for a side project that might grow",
+      "expected_output": "A structured research summary covering: how each DB works, when to use each, tradeoffs (setup, scalability, concurrency, tooling), and a practical recommendation for a growing side project. Multiple angles covered in parallel.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "look into how React Server Components work and when I should actually use them",
+      "expected_output": "A thorough breakdown of RSC: the underlying model, rendering pipeline, when they shine vs when to use client components, ecosystem support (Next.js etc), and real-world gotchas.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "deep dive on vector databases — what they are, which ones exist, and how to pick one",
+      "expected_output": "Coverage of: what vector DBs are and how similarity search works, major options (Pinecone, Weaviate, Chroma, pgvector, etc.), comparison criteria, and guidance on selecting based on use case.",
+      "files": []
+    }
+  ]
+}
