@@ -6,49 +6,60 @@ argument-hint: <topic or question>
 
 # Research
 
-Conduct research by delegating to a single haiku researcher agent, then presenting the findings.
+Conduct research by delegating to the `researcher` subagent, then presenting the findings.
 
-## How it works
+## Step 1: Classify the question
 
-1. **Delegate** one haiku researcher agent with the full question
-2. **Present** findings as a coherent, cited summary
+Choose a mode:
+- `answer` — factual, single-concept, or quick-lookup questions
+- `deep-research` — comparisons, how-to, multi-part, or open-ended questions
 
-## Step 1: Spawn the researcher agent
+## Step 2: Spawn the researcher agent
 
 Launch one agent using the Agent tool with:
 - `subagent_type: "researcher"`
 - `model: "haiku"`
-- A focused prompt covering the full question (include all relevant angles in a single prompt)
 
-**Agent prompt template:**
+**Agent prompt — use this exact structure:**
 ```
-Original question: [USER'S FULL QUESTION]
-
-Research this topic thoroughly. Cover:
-- Core concepts and background
-- How it works / practical usage
-- Tradeoffs, alternatives, and known issues
-- Real-world examples or current state of practice
-
-Return your findings as structured markdown with source references where possible.
+text: [USER'S FULL QUESTION]
+mode: answer | deep-research
 ```
 
-## Step 2: Present findings
+The agent returns JSON: `{ "answer": "...", "citations": [{ "url": "...", "title": "..." }] }`
 
-Once the agent returns, present a clean response:
+## Step 3: Present findings
+
+### For `mode: answer`
 
 ```
-## Research: [Topic]
+### [Topic]
 
-### [Thematic sections]
-[findings organized around the user's actual question]
+- [key point]
+- [key point]
+- [key point]
 
-### Key takeaways
-[3–5 bullets distilling the most important points]
-
-### Sources & further reading
-[any URLs or references the agent surfaced]
+**Sources**
+- [Title](url)
 ```
 
-- Flag gaps where the agent couldn't find good information
-- Keep the user's original question in mind — organize the output around answering *their* question
+### For `mode: deep-research`
+
+```
+### [Topic]
+
+- [key point]
+- [key point]
+- [key point]
+
+**Examples**
+[code snippet or real-world usage from the answer — include both if present]
+
+**Sources**
+- [Title](url)
+```
+
+- Extract 3–5 bullets from the `answer` field
+- For deep-research, pull out any code snippets and real-world usage examples into the **Examples** section
+- List all `citations` as markdown links under **Sources**
+- Flag gaps if citations are sparse or the answer is thin

@@ -3,3 +3,5 @@ node_modules
 vim.log
 *.log
 .claude-local
+claude/skills/mondaycom/
+claude/skills/groom-monday/
