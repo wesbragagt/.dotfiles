@@ -1,7 +1,7 @@
 ---
 name: knowledge
-description: Create, read, and update domain documentation stored under $(git rev-parse --show-toplevel)/docs/domains/. Use this skill when asked to document, look up, search, or update knowledge about any domain topic (ingestion, reconciliation, classification, rate cards, etc.). Trigger on phrases like "document this", "look up", "what do we know about", "update the docs for", "save this knowledge", or "/knowledge".
-argument-hint: <create|read|update> [domain] [topic] [--query <fuzzy-search>]
+description: Create, read, and update domain documentation stored under $(git rev-parse --show-toplevel)/docs/domains/. Use this skill whenever the user asks about domain concepts, business rules, terminology, ingestion, reconciliation, rate cards, or any domain-specific topic. Also use when documenting, saving, or updating knowledge. Trigger on "/knowledge", "/knowledge <topic>", "what do we know about X", "load docs for X", "document this", "save this knowledge", "update the docs for", "how does X work", or any question that likely requires domain knowledge to answer correctly. When in doubt, trigger — loading docs is cheap and always helpful.
+argument-hint: [topic or query — optional]
 ---
 
 # Knowledge
@@ -16,21 +16,28 @@ The base path is always resolved from the repo root — run `git rev-parse --sho
 
 ## Operations
 
-### Read (fuzzy search)
+### Load (default — no subcommand needed)
 
 ```
-/knowledge read <query>
-/knowledge read "rate card"
-/knowledge read "ingestion preprocessing"
+/knowledge
+/knowledge rate cards
+/knowledge ingestion preprocessing
 ```
 
 1. Run `git rev-parse --show-toplevel` to get the repo root
-2. Read `{repo_root}/docs/domains/README.md` for a quick overview of what exists
-3. Use Glob to find all `*.md` files under `{repo_root}/docs/domains/` (excluding README.md)
-4. Use Grep to search file contents and filenames for the query terms
-5. Rank results: exact filename match > path match > content match
-6. Read and return the top matching file(s)
-7. If multiple matches, list them and ask the user which to open — or return all if <= 3
+2. Read `{repo_root}/docs/domains/README.md` to see what exists
+
+**With an argument** (e.g., `/knowledge rate cards`):
+3. Use Glob to list all `*.md` files under `{repo_root}/docs/domains/` (excluding README.md)
+4. Fuzzy-match the argument against filenames, folder names, and README descriptions
+5. Read and output the content of the best matching file(s) — return up to 3 if the query is broad
+
+**Without an argument**:
+3. Read and output the full content of every doc file under `{repo_root}/docs/domains/`
+
+Output the loaded content directly so it is in context for answering the user's question.
+
+---
 
 ### Create
 
@@ -41,15 +48,17 @@ The base path is always resolved from the repo root — run `git rev-parse --sho
 Example: `/knowledge create ingestion preprocessing-rate-cards`
 
 1. Run `git rev-parse --show-toplevel` to get the repo root
-2. Check if `{repo_root}/docs/domains/{domain}/{topic}.md` already exists with Glob
-   - If it exists, inform the user and offer to update instead
-3. Use the content already present in conversation, or ask the user for it
+2. Check if `{repo_root}/docs/domains/{domain}/{topic}.md` already exists
+   - If it does, inform the user and offer to update instead
+3. Use content from the conversation, or ask the user what to document
 4. Write the file with a markdown heading derived from the topic slug
 5. Update `{repo_root}/docs/domains/README.md`:
    - Add the domain section if it doesn't exist (with a one-line description of the domain)
    - Add a table row: `| [topic-slug](domain/topic-slug.md) | <one-line description> |`
-   - Keep the table sorted alphabetically by document name within each domain section
+   - Keep table rows sorted alphabetically by document name within each domain section
 6. Confirm: `Created: docs/domains/{domain}/{topic}.md`
+
+---
 
 ### Update
 
@@ -65,6 +74,21 @@ Example: `/knowledge update ingestion preprocessing-rate-cards`
 4. Write the updated file
 5. If the document's purpose changed significantly, update its description row in `docs/domains/README.md`
 6. Confirm: `Updated: docs/domains/{domain}/{topic}.md`
+
+---
+
+## Structure
+
+```
+docs/domains/
+├── README.md              ← index — always keep this up to date
+├── {domain}/
+│   └── {topic}.md
+└── ...
+```
+
+**Domain slug**: lowercase, single word (e.g. `ingestion`, `reconciliation`, `language`)
+**Topic slug**: lowercase, hyphen-separated (e.g. `preprocessing-rate-cards`, `ubiquitous-language`)
 
 ---
 
@@ -94,14 +118,6 @@ One-line description of the domain.
 
 ---
 
-## File Format
-
-All docs use plain markdown. No required frontmatter.
-Topic slug: lowercase, hyphen-separated (e.g. `preprocessing-rate-cards`, `classify-invoice-files`).
-Domain slug: lowercase, single word (e.g. `ingestion`, `reconciliation`, `classification`).
-
----
-
 ## Known Domains
 
 | Domain | Description |
@@ -110,21 +126,5 @@ Domain slug: lowercase, single word (e.g. `ingestion`, `reconciliation`, `classi
 | `reconciliation` | Invoice matching, parcel/fulfillment reconciliation, CDM mapping |
 | `classification` | GPT-based invoice/file classification logic and prompts |
 | `dropbox` | Folder structure, upload conventions, brand folder resolution |
+| `language` | Ubiquitous language, shared terminology, business vocabulary |
 | `monday` | Ticket creation, reporter logic, TicketContext fields |
-
----
-
-## Examples
-
-```
-/knowledge read "rate card freight fulfillment"
--> Reads README.md, finds ingestion/preprocessing-rate-cards.md, returns it
-
-/knowledge create dropbox folder-structure
--> Creates docs/domains/dropbox/folder-structure.md
--> Adds dropbox section + row to README.md
-
-/knowledge update ingestion preprocessing-rate-cards
--> Reads existing file, applies edits, rewrites
--> Updates README.md row if description changed
-```
