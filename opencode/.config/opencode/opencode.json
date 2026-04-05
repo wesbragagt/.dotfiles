@@ -3,7 +3,7 @@
   "mcp": {
     "exa": {
       "type": "remote",
-      "url": "https://mcp.exa.ai/mcp",
+      "url": "https://mcp.exa.ai/mcp?exaApiKey=3224e002-2fde-40b7-8bdb-13f10f3499f5",
       "enabled": true
     },
     "pencil": {

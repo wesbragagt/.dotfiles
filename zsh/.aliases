@@ -34,6 +34,7 @@ alias tt="tmux -f $TMUX_CONF attach || tmux -f $TMUX_CONF new"
 alias key="ssh-add ~/.ssh/id_rsa"
 alias gitd="lazygit"
 alias tags="git show-ref --tags -d | fzf"
+alias ytmp4="bash $DOTFILES/utils/ytmp4.sh"
 
 # fuzzy search through files in the current directory and cd to the dir of the file selected
 cdl(){
