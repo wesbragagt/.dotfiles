@@ -1,0 +1,52 @@
+{
+  "eval_id": 1,
+  "eval_name": "sqlite-vs-postgres",
+  "prompt": "research the tradeoffs between SQLite and PostgreSQL for a side project that might grow",
+  "assertions": [
+    {
+      "id": "has-multiple-sections",
+      "description": "Output has at least 3 markdown H2/H3 sections",
+      "check": "count of '##' or '###' headings >= 3"
+    },
+    {
+      "id": "covers-concurrency",
+      "description": "Mentions concurrency or write contention as a tradeoff",
+      "check": "output contains 'concurrent' or 'concurrency' or 'write'"
+    },
+    {
+      "id": "covers-scalability",
+      "description": "Discusses scalability or growth path",
+      "check": "output contains 'scale' or 'scalab' or 'grow'"
+    },
+    {
+      "id": "has-recommendation",
+      "description": "Provides a concrete recommendation or decision guidance",
+      "check": "output contains 'recommend' or 'suggest' or 'start with' or 'choose' or 'pick'"
+    },
+    {
+      "id": "has-key-takeaways",
+      "description": "Has a key takeaways or summary section",
+      "check": "output contains 'takeaway' or 'summary' or 'conclusion' or 'Key' or 'Decision'"
+    },
+    {
+      "id": "completes-under-60s",
+      "description": "Total execution time is under 60 seconds",
+      "check": "timing.json total_duration_seconds <= 60"
+    },
+    {
+      "id": "has-sourced-urls",
+      "description": "Output contains at least 1 sourced URL (https://)",
+      "check": "output contains at least 1 'https://' URL"
+    },
+    {
+      "id": "has-sources-section",
+      "description": "Output has a Sources or References section with markdown links",
+      "check": "output contains '**Sources**' or '## Sources' or '**References**'"
+    },
+    {
+      "id": "min-content-depth",
+      "description": "Answer has at least 100 words of substantive content",
+      "check": "output word count >= 100"
+    }
+  ]
+}

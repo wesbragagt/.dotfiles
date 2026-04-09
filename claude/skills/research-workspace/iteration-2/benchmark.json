@@ -1,0 +1,133 @@
+{
+  "metadata": {
+    "skill_name": "research",
+    "skill_path": "/Users/wesbragagt/.dotfiles/claude/skills/research",
+    "executor_model": "claude-opus-4-6",
+    "analyzer_model": "claude-opus-4-6",
+    "timestamp": "2026-04-09T00:00:00Z",
+    "evals_run": ["sqlite-vs-postgres", "react-server-components", "vector-databases"],
+    "runs_per_configuration": 1,
+    "comparison": "iteration-2 (optimized) vs iteration-1 (baseline)"
+  },
+
+  "runs": [
+    {
+      "eval_id": 1,
+      "eval_name": "sqlite-vs-postgres",
+      "configuration": "with_skill",
+      "iteration": 2,
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 9,
+        "failed": 0,
+        "total": 9,
+        "time_seconds": 18.5,
+        "tokens": 32645,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Output has at least 3 markdown H2/H3 sections", "passed": true, "evidence": "4 heading sections (###)"},
+        {"text": "Mentions concurrency or write contention as a tradeoff", "passed": true, "evidence": "'concurrent writers via MVCC', 'single writer at a time'"},
+        {"text": "Discusses scalability or growth path", "passed": true, "evidence": "'Growth path' section with scale breakpoints"},
+        {"text": "Provides a concrete recommendation or decision guidance", "passed": true, "evidence": "'Start with SQLite if... Start with PostgreSQL if...'"},
+        {"text": "Has a key takeaways or summary section", "passed": true, "evidence": "'Decision' section with clear guidance"},
+        {"text": "Total execution time is under 60 seconds", "passed": true, "evidence": "18.5s (target: <=60s)"},
+        {"text": "Output contains at least 1 sourced URL", "passed": true, "evidence": "5 sourced URLs from solodevstack.com, cr0x.net, datacamp.com, yyhh.org, omaship.com"},
+        {"text": "Output has a Sources section with markdown links", "passed": true, "evidence": "'**Sources**' section with 5 markdown links"},
+        {"text": "Answer has at least 100 words of substantive content", "passed": true, "evidence": "~200 words of substantive content"}
+      ],
+      "notes": ["8.1x faster than iteration-1 (18.5s vs 150.8s)", "3 tool calls vs 16 in iteration-1", "Citations maintained with 5 sourced URLs"]
+    },
+    {
+      "eval_id": 2,
+      "eval_name": "react-server-components",
+      "configuration": "with_skill",
+      "iteration": 2,
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 9,
+        "failed": 0,
+        "total": 9,
+        "time_seconds": 15.3,
+        "tokens": 21939,
+        "tool_calls": 2,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Output has at least 3 markdown H2/H3 sections", "passed": true, "evidence": "3 heading sections (###)"},
+        {"text": "Explains the server-side rendering model or how RSC differs from client components", "passed": true, "evidence": "'RSC are components that run exclusively on the server, rendering to an RSC payload (not HTML), never shipping JavaScript to the client'"},
+        {"text": "Mentions Next.js or another RSC-supporting framework", "passed": true, "evidence": "'Next.js' mentioned in sources"},
+        {"text": "Provides guidance on when to use vs avoid RSC", "passed": true, "evidence": "Separate 'Use Server Components' and 'Use Client Components' sections"},
+        {"text": "Mentions limitations, gotchas, or tradeoffs", "passed": true, "evidence": "'Common Gotchas' section with 4 items"},
+        {"text": "Total execution time is under 60 seconds", "passed": true, "evidence": "15.3s (target: <=60s)"},
+        {"text": "Output contains at least 1 sourced URL", "passed": true, "evidence": "4 sourced URLs from therobin.dev, vic-e.com, reactjs.org, nextjs.org"},
+        {"text": "Output has a Sources section with markdown links", "passed": true, "evidence": "'**Sources**' section with 4 markdown links"},
+        {"text": "Answer has at least 100 words of substantive content", "passed": true, "evidence": "~180 words of substantive content"}
+      ],
+      "notes": ["7.5x faster than iteration-1 (15.3s vs 114.1s)", "2 tool calls vs 12 in iteration-1", "Covers gotchas, best practices, and performance impact"]
+    },
+    {
+      "eval_id": 3,
+      "eval_name": "vector-databases",
+      "configuration": "with_skill",
+      "iteration": 2,
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 9,
+        "failed": 0,
+        "total": 9,
+        "time_seconds": 27.4,
+        "tokens": 35219,
+        "tool_calls": 3,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Output has at least 3 markdown H2/H3 sections", "passed": true, "evidence": "3 heading sections (###)"},
+        {"text": "Names at least 3 specific vector DB products", "passed": true, "evidence": "6 products: Pinecone, Qdrant, Weaviate, Milvus, pgvector, Chroma"},
+        {"text": "Explains what vector similarity search is", "passed": true, "evidence": "'similarity search by numerical distance', 'embeddings', 'ANN algorithms'"},
+        {"text": "Provides criteria for choosing between options", "passed": true, "evidence": "'How to Pick' section with decision framework by dataset size, ops tolerance, requirements, cost, latency"},
+        {"text": "Has a summary or key takeaways section", "passed": true, "evidence": "'How to Pick' serves as key guidance section"},
+        {"text": "Total execution time is under 60 seconds", "passed": true, "evidence": "27.4s (target: <=60s)"},
+        {"text": "Output contains at least 1 sourced URL", "passed": true, "evidence": "5 sourced URLs from codeboxr.com, viadreams.cc, pinecone.io, redis.io, jishulabs.com"},
+        {"text": "Output has a Sources section with markdown links", "passed": true, "evidence": "'**Sources**' section with 5 markdown links"},
+        {"text": "Answer has at least 100 words of substantive content", "passed": true, "evidence": "~250 words of substantive content"}
+      ],
+      "notes": ["6.4x faster than iteration-1 (27.4s vs 175.0s)", "3 tool calls vs 13 in iteration-1", "Names 6 products with pricing and latency data"]
+    }
+  ],
+
+  "run_summary": {
+    "iteration_2_with_skill": {
+      "pass_rate": {"mean": 1.0, "stddev": 0.0, "min": 1.0, "max": 1.0},
+      "time_seconds": {"mean": 20.4, "stddev": 5.1, "min": 15.3, "max": 27.4},
+      "tokens": {"mean": 29934, "stddev": 5673, "min": 21939, "max": 35219},
+      "tool_calls": {"mean": 2.7, "stddev": 0.5, "min": 2, "max": 3}
+    },
+    "iteration_1_with_skill": {
+      "pass_rate": {"mean": 1.0, "stddev": 0.0, "min": 1.0, "max": 1.0},
+      "time_seconds": {"mean": 146.6, "stddev": 25.0, "min": 114.1, "max": 175.0},
+      "tokens": {"mean": 28809, "stddev": 7266, "min": 20268, "max": 38027},
+      "tool_calls": {"mean": 13.7, "stddev": 1.7, "min": 12, "max": 16}
+    },
+    "delta": {
+      "time_seconds": "-126.2 (7.2x faster)",
+      "tokens": "+1125 (comparable)",
+      "tool_calls": "-11.0 (80% fewer)",
+      "pass_rate": "+0.00 (maintained)"
+    }
+  },
+
+  "notes": [
+    "Optimization: constrained researcher agent to max 2 tool calls (was unbounded, avg 13.7).",
+    "Average time dropped from 146.6s to 20.4s — a 7.2x speedup, well under the 60s target.",
+    "Quality maintained: all 9 assertions pass (5 original + 4 new discriminating assertions).",
+    "New assertions now discriminate: iteration-1 would FAIL 'completes-under-60s' on all 3 evals.",
+    "Citation quality maintained: 4-5 sourced URLs per eval with markdown Sources section.",
+    "Token usage comparable (~29.9K vs ~28.8K) — the agent produces similar depth with fewer tool calls.",
+    "The key insight: haiku was over-searching. Constraining to 1-2 calls forces it to synthesize better from the first search, rather than doing many incremental searches."
+  ]
+}

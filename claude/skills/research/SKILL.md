@@ -6,60 +6,46 @@ argument-hint: <topic or question>
 
 # Research
 
-Conduct research by delegating to the `researcher` subagent, then presenting the findings.
+Delegate to the `researcher` subagent, then present findings. Must complete in under 60 seconds.
 
-## Step 1: Classify the question
+## Step 1: Classify
 
-Choose a mode:
-- `answer` — factual, single-concept, or quick-lookup questions
-- `deep-research` — comparisons, how-to, multi-part, or open-ended questions
+- `answer` — single-concept, factual, quick lookup
+- `deep-research` — comparisons, how-to, multi-part, open-ended
 
-## Step 2: Spawn the researcher agent
+## Step 2: Spawn researcher
 
-Launch one agent using the Agent tool with:
-- `subagent_type: "researcher"`
-- `model: "haiku"`
+Launch one Agent with `subagent_type: "researcher"`, `model: "haiku"`.
 
-**Agent prompt — use this exact structure:**
+Prompt (use exactly):
 ```
 text: [USER'S FULL QUESTION]
 mode: answer | deep-research
 ```
 
-The agent returns JSON: `{ "answer": "...", "citations": [{ "url": "...", "title": "..." }] }`
+Returns JSON: `{ "answer": "...", "citations": [{ "url": "...", "title": "..." }] }`
 
-## Step 3: Present findings
+## Step 3: Present
 
-### For `mode: answer`
-
+For `answer`:
 ```
 ### [Topic]
-
-- [key point]
-- [key point]
-- [key point]
+- [key point x3-5]
 
 **Sources**
 - [Title](url)
 ```
 
-### For `mode: deep-research`
-
+For `deep-research`:
 ```
 ### [Topic]
-
-- [key point]
-- [key point]
-- [key point]
+- [key point x3-5]
 
 **Examples**
-[code snippet or real-world usage from the answer — include both if present]
+[code snippets or real-world usage if present in the answer]
 
 **Sources**
 - [Title](url)
 ```
 
-- Extract 3–5 bullets from the `answer` field
-- For deep-research, pull out any code snippets and real-world usage examples into the **Examples** section
-- List all `citations` as markdown links under **Sources**
-- Flag gaps if citations are sparse or the answer is thin
+List all `citations` as markdown links. Flag gaps if citations are sparse.
