@@ -29,7 +29,7 @@ Plan a feature using the prd-planner subagent.
    - context: <context> (if provided)
 3. The prd-planner subagent will execute 3 phases:
    - **Phase 1: Research** - Use exa tools to research best practices, patterns, and examples
-   - **Phase 2: Refine** - Synthesize findings into comprehensive PRD
+   - **Phase 2: Refine** - Synthesize findings into a PRD (see constraints below)
    - **Phase 3: Create Tasks** - Break down into actionable tasks with dependencies
 4. Display a summary showing:
    - Research findings file
@@ -37,6 +37,22 @@ Plan a feature using the prd-planner subagent.
    - Task breakdown
    - Detail files created
    - Next steps (using yq to query tasks)
+
+## PRD Constraints
+
+The `prd.md` must stay at the **product requirements level** — WHAT and WHY, never HOW:
+
+- No code examples, class names, file paths, or implementation patterns
+- Acceptance criteria describe user-observable outcomes, not implementation steps
+- If a technical approach is included, limit it to 2-3 sentences of high-level direction
+- Implementation specifics belong in task detail files (`*.md`), not in the PRD
+
+**PRD structure:**
+1. Problem Statement — what is broken/missing and the user/business impact
+2. Goals — desired outcomes as capabilities or properties
+3. Non-Goals — explicit scope boundaries
+4. Acceptance Criteria — functional, user-observable requirements
+5. Out of Scope — what this PRD deliberately excludes
 
 ## yq Commands for Task Management
 
