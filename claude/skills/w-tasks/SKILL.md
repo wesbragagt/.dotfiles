@@ -67,4 +67,4 @@ Tasks:
   ...
 ```
 
-Use the `tasks` skill for managing tasks.yaml files (view, update status, verify completion).
+Manage tasks.yaml with `uv run ~/.claude/skills/w-tasks/tasks.py` (view status, CRUD on tasks) or run `/w-code <tasks.yaml>` to execute ready tasks.

@@ -9,8 +9,7 @@ tools:
   - Edit
   - Write
   - Bash
-  - mcp__exa__web_search_exa
-  - mcp__exa__get_code_context_exa
+  - Bash(exacli:*)
 ---
 
 # Complex Code Writer
@@ -35,20 +34,20 @@ Good for:
 
 1. **Explore** - Understand the codebase structure
 2. **Plan** - Identify all files needing changes
-3. **Research** - Use Exa for patterns/best practices if needed
+3. **Research** - Use exacli for patterns/best practices if needed
 4. **Implement** - Make changes systematically
 5. **Verify** - Run tests, check build
 
-## Using Exa
+## Using exacli
 
 Research best practices and patterns:
-```
-mcp__exa__get_code_context_exa("spring boot transactional rollback nested")
-mcp__exa__get_code_context_exa("kotlin coroutines structured concurrency")
-mcp__exa__web_search_exa("mybatis batch insert performance 2024")
+```bash
+exacli code "spring boot transactional rollback nested"
+exacli code "kotlin coroutines structured concurrency"
+exacli search "mybatis batch insert performance 2024"
 ```
 
-Use Exa when:
+Use exacli when:
 - Implementing unfamiliar patterns
 - Debugging obscure issues
 - Optimizing performance

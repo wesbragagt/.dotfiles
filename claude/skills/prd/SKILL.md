@@ -68,9 +68,9 @@ Plan a feature using the prd-planner subagent.
   </constraints>
 
   <output_format>
-    - prd/{feature}/prd.md — product requirements only (problem, goals, acceptance criteria)
-    - prd/{feature}/tasks.yaml — task list with dependencies
-    - prd/{feature}/*.md — one detail file per task; this is where implementation specifics live
+    - ${SHARED_NOTES_FOLDER:-.}/prd/<project>/{feature}/prd.md — product requirements only (problem, goals, acceptance criteria)
+    - ${SHARED_NOTES_FOLDER:-.}/prd/<project>/{feature}/tasks.yaml — task list with dependencies
+    - ${SHARED_NOTES_FOLDER:-.}/prd/<project>/{feature}/*.md — one detail file per task; this is where implementation specifics live
   </output_format>
 
   <verification>
@@ -96,24 +96,17 @@ Plan a feature using the prd-planner subagent.
 
 ## Task Management
 
-Use the `tasks` skill for task operations:
-
-| Command | Description |
-|---------|-------------|
-| `/tasks pending prd/{feature}/tasks.yaml` | List pending tasks |
-| `/tasks ready prd/{feature}/tasks.yaml` | List ready tasks (no blockers) |
-| `/tasks progress prd/{feature}/tasks.yaml` | List in-progress tasks |
-
-Or use yq directly:
 ```bash
-yq '.tasks[] | select(.status != "done")' prd/{feature}/tasks.yaml
-yq '.tasks[] | select(.status == "open" and (.depends | length == 0))' prd/{feature}/tasks.yaml
+uv run ~/.claude/skills/w-tasks/tasks.py ${SHARED_NOTES_FOLDER:-.}/prd/<project>/{feature}/tasks.yaml summary
+uv run ~/.claude/skills/w-tasks/tasks.py ${SHARED_NOTES_FOLDER:-.}/prd/<project>/{feature}/tasks.yaml list --status open
+uv run ~/.claude/skills/w-tasks/tasks.py ${SHARED_NOTES_FOLDER:-.}/prd/<project>/{feature}/tasks.yaml ready
+uv run ~/.claude/skills/w-tasks/tasks.py ${SHARED_NOTES_FOLDER:-.}/prd/<project>/{feature}/tasks.yaml set <key> done
 ```
 
 ## Output Format
 
 ```
-✓ PRD created: prd/{feature-name}/
+✓ PRD created: ${SHARED_NOTES_FOLDER:-.}/prd/<project>/{feature-name}/
   - prd.md
   - tasks.yaml (X tasks)
   - {X} detail files
@@ -124,14 +117,16 @@ create-store
     ├── build-ui
     └── write-tests
 
-Next: /code prd/{feature-name}/tasks.yaml
+Next: /code <prd-dir>/tasks.yaml
+
+(where <prd-dir> = ${SHARED_NOTES_FOLDER:-.}/prd/<project>/<feature-name>, project = git toplevel basename)
 ```
 
 ## Schema Validation
 
 After creation, verify:
 ```bash
-yq '.tasks[] | .status' prd/{feature}/tasks.yaml | sort | uniq -c
+uv run ~/.claude/skills/w-tasks/tasks.py ${SHARED_NOTES_FOLDER:-.}/prd/<project>/{feature}/tasks.yaml summary
 ```
 
-Should show only `open` values.
+Should show all tasks as `open`.

@@ -29,7 +29,7 @@ Execute tasks from a tasks.yaml file by orchestrating code-writer agents. Automa
 
 1. **Load and validate tasks.yaml**:
    ```bash
-   yq '.tasks' <path-to-tasks-yaml>
+   uv run ~/.claude/skills/w-tasks/tasks.py <path-to-tasks-yaml> summary
    ```
    Report task summary:
    - Total, done, in-progress, open counts
@@ -41,7 +41,7 @@ Execute tasks from a tasks.yaml file by orchestrating code-writer agents. Automa
    - All keys in `depends` have `status == "done"`
 
    ```bash
-   yq '.tasks[] | select(.status == "open")' <path>
+   uv run ~/.claude/skills/w-tasks/tasks.py <path> ready
    ```
 
 4. **If no ready tasks**:
@@ -63,7 +63,7 @@ Execute tasks from a tasks.yaml file by orchestrating code-writer agents. Automa
 
    a. **Mark in progress**:
    ```bash
-   yq -yi '.tasks |= (.[] | select(.key == "<task-key>") | .status) = "progress"' <path>
+   uv run ~/.claude/skills/w-tasks/tasks.py <path> set <task-key> progress
    ```
 
    b. **Gather context**:
@@ -117,7 +117,7 @@ Execute tasks from a tasks.yaml file by orchestrating code-writer agents. Automa
 
     e. **On success, mark done**:
     ```bash
-    yq -yi '.tasks |= (.[] | select(.key == "<task-key>") | .status) = "done"' <path>
+    uv run ~/.claude/skills/w-tasks/tasks.py <path> set <task-key> done
     ```
 
    **For parallel tasks**: Launch all agents in a single tool call block.
@@ -126,18 +126,20 @@ Execute tasks from a tasks.yaml file by orchestrating code-writer agents. Automa
 
 8. **Final verification** when all tasks report done:
    ```bash
-   yq '[.tasks[].status == "done"] | all' <path>
+   uv run ~/.claude/skills/w-tasks/tasks.py <path> verify
    ```
 
 ## Task Management Reference
 
 | Operation | Command |
 |-----------|---------|
-| View ready tasks | `yq '.tasks[] \| select(.status == "open" and (.depends \| length == 0))' <path>` |
-| View in progress | `yq '.tasks[] \| select(.status == "progress")' <path>` |
-| Mark in progress | `yq -yi '.tasks \|= (.[] \| select(.key == "KEY") \| .status) = "progress"' <path>` |
-| Mark done | `yq -yi '.tasks \|= (.[] \| select(.key == "KEY") \| .status) = "done"' <path>` |
-| Verify all done | `yq '[.tasks[].status == "done"] \| all' <path>` |
+| Summary | `uv run ~/.claude/skills/w-tasks/tasks.py <path> summary` |
+| List all tasks | `uv run ~/.claude/skills/w-tasks/tasks.py <path> list` |
+| View ready tasks | `uv run ~/.claude/skills/w-tasks/tasks.py <path> ready` |
+| View in progress | `uv run ~/.claude/skills/w-tasks/tasks.py <path> list --status progress` |
+| Mark in progress | `uv run ~/.claude/skills/w-tasks/tasks.py <path> set KEY progress` |
+| Mark done | `uv run ~/.claude/skills/w-tasks/tasks.py <path> set KEY done` |
+| Verify all done | `uv run ~/.claude/skills/w-tasks/tasks.py <path> verify` |
 
 ## Error Handling
 

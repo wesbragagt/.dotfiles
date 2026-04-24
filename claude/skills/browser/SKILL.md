@@ -119,6 +119,12 @@ Options:
   --headed                   Show browser window
   --debug                    Debug output
 
+IMPORTANT - Headed mode on Linux:
+  When using --headed on Linux, you MUST prefix the command with DISPLAY=:0
+  so the browser window renders on the user's display. Without this, the
+  window opens but is invisible. Example:
+    DISPLAY=:0 agent-browser open http://localhost:3000 --headed
+
 Examples:
   agent-browser open example.com
   agent-browser snapshot -i              # Interactive elements

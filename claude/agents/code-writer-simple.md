@@ -9,7 +9,7 @@ tools:
   - Edit
   - Write
   - Bash
-  - mcp__exa__get_code_context_exa
+  - Bash(exacli:*)
 ---
 
 # Simple Code Writer
@@ -43,12 +43,12 @@ Not for:
 3. Make the change
 4. Verify with git diff
 
-## Using Exa
+## Using exacli
 
 Lookup syntax or API when needed:
-```
-mcp__exa__get_code_context_exa("kotlin data class copy method")
-mcp__exa__get_code_context_exa("react useState with object")
+```bash
+exacli code "kotlin data class copy method"
+exacli code "react useState with object"
 ```
 
 ## Output Style

@@ -52,11 +52,11 @@ let
     };
     network = {
       block = false;
-      credentials = [ "z_ai" "telegram" ];
+      credentials = [ "openrouter" "telegram" ];
       custom_credentials = {
-        z_ai = {
-          upstream = "https://open.bigmodel.cn/api/paas/v4";
-          credential_key = "z_ai_api_key";
+        openrouter = {
+          upstream = "https://openrouter.ai/api/v1";
+          credential_key = "openrouter_api_key";
           inject_header = "Authorization";
           credential_format = "Bearer {}";
         };
@@ -81,12 +81,12 @@ let
       exit 1
     fi
 
-    z_ai_key=$(echo "$SECRETS" | ${pkgs.yq-go}/bin/yq -e '.z_ai_api_key')
+    openrouter_key=$(echo "$SECRETS" | ${pkgs.yq-go}/bin/yq -e '.openrouter_api_key')
     telegram_token=$(echo "$SECRETS" | ${pkgs.yq-go}/bin/yq -e '.telegram_bot_token')
 
-    echo -n "$z_ai_key" | ${pkgs.libsecret}/bin/secret-tool store \
-      --label="nono: z_ai_api_key" \
-      service nono username z_ai_api_key target default
+    echo -n "$openrouter_key" | ${pkgs.libsecret}/bin/secret-tool store \
+      --label="nono: openrouter_api_key" \
+      service nono username openrouter_api_key target default
 
     echo -n "$telegram_token" | ${pkgs.libsecret}/bin/secret-tool store \
       --label="nono: telegram_bot_token" \
@@ -104,7 +104,7 @@ let
       --profile ${nonoProfile} \
       --listen-port ${toString cfg.gatewayPort} \
       --allow-cwd \
-      --credential z_ai \
+      --credential openrouter \
       --credential telegram \
       -- "$@"
   '';
@@ -181,7 +181,7 @@ in
       Service = {
         Type = "simple";
         ExecStartPre = "${sopsBridgeScript}/bin/nono-sops-bridge";
-        ExecStart = "${nonoBin}/bin/nono run --profile ${nonoProfile} --listen-port ${toString cfg.gatewayPort} --allow-cwd --credential z_ai --credential telegram -- ${cfg.package}/bin/openclaw gateway start --foreground";
+        ExecStart = "${nonoBin}/bin/nono run --profile ${nonoProfile} --listen-port ${toString cfg.gatewayPort} --allow-cwd --credential openrouter --credential telegram -- ${cfg.package}/bin/openclaw gateway start --foreground";
         Restart = "always";
         RestartSec = 10;
 

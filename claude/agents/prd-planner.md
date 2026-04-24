@@ -25,9 +25,24 @@ You will be called with:
 - `context`: Optional additional context or requirements
 - `quick`: Optional boolean to skip research phase
 
+## Output Location
+
+PRDs live under `${SHARED_NOTES_FOLDER:-.}/prd/<project>/{feature}/`, where `<project>` is the current git repo name. Resolve once at start:
+
+```bash
+BASE="${SHARED_NOTES_FOLDER:-.}"
+PROJECT="$(basename "$(git rev-parse --show-toplevel 2>/dev/null || pwd)")"
+PRD_DIR="$BASE/prd/$PROJECT/{feature}"
+mkdir -p "$PRD_DIR"
+```
+
+If cwd is inside a git repo, `$PROJECT` is the repo name; otherwise it falls back to the cwd basename.
+
+Use `$PRD_DIR` everywhere below in place of `$PRD_DIR`.
+
 ## Task Structure
 
-Create `prd/{feature}/` with:
+Create `$PRD_DIR/` with:
 - `prd.md` - Product requirements document
 - `tasks.yaml` - Task list with dependencies
 
@@ -47,35 +62,14 @@ tasks:
 
 ### Phase 1: Research (skip if quick=true)
 
-Use the prompter skill to delegate to researcher:
+Use exacli via Bash to research best practices and patterns:
 
-```xml
-<delegation>
-  <role>Research analyst specializing in software development patterns</role>
-  
-  <context>
-    Planning feature: {feature_name}
-    Description: {description}
-  </context>
-  
-  <task>
-    Research best practices, patterns, libraries, and similar implementations for: {description}
-  </task>
-  
-  <output_format>
-    - Best practices summary
-    - Recommended patterns/approaches
-    - Relevant libraries with pros/cons
-    - Code examples if useful
-  </output_format>
-  
-  <return>
-    Structured research findings suitable for inclusion in prd/{feature}/research.md
-  </return>
-</delegation>
+```bash
+exacli search "{description} best practices implementation patterns"
+exacli search "{feature_name} libraries approaches"
 ```
 
-Document findings in `prd/{feature}/research.md`.
+Document findings in `$PRD_DIR/research.md`.
 
 ### Phase 2: Refine
 
@@ -91,7 +85,7 @@ Document findings in `prd/{feature}/research.md`.
 
 ### Phase 3: Create Tasks
 
-1. **Create feature directory**: `mkdir -p prd/{feature}`
+1. **Create feature directory**: `mkdir -p $PRD_DIR`
 2. **Break down tasks**: Create `tasks.yaml` with:
    - Individual tasks with keys (kebab-case)
    - Dependencies between tasks
@@ -107,9 +101,9 @@ Document findings in `prd/{feature}/research.md`.
 
 Verify tasks.yaml follows schema:
 ```bash
-yq '.tasks[] | .status' prd/{feature}/tasks.yaml
+uv run ~/.claude/skills/w-tasks/tasks.py $PRD_DIR/tasks.yaml summary
 ```
-All should be `open`. Use the `tasks` skill for verification.
+All tasks should show `open` status.
 
 ## Task Breakdown Principles
 
@@ -126,22 +120,16 @@ All should be `open`. Use the `tasks` skill for verification.
 - If something is not explicitly required, do not document it
 - Keep PRDs minimal and focused on the actual feature scope
 
-## Tasks Skill Integration
+## Task Operations
 
-Use the `tasks` skill for task operations:
+Manage tasks.yaml with tasks.py:
 
 ```bash
-# View pending tasks
-yq '.tasks[] | select(.status != "done")' prd/{feature}/tasks.yaml
-
-# View ready tasks (open with no blockers)
-yq '.tasks[] | select(.status == "open" and (.depends | length == 0))' prd/{feature}/tasks.yaml
-
-# Mark task in progress
-yq '.tasks |= (.[] | select(.key == "task-name") | .status) = "progress"' -i prd/{feature}/tasks.yaml
-
-# Mark task done
-yq '.tasks |= (.[] | select(.key == "task-name") | .status) = "done"' -i prd/{feature}/tasks.yaml
+uv run ~/.claude/skills/w-tasks/tasks.py $PRD_DIR/tasks.yaml summary
+uv run ~/.claude/skills/w-tasks/tasks.py $PRD_DIR/tasks.yaml list --status open
+uv run ~/.claude/skills/w-tasks/tasks.py $PRD_DIR/tasks.yaml ready
+uv run ~/.claude/skills/w-tasks/tasks.py $PRD_DIR/tasks.yaml set <key> progress
+uv run ~/.claude/skills/w-tasks/tasks.py $PRD_DIR/tasks.yaml set <key> done
 ```
 
 ## Return Format
@@ -149,19 +137,19 @@ yq '.tasks |= (.[] | select(.key == "task-name") | .status) = "done"' -i prd/{fe
 When complete, return:
 ```
 Phase 1: Research
-  ✓ prd/{feature}/research.md (or skipped with --quick)
+  ✓ $PRD_DIR/research.md (or skipped with --quick)
 
 Phase 2: Refine
-  ✓ prd/{feature}/prd.md
+  ✓ $PRD_DIR/prd.md
 
 Phase 3: Create Tasks
-  ✓ prd/{feature}/tasks.yaml ({n} tasks)
+  ✓ $PRD_DIR/tasks.yaml ({n} tasks)
   ✓ {n} detail files
 
 Task Dependency Graph:
 {visual-tree-of-tasks-and-dependencies}
 
-Next: /code prd/{feature}/tasks.yaml
+Next: /w-code $PRD_DIR/tasks.yaml
 ```
 
 ## Examples

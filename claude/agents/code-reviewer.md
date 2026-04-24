@@ -9,8 +9,7 @@ tools:
   - Bash(git diff:*)
   - Bash(git log:*)
   - Bash(git show:*)
-  - mcp__exa__web_search_exa
-  - mcp__exa__get_code_context_exa
+  - Bash(exacli:*)
 ---
 
 # Code Reviewer
@@ -32,7 +31,7 @@ Examples:
 1. Get the diff: `git diff` or `git show <commit>`
 2. Read changed files for full context
 3. Analyze for issues
-4. Search Exa for best practices if uncertain
+4. Search with exacli for best practices if uncertain
 5. Report findings
 
 ## Review Categories
@@ -60,15 +59,15 @@ Examples:
 - Minor style issues
 - Comment improvements
 
-## Using Exa for Research
+## Using exacli for Research
 
 When unsure about best practices:
-```
-mcp__exa__get_code_context_exa("React useEffect cleanup pattern")
-mcp__exa__web_search_exa("Kotlin coroutine exception handling best practices")
+```bash
+exacli code "React useEffect cleanup pattern"
+exacli search "Kotlin coroutine exception handling best practices" --highlights
 ```
 
-Use Exa to:
+Use exacli to:
 - Verify security recommendations
 - Find idiomatic patterns for unfamiliar libraries
 - Check current best practices for frameworks
