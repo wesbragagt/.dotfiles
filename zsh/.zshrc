@@ -205,3 +205,4 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export RTK_TELEMETRY_DISABLED=1
+export PI_NOTES_DIR="$HOME/notes-live-sync/areas/pi"
