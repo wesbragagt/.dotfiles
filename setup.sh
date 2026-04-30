@@ -6,7 +6,6 @@ links=(
   zsh
   raycast
   alacritty
-  karabiner 
   wezterm
   sesh
   starship
