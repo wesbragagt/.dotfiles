@@ -1,4 +1,0 @@
-[[session]]
-name = "Dotfiles"
-path = "~/dotfiles"
-startup_command = "nvim -c 'ProjectFiles'"

@@ -8,7 +8,6 @@ links=(
   alacritty
   karabiner 
   wezterm
-  sesh
   nix
   starship
   ghostty

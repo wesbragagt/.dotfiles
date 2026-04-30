@@ -7,7 +7,6 @@ links=(
   raycast
   alacritty
   wezterm
-  sesh
   starship
   ghostty
   foot
