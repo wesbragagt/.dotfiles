@@ -24,38 +24,29 @@ vim.o.guicursor = ""       -- cursor style
 vim.opt.updatetime = 200
 vim.opt.laststatus = 3 -- always show status line
 
-vim.o.foldenable = true
 vim.o.foldmethod = "indent"
 vim.o.foldlevelstart = 99
 
 vim.o.fileencodings = "utf-8"
-vim.o.autoread = true -- automatically reload files that have been changed outside of vim
 
 vim.o.completeopt = "menuone,noselect,noinsert"
-vim.o.wrap = true      -- wrap text
 vim.o.linebreak = true -- don't break in the middle of a word
 vim.o.conceallevel = 1
 vim.o.swapfile = false
-vim.o.backup = false
 vim.o.writebackup = false
 
 vim.o.undodir = vim.fn.getenv("HOME") .. "/.vim/undodir"
 vim.o.undofile = true -- enable persistent undo"
-
-vim.o.errorbells = false
 
 vim.o.scrolloff = 8 -- scroll half of the page
 vim.o.numberwidth = 2
 
 vim.o.autochdir = true
 vim.o.number = true
-vim.o.relativenumber = false
 
 vim.o.hidden = true     -- preserve buffers
 vim.o.splitright = true -- force all horizontal splits to go below current window
 vim.o.splitbelow = true -- force all vertical splits to go to the right of current window
-
-vim.o.hlsearch = true
 
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -68,8 +59,6 @@ vim.g.colorcolumn = 120
 vim.o.pumheight = 30
 
 vim.wo.signcolumn = "yes"
-
-vim.o.cmdheight = 1 -- size of command bar
 
 -- NETRW options
 vim.g.netrw_browse_split = 0

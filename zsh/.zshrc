@@ -16,15 +16,6 @@ stty sane
 if command -v kubectl &> /dev/null; then
   source <(kubectl completion zsh)
 fi
-# clears path before path_helper so I don't get a screwed up path running tmux
-# https://stackoverflow.com/questions/47442647/when-using-tmux-nvm-isnt-being-sourced
-# https://superuser.com/questions/544989/does-tmux-sort-the-path-variable
-if [ "$TMUX" ]; then
-  if [ -f /etc/profile ];then
-    PATH=""
-    source /etc/profile
-  fi
-fi
 export WORK_DIR="$HOME/dev/work"
 export XDG_CONFIG_HOME="$HOME/.config"
 export TMUX_CONF="$XDG_CONFIG_HOME/tmux/tmux.conf"
@@ -51,16 +42,6 @@ fi
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export MANPAGER="nvim +Man!"
-
-# fnm
-FNM_PATH="/home/wesbragagt/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="/home/wesbragagt/.local/share/fnm:$PATH"
-  eval "`fnm env`"
-fi
-if command -v fnm &> /dev/null;then
-  eval "$(fnm env --use-on-cd --shell zsh)"
-fi
 
 if command -v direnv &> /dev/null; then
   eval "$(direnv hook zsh)"
@@ -127,12 +108,6 @@ export PNPM_HOME="$HOME/Library/pnpm/"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 #
-if command -v pyenv 1>/dev/null 2>&1; then 
-  export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-fi
-
 if [[ -d "$HOME/.docker/bin" ]] then
   export PATH="$HOME/.docker/bin:$PATH"
 fi
@@ -154,27 +129,6 @@ setopt appendhistory
 if [[ -d "/opt/zen-browser-bin" ]] then 
   export PATH="/opt/zen-browser-bin:$PATH"
   export BROWSER="zen"
-fi
-
-# fnm
-FNM_PATH="/home/wesbragagt/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  eval "`fnm env`"
-fi
-
-# fnm
-FNM_PATH="/home/wesbragagt/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  eval "`fnm env`"
-fi
-
-# fnm
-FNM_PATH="/home/wesbragagt/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="$FNM_PATH:$PATH"
-  eval "`fnm env`"
 fi
 
 #  When it's useful:
@@ -207,3 +161,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export RTK_TELEMETRY_DISABLED=1
 export PI_NOTES_DIR="$HOME/notes-live-sync/areas/pi"
 export SHARED_NOTES_FOLDER="$HOME/notes-live-sync/projects"
+
+# Vite+ bin (https://viteplus.dev)
+. "$HOME/.vite-plus/env"

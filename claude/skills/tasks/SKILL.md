@@ -1,5 +1,5 @@
 ---
-name: w-tasks
+name: tasks
 description: Break down a PRD into tasks following the task YAML spec
 argument-hint: <prd-path-or-description> [--name <feature-name>]
 ---
@@ -8,7 +8,7 @@ Break down a PRD into actionable tasks with dependencies following the task YAML
 
 ## Usage
 
-/w-tasks <prd-path-or-description> [--name <feature-name>]
+/tasks <prd-path-or-description> [--name <feature-name>]
 
 ## Parameters
 
@@ -17,10 +17,10 @@ Break down a PRD into actionable tasks with dependencies following the task YAML
 
 ## Examples
 
-/w-tasks prd/authentication/prd.md
-/w-tasks "Build user authentication with OAuth2 and JWT"
-/w-tasks ./features/search.md --name search-feature
-/w-tasks "Add real-time notifications with websockets" --name realtime-notif
+/tasks prd/authentication/prd.md
+/tasks "Build user authentication with OAuth2 and JWT"
+/tasks ./features/search.md --name search-feature
+/tasks "Add real-time notifications with websockets" --name realtime-notif
 
 ## Implementation
 
@@ -67,4 +67,8 @@ Tasks:
   ...
 ```
 
-Manage tasks.yaml with `uv run ~/.claude/skills/w-tasks/tasks.py` (view status, CRUD on tasks) or run `/w-code <tasks.yaml>` to execute ready tasks.
+Manage tasks.yaml with `uv run ~/.claude/skills/tasks/tasks.py` (view status, CRUD on tasks) or run `/code <tasks.yaml>` to execute ready tasks.
+
+## Path resolution gotcha
+
+`tasks.py` resolves the YAML path relative to the current working directory. Before invoking it, run `pwd` and pass a path that resolves from there — do NOT prepend `packages/<x>/` if your shell is already inside that package. Example failure: running `uv run ~/.claude/skills/tasks/tasks.py packages/stamp/prds/foo/tasks.yaml summary` from `packages/stamp/` fails with `FileNotFoundError` because it expands to `packages/stamp/packages/stamp/prds/foo/tasks.yaml`. Use `prds/foo/tasks.yaml` instead.

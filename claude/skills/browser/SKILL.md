@@ -120,10 +120,13 @@ Options:
   --debug                    Debug output
 
 IMPORTANT - Headed mode on Linux:
-  When using --headed on Linux, you MUST prefix the command with DISPLAY=:0
-  so the browser window renders on the user's display. Without this, the
-  window opens but is invisible. Example:
-    DISPLAY=:0 agent-browser open http://localhost:3000 --headed
+  agent-browser's --headed flag does NOT produce a visible window on Linux.
+  The daemon launches chrome with --no-startup-window regardless of the flag.
+  To open a real visible browser window, launch the system Chromium directly:
+    DISPLAY=:1 chromium <url> &
+  Determine the correct DISPLAY value first: run `echo $DISPLAY` in the shell.
+  Use this whenever the user needs to log in or manually interact before
+  handing back control to agent-browser in headless mode.
 
 Examples:
   agent-browser open example.com
@@ -380,6 +383,20 @@ Submit a file through a file input
 /browser screenshot
 /browser inspect "table"
 ```
+
+## Login / Auth Flows
+
+When a page requires authentication before automation can proceed:
+
+1. **Find the correct display**: `echo $DISPLAY`
+2. **Open system Chromium visibly**: `DISPLAY=:1 chromium http://localhost:3000 &`
+3. **Wait for the user to log in** — ask them to confirm when done.
+4. **Resume headless automation** with `agent-browser open <url>` — the session
+   is independent, so if the app uses cookies you may need to pass them via
+   `--headers` or `agent-browser cookies set`.
+
+Do NOT use `agent-browser open --headed` for this — it does not produce a
+visible window on Linux.
 
 ## Troubleshooting
 

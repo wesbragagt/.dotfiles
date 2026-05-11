@@ -1,5 +1,5 @@
 ---
-name: w-code
+name: code
 description: Execute tasks from a tasks.yaml by orchestrating code-writer agents
 argument-hint: <path-to-tasks-yaml> [--task <task-key>]
 ---
@@ -9,7 +9,7 @@ Execute tasks from a tasks.yaml file by orchestrating code-writer agents. Automa
 ## Usage
 
 ```
-/w-code <path-to-tasks-yaml> [--task <task-key>]
+/code <path-to-tasks-yaml> [--task <task-key>]
 ```
 
 ## Parameters
@@ -20,16 +20,16 @@ Execute tasks from a tasks.yaml file by orchestrating code-writer agents. Automa
 ## Examples
 
 ```
-/w-code prd/auth-feature/tasks.yaml
-/w-code ./tasks.yaml --task setup-database
-/w-code prd/search/tasks.yaml
+/code prd/auth-feature/tasks.yaml
+/code ./tasks.yaml --task setup-database
+/code prd/search/tasks.yaml
 ```
 
 ## Implementation
 
 1. **Load and validate tasks.yaml**:
    ```bash
-   uv run ~/.claude/skills/w-tasks/tasks.py <path-to-tasks-yaml> summary
+   uv run ~/.claude/skills/tasks/tasks.py <path-to-tasks-yaml> summary
    ```
    Report task summary:
    - Total, done, in-progress, open counts
@@ -41,7 +41,7 @@ Execute tasks from a tasks.yaml file by orchestrating code-writer agents. Automa
    - All keys in `depends` have `status == "done"`
 
    ```bash
-   uv run ~/.claude/skills/w-tasks/tasks.py <path> ready
+   uv run ~/.claude/skills/tasks/tasks.py <path> ready
    ```
 
 4. **If no ready tasks**:
@@ -63,7 +63,7 @@ Execute tasks from a tasks.yaml file by orchestrating code-writer agents. Automa
 
    a. **Mark in progress**:
    ```bash
-   uv run ~/.claude/skills/w-tasks/tasks.py <path> set <task-key> progress
+   uv run ~/.claude/skills/tasks/tasks.py <path> set <task-key> progress
    ```
 
    b. **Gather context**:
@@ -117,7 +117,7 @@ Execute tasks from a tasks.yaml file by orchestrating code-writer agents. Automa
 
     e. **On success, mark done**:
     ```bash
-    uv run ~/.claude/skills/w-tasks/tasks.py <path> set <task-key> done
+    uv run ~/.claude/skills/tasks/tasks.py <path> set <task-key> done
     ```
 
    **For parallel tasks**: Launch all agents in a single tool call block.
@@ -126,20 +126,20 @@ Execute tasks from a tasks.yaml file by orchestrating code-writer agents. Automa
 
 8. **Final verification** when all tasks report done:
    ```bash
-   uv run ~/.claude/skills/w-tasks/tasks.py <path> verify
+   uv run ~/.claude/skills/tasks/tasks.py <path> verify
    ```
 
 ## Task Management Reference
 
 | Operation | Command |
 |-----------|---------|
-| Summary | `uv run ~/.claude/skills/w-tasks/tasks.py <path> summary` |
-| List all tasks | `uv run ~/.claude/skills/w-tasks/tasks.py <path> list` |
-| View ready tasks | `uv run ~/.claude/skills/w-tasks/tasks.py <path> ready` |
-| View in progress | `uv run ~/.claude/skills/w-tasks/tasks.py <path> list --status progress` |
-| Mark in progress | `uv run ~/.claude/skills/w-tasks/tasks.py <path> set KEY progress` |
-| Mark done | `uv run ~/.claude/skills/w-tasks/tasks.py <path> set KEY done` |
-| Verify all done | `uv run ~/.claude/skills/w-tasks/tasks.py <path> verify` |
+| Summary | `uv run ~/.claude/skills/tasks/tasks.py <path> summary` |
+| List all tasks | `uv run ~/.claude/skills/tasks/tasks.py <path> list` |
+| View ready tasks | `uv run ~/.claude/skills/tasks/tasks.py <path> ready` |
+| View in progress | `uv run ~/.claude/skills/tasks/tasks.py <path> list --status progress` |
+| Mark in progress | `uv run ~/.claude/skills/tasks/tasks.py <path> set KEY progress` |
+| Mark done | `uv run ~/.claude/skills/tasks/tasks.py <path> set KEY done` |
+| Verify all done | `uv run ~/.claude/skills/tasks/tasks.py <path> verify` |
 
 ## Error Handling
 

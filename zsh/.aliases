@@ -9,6 +9,7 @@ ccq(){
 ccqq(){
   exacli code "$*" | glow
 }
+alias wm="workmux"
 alias got="gh pr view --web"
 alias als="vi $DOTFILES/zsh/.aliases"
 alias dot="cd $DOTFILES"

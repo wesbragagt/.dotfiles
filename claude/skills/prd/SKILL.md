@@ -31,7 +31,7 @@ Plan a feature using the prd-planner subagent.
 ## Implementation
 
 1. Parse arguments from user input
-2. Use the prompter skill to delegate to prd-planner:
+2. Use the prompter skill to delegate to prd-planner (PRD only — no tasks):
 
 ```xml
 <delegation>
@@ -42,7 +42,7 @@ Plan a feature using the prd-planner subagent.
   </context>
 
   <task>
-    Create a PRD and task breakdown for: $ARGUMENTS
+    Create a PRD for: $ARGUMENTS
   </task>
 
   <constraints>
@@ -59,29 +59,18 @@ Plan a feature using the prd-planner subagent.
     3. Non-Goals — explicit scope boundaries
     4. Acceptance Criteria — functional, user-observable requirements (no code)
     5. Out of Scope — what this PRD deliberately excludes
-
-    ## Tasks
-    - Use status: open (not done: false)
-    - Follow tasks.yaml schema
-    - Keep scope minimal and focused
-    - Task descriptions are action-oriented ("Implement X", "Add Y") — details go in detail files
   </constraints>
 
   <output_format>
-    - ${SHARED_NOTES_FOLDER:-.}/prd/<project>/{feature}/prd.md — product requirements only (problem, goals, acceptance criteria)
-    - ${SHARED_NOTES_FOLDER:-.}/prd/<project>/{feature}/tasks.yaml — task list with dependencies
-    - ${SHARED_NOTES_FOLDER:-.}/prd/<project>/{feature}/*.md — one detail file per task; this is where implementation specifics live
+    - ./prds/{feature}/prd.md — product requirements only (problem, goals, acceptance criteria)
   </output_format>
 
   <verification>
     - prd.md contains no code blocks or file paths
-    - tasks.yaml has valid schema
-    - All tasks have status: open
-    - Dependencies reference existing task keys
   </verification>
 
   <return>
-    Summary with file paths and dependency graph
+    Path to the created prd.md file
   </return>
 </delegation>
 ```
@@ -89,25 +78,30 @@ Plan a feature using the prd-planner subagent.
 3. The prd-planner executes:
    - **Phase 1: Research** (skip if --quick) - Research best practices
    - **Phase 2: Refine** - Create PRD following the product requirements skeleton
-   - **Phase 3: Create Tasks** - Break down into actionable tasks
-   - **Phase 4: Validate** - Ensure schema compliance and no implementation details in prd.md
+   - **Phase 3: Validate** - Ensure no implementation details in prd.md
 
-4. Display summary with dependency graph
+4. After prd.md is written, dispatch an Agent using the `tasks` skill to break it down:
+   - Invoke `/tasks ./prds/{feature}/prd.md --name {feature}` as a subagent
+   - The w-tasks agent creates `tasks.yaml` and per-task detail files in `./prds/{feature}/`
+
+5. Display summary with dependency graph
 
 ## Task Management
 
 ```bash
-uv run ~/.claude/skills/w-tasks/tasks.py ${SHARED_NOTES_FOLDER:-.}/prd/<project>/{feature}/tasks.yaml summary
-uv run ~/.claude/skills/w-tasks/tasks.py ${SHARED_NOTES_FOLDER:-.}/prd/<project>/{feature}/tasks.yaml list --status open
-uv run ~/.claude/skills/w-tasks/tasks.py ${SHARED_NOTES_FOLDER:-.}/prd/<project>/{feature}/tasks.yaml ready
-uv run ~/.claude/skills/w-tasks/tasks.py ${SHARED_NOTES_FOLDER:-.}/prd/<project>/{feature}/tasks.yaml set <key> done
+uv run ~/.claude/skills/tasks/tasks.py ./prds/{feature}/tasks.yaml summary
+uv run ~/.claude/skills/tasks/tasks.py ./prds/{feature}/tasks.yaml list --status open
+uv run ~/.claude/skills/tasks/tasks.py ./prds/{feature}/tasks.yaml ready
+uv run ~/.claude/skills/tasks/tasks.py ./prds/{feature}/tasks.yaml set <key> done
 ```
 
 ## Output Format
 
 ```
-✓ PRD created: ${SHARED_NOTES_FOLDER:-.}/prd/<project>/{feature-name}/
-  - prd.md
+✓ PRD created: ./prds/{feature-name}/prd.md
+  Dispatching task breakdown...
+
+✓ Tasks created: ./prds/{feature-name}/
   - tasks.yaml (X tasks)
   - {X} detail files
 
@@ -117,16 +111,14 @@ create-store
     ├── build-ui
     └── write-tests
 
-Next: /code <prd-dir>/tasks.yaml
-
-(where <prd-dir> = ${SHARED_NOTES_FOLDER:-.}/prd/<project>/<feature-name>, project = git toplevel basename)
+Next: /code ./prds/{feature-name}/tasks.yaml
 ```
 
 ## Schema Validation
 
 After creation, verify:
 ```bash
-uv run ~/.claude/skills/w-tasks/tasks.py ${SHARED_NOTES_FOLDER:-.}/prd/<project>/{feature}/tasks.yaml summary
+uv run ~/.claude/skills/tasks/tasks.py ./prds/{feature}/tasks.yaml summary
 ```
 
 Should show all tasks as `open`.
